@@ -1,0 +1,28 @@
+{
+  "Nav": {
+    "casas": "Casas",
+    "regiao": "Região",
+    "contacto": "Contacto",
+    "menu": "Menu",
+    "close": "Fechar",
+    "localeAriaLabel": "Mudar idioma para inglês"
+  },
+  "Footer": {
+    "tagline": "Turismo rural em Montalegre, Terras de Barroso.",
+    "navHeading": "Páginas",
+    "casas": "Casas",
+    "casaDoMoinho": "Casa do Moinho",
+    "casaDoCastelo": "Casa do Castelo",
+    "regiao": "Região",
+    "contacto": "Contacto",
+    "contactHeading": "Contacto",
+    "whatsappLabel": "WhatsApp",
+    "bookingLabel": "Booking.com",
+    "copyright": "© {year} Alojamento Montalegre. Todos os direitos reservados.",
+    "cookieNotice": "Este site utiliza cookies essenciais. Ao continuar, aceita a sua utilização.",
+    "localeAriaLabel": "Switch to English"
+  },
+  "FloatingButton": {
+    "whatsappAriaLabel": "Contactar via WhatsApp"
+  }
+}

@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours */
+  --color-forest:  #2D4A2F;
+  --color-moss:    #3D5C3A;
+  --color-amber:   #C8882A;
+  --color-granite: #2A2A28;
+  --color-fog:     #F5F2EC;
+  --color-river:   #4A6B7C;
+
+  /* Typography — var() references are resolved at paint time by the browser */
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-stack: var(--font-stack-local), "Stack", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply font-stack text-granite bg-fog;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
