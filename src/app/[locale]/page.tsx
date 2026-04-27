@@ -10,6 +10,7 @@ import RegionTeaser from "@/components/home/RegionTeaser";
 import FAQAccordion from "@/components/home/FAQAccordion";
 import WhatsAppCTASection from "@/components/home/WhatsAppCTASection";
 import SisterSiteCallout from "@/components/home/SisterSiteCallout";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -71,12 +72,22 @@ export default async function HomePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <HeroSection locale={locale} />
-      <TrustStrip />
+      <AnimatedSection>
+        <TrustStrip />
+      </AnimatedSection>
       <PropertiesSection properties={properties} locale={locale} />
-      <RegionTeaser locale={locale} />
-      <FAQAccordion items={faq} locale={locale} />
-      <WhatsAppCTASection />
-      <SisterSiteCallout />
+      <AnimatedSection>
+        <RegionTeaser locale={locale} />
+      </AnimatedSection>
+      <AnimatedSection>
+        <FAQAccordion items={faq} locale={locale} />
+      </AnimatedSection>
+      <AnimatedSection>
+        <WhatsAppCTASection />
+      </AnimatedSection>
+      <AnimatedSection>
+        <SisterSiteCallout />
+      </AnimatedSection>
     </main>
   );
 }

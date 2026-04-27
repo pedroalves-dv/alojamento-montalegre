@@ -4,6 +4,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { regiao } from "@/data/regiao";
 import { config } from "@/config";
 import SisterSiteCallout from "@/components/home/SisterSiteCallout";
+import RegionSection from "@/components/region/RegionSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -130,40 +131,9 @@ export default async function RegiaoPage({ params }: Props) {
 
       {/* Alternating content sections */}
       <div className="py-4">
-        {regiao.map((section, i) => {
-          const isEven = i % 2 === 0;
-          return (
-            <section key={i} className="py-12 px-6">
-              <div
-                className={`max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center ${
-                  isEven ? "" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* Image */}
-                <div className="w-full md:w-1/2 shrink-0">
-                  <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
-                    <Image
-                      src={section.image}
-                      alt={section.title[l]}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Text */}
-                <div className="w-full md:w-1/2">
-                  <h3 className="font-serif text-2xl md:text-3xl text-granite mb-4">
-                    {section.title[l]}
-                  </h3>
-                  <p className="text-granite/70 leading-relaxed">
-                    {section.body[l]}
-                  </p>
-                </div>
-              </div>
-            </section>
-          );
-        })}
+        {regiao.map((section, i) => (
+          <RegionSection key={i} section={section} index={i} locale={l} />
+        ))}
       </div>
 
       {/* Seasonal guide */}

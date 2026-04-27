@@ -5,6 +5,7 @@ import { faq } from "@/data/faq";
 import { config } from "@/config";
 import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
 import FAQAccordion from "@/components/home/FAQAccordion";
+import AnimatedSection from "@/components/ui/AnimatedSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -107,11 +108,12 @@ export default async function ContactoPage({ params }: Props) {
       {/* Property contact cards */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {properties.map((p) => {
+          {properties.map((p, i) => {
             const waHref = `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(p.whatsappMessage[l])}`;
             return (
-              <div
+              <AnimatedSection
                 key={p.slug}
+                delay={i * 0.12}
                 className="border border-gray-200 rounded-2xl p-8 bg-white shadow-sm flex flex-col gap-6"
               >
                 <div>
@@ -148,7 +150,7 @@ export default async function ContactoPage({ params }: Props) {
                     {t("bookingCta")} →
                   </a>
                 </div>
-              </div>
+              </AnimatedSection>
             );
           })}
         </div>
