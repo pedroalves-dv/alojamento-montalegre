@@ -48,5 +48,22 @@
   },
   "FloatingButton": {
     "whatsappAriaLabel": "Contactar via WhatsApp"
+  },
+  "PropertyDetail": {
+    "capacity": "{count} pessoas",
+    "rooms": "{count} quartos",
+    "descriptionHeading": "Sobre esta casa",
+    "galleryHeading": "Fotos",
+    "galleryViewAll": "Ver todas as fotos ({count})",
+    "galleryClose": "Fechar",
+    "galleryPrev": "Foto anterior",
+    "galleryNext": "Próxima foto",
+    "amenitiesHeading": "Comodidades",
+    "locationHeading": "Localização",
+    "bookingReviews": "Ver avaliações no Booking.com",
+    "bookingHeading": "Reservar esta casa",
+    "bookingDirectNote": "Prefere reserva direta? Contacte-nos pelo WhatsApp ou telefone.",
+    "bookingWhatsapp": "Enviar mensagem no WhatsApp",
+    "bookingBookingCom": "Reservar no Booking.com"
   }
 }

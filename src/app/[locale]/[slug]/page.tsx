@@ -1,0 +1,98 @@
+import { notFound } from "next/navigation";
+import { setRequestLocale } from "next-intl/server";
+import type { Metadata } from "next";
+import { properties } from "@/data/properties";
+import PropertyDetailLayout from "@/components/property/PropertyDetailLayout";
+
+type Props = { params: Promise<{ locale: string; slug: string }> };
+
+export function generateStaticParams() {
+  return properties.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const property = properties.find((p) => p.slug === slug);
+  if (!property) return {};
+
+  const l = locale as "pt" | "en";
+  return {
+    title: property.name[l],
+    description: property.tagline[l],
+    openGraph: {
+      title: property.name[l],
+      description: property.tagline[l],
+      images: property.images[0] ? [{ url: property.images[0] }] : undefined,
+    },
+  };
+}
+
+export default async function PropertyDetailPage({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
+
+  const property = properties.find((p) => p.slug === slug);
+  if (!property) notFound();
+
+  const l = locale as "pt" | "en";
+  const baseUrl = "https://alojamentomontalegre.com";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["LodgingBusiness", "VacationRental"],
+        name: property.name[l],
+        description: property.description[l].split("\n\n")[0],
+        url: `${baseUrl}/${locale}/${slug}`,
+        image: property.images,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: property.coordinates.lat,
+          longitude: property.coordinates.lng,
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Montalegre",
+          addressRegion: "Trás-os-Montes",
+          addressCountry: "PT",
+        },
+        ...(property.booking.score !== null && {
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: property.booking.score,
+            reviewCount: property.booking.reviewCount,
+            bestRating: "10",
+          },
+        }),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Alojamento Montalegre",
+            item: `${baseUrl}/${locale}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: property.name[l],
+            item: `${baseUrl}/${locale}/${slug}`,
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <PropertyDetailLayout property={property} locale={locale} />
+    </>
+  );
+}
