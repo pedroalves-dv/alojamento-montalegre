@@ -1,4 +1,13 @@
 import { setRequestLocale } from "next-intl/server";
+import { properties } from "@/data/properties";
+import { faq } from "@/data/faq";
+import HeroSection from "@/components/home/HeroSection";
+import TrustStrip from "@/components/home/TrustStrip";
+import PropertiesSection from "@/components/home/PropertiesSection";
+import RegionTeaser from "@/components/home/RegionTeaser";
+import FAQAccordion from "@/components/home/FAQAccordion";
+import WhatsAppCTASection from "@/components/home/WhatsAppCTASection";
+import SisterSiteCallout from "@/components/home/SisterSiteCallout";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -7,8 +16,14 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <main className="flex-1 flex items-center justify-center min-h-[60vh]">
-      <h1 className="font-serif text-4xl text-forest">Alojamento Montalegre</h1>
+    <main>
+      <HeroSection locale={locale} />
+      <TrustStrip />
+      <PropertiesSection properties={properties} locale={locale} />
+      <RegionTeaser locale={locale} />
+      <FAQAccordion items={faq} locale={locale} />
+      <WhatsAppCTASection />
+      <SisterSiteCallout />
     </main>
   );
 }

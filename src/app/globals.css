@@ -2,16 +2,18 @@
 
 @theme {
   /* Brand colours */
-  --color-forest:  #2D4A2F;
-  --color-moss:    #3D5C3A;
-  --color-amber:   #C8882A;
-  --color-granite: #2A2A28;
-  --color-fog:     #F5F2EC;
-  --color-river:   #4A6B7C;
+  --color-forest: #2d4a2f;
+  --color-moss: #3d5c3a;
+  --color-amber: #c8882a;
+  --color-granite: #2a2a28;
+  --color-fog: #f5f2ec;
+  --color-river: #4a6b7c;
+  --color-burgundy: #c40c28;
 
   /* Typography — var() references are resolved at paint time by the browser */
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
-  --font-stack: var(--font-stack-local), "Stack", ui-sans-serif, system-ui, sans-serif;
+  --font-stack:
+    var(--font-stack-local), "Stack", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {

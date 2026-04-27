@@ -2,12 +2,17 @@ import type { Property } from "@/types/property";
 
 // Unsplash placeholders — append ?w=1200&q=80 per brief
 const U = {
-  hero:     "https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=1200&q=80",
-  river:    "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=1200&q=80",
-  village:  "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80",
-  forest:   "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
-  castle:   "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80",
-  interior: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
+  hero: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=1200&q=80",
+  river:
+    "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=1200&q=80",
+  village:
+    "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80",
+  forest:
+    "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
+  castle:
+    "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80",
+  interior:
+    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
 };
 
 export const properties: Property[] = [
@@ -30,13 +35,27 @@ export const properties: Property[] = [
     },
     coordinates: { lat: 41.8229, lng: -7.7936 },
     amenities: {
-      pt: ["WiFi", "Estacionamento", "Cozinha equipada", "Lareira", "Jardim", "Churrasco"],
-      en: ["WiFi", "Parking", "Fully equipped kitchen", "Fireplace", "Garden", "BBQ"],
+      pt: [
+        "WiFi",
+        "Estacionamento",
+        "Cozinha equipada",
+        "Lareira",
+        "Jardim",
+        "Churrasco",
+      ],
+      en: [
+        "WiFi",
+        "Parking",
+        "Fully equipped kitchen",
+        "Fireplace",
+        "Garden",
+        "BBQ",
+      ],
     },
     booking: {
       url: "https://www.booking.com/PLACEHOLDER_MOINHO",
-      score: null,
-      reviewCount: null,
+      score: "9.6",
+      reviewCount: 120,
     },
     airbnbUrl: null,
     whatsappMessage: {
@@ -77,8 +96,22 @@ export const properties: Property[] = [
     },
     coordinates: { lat: 41.8241, lng: -7.7897 },
     amenities: {
-      pt: ["WiFi", "Estacionamento", "Cozinha equipada", "Lareira", "Varanda", "Vista para o castelo"],
-      en: ["WiFi", "Parking", "Fully equipped kitchen", "Fireplace", "Balcony", "Castle view"],
+      pt: [
+        "WiFi",
+        "Estacionamento",
+        "Cozinha equipada",
+        "Lareira",
+        "Varanda",
+        "Vista para o castelo",
+      ],
+      en: [
+        "WiFi",
+        "Parking",
+        "Fully equipped kitchen",
+        "Fireplace",
+        "Balcony",
+        "Castle view",
+      ],
     },
     booking: {
       url: "https://www.booking.com/PLACEHOLDER_CASTELO",

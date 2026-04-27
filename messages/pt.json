@@ -1,4 +1,28 @@
 {
+  "Home": {
+    "heroHeadline": "Terras de Barroso. Fique em casa.",
+    "heroTagline": "Duas casas únicas no coração do norte de Portugal.",
+    "ctaVerCasas": "Ver Casas",
+    "ctaConhecerRegiao": "Conhecer a Região",
+    "propertiesHeading": "As nossas casas",
+    "propertyCardCta": "Ver mais",
+    "propertyPersons": "{count} pessoas",
+    "propertyRooms": "{count} quartos",
+    "trustMontalegre": "Montalegre, Portugal",
+    "trustCapacity": "Até 12 pessoas",
+    "trustProperties": "2 casas disponíveis",
+    "trustDirect": "Reserva direta",
+    "regionHeading": "Montalegre, Portugal",
+    "regionBody": "Entre montanhas graníticas e vales verdes, Montalegre guarda um ritmo de vida que o mundo moderno esqueceu. Rio, castelo, floresta e silêncio — a poucos metros da sua porta.",
+    "regionCta": "Descobrir a região",
+    "faqHeading": "Perguntas frequentes",
+    "whatsappHeading": "Prefere falar diretamente?",
+    "whatsappBody": "Respondemos em menos de 24 horas. Reserve sem intermediários, com flexibilidade e confiança.",
+    "whatsappButton": "Enviar mensagem no WhatsApp",
+    "sisterHeading": "Tours e experiências locais",
+    "sisterBody": "À procura de tours e experiências na região? A Natur Barroso organiza passeios, gastronomia e aventuras na natureza.",
+    "sisterCta": "Visitar Natur Barroso"
+  },
   "Nav": {
     "casas": "Casas",
     "regiao": "Região",
