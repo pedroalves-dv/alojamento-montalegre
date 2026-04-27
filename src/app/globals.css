@@ -8,7 +8,7 @@
   --color-granite: #2a2a28;
   --color-fog: #f5f2ec;
   --color-river: #4a6b7c;
-  --color-burgundy: #c40c28;
+  --color-burgundy: #e21634;
 
   /* Typography — var() references are resolved at paint time by the browser */
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
@@ -24,4 +24,8 @@
   a {
     @apply transition-colors duration-200;
   }
+}
+
+.test {
+  color: #e21634;
 }

@@ -3,9 +3,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { instrumentSerif, stack } from "@/lib/fonts";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
-import "../globals.css";
 
 type Props = {
   children: React.ReactNode;
@@ -41,15 +39,10 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={`${instrumentSerif.variable} ${stack.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider messages={messages}>
-          <LayoutWrapper>{children}</LayoutWrapper>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      {/* Set html[lang] synchronously — root layout can't access locale without opting out of SSG */}
+      <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang='${locale}'` }} />
+      <LayoutWrapper>{children}</LayoutWrapper>
+    </NextIntlClientProvider>
   );
 }
