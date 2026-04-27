@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { properties } from "@/data/properties";
+import { config } from "@/config";
 import PropertyDetailLayout from "@/components/property/PropertyDetailLayout";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -22,7 +23,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: property.name[l],
       description: property.tagline[l],
-      images: property.images[0] ? [{ url: property.images[0] }] : undefined,
+      url: `${config.siteUrl}/${locale}/${slug}`,
+      images: property.images[0]
+        ? [{ url: property.images[0], width: 1200, height: 630 }]
+        : undefined,
+    },
+    alternates: {
+      canonical: `${config.siteUrl}/${locale}/${slug}`,
+      languages: {
+        pt: `${config.siteUrl}/pt/${slug}`,
+        en: `${config.siteUrl}/en/${slug}`,
+      },
     },
   };
 }
@@ -35,7 +46,7 @@ export default async function PropertyDetailPage({ params }: Props) {
   if (!property) notFound();
 
   const l = locale as "pt" | "en";
-  const baseUrl = "https://alojamentomontalegre.com";
+  const baseUrl = config.siteUrl;
 
   const jsonLd = {
     "@context": "https://schema.org",

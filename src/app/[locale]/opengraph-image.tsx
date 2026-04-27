@@ -1,0 +1,98 @@
+import { ImageResponse } from "next/og";
+
+export const runtime = "edge";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
+
+export default async function OgImage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isPt = locale === "pt";
+
+  const headline = isPt
+    ? "Casas de Turismo Rural\nem Montalegre"
+    : "Rural Holiday Houses\nin Montalegre";
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: 1200,
+          height: 630,
+          background: "linear-gradient(135deg, #2D4A2F 0%, #3D5C3A 60%, #2A3D2B 100%)",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          padding: "72px 80px",
+          position: "relative",
+          fontFamily: "sans-serif",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(ellipse at 80% 20%, rgba(200,136,42,0.12) 0%, transparent 60%)",
+          }}
+        />
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              color: "#C8882A",
+              fontSize: 16,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              fontWeight: 600,
+            }}
+          >
+            ALOJAMENTO MONTALEGRE
+          </div>
+          <div
+            style={{
+              color: "#FFFFFF",
+              fontSize: 68,
+              lineHeight: 1.1,
+              whiteSpace: "pre-line",
+              fontWeight: 700,
+            }}
+          >
+            {headline}
+          </div>
+          <div
+            style={{
+              color: "rgba(245,242,236,0.65)",
+              fontSize: 24,
+              marginTop: 4,
+            }}
+          >
+            Terras de Barroso · Portugal
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 6,
+            background: "#C8882A",
+          }}
+        />
+      </div>
+    ),
+    size
+  );
+}

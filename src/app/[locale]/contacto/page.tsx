@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { properties } from "@/data/properties";
 import { faq } from "@/data/faq";
@@ -6,6 +7,37 @@ import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
 import FAQAccordion from "@/components/home/FAQAccordion";
 
 type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const isPt = locale === "pt";
+
+  const title = isPt
+    ? "Contacto — Reserva Direta"
+    : "Contact — Direct Booking";
+
+  const description = isPt
+    ? "Reserve diretamente via WhatsApp, telefone ou Booking.com. Respondemos em menos de 24 horas."
+    : "Book directly via WhatsApp, phone or Booking.com. We respond within 24 hours.";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url: `${config.siteUrl}/${locale}/contacto`,
+      images: [{ url: "/og/contacto.png", width: 1200, height: 630, alt: title }],
+    },
+    alternates: {
+      canonical: `${config.siteUrl}/${locale}/contacto`,
+      languages: {
+        pt: `${config.siteUrl}/pt/contacto`,
+        en: `${config.siteUrl}/en/contacto`,
+      },
+    },
+  };
+}
 
 const WhatsAppIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
@@ -19,8 +51,32 @@ export default async function ContactoPage({ params }: Props) {
   const t = await getTranslations("Contacto");
   const l = locale as "pt" | "en";
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Alojamento Montalegre",
+        item: `${config.siteUrl}/${locale}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: l === "pt" ? "Contacto" : "Contact",
+        item: `${config.siteUrl}/${locale}/contacto`,
+      },
+    ],
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* Header */}
       <section className="py-20 px-6 bg-fog border-b border-gray-100">
         <div className="max-w-3xl mx-auto text-center">

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { instrumentSerif, stack } from "@/lib/fonts";
+import { config } from "@/config";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  metadataBase: new URL(config.siteUrl),
+};
 
 export default function RootLayout({
   children,

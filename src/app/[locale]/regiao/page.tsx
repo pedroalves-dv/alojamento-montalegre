@@ -1,15 +1,70 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { regiao } from "@/data/regiao";
+import { config } from "@/config";
 import SisterSiteCallout from "@/components/home/SisterSiteCallout";
 
 type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const isPt = locale === "pt";
+
+  const title = isPt
+    ? "Terras de Barroso — Descobrir a Região"
+    : "Terras de Barroso — Discover the Region";
+
+  const description = isPt
+    ? "Montalegre, Parque Natural do Gerês, Barragem do Alto Rabagão — descubra o norte selvagem de Portugal nas Terras de Barroso."
+    : "Montalegre, Peneda-Gerês National Park, Alto Rabagão — explore the wild north of Portugal in Terras de Barroso.";
+
+  return {
+    title,
+    description,
+    keywords: isPt
+      ? ["terras de barroso", "montalegre turismo", "parque natural gerês", "turismo rural barroso"]
+      : ["terras de barroso", "montalegre tourism", "peneda gerês national park", "rural tourism portugal"],
+    openGraph: {
+      title,
+      description,
+      url: `${config.siteUrl}/${locale}/regiao`,
+      images: [{ url: "/og/regiao.png", width: 1200, height: 630, alt: title }],
+    },
+    alternates: {
+      canonical: `${config.siteUrl}/${locale}/regiao`,
+      languages: {
+        pt: `${config.siteUrl}/pt/regiao`,
+        en: `${config.siteUrl}/en/regiao`,
+      },
+    },
+  };
+}
 
 export default async function RegiaoPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("Regiao");
   const l = locale as "pt" | "en";
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Alojamento Montalegre",
+        item: `${config.siteUrl}/${locale}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: l === "pt" ? "Região" : "Region",
+        item: `${config.siteUrl}/${locale}/regiao`,
+      },
+    ],
+  };
 
   const seasons = [
     {
@@ -36,6 +91,11 @@ export default async function RegiaoPage({ params }: Props) {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
         <Image
