@@ -50,6 +50,40 @@
   "FloatingButton": {
     "whatsappAriaLabel": "Contact via WhatsApp"
   },
+  "Regiao": {
+    "heroHeadline": "Terras de Barroso",
+    "heroTagline": "From the mountains to the river — the north you haven't discovered yet.",
+    "introHeading": "A region outside of time",
+    "introBody": "Terras de Barroso lies in the far north interior of Portugal, among granite mountains, deep valleys, and cold rivers. It is a landscape of contrasts: absolute silence and raucous festivals, harsh winters and perfect summers, rustic gastronomy and award-winning wines. Montalegre is the capital of this region — a medieval town with a castle, smoked meats, and a hospitality that isn't learned, it's born.",
+    "seasonalHeading": "When to Visit",
+    "springLabel": "Spring",
+    "springMonths": "March – May",
+    "springNote": "Lush green landscape, wildflowers, uncrowded trails.",
+    "summerLabel": "Summer",
+    "summerMonths": "June – August",
+    "summerNote": "Mild temperatures, long days — peak season, book early.",
+    "autumnLabel": "Autumn",
+    "autumnMonths": "September – November",
+    "autumnNote": "Autumn colours, smoked meats season, harvest. Best for gastronomy.",
+    "winterLabel": "Winter",
+    "winterMonths": "December – February",
+    "winterNote": "Possible snow at altitude, Fumeiro Fair in January, fireplace essential.",
+    "gettingHereHeading": "Getting Here",
+    "fromPortoLabel": "Porto",
+    "fromPortoDetail": "~2h by car via A3 / N103",
+    "fromBragaLabel": "Braga",
+    "fromBragaDetail": "~1.5h by car via N103",
+    "gettingHereNote": "A car is the best option — the scenery along the way is worth the journey."
+  },
+  "Contacto": {
+    "heading": "Get in Touch",
+    "subheading": "Book directly, no commission.",
+    "responseNote": "We respond within 24 hours.",
+    "whatsappButton": "WhatsApp",
+    "bookingCta": "View on Booking.com",
+    "phoneHeading": "Phone",
+    "phoneNote": "Click to call directly."
+  },
   "PropertyDetail": {
     "capacity": "{count} guests",
     "rooms": "{count} bedrooms",

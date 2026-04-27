@@ -1,6 +1,7 @@
 {
   "Home": {
-    "heroHeadline": "Terras de Barroso. Fique em casa.",
+    "heroHeadline1": "Alojamentos Locais em Montalegre.",
+    "heroHeadline2": "O Coração do Norte de Portugal.",
     "heroTagline": "Duas casas únicas no coração do norte de Portugal.",
     "ctaVerCasas": "Ver Casas",
     "ctaConhecerRegiao": "Conhecer a Região",
@@ -48,6 +49,40 @@
   },
   "FloatingButton": {
     "whatsappAriaLabel": "Contactar via WhatsApp"
+  },
+  "Regiao": {
+    "heroHeadline": "Terras de Barroso",
+    "heroTagline": "Das montanhas ao rio — o norte que não conhece.",
+    "introHeading": "Uma região fora do tempo",
+    "introBody": "As Terras de Barroso ficam no extremo norte interior de Portugal, entre montanhas graníticas, vales profundos e rios frios. É uma paisagem de contrastes: silêncio absoluto e festas ruidosas, invernos rigorosos e verões perfeitos, gastronomia rústica e vinhos premiados. Montalegre é a capital desta região — uma vila medieval com castelo, fumeiro e uma hospitalidade que não se aprende, nasce.",
+    "seasonalHeading": "Quando Visitar",
+    "springLabel": "Primavera",
+    "springMonths": "Março – Maio",
+    "springNote": "Paisagem verde, flores silvestres, trilhos desertos.",
+    "summerLabel": "Verão",
+    "summerMonths": "Junho – Agosto",
+    "summerNote": "Temperatura amena, dias longos — época alta, reserve com antecedência.",
+    "autumnLabel": "Outono",
+    "autumnMonths": "Setembro – Novembro",
+    "autumnNote": "Cores de outono, fumeiro, vindimas. A melhor época para gastronomia.",
+    "winterLabel": "Inverno",
+    "winterMonths": "Dezembro – Fevereiro",
+    "winterNote": "Neve possível nas alturas, Feira do Fumeiro em janeiro, lareira obrigatória.",
+    "gettingHereHeading": "Como Chegar",
+    "fromPortoLabel": "Porto",
+    "fromPortoDetail": "~2h de carro pela A3 / N103",
+    "fromBragaLabel": "Braga",
+    "fromBragaDetail": "~1h30 de carro pela N103",
+    "gettingHereNote": "De carro é a melhor opção — a paisagem pelo caminho já vale a viagem."
+  },
+  "Contacto": {
+    "heading": "Fale Connosco",
+    "subheading": "Reserve diretamente, sem comissões.",
+    "responseNote": "Respondemos em menos de 24 horas.",
+    "whatsappButton": "WhatsApp",
+    "bookingCta": "Ver no Booking.com",
+    "phoneHeading": "Telefone",
+    "phoneNote": "Clique para ligar diretamente."
   },
   "PropertyDetail": {
     "capacity": "{count} pessoas",
