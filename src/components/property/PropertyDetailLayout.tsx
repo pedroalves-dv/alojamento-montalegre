@@ -11,7 +11,10 @@ type Props = {
   locale: string;
 };
 
-export default async function PropertyDetailLayout({ property, locale }: Props) {
+export default async function PropertyDetailLayout({
+  property,
+  locale,
+}: Props) {
   const t = await getTranslations("PropertyDetail");
   const l = locale as "pt" | "en";
 
@@ -36,11 +39,15 @@ export default async function PropertyDetailLayout({ property, locale }: Props) 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap gap-6 md:gap-10">
           <div className="flex items-center gap-2 text-granite">
             <UsersIcon />
-            <span className="text-sm">{t("capacity", { count: property.capacity })}</span>
+            <span className="text-sm">
+              {t("capacity", { count: property.capacity })}
+            </span>
           </div>
           <div className="flex items-center gap-2 text-granite">
             <BedIcon />
-            <span className="text-sm">{t("rooms", { count: property.rooms })}</span>
+            <span className="text-sm">
+              {t("rooms", { count: property.rooms })}
+            </span>
           </div>
           <div className="flex items-center gap-2 text-granite">
             <MapPinIcon />
@@ -53,12 +60,15 @@ export default async function PropertyDetailLayout({ property, locale }: Props) 
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <div className="grid md:grid-cols-[1fr_auto] gap-10 items-start">
           <div>
-            <h2 className="font-serif text-2xl text-granite mb-6">
+            <h2 className="font-serif text-4xl text-granite mb-6">
               {t("descriptionHeading")}
             </h2>
             <div className="space-y-4">
               {description.split("\n\n").map((para, i) => (
-                <p key={i} className="text-granite/70 leading-relaxed text-base">
+                <p
+                  key={i}
+                  className="text-granite/70 leading-relaxed text-base"
+                >
                   {para}
                 </p>
               ))}
@@ -73,7 +83,7 @@ export default async function PropertyDetailLayout({ property, locale }: Props) 
                 url={property.booking.url}
               />
               <a
-                href={property.booking.url}
+                href={property.booking.url ?? undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-river text-sm hover:underline"
@@ -92,7 +102,9 @@ export default async function PropertyDetailLayout({ property, locale }: Props) 
 
       {/* Amenities */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
-        <h2 className="font-serif text-2xl text-granite mb-8">{t("amenitiesHeading")}</h2>
+        <h2 className="font-serif text-4xl text-granite mb-8">
+          {t("amenitiesHeading")}
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-y-3 gap-x-6">
           {amenities.map((amenity) => (
             <div key={amenity} className="flex items-center gap-2.5">
@@ -105,7 +117,9 @@ export default async function PropertyDetailLayout({ property, locale }: Props) 
 
       {/* Location */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 border-t border-gray-100 pt-14">
-        <h2 className="font-serif text-2xl text-granite mb-6">{t("locationHeading")}</h2>
+        <h2 className="font-serif text-4xl text-granite mb-6">
+          {t("locationHeading")}
+        </h2>
         <div className="rounded-xl overflow-hidden border border-gray-200 h-[380px]">
           <iframe
             title={`${name} — ${t("locationHeading")}`}
@@ -120,9 +134,7 @@ export default async function PropertyDetailLayout({ property, locale }: Props) 
 
       <PropertyBookingCTA property={property} locale={locale} />
 
-      <div className="print:hidden">
-        <SisterSiteCallout />
-      </div>
+      <div className="print:hidden">{/* <SisterSiteCallout /> */}</div>
     </>
   );
 }

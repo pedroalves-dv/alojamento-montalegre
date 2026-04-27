@@ -1,7 +1,7 @@
 import type { LocalizedString, LocalizedStringArray } from "./common";
 
 export interface PropertyBooking {
-  url: string;
+  url: string | null;
   score: string | null;
   reviewCount: number | null;
 }

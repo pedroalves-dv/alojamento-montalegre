@@ -114,9 +114,9 @@ export const properties: Property[] = [
       ],
     },
     booking: {
-      url: "https://www.booking.com/PLACEHOLDER_CASTELO",
-      score: "9.4",
-      reviewCount: 47,
+      url: null,
+      score: null,
+      reviewCount: null,
     },
     airbnbUrl: null,
     whatsappMessage: {

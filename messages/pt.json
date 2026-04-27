@@ -73,7 +73,9 @@
     "fromPortoDetail": "~2h de carro pela A3 / N103",
     "fromBragaLabel": "Braga",
     "fromBragaDetail": "~1h30 de carro pela N103",
-    "gettingHereNote": "De carro é a melhor opção — a paisagem pelo caminho já vale a viagem."
+    "gettingHereNote": "De carro é a melhor opção — a paisagem pelo caminho já vale a viagem.",
+    "directionsLink": "Ver percurso",
+    "mapTitle": "Mapa de Montalegre, Terras de Barroso"
   },
   "Contacto": {
     "heading": "Fale Connosco",

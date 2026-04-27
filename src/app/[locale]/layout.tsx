@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { config } from "@/config";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
+import HtmlLang from "@/components/layout/HtmlLang";
 
 type Props = {
   children: React.ReactNode;
@@ -86,8 +87,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
       />
-      {/* Set html[lang] synchronously — root layout can't access locale without opting out of SSG */}
-      <script dangerouslySetInnerHTML={{ __html: `document.documentElement.lang='${locale}'` }} />
+      <HtmlLang locale={locale} />
       <LayoutWrapper>{children}</LayoutWrapper>
     </NextIntlClientProvider>
   );

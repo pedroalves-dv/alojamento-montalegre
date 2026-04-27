@@ -17,7 +17,7 @@ export default function FAQAccordion({ items, locale }: Props) {
   return (
     <section className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-serif text-3xl md:text-4xl text-granite text-center mb-12">
+        <h2 className="font-serif text-4xl md:text-6xl text-granite text-center mb-12">
           {t("faqHeading")}
         </h2>
         <div className="divide-y divide-gray-200">

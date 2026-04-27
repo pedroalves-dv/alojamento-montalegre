@@ -43,10 +43,12 @@ export default function RegionSection({ section, index, locale }: Props) {
         </div>
 
         <div className="w-full md:w-1/2">
-          <h3 className="font-serif text-2xl md:text-3xl text-granite mb-4">
+          <h3 className="font-serif text-3xl md:text-4xl text-granite mb-4">
             {section.title[locale]}
           </h3>
-          <p className="text-granite/70 leading-relaxed">{section.body[locale]}</p>
+          <p className="text-granite/70 leading-relaxed">
+            {section.body[locale]}
+          </p>
         </div>
       </div>
     </motion.section>

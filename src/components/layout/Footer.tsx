@@ -3,14 +3,12 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { config } from "@/config";
 import { properties } from "@/data/properties";
 import AlojamentoLogo from "@/components/ui/AlojamentoLogo";
+import LocaleToggle from "@/components/ui/LocaleToggle";
 
 export default async function Footer() {
   const locale = await getLocale();
   const t = await getTranslations("Footer");
-  const otherLocale = locale === "pt" ? "en" : "pt";
   const year = new Date().getFullYear();
-
-  const localeSwitchPath = `/${otherLocale}`;
 
   return (
     <footer className="bg-granite text-fog print:hidden">
@@ -23,13 +21,7 @@ export default async function Footer() {
           <p className="text-fog/60 text-sm leading-relaxed max-w-xs">
             {t("tagline")}
           </p>
-          <Link
-            href={localeSwitchPath}
-            aria-label={t("localeAriaLabel")}
-            className="text-xs font-semibold tracking-widest uppercase text-fog/50 hover:text-fog transition-colors w-fit"
-          >
-            {otherLocale === "pt" ? "Português" : "English"}
-          </Link>
+          <LocaleToggle className="text-fog" />
         </div>
 
         {/* Col 2 — Navigation */}
@@ -93,7 +85,7 @@ export default async function Footer() {
               .map((p) => (
                 <a
                   key={p.slug}
-                  href={p.booking.url}
+                  href={p.booking.url ?? undefined}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-fog/70 hover:text-fog transition-colors flex items-center gap-2"

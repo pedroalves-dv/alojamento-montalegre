@@ -16,7 +16,9 @@ export default function PropertyGallery({ images }: Props) {
   const closeLightbox = () => setLightboxIndex(null);
 
   const prev = useCallback(() => {
-    setLightboxIndex((i) => (i === null ? null : (i - 1 + images.length) % images.length));
+    setLightboxIndex((i) =>
+      i === null ? null : (i - 1 + images.length) % images.length,
+    );
   }, [images.length]);
 
   const next = useCallback(() => {
@@ -37,7 +39,9 @@ export default function PropertyGallery({ images }: Props) {
   // Prevent body scroll when lightbox is open
   useEffect(() => {
     document.body.style.overflow = lightboxIndex !== null ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [lightboxIndex]);
 
   if (images.length === 0) return null;
@@ -47,7 +51,9 @@ export default function PropertyGallery({ images }: Props) {
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-      <h2 className="font-serif text-2xl text-granite mb-6">{t("galleryHeading")}</h2>
+      <h2 className="font-serif text-4xl text-granite mb-6">
+        {t("galleryHeading")}
+      </h2>
 
       {/* Cover grid */}
       <div className="relative">
@@ -129,7 +135,16 @@ export default function PropertyGallery({ images }: Props) {
               aria-label={t("galleryClose")}
               className="absolute top-4 right-4 text-white/60 hover:text-white p-2 transition-colors"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                aria-hidden
+              >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
@@ -137,22 +152,48 @@ export default function PropertyGallery({ images }: Props) {
 
             {/* Prev */}
             <button
-              onClick={(e) => { e.stopPropagation(); prev(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
               aria-label={t("galleryPrev")}
               className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white p-2 transition-colors"
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
                 <polyline points="15 18 9 12 15 6" />
               </svg>
             </button>
 
             {/* Next */}
             <button
-              onClick={(e) => { e.stopPropagation(); next(); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
               aria-label={t("galleryNext")}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white p-2 transition-colors"
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
                 <polyline points="9 18 15 12 9 6" />
               </svg>
             </button>
@@ -170,7 +211,17 @@ export default function PropertyGallery({ images }: Props) {
 
 function GridIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
       <rect x="3" y="3" width="7" height="7" />
       <rect x="14" y="3" width="7" height="7" />
       <rect x="14" y="14" width="7" height="7" />

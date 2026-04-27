@@ -5,12 +5,15 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import AlojamentoLogo from "@/components/ui/AlojamentoLogo";
+import LocaleToggle from "@/components/ui/LocaleToggle";
 
 const NAV_LINKS = [
   { key: "casas" as const, href: "/" },
   { key: "regiao" as const, href: "/regiao" },
   { key: "contacto" as const, href: "/contacto" },
 ] as const;
+
+const LIGHT_BG_PAGES = ["contacto"];
 
 export default function Navbar() {
   const t = useTranslations("Nav");
@@ -30,16 +33,15 @@ export default function Navbar() {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  const otherLocale = locale === "pt" ? "en" : "pt";
-  const localeSwitchPath =
-    `/${otherLocale}${pathname.substring(`/${locale}`.length)}` ||
-    `/${otherLocale}`;
+  const isLightPage = LIGHT_BG_PAGES.some((slug) => pathname?.endsWith(`/${slug}`));
 
   const navBg = isScrolled
     ? "bg-fog/95 backdrop-blur-sm shadow-sm"
-    : "bg-transparent";
-  const navText = isScrolled ? "text-granite" : "text-white";
-  const logoVariant = isScrolled ? "dark" : "light";
+    : isLightPage
+      ? "bg-fog/95 backdrop-blur-sm"
+      : "bg-transparent";
+  const navText = isScrolled || isLightPage ? "text-granite" : "text-white";
+  const logoVariant = isScrolled || isLightPage ? "dark" : "light";
 
   return (
     <>
@@ -79,13 +81,7 @@ export default function Navbar() {
 
           {/* Right: locale toggle + mobile hamburger */}
           <div className="flex items-center gap-3">
-            <Link
-              href={localeSwitchPath}
-              aria-label={t("localeAriaLabel")}
-              className={`hidden md:block text-xs font-semibold tracking-widest uppercase transition-opacity hover:opacity-80 ${navText}`}
-            >
-              {otherLocale}
-            </Link>
+            <LocaleToggle className={`hidden md:flex ${navText}`} />
 
             {/* Mobile hamburger */}
             <button
@@ -149,12 +145,7 @@ export default function Navbar() {
           </nav>
 
           <div className="px-6 pb-10">
-            <Link
-              href={localeSwitchPath}
-              className="text-fog/60 text-sm font-semibold tracking-widest uppercase hover:text-fog transition-colors"
-            >
-              {otherLocale === "pt" ? "Português" : "English"}
-            </Link>
+            <LocaleToggle className="text-fog" />
           </div>
         </div>
       )}

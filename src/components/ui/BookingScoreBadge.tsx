@@ -1,7 +1,7 @@
 type Props = {
   score: string | null;
   reviewCount: number | null;
-  url: string;
+  url: string | null;
 };
 
 export default function BookingScoreBadge({ score, reviewCount, url }: Props) {
@@ -9,7 +9,7 @@ export default function BookingScoreBadge({ score, reviewCount, url }: Props) {
 
   return (
     <a
-      href={url}
+      href={url ?? undefined}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Booking.com: ${score}${reviewCount ? ` · ${reviewCount} avaliações` : ""}`}

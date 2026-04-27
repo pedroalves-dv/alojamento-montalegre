@@ -13,7 +13,7 @@ export default async function RegionTeaser({ locale }: { locale: string }) {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Text */}
         <div className="order-2 md:order-1">
-          <h2 className="font-serif text-3xl md:text-4xl text-granite mb-5">
+          <h2 className="font-serif text-4xl md:text-6xl text-granite mb-5">
             {t("regionHeading")}
           </h2>
           <p className="text-granite/70 leading-relaxed text-base mb-8">

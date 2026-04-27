@@ -8,7 +8,7 @@ export default async function WhatsAppCTASection() {
   return (
     <section className="bg-forest text-white py-20 px-4">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="font-serif text-3xl md:text-4xl mb-4">
+        <h2 className="font-serif text-4xl md:text-6xl mb-4">
           {t("whatsappHeading")}
         </h2>
         <p className="text-white/75 leading-relaxed mb-10">
@@ -34,7 +34,7 @@ export default async function WhatsAppCTASection() {
           {t("whatsappButton")}
         </a>
 
-        <p className="mt-6 text-white/50 text-sm">
+        <p className="mt-6 text-white/50 text-lg">
           <a
             href={`tel:${config.phoneNumber.replace(/\s/g, "")}`}
             className="hover:text-white/80 transition-colors"

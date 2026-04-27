@@ -30,8 +30,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     keywords: isPt
-      ? ["alojamento montalegre", "casa de férias montalegre", "turismo rural barroso"]
-      : ["accommodation montalegre", "holiday house montalegre portugal", "rural tourism gerês"],
+      ? [
+          "alojamento montalegre",
+          "casa de férias montalegre",
+          "turismo rural barroso",
+        ]
+      : [
+          "accommodation montalegre",
+          "holiday house montalegre portugal",
+          "rural tourism gerês",
+        ],
     openGraph: {
       title,
       description,
@@ -85,9 +93,9 @@ export default async function HomePage({ params }: Props) {
       <AnimatedSection>
         <WhatsAppCTASection />
       </AnimatedSection>
-      <AnimatedSection>
+      {/* <AnimatedSection>
         <SisterSiteCallout />
-      </AnimatedSection>
+      </AnimatedSection> */}
     </main>
   );
 }

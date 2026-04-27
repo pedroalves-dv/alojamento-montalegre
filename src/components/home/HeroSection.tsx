@@ -5,8 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
-const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1629070850975-c357ac7cc6df?q=80&w=1888";
+const HERO_IMAGE = "/images/montalegre-2.png";
 
 export default function HeroSection({ locale }: { locale: string }) {
   const t = useTranslations("Home");
@@ -21,9 +20,9 @@ export default function HeroSection({ locale }: { locale: string }) {
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-granite/55" />
+      <div className="absolute inset-0 bg-granite/25" />
 
-      <div className="relative z-10 text-center text-white max-w-3xl px-6 pt-16">
+      <div className="relative z-10 text-center text-white max-w-6xl px-10 md:pb-32 pb-16 ">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +35,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-stack text-burgundy text-5xl md:text-7xl leading-[0.9] mb-5 text-shadow-sm"
+          className="font-stack text-burgundy text-5xl md:text-7xl leading-[0.9] mb-5"
         >
           {t("heroHeadline2")}
         </motion.h2>
@@ -58,13 +57,13 @@ export default function HeroSection({ locale }: { locale: string }) {
         >
           <Link
             href={`/${locale}#casas`}
-            className="bg-forest hover:bg-moss text-white px-8 py-3.5 rounded font-medium tracking-wide transition-colors duration-200"
+            className="bg-granite hover:bg-fog hover:text-granite border border-fog/10 hover:border-granite/50 text-white px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200"
           >
             {t("ctaVerCasas")}
           </Link>
           <Link
             href={`/${locale}/regiao`}
-            className="border border-white/70 text-white hover:bg-white/10 px-8 py-3.5 rounded font-medium tracking-wide transition-colors duration-200"
+            className="border border-white/70 text-white hover:bg-white/10 px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200"
           >
             {t("ctaConhecerRegiao")}
           </Link>
