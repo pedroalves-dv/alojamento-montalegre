@@ -110,16 +110,19 @@ export default async function RegiaoPage({ params }: Props) {
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end md:text-center">
         <Image
-          src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80"
-          alt="Castelo de Montalegre"
+          src="/images/montalegre-2.png"
+          alt="Monte do Larrouco, Terras de Barroso"
           fill
           priority
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" />
-        <div className="relative z-10 pb-14 max-w-4xl mx-auto w-full">
-          <h1 className="font-stack text-5xl md:text-7xl text-white mb-3">
-            {t("heroHeadline")}
+        <div className="relative z-10 pb-14 max-w-4xl mx-auto w-full px-6">
+          <h1 className="font-serif text-5xl md:text-7xl text-white">
+            {t("heroHeadline1")}
+          </h1>
+          <h1 className="font-stack text-4xl md:text-6xl text-white mb-10">
+            {t("heroHeadline2")}
           </h1>
           <p className="text-white/80 text-lg md:text-xl">{t("heroTagline")}</p>
         </div>

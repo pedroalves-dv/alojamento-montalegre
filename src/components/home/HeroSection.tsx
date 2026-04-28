@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
-const HERO_IMAGE = "/images/montalegre-2.png";
+const HERO_IMAGE = "/images/casa-do-moinho/1.jpg";
 
 export default function HeroSection({ locale }: { locale: string }) {
   const t = useTranslations("Home");
@@ -20,9 +20,13 @@ export default function HeroSection({ locale }: { locale: string }) {
         className="object-cover"
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-granite/25" />
+      {/* <div className="absolute inset-0 bg-granite/25" /> */}
 
-      <div className="relative z-10 text-center text-white max-w-6xl px-10 md:pb-32 pb-16 ">
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" /> */}
+
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.3)_40%,rgba(0,0,0,0.15)_65%,transparent_80%)]" />
+
+      <div className="relative z-10 text-center text-white max-w-6xl px-10 md:pb-24 pb-16 ">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -35,7 +39,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-stack text-burgundy text-5xl md:text-7xl leading-[0.9] mb-5"
+          className="font-stack text-white text-5xl md:text-7xl leading-[0.9] mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
         >
           {t("heroHeadline2")}
         </motion.h2>
@@ -44,7 +48,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.25, ease: "easeOut" }}
-          className="text-lg md:text-xl opacity-85 mb-10 font-light tracking-wide"
+          className="text-lg md:text-xl opacity-85 mb-16 font-light tracking-wide"
         >
           {t("heroTagline")}
         </motion.p>
@@ -53,17 +57,17 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center"
         >
           <Link
             href={`/${locale}#casas`}
-            className="bg-granite hover:bg-fog hover:text-granite border border-fog/10 hover:border-granite/50 text-white px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200"
+            className="bg-amber hover:bg-fog hover:text-granite border border-fog/10 hover:border-granite/50 text-white px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200"
           >
             {t("ctaVerCasas")}
           </Link>
           <Link
             href={`/${locale}/regiao`}
-            className="border border-white/70 text-white hover:bg-white/10 px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200"
+            className="bg-moss hover:bg-fog hover:text-granite border border-fog/10 hover:border-granite/50 text-white px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200"
           >
             {t("ctaConhecerRegiao")}
           </Link>

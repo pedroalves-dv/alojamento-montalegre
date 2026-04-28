@@ -103,7 +103,7 @@ export default function PropertyCard({ property, locale, index }: Props) {
         <div className="mt-auto pt-2">
           <Link
             href={`/${locale}/${property.slug}`}
-            className="inline-block bg-forest hover:bg-moss text-white text-sm font-medium px-5 py-2.5 rounded transition-colors duration-200"
+            className="inline-block bg-forest hover:bg-moss text-white text-md font-medium px-6 py-3 rounded-lg transition-colors duration-200"
           >
             {t("propertyCardCta")}
           </Link>

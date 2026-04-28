@@ -1,20 +1,5 @@
 import type { Property } from "@/types/property";
 
-// Unsplash placeholders — append ?w=1200&q=80 per brief
-const U = {
-  hero: "https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=1200&q=80",
-  river:
-    "https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=1200&q=80",
-  village:
-    "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80",
-  forest:
-    "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
-  castle:
-    "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80",
-  interior:
-    "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
-};
-
 export const properties: Property[] = [
   {
     slug: "casa-do-moinho",
@@ -67,14 +52,12 @@ export const properties: Property[] = [
       en: "Popular in summer — book early",
     },
     images: [
-      U.river,
-      U.hero,
-      U.interior,
-      U.forest,
-      U.village,
-      U.river,
-      U.interior,
-      U.forest,
+      "/images/casa-do-moinho/1.jpg",
+      "/images/casa-do-moinho/2.jpg",
+      "/images/casa-do-moinho/3.jpg",
+      "/images/casa-do-moinho/4.jpg",
+      "/images/casa-do-moinho/5.jpg",
+      "/images/casa-do-moinho/6.jpg",
     ],
   },
   {
@@ -128,14 +111,10 @@ export const properties: Property[] = [
       en: "Available year-round",
     },
     images: [
-      U.castle,
-      U.village,
-      U.interior,
-      U.hero,
-      U.forest,
-      U.castle,
-      U.interior,
-      U.village,
+      "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80",
+      "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80",
+      "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
     ],
   },
 ];

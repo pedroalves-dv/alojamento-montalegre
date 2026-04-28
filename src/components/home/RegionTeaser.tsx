@@ -2,8 +2,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 
-const REGION_IMAGE =
-  "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80";
+const REGION_IMAGE = "/images/montalegre-3.jpg";
 
 export default async function RegionTeaser({ locale }: { locale: string }) {
   const t = await getTranslations("Home");

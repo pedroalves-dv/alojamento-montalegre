@@ -4,7 +4,7 @@
   /* Brand colours */
   --color-forest: #2d4a2f;
   --color-moss: #3d5c3a;
-  --color-amber: #c8882a;
+  --color-amber: #e59c2e;
   --color-granite: #2a2a28;
   --color-fog: #f5f2ec;
   --color-river: #4a6b7c;
@@ -28,4 +28,5 @@
 
 .test {
   color: #e21634;
+  color: #e59c2e;
 }
