@@ -39,7 +39,7 @@ export default function PropertyCard({ property, locale, index }: Props) {
       {/* Content */}
       <div className="p-6 flex flex-col flex-1 gap-3">
         <div>
-          <h3 className="font-serif text-2xl text-granite mb-1">
+          <h3 className="font-serif text-3xl text-granite mb-1">
             {property.name[l]}
           </h3>
           <p className="text-granite/70 text-sm leading-relaxed">
