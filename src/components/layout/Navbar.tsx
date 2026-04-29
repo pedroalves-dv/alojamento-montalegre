@@ -24,6 +24,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 20);
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -33,7 +34,9 @@ export default function Navbar() {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  const isLightPage = LIGHT_BG_PAGES.some((slug) => pathname?.endsWith(`/${slug}`));
+  const isLightPage = LIGHT_BG_PAGES.some((slug) =>
+    pathname?.endsWith(`/${slug}`),
+  );
 
   const navBg = isScrolled
     ? "bg-fog/95 backdrop-blur-sm shadow-sm"
@@ -51,14 +54,11 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Alojamento Montalegre — início">
-            <AlojamentoLogo
-              variant={logoVariant}
-              className="h-8 w-auto"
-            />
+            <AlojamentoLogo variant={logoVariant} className="h-8 w-auto" />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {NAV_LINKS.map(({ key, href }) => {
               const fullHref = `/${locale}${href}`;
               const isActive =
@@ -69,7 +69,7 @@ export default function Navbar() {
                 <Link
                   key={key}
                   href={fullHref}
-                  className={`text-sm font-medium tracking-wide transition-colors hover:text-amber ${navText} ${
+                  className={`text-md font-medium tracking-wide transition-colors  ${navText} ${
                     isActive ? "opacity-100" : "opacity-70 hover:opacity-100"
                   }`}
                 >
@@ -137,14 +137,14 @@ export default function Navbar() {
               <Link
                 key={key}
                 href={`/${locale}${href}`}
-                className="font-serif text-fog text-3xl py-3 border-b border-white/10 hover:text-amber transition-colors"
+                className="font-serif text-fog text-4xl py-3 border-b border-white/10 hover:text-amber transition-colors"
               >
                 {t(key)}
               </Link>
             ))}
           </nav>
 
-          <div className="px-6 pb-10">
+          <div className="px-22 pb-8 scale-150">
             <LocaleToggle className="text-fog" />
           </div>
         </div>

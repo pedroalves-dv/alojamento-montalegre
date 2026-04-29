@@ -1,3 +1,4 @@
+// src/data/properties.ts
 import type { Property } from "@/types/property";
 
 export const properties: Property[] = [
@@ -107,14 +108,25 @@ export const properties: Property[] = [
       en: "Hello, I'd like to know more about Casa do Castelo",
     },
     seasonal: {
-      pt: "Disponível todo o ano",
+      pt: "Disponível todo o ano.",
       en: "Available year-round",
     },
+    restaurantInfo: {
+      name: { pt: "Restaurante O Castelo", en: "O Castelo Restaurant" },
+      description: {
+        pt: "No rés-do-chão funciona o Restaurante O Castelo, gerido pela mesma família. Cozinha transmontana tradicional, logo na sua casa.",
+        en: "The ground floor is home to O Castelo restaurant, run by the same family. Traditional Transmontana cuisine, right on your doorstep.",
+      },
+    },
     images: [
-      "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80",
-      "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1200&q=80",
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
-      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80",
+      "/images/casa-do-castelo/0.jpg",
+      "/images/casa-do-castelo/1.jpg",
+      "/images/casa-do-castelo/2.jpg",
+      "/images/casa-do-castelo/3.jpg",
+      "/images/casa-do-castelo/4.jpg",
+      "/images/casa-do-castelo/5.jpg",
+      "/images/casa-do-castelo/6.jpg",
+      "/images/casa-do-castelo/7.jpg",
     ],
   },
 ];

@@ -1,10 +1,11 @@
+// src/components/property/PropertyDetailLayout.tsx
 import { getTranslations } from "next-intl/server";
 import type { Property } from "@/types/property";
 import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
-import SisterSiteCallout from "@/components/home/SisterSiteCallout";
 import PropertyHero from "./PropertyHero";
 import PropertyGallery from "./PropertyGallery";
 import PropertyBookingCTA from "./PropertyBookingCTA";
+import RestaurantCallout from "./RestaurantCallout";
 
 type Props = {
   property: Property;
@@ -115,6 +116,16 @@ export default async function PropertyDetailLayout({
         </div>
       </section>
 
+      {/* Restaurant callout — Casa do Castelo only */}
+      {property.restaurantInfo && (
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 border-t border-gray-100 py-14">
+          <RestaurantCallout
+            name={property.restaurantInfo.name[l]}
+            description={property.restaurantInfo.description[l]}
+          />
+        </section>
+      )}
+
       {/* Location */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 border-t border-gray-100 pt-14">
         <h2 className="font-serif text-4xl text-granite mb-6">
@@ -133,8 +144,6 @@ export default async function PropertyDetailLayout({
       </section>
 
       <PropertyBookingCTA property={property} locale={locale} />
-
-      <div className="print:hidden">{/* <SisterSiteCallout /> */}</div>
     </>
   );
 }

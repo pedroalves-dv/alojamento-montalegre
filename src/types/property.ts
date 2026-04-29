@@ -20,5 +20,9 @@ export interface Property {
   airbnbUrl: string | null;
   whatsappMessage: LocalizedString;
   seasonal: LocalizedString;
+  restaurantInfo?: {
+    name: { pt: string; en: string };
+    description: { pt: string; en: string };
+  };
   images: string[];
 }

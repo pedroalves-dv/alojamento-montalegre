@@ -33,7 +33,7 @@
     "localeAriaLabel": "Mudar idioma para inglês"
   },
   "Footer": {
-    "tagline": "Turismo rural em Montalegre, Terras de Barroso.",
+    "tagline": "Turismo rural em Montalegre, Portugal.",
     "navHeading": "Páginas",
     "casas": "Casas",
     "casaDoMoinho": "Casa do Moinho",
@@ -100,7 +100,7 @@
     "locationHeading": "Localização",
     "bookingReviews": "Ver avaliações no Booking.com",
     "bookingHeading": "Reservar esta casa",
-    "bookingDirectNote": "Prefere reserva direta? Contacte-nos pelo WhatsApp ou telefone.",
+    "bookingDirectNote": "Contacte-nos pelo WhatsApp ou telefone.",
     "bookingWhatsapp": "Enviar mensagem no WhatsApp",
     "bookingBookingCom": "Reservar no Booking.com"
   }

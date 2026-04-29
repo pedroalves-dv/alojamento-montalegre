@@ -3,7 +3,7 @@ import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { regiao } from "@/data/regiao";
 import { config } from "@/config";
-import SisterSiteCallout from "@/components/home/SisterSiteCallout";
+
 import RegionSection from "@/components/region/RegionSection";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -116,15 +116,17 @@ export default async function RegiaoPage({ params }: Props) {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" /> */}
         <div className="relative z-10 pb-14 max-w-4xl mx-auto w-full px-6">
-          <h1 className="font-serif text-5xl md:text-7xl text-white">
+          <h1 className="font-serif text-5xl md:text-7xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             {t("heroHeadline1")}
           </h1>
-          <h1 className="font-stack text-4xl md:text-6xl text-white mb-10">
+          <h1 className="font-stack text-4xl md:text-6xl text-white mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             {t("heroHeadline2")}
           </h1>
-          <p className="text-white/80 text-lg md:text-xl">{t("heroTagline")}</p>
+          <p className="text-white/80 text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            {t("heroTagline")}
+          </p>
         </div>
       </section>
 
@@ -244,8 +246,6 @@ export default async function RegiaoPage({ params }: Props) {
           </p>
         </div>
       </section>
-
-      {/* <SisterSiteCallout /> */}
     </main>
   );
 }
