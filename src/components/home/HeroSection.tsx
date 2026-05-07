@@ -25,12 +25,12 @@ export default function HeroSection({ locale }: { locale: string }) {
       {/* 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.3)_20%,rgba(0,0,0,0.15)_30%,transparent_50%)]" /> */}
 
-      <div className="relative z-10 text-center text-white max-w-6xl px-10 md:pb-24 pb-16 ">
+      <div className="relative z-10 text-center text-white max-w-6xl px-4 ">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-serif text-5xl md:text-7xl leading-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          className="font-serif text-6xl md:text-7xl leading-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] mb-4"
         >
           {t("heroHeadline1")}
         </motion.h1>
@@ -38,7 +38,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-stack text-white text-5xl md:text-7xl leading-[0.9] mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          className="hidden md:block font-stack text-white text-5xl md:text-7xl leading-[0.9] mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] tracking-tight"
         >
           {t("heroHeadline2")}
         </motion.h2>

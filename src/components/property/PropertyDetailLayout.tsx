@@ -82,6 +82,7 @@ export default async function PropertyDetailLayout({
                 score={property.booking.score}
                 reviewCount={property.booking.reviewCount}
                 url={property.booking.url}
+                reviewsLabel={t("reviewsLabel")}
               />
               <a
                 href={property.booking.url ?? undefined}
@@ -122,6 +123,7 @@ export default async function PropertyDetailLayout({
           <RestaurantCallout
             name={property.restaurantInfo.name[l]}
             description={property.restaurantInfo.description[l]}
+            inHouseLabel={t("inHouseLabel")}
           />
         </section>
       )}

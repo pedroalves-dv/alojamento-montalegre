@@ -3,6 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { properties } from "@/data/properties";
 import { faq } from "@/data/faq";
 import { config } from "@/config";
+import { seo } from "@/data/seo";
 import HeroSection from "@/components/home/HeroSection";
 import TrustStrip from "@/components/home/TrustStrip";
 import PropertiesSection from "@/components/home/PropertiesSection";
@@ -15,33 +16,15 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const isPt = locale === "pt";
-
-  const title = isPt
-    ? "Alojamento Montalegre — Casas de Turismo Rural"
-    : "Alojamento Montalegre — Rural Holiday Houses";
-
-  const description = isPt
-    ? "Duas casas únicas em Montalegre, Terras de Barroso. Casa do Moinho e Casa do Castelo. Reserva direta sem comissões."
-    : "Two unique holiday houses in Montalegre, Terras de Barroso. Casa do Moinho and Casa do Castelo. Book direct with no fees.";
+  const l = locale as "pt" | "en";
 
   return {
-    title,
-    description,
-    keywords: isPt
-      ? [
-          "alojamento montalegre",
-          "casa de férias montalegre",
-          "turismo rural barroso",
-        ]
-      : [
-          "accommodation montalegre",
-          "holiday house montalegre portugal",
-          "rural tourism gerês",
-        ],
+    title: seo.home.title[l],
+    description: seo.home.description[l],
+    keywords: seo.home.keywords![l],
     openGraph: {
-      title,
-      description,
+      title: seo.home.title[l],
+      description: seo.home.description[l],
       url: `${config.siteUrl}/${locale}`,
     },
     alternates: {

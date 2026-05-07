@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { seo } from "@/data/seo";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -10,11 +11,11 @@ export default async function OgImage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const isPt = locale === "pt";
+  const l = locale as "pt" | "en";
 
-  const subline = isPt
-    ? "Das montanhas ao rio — o norte que não conhece"
-    : "From the mountains to the river — the north you don't know yet";
+  const eyebrow = seo.regiao.og.eyebrow![l];
+  const headline = seo.regiao.og.headline[l];
+  const subline = seo.regiao.og.subline[l];
 
   return new ImageResponse(
     (
@@ -57,7 +58,7 @@ export default async function OgImage({
               fontWeight: 600,
             }}
           >
-            {isPt ? "ALOJAMENTO MONTALEGRE · REGIÃO" : "ALOJAMENTO MONTALEGRE · REGION"}
+            {eyebrow}
           </div>
           <div
             style={{
@@ -67,7 +68,7 @@ export default async function OgImage({
               fontWeight: 700,
             }}
           >
-            Terras de Barroso
+            {headline}
           </div>
           <div
             style={{

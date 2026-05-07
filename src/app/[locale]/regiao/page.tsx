@@ -3,6 +3,7 @@ import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { regiao } from "@/data/regiao";
 import { config } from "@/config";
+import { seo } from "@/data/seo";
 
 import RegionSection from "@/components/region/RegionSection";
 
@@ -10,37 +11,17 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const isPt = locale === "pt";
-
-  const title = isPt
-    ? "Terras de Barroso — Descobrir a Região"
-    : "Terras de Barroso — Discover the Region";
-
-  const description = isPt
-    ? "Montalegre, Parque Natural do Gerês, Barragem do Alto Rabagão — descubra o norte selvagem de Portugal nas Terras de Barroso."
-    : "Montalegre, Peneda-Gerês National Park, Alto Rabagão — explore the wild north of Portugal in Terras de Barroso.";
+  const l = locale as "pt" | "en";
 
   return {
-    title,
-    description,
-    keywords: isPt
-      ? [
-          "terras de barroso",
-          "montalegre turismo",
-          "parque natural gerês",
-          "turismo rural barroso",
-        ]
-      : [
-          "terras de barroso",
-          "montalegre tourism",
-          "peneda gerês national park",
-          "rural tourism portugal",
-        ],
+    title: seo.regiao.title[l],
+    description: seo.regiao.description[l],
+    keywords: seo.regiao.keywords![l],
     openGraph: {
-      title,
-      description,
+      title: seo.regiao.title[l],
+      description: seo.regiao.description[l],
       url: `${config.siteUrl}/${locale}/regiao`,
-      images: [{ url: "/og/regiao.png", width: 1200, height: 630, alt: title }],
+      images: [{ url: "/og/regiao.png", width: 1200, height: 630, alt: seo.regiao.title[l] }],
     },
     alternates: {
       canonical: `${config.siteUrl}/${locale}/regiao`,
@@ -114,6 +95,7 @@ export default async function RegiaoPage({ params }: Props) {
           alt="Monte do Larrouco, Terras de Barroso"
           fill
           priority
+          sizes="100vw"
           className="object-cover"
         />
         {/* <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" /> */}

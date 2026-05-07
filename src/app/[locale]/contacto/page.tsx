@@ -3,6 +3,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { properties } from "@/data/properties";
 import { faq } from "@/data/faq";
 import { config } from "@/config";
+import { seo } from "@/data/seo";
 import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
 import FAQAccordion from "@/components/home/FAQAccordion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -11,23 +12,17 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const isPt = locale === "pt";
-
-  const title = isPt ? "Contacto — Reserva Direta" : "Contact — Direct Booking";
-
-  const description = isPt
-    ? "Reserve diretamente via WhatsApp, telefone ou Booking.com. Respondemos em menos de 24 horas."
-    : "Book directly via WhatsApp, phone or Booking.com. We respond within 24 hours.";
+  const l = locale as "pt" | "en";
 
   return {
-    title,
-    description,
+    title: seo.contacto.title[l],
+    description: seo.contacto.description[l],
     openGraph: {
-      title,
-      description,
+      title: seo.contacto.title[l],
+      description: seo.contacto.description[l],
       url: `${config.siteUrl}/${locale}/contacto`,
       images: [
-        { url: "/og/contacto.png", width: 1200, height: 630, alt: title },
+        { url: "/og/contacto.png", width: 1200, height: 630, alt: seo.contacto.title[l] },
       ],
     },
     alternates: {
@@ -56,6 +51,7 @@ export default async function ContactoPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("Contacto");
+  const tProperty = await getTranslations("PropertyDetail");
   const l = locale as "pt" | "en";
 
   const breadcrumbJsonLd = {
@@ -147,6 +143,7 @@ export default async function ContactoPage({ params }: Props) {
                       score={p.booking.score}
                       reviewCount={p.booking.reviewCount}
                       url={p.booking.url}
+                      reviewsLabel={tProperty("reviewsLabel")}
                     />
                     <a
                       href={p.booking.url}

@@ -10,7 +10,7 @@
     "propertyPersons": "{count} guests",
     "propertyRooms": "{count} bedrooms",
     "trustMontalegre": "Montalegre, Portugal",
-    "trustCapacity": "Up to 12 guests",
+    "trustCapacity": "Up to 10 guests",
     "trustProperties": "2 houses available",
     "trustDirect": "Book direct",
     "regionHeading": "Montalegre, Portugal",
@@ -51,7 +51,7 @@
     "whatsappAriaLabel": "Contact via WhatsApp"
   },
   "Regiao": {
-    "heroHeadline1": "Tras-os-Montes, Portugal.",
+    "heroHeadline1": "Trás-os-Montes, Portugal.",
     "heroHeadline2": "Northern Wilderness.",
     "heroTagline": "From the mountains to the river — the north you haven't discovered yet.",
     "introHeading": "A region outside of time",
@@ -102,6 +102,8 @@
     "bookingHeading": "Book this house",
     "bookingDirectNote": "Contact us via WhatsApp or phone.",
     "bookingWhatsapp": "Message on WhatsApp",
-    "bookingBookingCom": "Book on Booking.com"
+    "bookingBookingCom": "Book on Booking.com",
+    "reviewsLabel": "reviews",
+    "inHouseLabel": "In-house"
   }
 }

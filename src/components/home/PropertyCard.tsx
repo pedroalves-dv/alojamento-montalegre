@@ -15,6 +15,7 @@ type Props = {
 
 export default function PropertyCard({ property, locale, index }: Props) {
   const t = useTranslations("Home");
+  const tProperty = useTranslations("PropertyDetail");
   const l = locale as "pt" | "en";
 
   return (
@@ -92,6 +93,7 @@ export default function PropertyCard({ property, locale, index }: Props) {
           score={property.booking.score}
           reviewCount={property.booking.reviewCount}
           url={property.booking.url}
+          reviewsLabel={tProperty("reviewsLabel")}
         />
 
         {/* Seasonal note */}

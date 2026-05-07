@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { seo } from "@/data/seo";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -10,11 +11,10 @@ export default async function OgImage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const isPt = locale === "pt";
+  const l = locale as "pt" | "en";
 
-  const headline = isPt
-    ? "Casas de Turismo Rural\nem Montalegre"
-    : "Rural Holiday Houses\nin Montalegre";
+  const headline = seo.home.og.headline[l];
+  const subline = seo.home.og.subline[l];
 
   return new ImageResponse(
     (
@@ -77,7 +77,7 @@ export default async function OgImage({
               marginTop: 4,
             }}
           >
-            Terras de Barroso · Portugal
+            {subline}
           </div>
         </div>
 

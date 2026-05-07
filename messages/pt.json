@@ -10,7 +10,7 @@
     "propertyPersons": "{count} pessoas",
     "propertyRooms": "{count} quartos",
     "trustMontalegre": "Montalegre, Portugal",
-    "trustCapacity": "Até 12 pessoas",
+    "trustCapacity": "Até 10 pessoas",
     "trustProperties": "2 casas disponíveis",
     "trustDirect": "Reserva direta",
     "regionHeading": "Montalegre, Portugal",
@@ -51,7 +51,7 @@
     "whatsappAriaLabel": "Contactar via WhatsApp"
   },
   "Regiao": {
-    "heroHeadline1": "Tras-os-Montes, Portugal.",
+    "heroHeadline1": "Trás-os-Montes, Portugal.",
     "heroHeadline2": "Terras de Barroso.",
     "heroTagline": "Das montanhas ao rio — o norte que não conhece.",
     "introHeading": "Uma região fora do tempo",
@@ -102,6 +102,8 @@
     "bookingHeading": "Reservar esta casa",
     "bookingDirectNote": "Contacte-nos pelo WhatsApp ou telefone.",
     "bookingWhatsapp": "Enviar mensagem no WhatsApp",
-    "bookingBookingCom": "Reservar no Booking.com"
+    "bookingBookingCom": "Reservar no Booking.com",
+    "reviewsLabel": "avaliações",
+    "inHouseLabel": "No edifício"
   }
 }

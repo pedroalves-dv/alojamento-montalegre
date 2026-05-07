@@ -4,6 +4,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { config } from "@/config";
+import { seo } from "@/data/seo";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import HtmlLang from "@/components/layout/HtmlLang";
 
@@ -22,22 +23,18 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const isPt = locale === "pt";
+  const l = locale as "pt" | "en";
 
   return {
     title: {
-      default: isPt
-        ? "Alojamento Montalegre — Casas de Turismo Rural"
-        : "Alojamento Montalegre — Rural Holiday Houses",
-      template: "%s | Alojamento Montalegre",
+      default: seo.site.titleDefault[l],
+      template: seo.site.titleTemplate,
     },
-    description: isPt
-      ? "Casas de turismo rural em Montalegre, Terras de Barroso. Reserva direta disponível."
-      : "Rural holiday houses in Montalegre, Terras de Barroso. Direct booking available.",
+    description: seo.site.description[l],
     openGraph: {
       siteName: "Alojamento Montalegre",
       type: "website",
-      locale: isPt ? "pt_PT" : "en_GB",
+      locale: l === "pt" ? "pt_PT" : "en_GB",
     },
     twitter: {
       card: "summary_large_image",
@@ -57,15 +54,13 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
 
-  const isPt = locale === "pt";
+  const l = locale as "pt" | "en";
 
   const localBusinessJsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Alojamento Montalegre",
-    description: isPt
-      ? "Duas casas de turismo rural em Montalegre, Terras de Barroso. Reserva direta disponível."
-      : "Two rural holiday houses in Montalegre, Terras de Barroso. Direct booking available.",
+    description: seo.site.localBusinessDescription[l],
     url: config.siteUrl,
     telephone: config.phoneNumber,
     address: {

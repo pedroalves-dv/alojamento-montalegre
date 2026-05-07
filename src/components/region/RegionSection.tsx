@@ -37,6 +37,7 @@ export default function RegionSection({ section, index, locale }: Props) {
               src={section.image}
               alt={section.title[locale]}
               fill
+              sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />
           </div>

@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { seo } from "@/data/seo";
 
 export const runtime = "edge";
 export const size = { width: 1200, height: 630 };
@@ -10,12 +11,11 @@ export default async function OgImage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const isPt = locale === "pt";
+  const l = locale as "pt" | "en";
 
-  const headline = isPt ? "Fale Connosco" : "Get in Touch";
-  const subline = isPt
-    ? "Reserva direta · Sem comissões · Resposta em 24h"
-    : "Direct booking · No fees · Reply within 24h";
+  const eyebrow = seo.contacto.og.eyebrow![l];
+  const headline = seo.contacto.og.headline[l];
+  const subline = seo.contacto.og.subline[l];
 
   return new ImageResponse(
     (
@@ -58,7 +58,7 @@ export default async function OgImage({
               fontWeight: 600,
             }}
           >
-            {isPt ? "ALOJAMENTO MONTALEGRE · CONTACTO" : "ALOJAMENTO MONTALEGRE · CONTACT"}
+            {eyebrow}
           </div>
           <div
             style={{
