@@ -43,7 +43,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       url: `${config.siteUrl}/${locale}`,
-      images: [{ url: "/og/home.png", width: 1200, height: 630, alt: title }],
     },
     alternates: {
       canonical: `${config.siteUrl}/${locale}`,
@@ -59,6 +58,8 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const l = locale as "pt" | "en";
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -72,11 +73,28 @@ export default async function HomePage({ params }: Props) {
     ],
   };
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question[l],
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer[l],
+      },
+    })),
+  };
+
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <HeroSection locale={locale} />
 

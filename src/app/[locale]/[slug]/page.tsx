@@ -24,9 +24,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: property.name[l],
       description: property.tagline[l],
       url: `${config.siteUrl}/${locale}/${slug}`,
-      images: property.images[0]
-        ? [{ url: property.images[0], width: 1200, height: 630 }]
-        : undefined,
     },
     alternates: {
       canonical: `${config.siteUrl}/${locale}/${slug}`,

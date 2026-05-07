@@ -39,7 +39,7 @@ export const properties: Property[] = [
       ],
     },
     booking: {
-      url: "https://www.booking.com/PLACEHOLDER_MOINHO",
+      url: null,
       score: "9.6",
       reviewCount: 120,
     },
