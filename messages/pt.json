@@ -2,7 +2,7 @@
   "Home": {
     "heroHeadline1": "Alojamento Local em Montalegre.",
     "heroHeadline2": "O Coração do Norte de Portugal.",
-    "heroTagline": "Duas casas únicas no coração do norte de Portugal.",
+    "heroTagline": "Duas casas únicas — charme histórico na vila, natureza tranquila à beira do rio.",
     "ctaVerCasas": "Ver Casas",
     "ctaConhecerRegiao": "Conhecer a Região",
     "propertiesHeading": "As nossas casas",
@@ -45,21 +45,21 @@
     "bookingLabel": "Booking.com",
     "copyright": "© {year} Alojamento Montalegre. Todos os direitos reservados.",
     "cookieNotice": "Este site utiliza cookies essenciais. Ao continuar, aceita a sua utilização.",
-    "localeAriaLabel": "Switch to English"
+    "localeAriaLabel": "Mudar para inglês"
   },
   "FloatingButton": {
     "whatsappAriaLabel": "Contactar via WhatsApp"
   },
   "Regiao": {
-    "heroHeadline1": "Trás-os-Montes, Portugal.",
-    "heroHeadline2": "Terras de Barroso.",
+    "heroHeadline1": "Descubra a região de Trás-os-Montes.",
+    "heroHeadline2": "O Norte Selvagem.",
     "heroTagline": "Das montanhas ao rio — o norte que não conhece.",
     "introHeading": "Uma região fora do tempo",
-    "introBody": "As Terras de Barroso ficam no extremo norte interior de Portugal, entre montanhas graníticas, vales profundos e rios frios. É uma paisagem de contrastes: silêncio absoluto e festas ruidosas, invernos rigorosos e verões perfeitos, gastronomia rústica e vinhos premiados. Montalegre é a capital desta região — uma vila medieval com castelo, fumeiro e uma hospitalidade que não se aprende, nasce.",
+    "introBody": "Montalegre fica no extremo norte interior de Portugal, entre montanhas graníticas, vales profundos e rios frios — no coração de Trás-os-Montes, a poucos quilómetros do Parque Nacional da Peneda-Gerês e da Serra do Larouco. É uma paisagem de contrastes: silêncio absoluto e festas únicas como o Festival das Bruxas, invernos rigorosos e verões perfeitos para caminhar. Montalegre é uma vila medieval com castelo, fumeiro e uma hospitalidade que não se aprende, nasce.",
     "seasonalHeading": "Quando Visitar",
     "springLabel": "Primavera",
     "springMonths": "Março – Maio",
-    "springNote": "Paisagem verde, flores silvestres, trilhos desertos.",
+    "springNote": "Paisagem verde, flores silvestres — a melhor época para trilhos pedestres.",
     "summerLabel": "Verão",
     "summerMonths": "Junho – Agosto",
     "summerNote": "Temperatura amena, dias longos — época alta, reserve com antecedência.",
@@ -76,7 +76,7 @@
     "fromBragaDetail": "~1h30 de carro pela N103",
     "gettingHereNote": "De carro é a melhor opção — a paisagem pelo caminho já vale a viagem.",
     "directionsLink": "Ver percurso",
-    "mapTitle": "Mapa de Montalegre, Terras de Barroso"
+    "mapTitle": "Mapa de Montalegre, Trás-os-Montes"
   },
   "Contacto": {
     "heading": "Fale Connosco",

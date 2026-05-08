@@ -18,6 +18,7 @@ export interface Property {
   amenities: LocalizedStringArray;
   booking: PropertyBooking;
   airbnbUrl: string | null;
+  phone?: string;
   whatsappMessage: LocalizedString;
   seasonal: LocalizedString;
   restaurantInfo?: {

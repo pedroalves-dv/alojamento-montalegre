@@ -13,6 +13,16 @@ export const faq: FAQItem[] = [
   },
   {
     question: {
+      pt: "A quanto fica o Parque Nacional da Peneda-Gerês?",
+      en: "How far is Peneda-Gerês National Park?",
+    },
+    answer: {
+      pt: "O Parque Nacional da Peneda-Gerês fica a menos de uma hora de carro a partir de Montalegre. É o único parque nacional de Portugal e um dos destinos naturais mais procurados do país — cascatas, trilhos, aldeias históricas e avistamentos de fauna selvagem. Uma visita obrigatória durante a estadia.",
+      en: "Peneda-Gerês National Park is less than an hour's drive from Montalegre. It is Portugal's only national park and one of the country's most sought-after natural destinations — waterfalls, trails, historic villages, and wildlife sightings. A must-visit during your stay.",
+    },
+  },
+  {
+    question: {
       pt: "São permitidos animais de estimação?",
       en: "Are pets allowed?",
     },

@@ -31,12 +31,12 @@ export const seo: {
     },
     titleTemplate: "%s | Alojamento Montalegre",
     description: {
-      pt: "Casas de turismo rural em Montalegre, Portugal. Reserva direta disponível.",
-      en: "Rural holiday houses in Montalegre, Portugal. Direct booking available.",
+      pt: "Duas casas de turismo rural em Montalegre, norte de Portugal. Junto ao castelo medieval e à beira do rio Cávado, a 40 min do Parque Nacional da Peneda-Gerês. Reserva direta.",
+      en: "Two rural holiday houses in Montalegre, northern Portugal. By the medieval castle and the Cávado river, 40 min from Peneda-Gerês National Park. Book direct, no fees.",
     },
     localBusinessDescription: {
-      pt: "Duas casas de turismo rural em Montalegre, Portugal. Reserva direta disponível.",
-      en: "Two rural holiday houses in Montalegre, Portugal. Direct booking available.",
+      pt: "Duas casas de turismo rural em Montalegre, norte de Portugal — Casa do Moinho à beira do rio e Casa do Castelo junto ao castelo medieval. Reserva direta disponível.",
+      en: "Two rural holiday houses in Montalegre, northern Portugal — Casa do Moinho by the river and Casa do Castelo next to the medieval castle. Direct booking available.",
     },
   },
 
@@ -46,8 +46,8 @@ export const seo: {
       en: "Alojamento Montalegre — Rural Holiday Houses",
     },
     description: {
-      pt: "Duas casas únicas em Montalegre, Terras de Barroso. Casa do Moinho e Casa do Castelo. Reserva direta sem comissões.",
-      en: "Two unique holiday houses in Montalegre, Terras de Barroso. Casa do Moinho and Casa do Castelo. Book direct with no fees.",
+      pt: "Duas casas únicas em Montalegre, norte de Portugal — Casa do Moinho à beira do rio Cávado e Casa do Castelo junto às muralhas medievais. Reserve diretamente, sem comissões.",
+      en: "Two unique holiday houses in Montalegre, northern Portugal — Casa do Moinho by the river and Casa do Castelo next to the medieval walls. Book direct with no fees.",
     },
     keywords: {
       pt: [
@@ -57,6 +57,10 @@ export const seo: {
         "casa de férias montalegre",
         "turismo rural montalegre",
         "turismo rural norte portugal",
+        "alojamento geres",
+        "casa de férias norte portugal",
+        "casa rural montalegre",
+        "alojamento rio cavado",
       ],
       en: [
         "accommodation montalegre",
@@ -68,6 +72,10 @@ export const seo: {
         "holiday house montalegre portugal",
         "rural tourism montalegre",
         "rural tourism gerês",
+        "holiday house near gerês",
+        "accommodation near peneda geres",
+        "montalegre holiday rental",
+        "cávado river accommodation",
       ],
     },
     og: {
@@ -84,29 +92,35 @@ export const seo: {
 
   regiao: {
     title: {
-      pt: "Trás-os-Montes e Alto Douro — Descobrir a Região",
-      en: "Trás-os-Montes and High Douro — Discover the Region",
+      pt: "Montalegre, Trás-os-Montes — Descobrir a Região",
+      en: "Montalegre, Trás-os-Montes — Discover the Region",
     },
     description: {
-      pt: "Montalegre, Parque Natural do Gerês, Barragem do Alto Rabagão — descubra o norte selvagem de Portugal nas Terras de Barroso.",
-      en: "Montalegre, Peneda-Gerês National Park, Alto Rabagão — explore the wild north of Portugal in Terras de Barroso.",
+      pt: "Montalegre, Serra do Larouco, Parque Nacional da Peneda-Gerês — descubra o norte de Portugal: castelo medieval, Festival das Bruxas, trilhos pedestres e gastronomia transmontana.",
+      en: "Montalegre, Serra do Larouco, Peneda-Gerês National Park — discover northern Portugal: medieval castle, Festival of the Witches, walking trails and traditional Transmontana cuisine.",
     },
     keywords: {
       pt: [
-        "tras-os-montes",
-        "trás-os-montes tourism",
-        "alto douro",
         "montalegre turismo",
-        "parque natural gerês",
-        "turismo rural barroso",
+        "trás-os-montes",
+        "parque nacional gerês",
+        "serra do larouco",
+        "festival das bruxas montalegre",
+        "dia das bruxas montalegre",
+        "trilhos pedestres montalegre",
+        "o que fazer montalegre",
+        "castelo de montalegre",
       ],
       en: [
-        "trás-os-montes",
-        "trás-os-montes tourism",
-        "high douro",
         "montalegre tourism",
+        "trás-os-montes",
         "peneda gerês national park",
-        "rural tourism portugal",
+        "serra do larouco",
+        "witches festival montalegre",
+        "friday 13th montalegre",
+        "hiking montalegre",
+        "walking trails montalegre",
+        "what to do montalegre",
       ],
     },
     og: {

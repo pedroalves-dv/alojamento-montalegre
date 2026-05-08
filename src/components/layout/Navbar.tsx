@@ -39,7 +39,7 @@ export default function Navbar() {
   );
 
   const navBg = isScrolled
-    ? "bg-fog/95 backdrop-blur-sm shadow-sm"
+    ? "bg-fog/95 backdrop-blur-sm border-b border-gray-300"
     : isLightPage
       ? "bg-fog/95 backdrop-blur-sm"
       : "bg-transparent";

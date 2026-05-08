@@ -10,13 +10,13 @@ export const properties: Property[] = [
       en: "Beside the river, far from the world",
     },
     description: {
-      pt: "A Casa do Moinho fica à margem do rio Cávado, envolta pelo verde intenso da Serra do Larouco. Um antigo moinho restaurado com cuidado, onde a pedra granítica e a madeira envelhecida se misturam com o conforto moderno. Acorde com o som da água e duerma com as estrelas a guiar-lhe o sono.\n\nEspaçosa e luminosa, a casa acomoda até 12 pessoas em 5 quartos — ideal para famílias grandes ou grupos de amigos que procuram um retiro verdadeiro. A cozinha totalmente equipada convida a longas refeições à lareira enquanto lá fora o vento dança nos carvalhos.\n\nEsta é a casa certa para quem quer desligar de verdade: sem semáforos, sem pressa, sem barulho — só a natureza, a brasa e o silêncio que só o Barroso sabe dar.",
-      en: "Casa do Moinho sits on the banks of the Cávado river, surrounded by the deep green of the Larouco Sierra. A lovingly restored Mill where granite stone and aged wood meet modern comfort. Wake to the sound of the water; sleep under a sky thick with stars.\n\nSpaçious and light-filled, the house sleeps up to 12 across 5 bedrooms — ideal for large families or groups of friends seeking a genuine retreat. The fully equipped kitchen invites long evenings by the fireplace while the wind moves through the oaks outside.\n\nThis is the house for those who truly want to disconnect: no traffic lights, no rush, no noise — just nature, embers, and the silence only Barroso can offer.",
+      pt: "A Casa do Moinho fica à margem do rio Cávado, envolta pelo verde intenso da Serra do Larouco. Um antigo moinho restaurado com cuidado, onde a pedra granítica e a madeira envelhecida se misturam com o conforto moderno. Acorde com o som da água e duerma com as estrelas a guiar-lhe o sono.\n\nEspaçosa e luminosa, a casa acomoda até 10 pessoas em 5 quartos — ideal para famílias grandes ou grupos de amigos que procuram um retiro verdadeiro. A cozinha totalmente equipada convida a longas refeições à lareira enquanto lá fora o vento dança nos carvalhos.\n\nEsta é a casa certa para quem quer desligar de verdade: sem semáforos, sem pressa, sem barulho — só a natureza, a brasa e o silêncio que só o Barroso sabe dar.",
+      en: "Casa do Moinho sits on the banks of the Cávado river, surrounded by the deep green of Serra do Larouco. A lovingly restored water mill where granite stone and aged wood meet modern comfort. Wake to the sound of the water; sleep under a sky thick with stars.\n\nSpacious and light-filled, the house sleeps up to 10 across 5 bedrooms — ideal for large families or groups of friends seeking a genuine retreat. The fully equipped kitchen invites long evenings by the fireplace while the wind moves through the oaks outside.\n\nThis is the house for those who truly want to disconnect: no traffic lights, no rush, no noise — just nature, embers, and the silence only Barroso can offer.",
     },
-    capacity: 12,
+    capacity: 10,
     rooms: 5,
     location: {
-      pt: "Montalegre, a beira do rio Cávado",
+      pt: "Montalegre, à beira do rio Cávado",
       en: "Montalegre, beside the Cávado river",
     },
     coordinates: { lat: 41.8229, lng: -7.7936 },
@@ -44,6 +44,7 @@ export const properties: Property[] = [
       reviewCount: 120,
     },
     airbnbUrl: null,
+    phone: "+351 xxx xxx xxx",
     whatsappMessage: {
       pt: "Olá, gostaria de saber mais sobre a Casa do Moinho",
       en: "Hello, I'd like to know more about Casa do Moinho",
@@ -104,13 +105,14 @@ export const properties: Property[] = [
       reviewCount: null,
     },
     airbnbUrl: null,
+    phone: "+351 xxx xxx xxx",
     whatsappMessage: {
       pt: "Olá, gostaria de saber mais sobre a Casa do Castelo",
       en: "Hello, I'd like to know more about Casa do Castelo",
     },
     seasonal: {
       pt: "Disponível todo o ano.",
-      en: "Available year-round",
+      en: "Available year-round.",
     },
     restaurantInfo: {
       name: { pt: "Restaurante O Castelo", en: "O Castelo Restaurant" },

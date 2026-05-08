@@ -27,12 +27,12 @@ export default function RegionSection({ section, index, locale }: Props) {
       className="py-12 px-6"
     >
       <div
-        className={`max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-center ${
+        className={`max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center ${
           isEven ? "" : "md:flex-row-reverse"
         }`}
       >
         <div className="w-full md:w-1/2 shrink-0">
-          <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+          <div className="relative aspect-[4/3] overflow-hidden">
             <Image
               src={section.image}
               alt={section.title[locale]}

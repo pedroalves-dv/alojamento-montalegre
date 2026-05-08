@@ -14,11 +14,19 @@
   --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
   --font-stack:
     var(--font-stack-local), "Stack", ui-sans-serif, system-ui, sans-serif;
+
+  /* Body letter-spacing — one place to tune for all prose/UI text */
+  --tracking-body: 0.01em;
 }
 
 @layer base {
   html {
     @apply font-stack text-granite bg-fog;
+    letter-spacing: var(--tracking-body);
+  }
+
+  .font-serif {
+    letter-spacing: 0;
   }
 
   a {

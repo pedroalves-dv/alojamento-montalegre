@@ -22,7 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: seo.contacto.description[l],
       url: `${config.siteUrl}/${locale}/contacto`,
       images: [
-        { url: "/og/contacto.png", width: 1200, height: 630, alt: seo.contacto.title[l] },
+        {
+          url: "/og/contacto.png",
+          width: 1200,
+          height: 630,
+          alt: seo.contacto.title[l],
+        },
       ],
     },
     alternates: {
@@ -116,25 +121,48 @@ export default async function ContactoPage({ params }: Props) {
               <AnimatedSection
                 key={p.slug}
                 delay={i * 0.12}
-                className="border border-gray-200 rounded-2xl p-8 bg-white shadow-sm flex flex-col gap-6"
+                className="border border-gray-200 rounded-2xl px-8 py-6 bg-white  flex flex-col gap-6"
               >
                 <div>
-                  <h2 className="font-serif text-2xl text-granite mb-1">
+                  <h2 className="font-serif text-3xl text-granite mb-1">
                     {p.name[l]}
                   </h2>
-                  <p className="text-granite/55 text-sm">{p.location[l]}</p>
+                  <p className="text-granite/55 text-md">{p.location[l]}</p>
                 </div>
 
                 {/* WhatsApp button */}
-                <a
-                  href={waHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 bg-forest text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-moss transition-colors duration-200 text-sm"
-                >
-                  <WhatsAppIcon />
-                  {t("whatsappButton")}
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a
+                    href={waHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 bg-forest text-white font-semibold px-6 py-3.5 rounded-xl hover:bg-moss transition-colors duration-200 text-sm"
+                  >
+                    <WhatsAppIcon />
+                    {t("whatsappButton")}
+                  </a>
+                  {p.phone && (
+                    <a
+                      href={`tel:${p.phone.replace(/\s/g, "")}`}
+                      className="inline-flex items-center justify-center gap-2 text-granite/60 hover:text-granite text-lg transition-colors duration-200 mt-4"
+                    >
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87a16 16 0 0 0 6.22 6.22l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z" />
+                      </svg>
+                      {p.phone}
+                    </a>
+                  )}
+                </div>
 
                 {/* Booking.com — only shown when the property has an external listing */}
                 {p.booking.url && (

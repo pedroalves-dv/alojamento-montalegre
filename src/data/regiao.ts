@@ -38,6 +38,17 @@ export const regiao: RegiaoSection[] = [
   },
   {
     title: {
+      pt: "Trilhos Pedestres — Serra do Larouco e Arredores",
+      en: "Walking Trails — Serra do Larouco and Surroundings",
+    },
+    body: {
+      pt: "A região de Montalegre está atravessada por uma rede de trilhos pedestres sinalizados, que percorrem paisagens de montanha, margens de rios e aldeias históricas. A Serra do Larouco — a segunda montanha mais alta de Portugal a oeste do Tejo — oferece percursos de diferentes níveis de dificuldade, com vistas sobre o vale do Cávado e as serras da região. Outros trilhos percorrem as margens da barragem do Alto Rabagão e ligam aldeias tradicionais onde o tempo parece parar. Para caminhantes de todos os níveis, esta é uma das regiões mais recompensadoras do norte de Portugal.",
+      en: "The Montalegre area is threaded with a network of marked walking trails, winding through mountain landscapes, riverside paths, and historic villages. Serra do Larouco — the second highest mountain in Portugal west of the Tagus — offers routes for all fitness levels, with sweeping views over the Cávado valley and the surrounding ranges. Other trails follow the Alto Rabagão reservoir shore and connect traditional villages where time seems to stand still. For walkers of all levels, this is one of the most rewarding regions in northern Portugal.",
+    },
+    image: "/images/montalegre-2.png",
+  },
+  {
+    title: {
       pt: "Feira do Fumeiro — Janeiro",
       en: "Fumeiro Fair — January",
     },
@@ -50,13 +61,12 @@ export const regiao: RegiaoSection[] = [
   },
   {
     title: {
-      pt: "Vinho dos Mortos",
-      en: "Vinho dos Mortos",
+      pt: "Festival das Bruxas — Sexta-feira 13",
+      en: "Festival of the Witches — Friday the 13th",
     },
     body: {
-      pt: "O Vinho dos Mortos é um vinho espumante de origem única: durante as Guerras Napoleónicas, os habitantes de Boticas enterraram as suas garrafas de vinho para as esconder dos soldados invasores. Quando as desenterraram após a guerra, o vinho tinha fermentado de forma natural e transformado numa bebida espumante e deliciosa. Hoje produzido localmente e premiado internacionalmente, é uma das histórias mais singulares da vitivinicultura europeia.",
-
-      en: "Vinho dos Mortos (Wine of the Dead) is a sparkling wine with a unique origin: during the Napoleonic Wars, the people of Boticas buried their wine bottles to hide them from invading soldiers. When they were dug up after the war, the wine had naturally fermented into a sparkling, delicious drink. Now produced locally and internationally awarded, it is one of the most singular stories in European wine-making.",
+      pt: "Montalegre tem uma relação histórica com o mundo das bruxas e do misticismo, enraizada na tradição popular transmontana. Todos os anos, em cada sexta-feira dia 13, a vila transforma-se no palco do Festival das Bruxas — uma festa única em Portugal, com desfiles noturnos pelas ruas medievais, fogo, música ao vivo, espectáculos de magia e uma atmosfera que mistura o lendário com o festivo. O evento atrai milhares de visitantes de todo o país e é, para muitos, uma razão em si para visitar Montalegre.",
+      en: "Montalegre has a historic relationship with witchcraft and mysticism, rooted deep in Transmontana folk tradition. Every year, on each Friday the 13th, the town becomes the stage for the Festival of the Witches — a unique event in Portugal, with nocturnal processions through the medieval streets, fire, live music, magic shows, and an atmosphere that blends the legendary with the festive. The event draws thousands of visitors from across the country and is, for many, reason enough on its own to visit Montalegre.",
     },
     image: "/images/bruxas.jpg",
   },

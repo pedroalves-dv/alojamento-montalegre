@@ -2,7 +2,7 @@
   "Home": {
     "heroHeadline1": "Guest Houses in Montalegre.",
     "heroHeadline2": "The Heart of Northern Portugal.",
-    "heroTagline": "Two unique houses — Historic charm in the village, quiet nature by the river.",
+    "heroTagline": "Two unique houses in Montalegre — historic charm by the castle, quiet nature by the river.",
     "ctaVerCasas": "See Houses",
     "ctaConhecerRegiao": "Discover the Region",
     "propertiesHeading": "Our houses",
@@ -51,15 +51,15 @@
     "whatsappAriaLabel": "Contact via WhatsApp"
   },
   "Regiao": {
-    "heroHeadline1": "Trás-os-Montes, Portugal.",
-    "heroHeadline2": "Northern Wilderness.",
+    "heroHeadline1": "Discover the region of Trás-os-Montes.",
+    "heroHeadline2": "Portugal's Northern Wilderness.",
     "heroTagline": "From the mountains to the river — the north you haven't discovered yet.",
     "introHeading": "A region outside of time",
-    "introBody": "Terras de Barroso lies in the far north interior of Portugal, among granite mountains, deep valleys, and cold rivers. It is a landscape of contrasts: absolute silence and raucous festivals, harsh winters and perfect summers, rustic gastronomy and award-winning wines. Montalegre is the capital of this region — a medieval town with a castle, smoked meats, and a hospitality that isn't learned, it's born.",
+    "introBody": "Montalegre lies in the far north interior of Portugal, among granite mountains, deep valleys, and cold rivers — at the heart of Trás-os-Montes, just a short drive from Peneda-Gerês National Park and Serra do Larouco. It is a landscape of contrasts: absolute silence and unique festivals like the Festival of the Witches, harsh winters and perfect summers for hiking. Montalegre is a medieval town with a castle, smoked meats, and a hospitality that isn't learned, it's born.",
     "seasonalHeading": "When to Visit",
     "springLabel": "Spring",
     "springMonths": "March – May",
-    "springNote": "Lush green landscape, wildflowers, uncrowded trails.",
+    "springNote": "Lush green landscape, wildflowers — the best season for walking trails.",
     "summerLabel": "Summer",
     "summerMonths": "June – August",
     "summerNote": "Mild temperatures, long days — peak season, book early.",
@@ -76,7 +76,7 @@
     "fromBragaDetail": "~1.5h by car via N103",
     "gettingHereNote": "A car is the best option — the scenery along the way is worth the journey.",
     "directionsLink": "Get directions",
-    "mapTitle": "Map of Montalegre, Terras de Barroso"
+    "mapTitle": "Map of Montalegre, Trás-os-Montes"
   },
   "Contacto": {
     "heading": "Get in Touch",

@@ -68,7 +68,7 @@ export default async function PropertyDetailLayout({
               {description.split("\n\n").map((para, i) => (
                 <p
                   key={i}
-                  className="text-granite/70 leading-relaxed text-base"
+                  className="text-granite/70 leading-relaxed text-base max-w-3xl"
                 >
                   {para}
                 </p>

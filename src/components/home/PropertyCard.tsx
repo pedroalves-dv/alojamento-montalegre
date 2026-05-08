@@ -24,10 +24,10 @@ export default function PropertyCard({ property, locale, index }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
-      className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col group"
+      className="bg-white overflow-hidden border border-gray-300 flex flex-col group"
     >
       {/* Cover image */}
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[5/3] overflow-hidden">
         <Image
           src={property.images[0]!}
           alt={property.name[l]}
@@ -40,10 +40,10 @@ export default function PropertyCard({ property, locale, index }: Props) {
       {/* Content */}
       <div className="p-6 flex flex-col flex-1 gap-3">
         <div>
-          <h3 className="font-serif text-3xl text-granite mb-1">
+          <h3 className="font-serif text-4xl text-granite mb-1">
             {property.name[l]}
           </h3>
-          <p className="text-granite/70 text-sm leading-relaxed">
+          <p className="text-granite/70 text-md leading-relaxed">
             {property.tagline[l]}
           </p>
         </div>

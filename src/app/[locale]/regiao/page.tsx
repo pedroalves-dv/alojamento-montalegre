@@ -21,7 +21,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: seo.regiao.title[l],
       description: seo.regiao.description[l],
       url: `${config.siteUrl}/${locale}/regiao`,
-      images: [{ url: "/og/regiao.png", width: 1200, height: 630, alt: seo.regiao.title[l] }],
+      images: [
+        {
+          url: "/og/regiao.png",
+          width: 1200,
+          height: 630,
+          alt: seo.regiao.title[l],
+        },
+      ],
     },
     alternates: {
       canonical: `${config.siteUrl}/${locale}/regiao`,
@@ -89,7 +96,7 @@ export default async function RegiaoPage({ params }: Props) {
       />
 
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-end md:text-center">
+      <section className="relative h-[100vh] flex items-center md:text-center">
         <Image
           src="/images/montalegre-2.png"
           alt="Monte do Larrouco, Terras de Barroso"
@@ -98,17 +105,36 @@ export default async function RegiaoPage({ params }: Props) {
           sizes="100vw"
           className="object-cover"
         />
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-granite/80 via-granite/30 to-transparent" /> */}
-        <div className="relative z-10 pb-14 max-w-4xl mx-auto w-full px-6">
-          <h1 className="font-serif text-5xl md:text-7xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/30 to-transparent" />
+        <div className="relative z-10 pb-14 max-w-6xl mx-auto w-full px-6">
+          <h1 className="font-serif text-6xl md:text-7xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-4">
             {t("heroHeadline1")}
           </h1>
-          <h1 className="font-stack text-4xl md:text-6xl text-white mb-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          <h1 className="font-stack text-5xl md:text-7xl text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {t("heroHeadline2")}
           </h1>
-          <p className="text-white/80 text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+          <p className="text-white/80 text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {t("heroTagline")}
           </p>
+        </div>
+
+        <div
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white"
+          aria-hidden
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="animate-bounce"
+          >
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
         </div>
       </section>
 
@@ -133,7 +159,7 @@ export default async function RegiaoPage({ params }: Props) {
 
       {/* Seasonal guide */}
       <section className="py-20 px-6 bg-fog">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-4xl md:text-6xl text-granite md:text-center mb-12">
             {t("seasonalHeading")}
           </h2>
@@ -157,7 +183,7 @@ export default async function RegiaoPage({ params }: Props) {
 
       {/* Getting here */}
       <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-4xl md:text-6xl text-granite mb-10 md:text-center">
             {t("gettingHereHeading")}
           </h2>
@@ -178,7 +204,7 @@ export default async function RegiaoPage({ params }: Props) {
             ].map((row) => (
               <div
                 key={row.label}
-                className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col"
+                className="bg-white rounded-xl border border-gray-300 p-6 flex flex-col"
               >
                 <svg
                   width="22"
@@ -213,7 +239,7 @@ export default async function RegiaoPage({ params }: Props) {
               </div>
             ))}
           </div>
-          <div className="rounded-xl overflow-hidden border border-gray-100 shadow-sm h-[320px] mb-8">
+          <div className="rounded-xl overflow-hidden border border-gray-300  h-[320px] mb-8">
             <iframe
               title={t("mapTitle")}
               src="https://maps.google.com/maps?q=41.8235,-7.7916&z=13&output=embed"
