@@ -1,14 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import AlojamentoLogo from "@/components/ui/AlojamentoLogo";
 import LocaleToggle from "@/components/ui/LocaleToggle";
+import { properties } from "@/data/properties";
 
-const NAV_LINKS = [
-  { key: "casas" as const, href: "/" },
+const OTHER_NAV_LINKS = [
   { key: "regiao" as const, href: "/regiao" },
   { key: "contacto" as const, href: "/contacto" },
 ] as const;
@@ -16,17 +17,23 @@ const NAV_LINKS = [
 export default function Navbar() {
   const t = useTranslations("Nav");
   const locale = useLocale();
+  const l = locale as "pt" | "en";
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCasasExpanded, setIsCasasExpanded] = useState(false);
 
-  // Close drawer on route change
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsCasasExpanded(false);
   }, [pathname]);
 
   const navBg = "bg-fog/95 backdrop-blur-sm border-b border-gray-300";
   const navText = "text-granite";
-  const logoVariant = "dark";
+
+  const isCasasActive =
+    pathname === `/${locale}` ||
+    pathname === `/${locale}/` ||
+    properties.some((p) => pathname.startsWith(`/${locale}/${p.slug}`));
 
   return (
     <>
@@ -36,22 +43,82 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-[var(--navbar-height)] flex items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Alojamento Montalegre — início">
-            <AlojamentoLogo variant={logoVariant} className="h-8 w-auto" />
+            <AlojamentoLogo variant="dark" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10">
-            {NAV_LINKS.map(({ key, href }) => {
+            {/* Casas dropdown */}
+            <div className="relative group">
+              <Link
+                href={`/${locale}#casas`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById("casas")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                  window.history.pushState(null, "", `/${locale}#casas`);
+                }}
+                className={`flex items-center gap-1 text-md font-medium tracking-wide transition-colors ${navText} ${
+                  isCasasActive ? "opacity-100" : "opacity-70 hover:opacity-100"
+                }`}
+              >
+                {t("casas")}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-200 group-hover:rotate-180"
+                  aria-hidden
+                >
+                  <polyline points="2 4 6 8 10 4" />
+                </svg>
+              </Link>
+
+              {/* Flyout — pt-4 is the visual gap AND the hover bridge (mouse stays in group) */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 hidden group-hover:block">
+                <div className="bg-fog border border-gray-300 shadow-lg rounded-xl overflow-hidden w-max min-w-[200px]">
+                  {properties.map((property) => (
+                    <Link
+                      key={property.slug}
+                      href={`/${locale}/${property.slug}`}
+                      className="flex items-center gap-3 px-5 py-3.5 hover:bg-gray-200 transition-colors border-b border-gray-300 last:border-0"
+                    >
+                      <Image
+                        src="/icons/house.png"
+                        alt=""
+                        width={26}
+                        height={26}
+                        className="shrink-0"
+                      />
+                      <div className="flex flex-col">
+                        <span className="font-medium text-granite text-sm">
+                          {property.name[l]}
+                        </span>
+                        <span className="text-granite/50 text-xs mt-0.5">
+                          {property.tagline[l]}
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Other links */}
+            {OTHER_NAV_LINKS.map(({ key, href }) => {
               const fullHref = `/${locale}${href}`;
-              const isActive =
-                href === "/"
-                  ? pathname === `/${locale}` || pathname === `/${locale}/`
-                  : pathname.startsWith(`/${locale}${href}`);
+              const isActive = pathname.startsWith(`/${locale}${href}`);
               return (
                 <Link
                   key={key}
                   href={fullHref}
-                  className={`text-md font-medium tracking-wide transition-colors  ${navText} ${
+                  className={`text-md font-medium tracking-wide transition-colors ${navText} ${
                     isActive ? "opacity-100" : "opacity-70 hover:opacity-100"
                   }`}
                 >
@@ -115,7 +182,51 @@ export default function Navbar() {
           </div>
 
           <nav className="flex flex-col gap-1 px-6 pt-8 flex-1">
-            {NAV_LINKS.map(({ key, href }) => (
+            {/* Casas expandable */}
+            <div className="border-b border-white/10">
+              <button
+                onClick={() => setIsCasasExpanded((v) => !v)}
+                className="w-full flex items-center justify-between font-serif text-fog text-4xl py-3 hover:text-amber transition-colors"
+              >
+                {t("casas")}
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className={`transition-transform duration-200 ${isCasasExpanded ? "rotate-180" : ""}`}
+                  aria-hidden
+                >
+                  <polyline points="4 7 10 13 16 7" />
+                </svg>
+              </button>
+
+              {isCasasExpanded && (
+                <div className="flex flex-col pb-3 pl-2 gap-1">
+                  {properties.map((property) => (
+                    <Link
+                      key={property.slug}
+                      href={`/${locale}/${property.slug}`}
+                      className="flex flex-col py-2.5 border-l-2 border-amber pl-4"
+                    >
+                      <span className="font-medium text-fog text-lg">
+                        {property.name[l]}
+                      </span>
+                      <span className="text-fog/50 text-sm">
+                        {property.tagline[l]}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Other links */}
+            {OTHER_NAV_LINKS.map(({ key, href }) => (
               <Link
                 key={key}
                 href={`/${locale}${href}`}
