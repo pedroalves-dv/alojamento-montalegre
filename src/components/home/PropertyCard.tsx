@@ -24,17 +24,29 @@ export default function PropertyCard({ property, locale, index }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
-      className="bg-white overflow-hidden border border-gray-300 flex flex-col group"
+      className="relative bg-white overflow-hidden border border-gray-300 flex flex-col group"
     >
       {/* Cover image */}
-      <div className="relative aspect-[5/3] overflow-hidden">
-        <Image
-          src={property.images[0]!}
-          alt={property.name[l]}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
-          sizes="(min-width: 768px) 50vw, 100vw"
-        />
+      <div className="relative aspect-[5/3]">
+        <div className="absolute inset-0 overflow-hidden">
+          <Image
+            src={property.images[0]!}
+            alt={property.name[l]}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-102"
+            sizes="(min-width: 768px) 50vw, 100vw"
+          />
+        </div>
+        {property.booking.score !== null && (
+          <div className="absolute bottom-3 right-3 z-10">
+            <BookingScoreBadge
+              score={property.booking.score}
+              reviewCount={property.booking.reviewCount}
+              url={property.booking.url}
+              reviewsLabel={tProperty("reviewsLabel")}
+            />
+          </div>
+        )}
       </div>
 
       {/* Content */}
@@ -93,14 +105,6 @@ export default function PropertyCard({ property, locale, index }: Props) {
           </span>
         </div>
 
-        {/* Booking badge — renders nothing when score is null */}
-        <BookingScoreBadge
-          score={property.booking.score}
-          reviewCount={property.booking.reviewCount}
-          url={property.booking.url}
-          reviewsLabel={tProperty("reviewsLabel")}
-        />
-
         {/* Seasonal note */}
         <p className="text-amber text-xs font-medium tracking-wide">
           {property.seasonal[l]}
@@ -110,7 +114,7 @@ export default function PropertyCard({ property, locale, index }: Props) {
         <div className="mt-auto pt-2">
           <Link
             href={`/${locale}/${property.slug}`}
-            className="inline-block bg-forest hover:bg-moss text-white text-md font-medium px-6 py-3 rounded-lg transition-colors duration-200"
+            className="inline-block bg-forest hover:bg-moss text-white text-md font-medium px-6 py-3 rounded-lg transition-colors duration-200 after:absolute after:inset-0 after:content-['']"
           >
             {t("propertyCardCta")}
           </Link>

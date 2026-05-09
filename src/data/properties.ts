@@ -19,7 +19,7 @@ export const properties: Property[] = [
       pt: "Montalegre, à beira do rio Cávado",
       en: "Montalegre, beside the Cávado river",
     },
-    coordinates: { lat: 41.8229, lng: -7.7936 },
+    coordinates: { lat: 41.8185444, lng: -7.8241824 },
     amenities: {
       pt: [
         "WiFi",
@@ -53,13 +53,16 @@ export const properties: Property[] = [
       pt: "Popular no verão — reserve com antecedência",
       en: "Popular in summer — book early",
     },
-    priceFrom: null,
+    priceFrom: 180,
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
     nearby: [
       {
-        label: { pt: "Parque Nacional Peneda-Gerês", en: "Peneda-Gerês National Park" },
+        label: {
+          pt: "Parque Nacional Peneda-Gerês",
+          en: "Peneda-Gerês National Park",
+        },
         distance: { pt: "~45 min", en: "~45 min" },
       },
       {
@@ -79,7 +82,14 @@ export const properties: Property[] = [
         distance: { pt: "~5 min", en: "~5 min" },
       },
     ],
-    address: { pt: "Montalegre, Trás-os-Montes, Portugal", en: "Montalegre, Trás-os-Montes, Portugal" },
+    address: {
+      pt: "Cambezes do Rio, Montalegre, 5470-041",
+      en: "Cambezes do Rio, Montalegre, 5470-041",
+    },
+    gettingHereNote: {
+      pt: "O GPS leva-o até à estrada principal em Cambezes do Rio. A casa fica no fim do caminho de terra à esquerda.",
+      en: "GPS will take you to the main road in Cambezes do Rio. The house is at the end of the dirt track on the left.",
+    },
     keywords: {
       pt: [
         "Casa do Moinho",
@@ -138,7 +148,7 @@ export const properties: Property[] = [
       pt: "Montalegre, junto ao Castelo",
       en: "Montalegre, next to the Castle",
     },
-    coordinates: { lat: 41.8241, lng: -7.7897 },
+    coordinates: { lat: 41.8261156, lng: -7.7915704 },
     amenities: {
       pt: [
         "WiFi",
@@ -172,7 +182,7 @@ export const properties: Property[] = [
       pt: "Disponível todo o ano.",
       en: "Available year-round.",
     },
-    priceFrom: null,
+    priceFrom: 50,
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
@@ -182,7 +192,10 @@ export const properties: Property[] = [
         distance: { pt: "2 min a pé", en: "2 min walk" },
       },
       {
-        label: { pt: "Parque Nacional Peneda-Gerês", en: "Peneda-Gerês National Park" },
+        label: {
+          pt: "Parque Nacional Peneda-Gerês",
+          en: "Peneda-Gerês National Park",
+        },
         distance: { pt: "~45 min", en: "~45 min" },
       },
       {
@@ -198,7 +211,11 @@ export const properties: Property[] = [
         distance: { pt: "~2h", en: "~2h" },
       },
     ],
-    address: { pt: "Montalegre, Trás-os-Montes, Portugal", en: "Montalegre, Trás-os-Montes, Portugal" },
+    address: {
+      pt: "Terreiro Açougue nº1, Montalegre, 5470-250",
+      en: "Terreiro Açougue nº1, Montalegre, 5470-250",
+    },
+    gettingHereNote: null,
     keywords: {
       pt: [
         "Casa do Castelo",

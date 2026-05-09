@@ -23,7 +23,6 @@ export default async function PropertyDetailLayout({
   const tagline = property.tagline[l];
   const description = property.description[l];
   const seasonal = property.seasonal[l];
-  const location = property.location[l];
   const amenities = property.amenities[l];
   const address = property.address[l];
 
@@ -38,7 +37,7 @@ export default async function PropertyDetailLayout({
 
       {/* Key facts bar */}
       <div className="bg-fog border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap gap-6 md:gap-10">
+        <div className="flex justify-center max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap gap-6 md:gap-10">
           <div className="flex items-center gap-2 text-granite">
             <UsersIcon />
             <span className="text-sm">
@@ -50,10 +49,6 @@ export default async function PropertyDetailLayout({
             <span className="text-sm">
               {t("rooms", { count: property.rooms })}
             </span>
-          </div>
-          <div className="flex items-center gap-2 text-granite">
-            <MapPinIcon />
-            <span className="text-sm">{location}</span>
           </div>
           <div className="flex items-center gap-2 text-granite">
             <MapPinIcon />
@@ -151,7 +146,9 @@ export default async function PropertyDetailLayout({
             <li key={item.label[l]} className="flex items-center gap-2.5">
               <MapPinIcon />
               <span className="text-sm text-granite/80">{item.label[l]}</span>
-              <span className="text-sm text-granite/50 ml-auto">{item.distance[l]}</span>
+              <span className="text-sm text-granite/50 ">
+                {item.distance[l]}
+              </span>
             </li>
           ))}
         </ul>
@@ -162,6 +159,11 @@ export default async function PropertyDetailLayout({
         <h2 className="font-serif text-4xl text-granite mb-6">
           {t("locationHeading")}
         </h2>
+        {property.gettingHereNote && (
+          <p className="my-4 text-sm text-granite/60 leading-relaxed">
+            {property.gettingHereNote[l]}
+          </p>
+        )}
         <div className="rounded-xl overflow-hidden border border-gray-200 h-[380px]">
           <iframe
             title={`${name} — ${t("locationHeading")}`}
@@ -173,14 +175,6 @@ export default async function PropertyDetailLayout({
           />
         </div>
       </section>
-
-      {/* Minimum stay */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-6 flex flex-wrap gap-x-4 gap-y-1 text-sm text-granite/60">
-        <span>{t("minStayLabel", { count: property.minStay })}</span>
-        {property.minStayPeakSeason !== null && (
-          <span>· {t("minStayPeak", { count: property.minStayPeakSeason })}</span>
-        )}
-      </div>
 
       <PropertyBookingCTA property={property} locale={locale} />
     </>

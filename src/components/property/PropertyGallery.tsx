@@ -57,7 +57,7 @@ export default function PropertyGallery({ images }: Props) {
 
       {/* Cover grid */}
       <div className="relative">
-        <div className="grid grid-cols-3 gap-2 h-[420px] md:h-[480px] rounded-xl overflow-hidden">
+        <div className="grid grid-cols-3 gap-2 h-[420px] md:h-[480px] overflow-hidden">
           {/* Large image — left 2/3 */}
           <button
             className="col-span-2 relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber"
@@ -74,7 +74,7 @@ export default function PropertyGallery({ images }: Props) {
           </button>
 
           {/* 4 small images — right 1/3, 2×2 grid */}
-          <div className="grid grid-rows-2 grid-cols-2 gap-2">
+          <div className="grid grid-rows-2 grid-cols-1 md:grid-cols-2 gap-2">
             {gridImages.map((img, i) => (
               <button
                 key={i}

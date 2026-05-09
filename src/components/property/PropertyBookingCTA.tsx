@@ -19,8 +19,15 @@ export default async function PropertyBookingCTA({ property, locale }: Props) {
         <h2 className="font-serif text-4xl md:text-6xl text-white mb-3">
           {t("bookingHeading")}
         </h2>
-        <p className="text-white/70 text-sm mb-10 max-w-sm mx-auto leading-relaxed">
+        <p className="text-white/70 text-sm mb-6 max-w-sm mx-auto leading-relaxed">
           {t("bookingDirectNote")}
+        </p>
+
+        <p className="text-white/40 text-xs mb-10">
+          {t("minStayLabel", { count: property.minStay })}
+          {property.minStayPeakSeason !== null && (
+            <> · {t("minStayPeak", { count: property.minStayPeakSeason })}</>
+          )}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -18,10 +18,10 @@ export default async function Footer() {
           <Link href={`/${locale}`}>
             <AlojamentoLogo variant="light" className="h-9 w-auto" />
           </Link>
-          <p className="text-fog/60 text-sm leading-relaxed max-w-xs">
+          <p className="text-fog/60 text-sm leading-relaxed max-w-xs mb-4">
             {t("tagline")}
           </p>
-          <LocaleToggle className="text-fog" />
+          <LocaleToggle className="text-fog my-2" />
         </div>
 
         {/* Col 2 — Navigation */}
@@ -151,7 +151,16 @@ function BookingDotIcon() {
       className="shrink-0 text-[#003580]"
     >
       <rect width="24" height="24" rx="4" fill="#003580" />
-      <text x="12" y="17" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold">b.</text>
+      <text
+        x="12"
+        y="17"
+        textAnchor="middle"
+        fill="white"
+        fontSize="13"
+        fontWeight="bold"
+      >
+        b.
+      </text>
     </svg>
   );
 }

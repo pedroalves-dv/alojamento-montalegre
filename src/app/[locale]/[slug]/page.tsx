@@ -62,6 +62,8 @@ export default async function PropertyDetailPage({ params }: Props) {
         },
         address: {
           "@type": "PostalAddress",
+          streetAddress: slug === "casa-do-moinho" ? "Cambezes do Rio" : "Terreiro Açougue nº1",
+          postalCode: slug === "casa-do-moinho" ? "5470-041" : "5470-250",
           addressLocality: "Montalegre",
           addressRegion: "Trás-os-Montes",
           addressCountry: "PT",

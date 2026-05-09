@@ -32,5 +32,6 @@ export interface Property {
     name: { pt: string; en: string };
     description: { pt: string; en: string };
   };
+  gettingHereNote: { pt: string; en: string } | null;
   images: string[];
 }

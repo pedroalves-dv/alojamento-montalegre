@@ -17,7 +17,7 @@ export default function PropertyHero({
   seasonal,
 }: Props) {
   return (
-    <section className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden">
+    <section className="relative min-h-[calc(100vh-var(--navbar-height))] min-h-[500px] flex items-end overflow-hidden">
       <Image
         src={image}
         alt={name}
@@ -43,7 +43,7 @@ export default function PropertyHero({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
         >
           {name}
         </motion.h1>
@@ -52,7 +52,7 @@ export default function PropertyHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.2, ease: "easeOut" }}
-          className="text-white/80 text-xl md:text-2xl font-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          className="text-white text-lg md:text-2xl font-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
         >
           {tagline}
         </motion.p>
