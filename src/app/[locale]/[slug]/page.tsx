@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: property.tagline[l],
       url: `${config.siteUrl}/${locale}/${slug}`,
     },
+    keywords: property.keywords[l],
     alternates: {
       canonical: `${config.siteUrl}/${locale}/${slug}`,
       languages: {
@@ -65,6 +66,14 @@ export default async function PropertyDetailPage({ params }: Props) {
           addressRegion: "Trás-os-Montes",
           addressCountry: "PT",
         },
+        checkinTime: "15:00",
+        checkoutTime: "11:00",
+        numberOfRooms: property.rooms,
+        amenityFeature: property.amenities[l].map((name) => ({
+          "@type": "LocationFeatureSpecification",
+          name,
+          value: true,
+        })),
         ...(property.booking.score !== null && {
           aggregateRating: {
             "@type": "AggregateRating",

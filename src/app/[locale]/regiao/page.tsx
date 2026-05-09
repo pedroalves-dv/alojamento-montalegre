@@ -96,7 +96,7 @@ export default async function RegiaoPage({ params }: Props) {
       />
 
       {/* Hero */}
-      <section className="relative h-[100vh] flex items-center md:text-center">
+      <section className="relative h-[calc(100vh-var(--navbar-height))] flex items-center md:text-center">
         <Image
           src="/images/montalegre-2.png"
           alt="Monte do Larrouco, Terras de Barroso"
@@ -156,6 +156,77 @@ export default async function RegiaoPage({ params }: Props) {
           <RegionSection key={i} section={section} index={i} locale={l} />
         ))}
       </div>
+
+      {/* Before You Go */}
+      <section className="py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-serif text-4xl md:text-6xl text-granite md:text-center mb-12">
+            {t("practicalHeading")}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              {
+                key: "practicalCar" as const,
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                    <path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14l4 4v4a2 2 0 0 1-2 2h-2" />
+                    <circle cx="7" cy="17" r="2" />
+                    <circle cx="17" cy="17" r="2" />
+                  </svg>
+                ),
+              },
+              {
+                key: "practicalSignal" as const,
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
+                    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" />
+                    <path d="M10.71 5.05A16 16 0 0 1 22.56 9" />
+                    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" />
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                    <line x1="12" y1="20" x2="12.01" y2="20" />
+                  </svg>
+                ),
+              },
+              {
+                key: "practicalWater" as const,
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+                  </svg>
+                ),
+              },
+              {
+                key: "practicalWeather" as const,
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                  </svg>
+                ),
+              },
+              {
+                key: "practicalLanguage" as const,
+                icon: (
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                ),
+              },
+            ].map((item) => (
+              <div
+                key={item.key}
+                className="bg-white border border-gray-200 rounded-xl px-6 py-5 flex gap-4 items-start"
+              >
+                {item.icon}
+                <p className="text-granite/70 text-sm leading-relaxed">
+                  {t(item.key)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Seasonal guide */}
       <section className="py-20 px-6 bg-fog">

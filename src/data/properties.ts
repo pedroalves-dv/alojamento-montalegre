@@ -53,6 +53,57 @@ export const properties: Property[] = [
       pt: "Popular no verão — reserve com antecedência",
       en: "Popular in summer — book early",
     },
+    priceFrom: null,
+    currency: "EUR",
+    minStay: 2,
+    minStayPeakSeason: 3,
+    nearby: [
+      {
+        label: { pt: "Parque Nacional Peneda-Gerês", en: "Peneda-Gerês National Park" },
+        distance: { pt: "~45 min", en: "~45 min" },
+      },
+      {
+        label: { pt: "Barragem do Alto Rabagão", en: "Alto Rabagão Dam" },
+        distance: { pt: "~20 min", en: "~20 min" },
+      },
+      {
+        label: { pt: "Braga", en: "Braga" },
+        distance: { pt: "~1h30", en: "~1h30" },
+      },
+      {
+        label: { pt: "Porto", en: "Porto" },
+        distance: { pt: "~2h", en: "~2h" },
+      },
+      {
+        label: { pt: "Montalegre centro", en: "Montalegre centre" },
+        distance: { pt: "~5 min", en: "~5 min" },
+      },
+    ],
+    address: { pt: "Montalegre, Trás-os-Montes, Portugal", en: "Montalegre, Trás-os-Montes, Portugal" },
+    keywords: {
+      pt: [
+        "Casa do Moinho",
+        "montalegre",
+        "alojamento montalegre",
+        "casa de férias montalegre",
+        "turismo rural",
+        "trás-os-montes",
+        "norte de portugal",
+        "casa junto ao rio",
+        "casa de campo",
+      ],
+      en: [
+        "Casa do Moinho",
+        "montalegre",
+        "accommodation montalegre",
+        "holiday house montalegre",
+        "rural tourism",
+        "northern portugal",
+        "trás-os-montes",
+        "riverside house",
+        "country house",
+      ],
+    },
     images: [
       "/images/casa-do-moinho/1.jpg",
       "/images/casa-do-moinho/2.jpg",
@@ -120,6 +171,57 @@ export const properties: Property[] = [
     seasonal: {
       pt: "Disponível todo o ano.",
       en: "Available year-round.",
+    },
+    priceFrom: null,
+    currency: "EUR",
+    minStay: 2,
+    minStayPeakSeason: 3,
+    nearby: [
+      {
+        label: { pt: "Castelo de Montalegre", en: "Montalegre Castle" },
+        distance: { pt: "2 min a pé", en: "2 min walk" },
+      },
+      {
+        label: { pt: "Parque Nacional Peneda-Gerês", en: "Peneda-Gerês National Park" },
+        distance: { pt: "~45 min", en: "~45 min" },
+      },
+      {
+        label: { pt: "Barragem do Alto Rabagão", en: "Alto Rabagão Dam" },
+        distance: { pt: "~20 min", en: "~20 min" },
+      },
+      {
+        label: { pt: "Braga", en: "Braga" },
+        distance: { pt: "~1h30", en: "~1h30" },
+      },
+      {
+        label: { pt: "Porto", en: "Porto" },
+        distance: { pt: "~2h", en: "~2h" },
+      },
+    ],
+    address: { pt: "Montalegre, Trás-os-Montes, Portugal", en: "Montalegre, Trás-os-Montes, Portugal" },
+    keywords: {
+      pt: [
+        "Casa do Castelo",
+        "montalegre",
+        "alojamento montalegre",
+        "casa de férias montalegre",
+        "turismo rural",
+        "trás-os-montes",
+        "norte de portugal",
+        "vista para o castelo",
+        "perto do castelo",
+      ],
+      en: [
+        "Casa do Castelo",
+        "montalegre",
+        "accommodation montalegre",
+        "holiday house montalegre",
+        "rural tourism",
+        "northern portugal",
+        "trás-os-montes",
+        "castle view",
+        "near the castle",
+      ],
     },
     restaurantInfo: {
       name: { pt: "Restaurante O Castelo", en: "O Castelo Restaurant" },

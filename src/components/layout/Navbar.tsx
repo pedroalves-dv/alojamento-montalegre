@@ -13,45 +13,27 @@ const NAV_LINKS = [
   { key: "contacto" as const, href: "/contacto" },
 ] as const;
 
-const LIGHT_BG_PAGES = ["contacto"];
-
 export default function Navbar() {
   const t = useTranslations("Nav");
   const locale = useLocale();
   const pathname = usePathname();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Close drawer on route change
   useEffect(() => {
     setIsMenuOpen(false);
   }, [pathname]);
 
-  const isLightPage = LIGHT_BG_PAGES.some((slug) =>
-    pathname?.endsWith(`/${slug}`),
-  );
-
-  const navBg = isScrolled
-    ? "bg-fog/95 backdrop-blur-sm border-b border-gray-300"
-    : isLightPage
-      ? "bg-fog/95 backdrop-blur-sm"
-      : "bg-transparent";
-  const navText = isScrolled || isLightPage ? "text-granite" : "text-white";
-  const logoVariant = isScrolled || isLightPage ? "dark" : "light";
+  const navBg = "bg-fog/95 backdrop-blur-sm border-b border-gray-300";
+  const navText = "text-granite";
+  const logoVariant = "dark";
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 print:hidden ${navBg}`}
+        className={`fixed top-0 left-0 right-0 z-40 print:hidden ${navBg}`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-[var(--navbar-height)] flex items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} aria-label="Alojamento Montalegre — início">
             <AlojamentoLogo variant={logoVariant} className="h-8 w-auto" />
@@ -110,7 +92,7 @@ export default function Navbar() {
       {/* Mobile full-screen drawer */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-50 bg-granite flex flex-col">
-          <div className="flex items-center justify-between px-4 h-16">
+          <div className="flex items-center justify-between px-4 h-[var(--navbar-height)]">
             <AlojamentoLogo variant="light" className="h-8 w-auto" />
             <button
               onClick={() => setIsMenuOpen(false)}

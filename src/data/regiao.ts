@@ -11,6 +11,7 @@ export const regiao: RegiaoSection[] = [
       en: "Montalegre is one of the most emblematic towns of the Alto Tâmega, dominated by the medieval silhouette of its 14th-century castle. Built to guard the northern border of the kingdom of Portugal, the castle today offers a breathtaking view over the valleys and mountains of Barroso. The town has a compact and lively historic centre with a strong gastronomic tradition — smoked meats, charcuterie, and Barrosã beef are the heart of the local table.",
     },
     image: "/images/montalegre-3.jpg",
+    distance: null,
   },
   {
     title: {
@@ -23,6 +24,7 @@ export const regiao: RegiaoSection[] = [
       en: "Portugal's only national park is less than an hour from Montalegre. Peneda-Gerês is a world of waterfalls, century-old oaks, historic villages, and trails through landscapes of rare beauty. Sightings of Iberian wolf, red deer, and the Garrão (the wild horse of Gerês) are possible for those who know where to look. A must for hikers and nature lovers.",
     },
     image: "/images/park.jpg",
+    distance: { pt: "~45 min de Montalegre", en: "~45 min from Montalegre" },
   },
   {
     title: {
@@ -35,6 +37,7 @@ export const regiao: RegiaoSection[] = [
       en: "The Alto Rabagão reservoir is one of the largest in northern Portugal — a serene expanse of water that contrasts beautifully with the rugged surrounding landscape. Ideal for waterside walks, sport fishing, kayaking, and hikes along the shore. On calm days, the reflection of the mountain ranges in the dark water is one of the most memorable images in the entire region.",
     },
     image: "/images/kayak.jpg",
+    distance: { pt: "~20 min de Montalegre", en: "~20 min from Montalegre" },
   },
   {
     title: {
@@ -46,6 +49,7 @@ export const regiao: RegiaoSection[] = [
       en: "The Montalegre area is threaded with a network of marked walking trails, winding through mountain landscapes, riverside paths, and historic villages. Serra do Larouco — the second highest mountain in Portugal west of the Tagus — offers routes for all fitness levels, with sweeping views over the Cávado valley and the surrounding ranges. Other trails follow the Alto Rabagão reservoir shore and connect traditional villages where time seems to stand still. For walkers of all levels, this is one of the most rewarding regions in northern Portugal.",
     },
     image: "/images/montalegre-2.png",
+    distance: { pt: "~10–30 min de Montalegre", en: "~10–30 min from Montalegre" },
   },
   {
     title: {
@@ -58,6 +62,7 @@ export const regiao: RegiaoSection[] = [
       en: "Every January, Montalegre transforms into the capital of Portuguese smoked meats. The Fumeiro Fair brings together producers from across the region to showcase the finest charcuterie of Barroso: chouriça, alheira, farinheira, salpicão, and the famous Barrosã beef. The event draws visitors from across the country and is a unique gastronomic and cultural experience — loud, fragrant, and genuinely Portuguese.",
     },
     image: "/images/fumeiro.jpg",
+    distance: null,
   },
   {
     title: {
@@ -69,6 +74,7 @@ export const regiao: RegiaoSection[] = [
       en: "Montalegre has a historic relationship with witchcraft and mysticism, rooted deep in Transmontana folk tradition. Every year, on each Friday the 13th, the town becomes the stage for the Festival of the Witches — a unique event in Portugal, with nocturnal processions through the medieval streets, fire, live music, magic shows, and an atmosphere that blends the legendary with the festive. The event draws thousands of visitors from across the country and is, for many, reason enough on its own to visit Montalegre.",
     },
     image: "/images/bruxas.jpg",
+    distance: null,
   },
   {
     title: {
@@ -81,5 +87,6 @@ export const regiao: RegiaoSection[] = [
       en: "Barrosã beef, from the native Barrosã cattle breed, holds PDO status (Protected Designation of Origin) and is considered one of the finest beef varieties in Portugal. The animals roam freely across the high-altitude fields of Barroso, grazing on aromatic herbs that give the meat its distinctive flavour. Alongside the beef, the alheira de Montalegre — a smoked sausage of mild flavour and unique texture — is among the most prized in the country.",
     },
     image: "/images/gastronomy.jpg",
+    distance: null,
   },
 ];

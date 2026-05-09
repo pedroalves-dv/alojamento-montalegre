@@ -25,6 +25,7 @@ export default async function PropertyDetailLayout({
   const seasonal = property.seasonal[l];
   const location = property.location[l];
   const amenities = property.amenities[l];
+  const address = property.address[l];
 
   return (
     <>
@@ -54,6 +55,18 @@ export default async function PropertyDetailLayout({
             <MapPinIcon />
             <span className="text-sm">{location}</span>
           </div>
+          <div className="flex items-center gap-2 text-granite">
+            <MapPinIcon />
+            <span className="text-sm">{address}</span>
+          </div>
+          {property.priceFrom !== null && (
+            <div className="flex items-center gap-2 text-granite">
+              <PriceIcon />
+              <span className="text-sm font-medium">
+                {t("priceFrom", { price: property.priceFrom })}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -128,6 +141,22 @@ export default async function PropertyDetailLayout({
         </section>
       )}
 
+      {/* Nearby distances */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-14 border-t border-gray-100">
+        <h2 className="font-serif text-4xl text-granite mb-8">
+          {t("nearbyHeading")}
+        </h2>
+        <ul className="grid sm:grid-cols-2 gap-3">
+          {property.nearby.map((item) => (
+            <li key={item.label[l]} className="flex items-center gap-2.5">
+              <MapPinIcon />
+              <span className="text-sm text-granite/80">{item.label[l]}</span>
+              <span className="text-sm text-granite/50 ml-auto">{item.distance[l]}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Location */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-14 border-t border-gray-100 pt-14">
         <h2 className="font-serif text-4xl text-granite mb-6">
@@ -144,6 +173,14 @@ export default async function PropertyDetailLayout({
           />
         </div>
       </section>
+
+      {/* Minimum stay */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-6 flex flex-wrap gap-x-4 gap-y-1 text-sm text-granite/60">
+        <span>{t("minStayLabel", { count: property.minStay })}</span>
+        {property.minStayPeakSeason !== null && (
+          <span>· {t("minStayPeak", { count: property.minStayPeakSeason })}</span>
+        )}
+      </div>
 
       <PropertyBookingCTA property={property} locale={locale} />
     </>
@@ -229,6 +266,26 @@ function CheckIcon() {
       aria-hidden
     >
       <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function PriceIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-granite/40 shrink-0"
+      aria-hidden
+    >
+      <line x1="12" y1="1" x2="12" y2="23" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
     </svg>
   );
 }

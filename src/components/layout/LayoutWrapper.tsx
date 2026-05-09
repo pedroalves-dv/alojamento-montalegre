@@ -10,7 +10,7 @@ export default function LayoutWrapper({
   return (
     <>
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pt-[var(--navbar-height)]">{children}</main>
       <Footer />
       <FloatingWhatsAppButton />
     </>

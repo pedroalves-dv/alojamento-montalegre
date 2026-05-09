@@ -7,6 +7,7 @@ type Section = {
   title: { pt: string; en: string };
   body: { pt: string; en: string };
   image: string;
+  distance: { pt: string; en: string } | null;
 };
 
 type Props = {
@@ -46,6 +47,11 @@ export default function RegionSection({ section, index, locale }: Props) {
         <div className="w-full md:w-1/2">
           <h3 className="font-serif text-3xl md:text-4xl text-granite mb-4">
             {section.title[locale]}
+            {section.distance?.[locale] && (
+              <span className="text-xs text-granite/50 border border-gray-200 px-2 py-0.5 rounded-full ml-3 align-middle inline-block">
+                {section.distance[locale]}
+              </span>
+            )}
           </h3>
           <p className="text-granite/70 leading-relaxed">
             {section.body[locale]}

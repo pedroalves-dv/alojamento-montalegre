@@ -7,6 +7,7 @@ import { config } from "@/config";
 import { seo } from "@/data/seo";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
 import HtmlLang from "@/components/layout/HtmlLang";
+import { properties } from "@/data/properties";
 
 type Props = {
   children: React.ReactNode;
@@ -74,6 +75,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       latitude: 41.8229,
       longitude: -7.7936,
     },
+    priceRange: "€€",
+    image: properties.flatMap((p) => p.images.slice(0, 1)),
   };
 
   return (

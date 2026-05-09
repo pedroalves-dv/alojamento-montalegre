@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  /* Layout */
+  --navbar-height: 4rem;
+
   /* Brand colours */
   --color-forest: #2d4a2f;
   --color-moss: #3d5c3a;

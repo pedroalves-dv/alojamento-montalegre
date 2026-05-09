@@ -76,7 +76,13 @@
     "fromBragaDetail": "~1.5h by car via N103",
     "gettingHereNote": "A car is the best option — the scenery along the way is worth the journey.",
     "directionsLink": "Get directions",
-    "mapTitle": "Map of Montalegre, Trás-os-Montes"
+    "mapTitle": "Map of Montalegre, Trás-os-Montes",
+    "practicalHeading": "Before You Go",
+    "practicalCar": "A car is essential — public transport does not reach this area",
+    "practicalSignal": "Mobile signal is limited outside villages — download offline maps before you leave",
+    "practicalWater": "Rivers and streams run cold even in summer — ideal for swimming and fishing",
+    "practicalWeather": "Harsh winters with occasional snow at altitude; mild summers with cool nights",
+    "practicalLanguage": "English is rarely spoken outside main attractions — a few words of Portuguese go a long way"
   },
   "Contacto": {
     "heading": "Get in Touch",
@@ -104,6 +110,10 @@
     "bookingWhatsapp": "Message on WhatsApp",
     "bookingBookingCom": "Book on Booking.com",
     "reviewsLabel": "reviews",
-    "inHouseLabel": "In-house"
+    "inHouseLabel": "In-house",
+    "priceFrom": "From €{price} / night",
+    "minStayLabel": "Minimum stay: {count} nights",
+    "minStayPeak": "Peak season (Jul–Aug): {count} nights",
+    "nearbyHeading": "Nearby"
   }
 }
