@@ -115,6 +115,17 @@
     "minStayLabel": "Minimum stay: {count} nights",
     "minStayPeak": "Peak season (Jul–Aug): {count} nights",
     "nearbyHeading": "Nearby",
-    "phoneLabel": "Phone"
+    "phoneLabel": "Phone",
+    "bathrooms": "{count} bathrooms",
+    "sqm": "{count} m²",
+    "policiesHeading": "Check-in & Info",
+    "checkinLabel": "Check-in",
+    "checkoutLabel": "Check-out",
+    "noPartiesLabel": "Parties / Events",
+    "notPermitted": "Not permitted",
+    "licenseLabel": "License",
+    "languagesLabel": "Languages spoken",
+    "reviewHeading": "What guests say",
+    "reviewVia": "via Booking.com"
   }
 }

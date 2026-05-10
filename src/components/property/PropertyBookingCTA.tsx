@@ -15,19 +15,12 @@ export default async function PropertyBookingCTA({ property, locale }: Props) {
 
   return (
     <section className="bg-forest py-16 px-4 print:hidden">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto md:text-center">
         <h2 className="font-serif text-4xl md:text-6xl text-white mb-3">
           {t("bookingHeading")}
         </h2>
         <p className="text-white/70 text-sm mb-6 max-w-sm mx-auto leading-relaxed">
           {t("bookingDirectNote")}
-        </p>
-
-        <p className="text-white/40 text-xs mb-10">
-          {t("minStayLabel", { count: property.minStay })}
-          {property.minStayPeakSeason !== null && (
-            <> · {t("minStayPeak", { count: property.minStayPeakSeason })}</>
-          )}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

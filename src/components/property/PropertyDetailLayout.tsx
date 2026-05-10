@@ -6,6 +6,7 @@ import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
 import PropertyHeroSection from "./PropertyHeroSection";
 import PropertyBookingCTA from "./PropertyBookingCTA";
 import PropertyBottomBar from "./PropertyBottomBar";
+import PropertyPolicies from "./PropertyPolicies";
 import RestaurantCallout from "./RestaurantCallout";
 
 type Props = {
@@ -51,8 +52,8 @@ export default async function PropertyDetailLayout({
       </div>
 
       {/* Key facts bar — full width */}
-      <div className="bg-fog text-granite/90 border-b border-granite/20">
-        <ul className="flex flex-wrap justify-between gap-y-2 max-w-6xl mx-auto py-5 px-4">
+      <div className="bg-fog text-granite/90 border-b border-t border-granite/20">
+        <ul className="flex flex-wrap md:justify-center gap-x-6 md:gap-x-20 gap-y-2 max-w-6xl mx-auto py-5 px-4">
           <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
             <span className="opacity-70">
               <UsersIcon />
@@ -65,6 +66,20 @@ export default async function PropertyDetailLayout({
             </span>
             <span>{t("rooms", { count: property.rooms })}</span>
           </li>
+          <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
+            <span className="opacity-70">
+              <BathIcon />
+            </span>
+            <span>{t("bathrooms", { count: property.bathrooms })}</span>
+          </li>
+          {property.sqm !== null && (
+            <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
+              <span className="opacity-70">
+                <SqmIcon />
+              </span>
+              <span>{t("sqm", { count: property.sqm })}</span>
+            </li>
+          )}
           <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
             <span className="opacity-70">
               <MapPinIcon />
@@ -128,6 +143,49 @@ export default async function PropertyDetailLayout({
               />
             </section>
           )}
+
+          {/* Policies & check-in */}
+          <PropertyPolicies
+            checkinTime={property.checkinTime}
+            checkoutTime={property.checkoutTime}
+            minStay={property.minStay}
+            minStayPeakSeason={property.minStayPeakSeason}
+            noPartiesNote={property.noPartiesNote?.[l] ?? null}
+            licenseNumber={property.licenseNumber}
+            languagesSpoken={property.languagesSpoken}
+            heading={t("policiesHeading")}
+            checkinLabel={t("checkinLabel")}
+            checkoutLabel={t("checkoutLabel")}
+            minStayLabel={t("minStayLabel", { count: property.minStay })}
+            minStayPeakLabel={
+              property.minStayPeakSeason !== null
+                ? t("minStayPeak", { count: property.minStayPeakSeason })
+                : null
+            }
+            noPartiesLabel={t("noPartiesLabel")}
+            notPermitted={t("notPermitted")}
+            licenseLabel={t("licenseLabel")}
+            languagesLabel={t("languagesLabel")}
+          />
+
+          {/* Featured guest review TODO: fetch real reviews (google, trip advisor)*/}
+          {/* {property.featuredReview && (
+            <section className="py-14 border-t border-gray-100">
+              <h2 className="font-serif text-4xl text-granite mb-8">
+                {t("reviewHeading")}
+              </h2>
+              <blockquote className="relative pl-6 border-l-2 border-amber">
+                <p className="text-granite/70 leading-relaxed text-base italic mb-4">
+                  &ldquo;{property.featuredReview.text[l]}&rdquo;
+                </p>
+                <footer className="text-sm text-granite/50">
+                  — {property.featuredReview.author},{" "}
+                  {property.featuredReview.country[l]}
+                  <span className="ml-2 text-granite/30">{t("reviewVia")}</span>
+                </footer>
+              </blockquote>
+            </section>
+          )} */}
 
           {/* Nearby distances */}
           <section className="py-14 border-t border-gray-100">
@@ -320,6 +378,50 @@ function CheckIcon() {
       aria-hidden
     >
       <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function BathIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-granite/40 shrink-0"
+      aria-hidden
+    >
+      <path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5" />
+      <line x1="10" y1="5" x2="8" y2="7" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <line x1="7" y1="19" x2="7" y2="21" />
+      <line x1="17" y1="19" x2="17" y2="21" />
+    </svg>
+  );
+}
+
+function SqmIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-granite/40 shrink-0"
+      aria-hidden
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18" />
+      <path d="M9 21V9" />
     </svg>
   );
 }

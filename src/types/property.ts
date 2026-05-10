@@ -6,6 +6,12 @@ export interface PropertyBooking {
   reviewCount: number | null;
 }
 
+export interface FeaturedReview {
+  author: string;
+  country: LocalizedString;
+  text: LocalizedString;
+}
+
 export interface Property {
   slug: string;
   name: LocalizedString;
@@ -13,6 +19,8 @@ export interface Property {
   description: LocalizedString;
   capacity: number;
   rooms: number;
+  bathrooms: number;
+  sqm: number | null;
   location: LocalizedString;
   coordinates: { lat: number; lng: number };
   amenities: LocalizedStringArray;
@@ -25,6 +33,12 @@ export interface Property {
   currency: string;
   minStay: number;
   minStayPeakSeason: number | null;
+  checkinTime: string;
+  checkoutTime: string;
+  noPartiesNote: LocalizedString | null;
+  featuredReview: FeaturedReview | null;
+  licenseNumber: string | null;
+  languagesSpoken: string[] | null;
   nearby: { label: { pt: string; en: string }; distance: { pt: string; en: string } }[];
   address: { pt: string; en: string };
   keywords: { pt: string[]; en: string[] };

@@ -19,7 +19,7 @@
     "faqHeading": "Perguntas frequentes",
     "whatsappHeading": "Prefere falar diretamente?",
     "whatsappBody": "Respondemos em menos de 24 horas. Reserve sem intermediários, com flexibilidade e confiança.",
-    "whatsappButton": "Enviar mensagem no WhatsApp",
+    "whatsappButton": "WhatsApp",
     "sisterHeading": "Tours e experiências locais",
     "sisterBody": "À procura de tours e experiências na região? A Natur Barroso organiza passeios, gastronomia e aventuras na natureza.",
     "sisterCta": "Visitar Natur Barroso"
@@ -107,7 +107,7 @@
     "bookingReviews": "Ver avaliações no Booking.com",
     "bookingHeading": "Reservar esta casa",
     "bookingDirectNote": "Contacte-nos pelo WhatsApp ou telefone.",
-    "bookingWhatsapp": "Enviar mensagem no WhatsApp",
+    "bookingWhatsapp": "WhatsApp",
     "bookingBookingCom": "Reservar no Booking.com",
     "reviewsLabel": "avaliações",
     "inHouseLabel": "No edifício",
@@ -115,6 +115,17 @@
     "minStayLabel": "Estadia mínima: {count} noites",
     "minStayPeak": "Época alta (jul–ago): {count} noites",
     "nearbyHeading": "Nas proximidades",
-    "phoneLabel": "Telefone"
+    "phoneLabel": "Telefone",
+    "bathrooms": "{count} casas de banho",
+    "sqm": "{count} m²",
+    "policiesHeading": "Check-in & Informações",
+    "checkinLabel": "Check-in",
+    "checkoutLabel": "Check-out",
+    "noPartiesLabel": "Festas / Eventos",
+    "notPermitted": "Não permitido",
+    "licenseLabel": "Licença",
+    "languagesLabel": "Idiomas falados",
+    "reviewHeading": "O que dizem os hóspedes",
+    "reviewVia": "via Booking.com"
   }
 }
