@@ -11,7 +11,7 @@ export default async function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-granite text-fog print:hidden">
+    <footer id="site-footer" className="bg-granite text-fog print:hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {/* Col 1 — Brand */}
         <div className="flex flex-col gap-4">

@@ -1,15 +1,24 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import PropertyHero from "./PropertyHero";
 
 type Props = {
   images: string[];
+  name: string;
+  tagline: string;
+  seasonal: string;
 };
 
-export default function PropertyGallery({ images }: Props) {
+export default function PropertyHeroSection({
+  images,
+  name,
+  tagline,
+  seasonal,
+}: Props) {
   const t = useTranslations("PropertyDetail");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
@@ -36,7 +45,6 @@ export default function PropertyGallery({ images }: Props) {
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxIndex, prev, next]);
 
-  // Prevent body scroll when lightbox is open
   useEffect(() => {
     document.body.style.overflow = lightboxIndex !== null ? "hidden" : "";
     return () => {
@@ -44,67 +52,16 @@ export default function PropertyGallery({ images }: Props) {
     };
   }, [lightboxIndex]);
 
-  if (images.length === 0) return null;
-
-  const mainImage = images[0]!;
-  const gridImages = images.slice(1, 5);
-
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-      <h2 className="font-serif text-4xl text-granite mb-6">
-        {t("galleryHeading")}
-      </h2>
+    <>
+      <PropertyHero
+        images={images}
+        name={name}
+        tagline={tagline}
+        seasonal={seasonal}
+        onOpenLightbox={setLightboxIndex}
+      />
 
-      {/* Cover grid */}
-      <div className="relative">
-        <div className="grid grid-cols-3 gap-2 h-[420px] md:h-[480px] overflow-hidden">
-          {/* Large image — left 2/3 */}
-          <button
-            className="col-span-2 relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber"
-            onClick={() => setLightboxIndex(0)}
-            aria-label={t("galleryViewAll", { count: images.length })}
-          >
-            <Image
-              src={mainImage}
-              alt=""
-              fill
-              className="object-cover hover:brightness-95 transition-all"
-              sizes="(max-width: 768px) 100vw, 66vw"
-            />
-          </button>
-
-          {/* 4 small images — right 1/3, 2×2 grid */}
-          <div className="grid grid-rows-2 grid-cols-1 md:grid-cols-2 gap-2">
-            {gridImages.map((img, i) => (
-              <button
-                key={i}
-                className="relative cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber"
-                onClick={() => setLightboxIndex(i + 1)}
-                aria-label={`Photo ${i + 2}`}
-              >
-                <Image
-                  src={img}
-                  alt=""
-                  fill
-                  className="object-cover hover:brightness-95 transition-all"
-                  sizes="25vw"
-                />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* View all button */}
-        <button
-          onClick={() => setLightboxIndex(0)}
-          className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm text-granite text-sm font-medium px-4 py-2 rounded-lg shadow hover:bg-white transition-colors flex items-center gap-2"
-        >
-          <GridIcon />
-          {t("galleryViewAll", { count: images.length })}
-        </button>
-      </div>
-
-      {/* Lightbox */}
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
@@ -205,27 +162,6 @@ export default function PropertyGallery({ images }: Props) {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
-  );
-}
-
-function GridIcon() {
-  return (
-    <svg
-      width="15"
-      height="15"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <rect x="3" y="3" width="7" height="7" />
-      <rect x="14" y="3" width="7" height="7" />
-      <rect x="14" y="14" width="7" height="7" />
-      <rect x="3" y="14" width="7" height="7" />
-    </svg>
+    </>
   );
 }

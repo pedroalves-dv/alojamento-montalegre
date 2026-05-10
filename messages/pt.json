@@ -114,6 +114,7 @@
     "priceFrom": "A partir de €{price} / noite",
     "minStayLabel": "Estadia mínima: {count} noites",
     "minStayPeak": "Época alta (jul–ago): {count} noites",
-    "nearbyHeading": "Nas proximidades"
+    "nearbyHeading": "Nas proximidades",
+    "phoneLabel": "Telefone"
   }
 }

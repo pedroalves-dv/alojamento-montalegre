@@ -11,7 +11,7 @@ export default function HeroSection({ locale }: { locale: string }) {
   const t = useTranslations("Home");
 
   return (
-    <section className="relative min-h-[calc(100vh-var(--navbar-height))] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[calc(100svh-var(--navbar-height))] flex items-center justify-center overflow-hidden">
       <Image
         src={HERO_IMAGE}
         alt="Terras de Barroso"

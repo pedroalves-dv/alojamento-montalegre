@@ -96,7 +96,7 @@ export default async function RegiaoPage({ params }: Props) {
       />
 
       {/* Hero */}
-      <section className="relative h-[calc(100vh-var(--navbar-height))] flex items-center md:text-center">
+      <section className="relative h-[calc(100svh-var(--navbar-height))] flex items-center md:text-center">
         <Image
           src="/images/montalegre-2.png"
           alt="Monte do Larrouco, Terras de Barroso"
@@ -168,7 +168,18 @@ export default async function RegiaoPage({ params }: Props) {
               {
                 key: "practicalCar" as const,
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-granite/40"
+                  >
                     <path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14l4 4v4a2 2 0 0 1-2 2h-2" />
                     <circle cx="7" cy="17" r="2" />
                     <circle cx="17" cy="17" r="2" />
@@ -178,7 +189,18 @@ export default async function RegiaoPage({ params }: Props) {
               {
                 key: "practicalSignal" as const,
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-granite/40"
+                  >
                     <line x1="1" y1="1" x2="23" y2="23" />
                     <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
                     <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" />
@@ -192,7 +214,18 @@ export default async function RegiaoPage({ params }: Props) {
               {
                 key: "practicalWater" as const,
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-granite/40"
+                  >
                     <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
                   </svg>
                 ),
@@ -200,7 +233,18 @@ export default async function RegiaoPage({ params }: Props) {
               {
                 key: "practicalWeather" as const,
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-granite/40"
+                  >
                     <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
                   </svg>
                 ),
@@ -208,7 +252,18 @@ export default async function RegiaoPage({ params }: Props) {
               {
                 key: "practicalLanguage" as const,
                 icon: (
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden className="shrink-0 mt-0.5 text-granite/40">
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-granite/40"
+                  >
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
                 ),

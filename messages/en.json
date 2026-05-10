@@ -114,6 +114,7 @@
     "priceFrom": "From €{price} / night",
     "minStayLabel": "Minimum stay: {count} nights",
     "minStayPeak": "Peak season (Jul–Aug): {count} nights",
-    "nearbyHeading": "Nearby"
+    "nearbyHeading": "Nearby",
+    "phoneLabel": "Phone"
   }
 }
