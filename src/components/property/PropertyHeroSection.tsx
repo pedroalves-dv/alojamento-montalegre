@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -21,6 +21,8 @@ export default function PropertyHeroSection({
 }: Props) {
   const t = useTranslations("PropertyDetail");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lbTouchStartX = useRef<number | null>(null);
+  const lbTouchStartY = useRef<number | null>(null);
 
   const closeLightbox = () => setLightboxIndex(null);
 
@@ -52,6 +54,22 @@ export default function PropertyHeroSection({
     };
   }, [lightboxIndex]);
 
+  const handleLbTouchStart = (e: React.TouchEvent) => {
+    lbTouchStartX.current = e.touches[0]?.clientX ?? null;
+    lbTouchStartY.current = e.touches[0]?.clientY ?? null;
+  };
+  const handleLbTouchEnd = (e: React.TouchEvent) => {
+    if (lbTouchStartX.current === null || lbTouchStartY.current === null) return;
+    const dx = (e.changedTouches[0]?.clientX ?? lbTouchStartX.current) - lbTouchStartX.current;
+    const dy = (e.changedTouches[0]?.clientY ?? lbTouchStartY.current) - lbTouchStartY.current;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+      e.preventDefault();
+      dx < 0 ? next() : prev();
+    }
+    lbTouchStartX.current = null;
+    lbTouchStartY.current = null;
+  };
+
   return (
     <>
       <PropertyHero
@@ -71,10 +89,12 @@ export default function PropertyHeroSection({
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 bg-granite/96 flex items-center justify-center"
             onClick={closeLightbox}
+            onTouchStart={handleLbTouchStart}
+            onTouchEnd={handleLbTouchEnd}
           >
             {/* Image container */}
             <div
-              className="relative w-full h-full max-w-5xl max-h-[80vh] mx-auto px-16 py-8"
+              className="relative w-full h-full max-w-5xl max-h-[80vh] mx-auto px-3 py-8 md:px-16"
               onClick={(e) => e.stopPropagation()}
             >
               <Image

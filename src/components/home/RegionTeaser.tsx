@@ -8,10 +8,10 @@ export default async function RegionTeaser({ locale }: { locale: string }) {
   const t = await getTranslations("Home");
 
   return (
-    <section className="py-20 px-4 bg-fog">
+    <section className="py-10 md:py-20 px-4 bg-fog">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Text */}
-        <div className=" order-2 ">
+        <div className="order-2 text-center md:text-left">
           <h2 className="font-serif text-4xl md:text-6xl text-granite mb-5">
             {t("regionHeading")}
           </h2>
@@ -20,7 +20,7 @@ export default async function RegionTeaser({ locale }: { locale: string }) {
           </p>
           <Link
             href={`/${locale}/regiao`}
-            className="inline-flex items-center gap-2 text-forest font-medium hover:text-moss transition-colors group"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-forest text-forest font-medium bg-transparent hover:bg-forest hover:text-fog transition-colors duration-200 group"
           >
             {t("regionCta")}
             <svg

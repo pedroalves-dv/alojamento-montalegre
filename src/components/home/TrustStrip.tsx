@@ -84,10 +84,13 @@ export default async function TrustStrip() {
   const t = await getTranslations("Home");
 
   return (
-    <div className="bg-forest text-white/90 py-5 px-4">
-      <ul className="flex flex-wrap justify-center gap-x-10 gap-y-4 max-w-4xl mx-auto">
+    <div className="bg-fog text-granite/90 border-b border-granite/20">
+      <ul className="flex flex-wrap justify-between gap-y-2 max-w-6xl mx-auto py-5 px-4">
         {items.map(({ key, icon }) => (
-          <li key={key} className="flex items-center gap-2 text-sm font-medium tracking-wide">
+          <li
+            key={key}
+            className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide"
+          >
             <span className="opacity-70">{icon}</span>
             <span>{t(key)}</span>
           </li>

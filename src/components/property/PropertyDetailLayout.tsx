@@ -39,34 +39,47 @@ export default async function PropertyDetailLayout({
         seasonal={seasonal}
       />
 
+      {/* Mobile: property header flows below the half-screen gallery */}
+      <div className="md:hidden px-5 pt-6 pb-5 bg-fog border-b border-gray-100">
+        <span className="inline-flex items-center bg-amber/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-3 tracking-wide">
+          {seasonal}
+        </span>
+        <h1 className="font-serif text-4xl text-granite leading-tight mb-1">
+          {name}
+        </h1>
+        <p className="text-granite/70 text-xl font-light">{tagline}</p>
+      </div>
+
       {/* Key facts bar — full width */}
-      <div className="bg-fog border-b border-gray-200">
-        <div className="flex justify-center max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap gap-6 md:gap-10">
-          <div className="flex items-center gap-2 text-granite">
-            <UsersIcon />
-            <span className="text-sm">
-              {t("capacity", { count: property.capacity })}
+      <div className="bg-fog text-granite/90 border-b border-granite/20">
+        <ul className="flex flex-wrap justify-between gap-y-2 max-w-6xl mx-auto py-5 px-4">
+          <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
+            <span className="opacity-70">
+              <UsersIcon />
             </span>
-          </div>
-          <div className="flex items-center gap-2 text-granite">
-            <BedIcon />
-            <span className="text-sm">
-              {t("rooms", { count: property.rooms })}
+            <span>{t("capacity", { count: property.capacity })}</span>
+          </li>
+          <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
+            <span className="opacity-70">
+              <BedIcon />
             </span>
-          </div>
-          <div className="flex items-center gap-2 text-granite">
-            <MapPinIcon />
-            <span className="text-sm">{address}</span>
-          </div>
+            <span>{t("rooms", { count: property.rooms })}</span>
+          </li>
+          <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
+            <span className="opacity-70">
+              <MapPinIcon />
+            </span>
+            <span>{address}</span>
+          </li>
           {property.priceFrom !== null && (
-            <div className="flex items-center gap-2 text-granite">
-              <PriceIcon />
-              <span className="text-sm font-medium">
-                {t("priceFrom", { price: property.priceFrom })}
+            <li className="flex items-center border border-granite/20 rounded-full px-4 py-3 md:px-6 md:py-4 gap-3 text-xs md:text-sm font-medium tracking-wide">
+              <span className="opacity-70">
+                <PriceIcon />
               </span>
-            </div>
+              <span>{t("priceFrom", { price: property.priceFrom })}</span>
+            </li>
           )}
-        </div>
+        </ul>
       </div>
 
       {/* Main two-column grid */}
@@ -161,7 +174,7 @@ export default async function PropertyDetailLayout({
 
         {/* RIGHT COLUMN — sticky sidebar, desktop only */}
         <div className="hidden md:block">
-          <div className="sticky top-[64px] h-fit bg-white border border-gray-200 rounded-xl p-6 flex flex-col gap-4">
+          <div className="sticky top-[80px] h-fit bg-white border border-gray-200 rounded-xl p-6 flex flex-col gap-4">
             <p className="text-sm font-medium text-granite/50">{name}</p>
 
             {property.booking.score !== null && (

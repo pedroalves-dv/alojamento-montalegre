@@ -52,14 +52,14 @@ export default function PropertyCard({ property, locale, index }: Props) {
       {/* Content */}
       <div className="p-6 flex flex-col flex-1 gap-3">
         <div>
-          <h3 className="font-serif text-4xl text-granite mb-1">
+          <h3 className="font-serif text-3xl md:text-4xl text-granite mb-1">
             {property.name[l]}
           </h3>
-          <p className="text-granite/70 text-md leading-relaxed">
+          <p className="text-granite/70 text-sm md:text-md leading-relaxed mb-2">
             {property.tagline[l]}
           </p>
           {property.priceFrom !== null && (
-            <p className="text-sm font-medium text-forest">
+            <p className="text-lg font-medium text-forest">
               {tProperty("priceFrom", { price: property.priceFrom })}
             </p>
           )}
