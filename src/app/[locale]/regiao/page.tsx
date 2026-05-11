@@ -150,6 +150,22 @@ export default async function RegiaoPage({ params }: Props) {
         </div>
       </section>
 
+      {/* Highlights strip */}
+      <section className="py-10 px-6 border-y border-gray-100">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+          {[
+            { stat: "~45 min", label: t("highlightPark") },
+            { stat: "1 of 22", label: t("highlightUnesco") },
+            { stat: "Jan", label: t("highlightFair") },
+          ].map((h) => (
+            <div key={h.stat} className="flex flex-col items-center gap-1">
+              <span className="font-serif text-4xl text-forest">{h.stat}</span>
+              <span className="text-granite/60 text-sm">{h.label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Alternating content sections */}
       <div className="py-4">
         {regiao.map((section, i) => (
@@ -157,7 +173,7 @@ export default async function RegiaoPage({ params }: Props) {
         ))}
       </div>
 
-      {/* Before You Go */}
+      {/* Wild by Nature */}
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-4xl md:text-6xl text-granite md:text-center mb-12">
@@ -167,6 +183,7 @@ export default async function RegiaoPage({ params }: Props) {
             {[
               {
                 key: "practicalCar" as const,
+                titleKey: "practicalCarTitle" as const,
                 icon: (
                   <svg
                     width="22"
@@ -178,7 +195,7 @@ export default async function RegiaoPage({ params }: Props) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden
-                    className="shrink-0 mt-0.5 text-granite/40"
+                    className="shrink-0 mt-0.5 text-forest"
                   >
                     <path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h14l4 4v4a2 2 0 0 1-2 2h-2" />
                     <circle cx="7" cy="17" r="2" />
@@ -187,32 +204,8 @@ export default async function RegiaoPage({ params }: Props) {
                 ),
               },
               {
-                key: "practicalSignal" as const,
-                icon: (
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden
-                    className="shrink-0 mt-0.5 text-granite/40"
-                  >
-                    <line x1="1" y1="1" x2="23" y2="23" />
-                    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55" />
-                    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39" />
-                    <path d="M10.71 5.05A16 16 0 0 1 22.56 9" />
-                    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88" />
-                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
-                    <line x1="12" y1="20" x2="12.01" y2="20" />
-                  </svg>
-                ),
-              },
-              {
                 key: "practicalWater" as const,
+                titleKey: "practicalWaterTitle" as const,
                 icon: (
                   <svg
                     width="22"
@@ -224,14 +217,15 @@ export default async function RegiaoPage({ params }: Props) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden
-                    className="shrink-0 mt-0.5 text-granite/40"
+                    className="shrink-0 mt-0.5 text-forest"
                   >
                     <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
                   </svg>
                 ),
               },
               {
-                key: "practicalWeather" as const,
+                key: "practicalAdventure" as const,
+                titleKey: "practicalAdventureTitle" as const,
                 icon: (
                   <svg
                     width="22"
@@ -243,14 +237,65 @@ export default async function RegiaoPage({ params }: Props) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden
-                    className="shrink-0 mt-0.5 text-granite/40"
+                    className="shrink-0 mt-0.5 text-forest"
                   >
-                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" />
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                  </svg>
+                ),
+              },
+              {
+                key: "practicalHiking" as const,
+                titleKey: "practicalHikingTitle" as const,
+                icon: (
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-forest"
+                  >
+                    <path d="m3 17 4-8 4 4 3-5 4 9" />
+                    <path d="M3 17h18" />
+                  </svg>
+                ),
+              },
+              {
+                key: "practicalWeather" as const,
+                titleKey: "practicalWeatherTitle" as const,
+                icon: (
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden
+                    className="shrink-0 mt-0.5 text-forest"
+                  >
+                    <circle cx="12" cy="12" r="5" />
+                    <line x1="12" y1="1" x2="12" y2="3" />
+                    <line x1="12" y1="21" x2="12" y2="23" />
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                    <line x1="1" y1="12" x2="3" y2="12" />
+                    <line x1="21" y1="12" x2="23" y2="12" />
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                   </svg>
                 ),
               },
               {
                 key: "practicalLanguage" as const,
+                titleKey: "practicalLanguageTitle" as const,
                 icon: (
                   <svg
                     width="22"
@@ -262,7 +307,7 @@ export default async function RegiaoPage({ params }: Props) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden
-                    className="shrink-0 mt-0.5 text-granite/40"
+                    className="shrink-0 mt-0.5 text-forest"
                   >
                     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                   </svg>
@@ -274,9 +319,14 @@ export default async function RegiaoPage({ params }: Props) {
                 className="bg-white border border-gray-200 rounded-xl px-6 py-5 flex gap-4 items-start"
               >
                 {item.icon}
-                <p className="text-granite/70 text-sm leading-relaxed">
-                  {t(item.key)}
-                </p>
+                <div>
+                  <p className="font-semibold text-granite text-sm mb-1">
+                    {t(item.titleKey)}
+                  </p>
+                  <p className="text-granite/70 text-sm leading-relaxed">
+                    {t(item.key)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
