@@ -33,6 +33,12 @@ export default async function Footer() {
             href={`/${locale}`}
             className="text-sm text-fog/70 hover:text-fog transition-colors"
           >
+            {t("inicio")}
+          </Link>
+          <Link
+            href={`/${locale}`}
+            className="text-sm text-fog/70 hover:text-fog transition-colors"
+          >
             {t("casas")}
           </Link>
           {properties.map((p) => (

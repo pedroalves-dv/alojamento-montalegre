@@ -25,6 +25,7 @@
     "sisterCta": "Visitar Natur Barroso"
   },
   "Nav": {
+    "inicio": "Início",
     "casas": "Casas",
     "regiao": "Região",
     "contacto": "Contacto",
@@ -35,6 +36,7 @@
   "Footer": {
     "tagline": "Turismo rural em Montalegre, Portugal.",
     "navHeading": "Páginas",
+    "inicio": "Início",
     "casas": "Casas",
     "casaDoMoinho": "Casa do Moinho",
     "casaDoCastelo": "Casa do Castelo",

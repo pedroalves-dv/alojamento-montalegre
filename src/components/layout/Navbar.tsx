@@ -48,6 +48,18 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-10">
+            {/* Homepage link */}
+            <Link
+              href={`/${locale}`}
+              className={`text-md font-medium tracking-wide transition-colors ${navText} ${
+                pathname === `/${locale}` || pathname === `/${locale}/`
+                  ? "opacity-100"
+                  : "opacity-70 hover:opacity-100"
+              }`}
+            >
+              {t("inicio")}
+            </Link>
+
             {/* Casas dropdown */}
             <div className="relative group">
               <Link
@@ -182,6 +194,14 @@ export default function Navbar() {
           </div>
 
           <nav className="flex flex-col gap-1 px-6 pt-8 flex-1">
+            {/* Homepage link */}
+            <Link
+              href={`/${locale}`}
+              className="font-serif text-fog text-4xl py-3 border-b border-white/10 hover:text-amber transition-colors"
+            >
+              {t("inicio")}
+            </Link>
+
             {/* Casas expandable */}
             <div className="border-b border-white/10">
               <button
