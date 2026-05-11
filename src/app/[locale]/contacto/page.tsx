@@ -170,7 +170,6 @@ export default async function ContactoPage({ params }: Props) {
                     <BookingScoreBadge
                       score={p.booking.score}
                       reviewCount={p.booking.reviewCount}
-                      url={p.booking.url}
                       reviewsLabel={tProperty("reviewsLabel")}
                     />
                     <a

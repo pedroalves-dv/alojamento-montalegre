@@ -21,6 +21,12 @@ export interface PropertyReviewsConfig {
   allReviewsUrl: string | null;
 }
 
+export interface PropertyGoogleScore {
+  score: string;
+  reviewCount: number | null;
+  url: string | null;
+}
+
 export interface Property {
   slug: string;
   name: LocalizedString;
@@ -51,6 +57,7 @@ export interface Property {
   nearby: { label: { pt: string; en: string }; distance: { pt: string; en: string } }[];
   address: { pt: string; en: string };
   keywords: { pt: string[]; en: string[] };
+  google?: PropertyGoogleScore;
   restaurantInfo?: {
     name: { pt: string; en: string };
     description: { pt: string; en: string };

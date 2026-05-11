@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { Property } from "@/types/property";
 import { config } from "@/config";
 import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
+import GoogleReviewsBadge from "@/components/ui/GoogleReviewsBadge";
 import PropertyHeroSection from "./PropertyHeroSection";
 import PropertyBookingCTA from "./PropertyBookingCTA";
 import PropertyBottomBar from "./PropertyBottomBar";
@@ -50,6 +51,26 @@ export default async function PropertyDetailLayout({
           {name}
         </h1>
         <p className="text-granite/70 text-xl font-light">{tagline}</p>
+        {(property.booking.score !== null || property.google) && (
+          <div className="flex flex-row gap-2 mt-4">
+            {property.booking.score !== null && (
+              <BookingScoreBadge
+                score={property.booking.score}
+                reviewCount={property.booking.reviewCount}
+                reviewsLabel={t("reviewsLabel")}
+                compact
+              />
+            )}
+            {property.google && (
+              <GoogleReviewsBadge
+                score={property.google.score}
+                reviewCount={property.google.reviewCount}
+                reviewsLabel={t("reviewsLabel")}
+                compact
+              />
+            )}
+          </div>
+        )}
       </div>
 
       {/* Key facts bar — full width */}
@@ -99,7 +120,7 @@ export default async function PropertyDetailLayout({
       </div>
 
       {/* Main two-column grid */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_300px] gap-10 max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-10 max-w-6xl mx-auto px-4 sm:px-6 py-14">
         {/* LEFT COLUMN — main content */}
         <div>
           {/* Description */}
@@ -226,25 +247,25 @@ export default async function PropertyDetailLayout({
           <div className="sticky top-[80px] h-fit bg-white border border-gray-200 rounded-xl p-6 flex flex-col gap-4">
             <p className="text-sm font-medium text-granite/50">{name}</p>
 
-            {property.booking.score !== null && (
-              <>
-                <BookingScoreBadge
-                  score={property.booking.score}
-                  reviewCount={property.booking.reviewCount}
-                  url={property.booking.url}
-                  reviewsLabel={t("reviewsLabel")}
-                />
-                {property.booking.url && (
-                  <a
-                    href={property.booking.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-river text-xs hover:underline -mt-2"
-                  >
-                    {t("bookingReviews")} →
-                  </a>
+            {(property.booking.score !== null || property.google) && (
+              <div className="flex flex-row gap-2">
+                {property.booking.score !== null && (
+                  <BookingScoreBadge
+                    score={property.booking.score}
+                    reviewCount={property.booking.reviewCount}
+                    reviewsLabel={t("reviewsLabel")}
+                    compact
+                  />
                 )}
-              </>
+                {property.google && (
+                  <GoogleReviewsBadge
+                    score={property.google.score}
+                    reviewCount={property.google.reviewCount}
+                    reviewsLabel={t("reviewsLabel")}
+                    compact
+                  />
+                )}
+              </div>
             )}
 
             <p className="text-sm text-granite/70">{seasonal}</p>

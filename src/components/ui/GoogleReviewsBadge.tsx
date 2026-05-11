@@ -1,25 +1,24 @@
 type Props = {
-  score: string | null;
+  score: string;
   reviewCount: number | null;
   reviewsLabel: string;
   compact?: boolean;
 };
 
-export default function BookingScoreBadge({ score, reviewCount, reviewsLabel, compact }: Props) {
-  if (score === null) return null;
-
+export default function GoogleReviewsBadge({ score, reviewCount, reviewsLabel, compact }: Props) {
   return (
     <div className="inline-flex items-stretch rounded-lg overflow-hidden border border-gray-200 w-fit">
       <div
-        className={`bg-[#003580] text-white font-bold flex items-center leading-none ${
+        className={`bg-[#4285F4] text-white font-bold flex items-center gap-1 leading-none ${
           compact ? "text-base px-2.5 py-1.5" : "text-xl px-3 py-2"
         }`}
       >
+        <span className={`opacity-80 ${compact ? "text-xs" : "text-sm"}`}>★</span>
         {score}
       </div>
       <div className={`bg-white flex flex-col justify-center ${compact ? "px-2.5 py-1" : "px-3 py-1.5"}`}>
-        <span className="text-[#003580] font-bold text-xs leading-tight tracking-tight">
-          Booking.com
+        <span className="text-[#4285F4] font-bold text-xs leading-tight tracking-tight">
+          Google
         </span>
         {reviewCount !== null && (
           <span className="text-gray-500 text-xs leading-tight">

@@ -57,12 +57,17 @@ export const properties: Property[] = [
       ],
     },
     booking: {
-      url: null,
+      url: "https://www.booking.com/hotel/pt/casa-do-moinho-montalegre.html",
       score: "9.5",
       reviewCount: 4,
     },
+    google: {
+      score: "5.0",
+      reviewCount: 4,
+      url: "https://www.google.com/maps?cid=13868799469826190841",
+    },
     airbnbUrl: null,
-    phone: "+351 xxx xxx xxx",
+    phone: "+351 935 663 060",
     whatsappMessage: {
       pt: "Olá, gostaria de saber mais sobre a Casa do Moinho",
       en: "Hello, I'd like to know more about Casa do Moinho",
@@ -71,7 +76,7 @@ export const properties: Property[] = [
       pt: "Popular no verão — reserve com antecedência",
       en: "Popular in summer — book early",
     },
-    priceFrom: 180,
+    priceFrom: 300,
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
@@ -196,9 +201,9 @@ export const properties: Property[] = [
       en: "In the shadow of the castle, heart of the village",
     },
     description: {
-      pt: "A Casa do Castelo fica mesmo ao lado das muralhas medievais de Montalegre — uma localização única que poucos alojamentos em Portugal podem reivindicar. A casa foi recuperada com materiais locais e respeita o carácter histórico da aldeia: paredes de granito, tectos em madeira escura, janelas que enquadram o castelo como se fosse uma pintura.\n\nCom capacidade para 10 pessoas em 5 quartos confortáveis, é perfeita para famílias que querem explorar a vila a pé. O pequeno-almoço pode ser tomado na varanda com vista directa para as torres do castelo, e à noite a iluminação histórica transforma a paisagem numa cena de outro tempo.\n\nO centro histórico de Montalegre está a menos de dois minutos a pé: mercado, restaurantes, a feira medieval de verão — tudo acessível sem precisar de carro.",
+      pt: "A Casa do Castelo fica mesmo ao lado das muralhas medievais de Montalegre — uma localização única que poucos alojamentos em Portugal podem reivindicar. A casa foi recuperada com materiais locais e respeita o carácter histórico da aldeia: paredes de granito, tectos em madeira escura, janelas que enquadram o castelo como se fosse uma pintura.\n\nCom capacidade para 10 pessoas em 5 quartos confortáveis, é perfeita para famílias que querem explorar a vila a pé. Tome o pequeno-almoço na varanda com vista directa para as torres medievais, usufrua do serviço de quartos ou do bar, e à noite a iluminação histórica transforma a paisagem numa cena de outro tempo.\n\nO centro histórico de Montalegre está a menos de dois minutos a pé: mercado, restaurantes tradicionais, a feira medieval de verão — tudo acessível sem precisar de carro. Os hóspedes que chegam de viatura têm acesso a estacionamento gratuito.",
 
-      en: "Casa do Castelo stands immediately alongside the medieval walls of Montalegre — a location almost no other property in Portugal can claim. Restored using local materials, it honours the village's historic character: granite walls, dark timber ceilings, windows that frame the castle as if it were a painting.\n\nSleeping up to 10 across 5 comfortable bedrooms, it's perfect for families wanting to explore the village on foot. Breakfast on the balcony comes with a direct view of the castle towers; at night the historic lighting transforms the scene into something from another century.\n\nMontalegre's historic centre is less than two minutes on foot: market, restaurants, the summer medieval fair — all accessible without a car.",
+      en: "Casa do Castelo stands immediately alongside the medieval walls of Montalegre — a location almost no other property in Portugal can claim. Restored using local materials, it honours the village's historic character: granite walls, dark timber ceilings, windows that frame the castle as if it were a painting.\n\nSleeping up to 10 across 5 comfortable bedrooms, it's perfect for families wanting to explore the village on foot. Have breakfast on the balcony with a direct view of the castle towers, make use of the room service or bar, and at night the historic floodlighting transforms the scene into something from another century.\n\nMontalegre's historic centre is less than two minutes on foot: market, traditional restaurants, the summer medieval fair — all accessible without a car. Guests arriving by car have access to free parking.",
     },
     capacity: 10,
     rooms: 5,
@@ -211,20 +216,28 @@ export const properties: Property[] = [
     coordinates: { lat: 41.8261156, lng: -7.7915704 },
     amenities: {
       pt: [
-        "WiFi",
-        "Estacionamento",
-        "Cozinha equipada",
+        "WiFi gratuito",
+        "Estacionamento gratuito",
+        "Cozinha totalmente equipada",
         "Lareira",
         "Varanda",
         "Vista para o castelo",
+        "Bar/lounge",
+        "Serviço de quartos",
+        "Restaurante no rés-do-chão",
+        "Propriedade para não fumadores",
       ],
       en: [
-        "WiFi",
-        "Parking",
+        "Free WiFi",
+        "Free parking",
         "Fully equipped kitchen",
         "Fireplace",
         "Balcony",
         "Castle view",
+        "Bar/lounge",
+        "Room service",
+        "On-site restaurant",
+        "Non-smoking property",
       ],
     },
     booking: {
@@ -232,30 +245,96 @@ export const properties: Property[] = [
       score: null,
       reviewCount: null,
     },
+    google: {
+      score: "4.7",
+      reviewCount: 23,
+      url: "https://www.google.com/maps/place/Casa+de+Campo+O+Castelo/@41.8261196,-7.7941453,17z/data=!4m11!3m10!1s0xd2532b19c23ee53:0xbf89864b23fad590!5m2!4m1!1i2!8m2!3d41.8261156!4d-7.7915704!9m1!1b1!16s%2Fg%2F1hc1dhhmc",
+    },
     airbnbUrl: null,
-    phone: "+351 xxx xxx xxx",
+    phone: "+351 276 511 237",
     whatsappMessage: {
       pt: "Olá, gostaria de saber mais sobre a Casa do Castelo",
       en: "Hello, I'd like to know more about Casa do Castelo",
     },
     seasonal: {
-      pt: "Disponível todo o ano.",
-      en: "Available year-round.",
+      pt: "Popular no verão — especialmente durante a Feira Medieval de Montalegre.",
+      en: "Popular in summer — especially during Montalegre's Medieval Fair.",
     },
-    priceFrom: 50,
+    priceFrom: 80,
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
     checkinTime: "15:00–22:00",
     checkoutTime: "11:00",
     noPartiesNote: null,
-    reviews: null,
+    reviews: {
+      allReviewsUrl:
+        "https://www.google.com/maps/place/Casa+de+Campo+O+Castelo/@41.8261196,-7.7941453,17z/data=!4m11!3m10!1s0xd2532b19c23ee53:0xbf89864b23fad590!5m2!4m1!1i2!8m2!3d41.8261156!4d-7.7915704!9m1!1b1!16s%2Fg%2F1hc1dhhmc",
+      items: [
+        {
+          author: "Hugo Catarino",
+          text: {
+            pt: "Adorei o Castelo — a proprietária muito simpática, quartos muito aconchegantes, vista para a Vila de Montalegre e terraço junto ao castelo. Ficou a promessa de voltar novamente.",
+            en: "Loved O Castelo — very friendly owner, wonderfully cosy rooms, views over Montalegre, and a terrace right next to the castle. We promised ourselves we'd be back.",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "MáriaJose Sanchez Blasco",
+          text: {
+            pt: "Um lugar precioso e com encanto. Muito limpo e bem cuidado. Um atendimento de excelência. Voltaremos!",
+            en: "A beautiful, charming place. Very clean and well maintained. Outstanding service. We'll be back!",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "pedro S",
+          text: {
+            pt: "Óptimo para passar um fim de semana e desfrutar de uma boa refeição a dois ou em família. Muito boa limpeza e atendimento. Localização excelente mesmo ao lado do Castelo e com vistas deslumbrantes.",
+            en: "Perfect for a weekend getaway — great food for two or with the family, excellent cleanliness and service, outstanding location right next to the Castle with superb views.",
+          },
+          platform: "TripAdvisor",
+          rating: 5,
+        },
+        {
+          author: "Aurora Tomaz",
+          text: {
+            pt: "Excelente experiência de uma refeição saborosa num local de bom gosto. As sugestões da proprietária na escolha do menu permitem conhecer a variedade e riqueza da culinária da região. Recomendo vivamente.",
+            en: "An excellent experience — a delicious meal in a tasteful setting. The owner's menu suggestions let you discover the variety and richness of the region's cuisine. Highly recommended.",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "Diogo Martel",
+          text: {
+            pt: "Um espaço de qualidade e bom gosto, que alia o conforto e a estética da sala a uma cozinha de excelência. Tem além do mais uma relação qualidade-preço muito boa. Recomendo vivamente!",
+            en: "A quality space with refined taste — combining comfort and elegant décor with outstanding cuisine. Excellent value for money. Highly recommended!",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+      ],
+    },
     licenseNumber: null,
-    languagesSpoken: null,
+    languagesSpoken: ["Português", "English", "Español", "Français"],
     nearby: [
       {
         label: { pt: "Castelo de Montalegre", en: "Montalegre Castle" },
         distance: { pt: "2 min a pé", en: "2 min walk" },
+      },
+      {
+        label: {
+          pt: "Igreja Santa Maria do Castelo",
+          en: "Igreja Santa Maria do Castelo",
+        },
+        distance: { pt: "2 min a pé", en: "2 min walk" },
+      },
+      {
+        label: { pt: "Tasca do Açougue", en: "Tasca do Açougue" },
+        distance: { pt: "0,1 km", en: "0.1 km" },
       },
       {
         label: {
@@ -281,7 +360,10 @@ export const properties: Property[] = [
       pt: "Terreiro Açougue nº1, Montalegre, 5470-250",
       en: "Terreiro Açougue nº1, Montalegre, 5470-250",
     },
-    gettingHereNote: null,
+    gettingHereNote: {
+      pt: "A casa fica no coração histórico de Montalegre, mesmo ao lado do Castelo. O GPS funciona bem até à propriedade. Estacionamento gratuito disponível no local.",
+      en: "The house is in Montalegre's historic centre, right next to the Castle. GPS works well to the property. Free parking available on site.",
+    },
     keywords: {
       pt: [
         "Casa do Castelo",

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import BookingScoreBadge from "@/components/ui/BookingScoreBadge";
+import GoogleReviewsBadge from "@/components/ui/GoogleReviewsBadge";
 import type { Property } from "@/types/property";
 
 type Props = {
@@ -37,14 +38,22 @@ export default function PropertyCard({ property, locale, index }: Props) {
             sizes="(min-width: 768px) 50vw, 100vw"
           />
         </div>
-        {property.booking.score !== null && (
-          <div className="absolute bottom-3 right-3 z-10">
-            <BookingScoreBadge
-              score={property.booking.score}
-              reviewCount={property.booking.reviewCount}
-              url={property.booking.url}
-              reviewsLabel={tProperty("reviewsLabel")}
-            />
+        {(property.booking.score !== null || property.google) && (
+          <div className="absolute bottom-3 right-3 z-10 flex flex-row items-end gap-1.5">
+            {property.booking.score !== null && (
+              <BookingScoreBadge
+                score={property.booking.score}
+                reviewCount={property.booking.reviewCount}
+                reviewsLabel={tProperty("reviewsLabel")}
+              />
+            )}
+            {property.google && (
+              <GoogleReviewsBadge
+                score={property.google.score}
+                reviewCount={property.google.reviewCount}
+                reviewsLabel={tProperty("reviewsLabel")}
+              />
+            )}
           </div>
         )}
       </div>
