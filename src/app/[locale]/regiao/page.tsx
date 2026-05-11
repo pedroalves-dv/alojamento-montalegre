@@ -110,7 +110,7 @@ export default async function RegiaoPage({ params }: Props) {
           <h1 className="font-serif text-6xl md:text-7xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-4">
             {t("heroHeadline1")}
           </h1>
-          <h1 className="font-stack text-5xl md:text-7xl text-white mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+          <h1 className="font-stack text-5xl md:text-7xl text-white mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {t("heroHeadline2")}
           </h1>
           <p className="text-white/80 text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
@@ -158,9 +158,9 @@ export default async function RegiaoPage({ params }: Props) {
             { stat: "1 of 22", label: t("highlightUnesco") },
             { stat: "Jan", label: t("highlightFair") },
           ].map((h) => (
-            <div key={h.stat} className="flex flex-col items-center gap-1">
+            <div key={h.stat} className="flex flex-col items-center gap-2">
               <span className="font-serif text-4xl text-forest">{h.stat}</span>
-              <span className="text-granite/60 text-sm">{h.label}</span>
+              <span className="text-granite/60 text-sm mb-4">{h.label}</span>
             </div>
           ))}
         </div>
@@ -320,7 +320,7 @@ export default async function RegiaoPage({ params }: Props) {
               >
                 {item.icon}
                 <div>
-                  <p className="font-semibold text-granite text-sm mb-1">
+                  <p className="font-serif text-granite text-2xl mb-1">
                     {t(item.titleKey)}
                   </p>
                   <p className="text-granite/70 text-sm leading-relaxed">
@@ -342,7 +342,7 @@ export default async function RegiaoPage({ params }: Props) {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 rounded-xl overflow-hidden border border-gray-200">
             {seasons.map((season) => (
               <div key={season.label} className="bg-white px-6 py-7">
-                <p className="font-semibold text-forest tracking-wider text-base mb-1">
+                <p className="font-semibold text-forest tracking-wider text-lg mb-1">
                   {season.label}
                 </p>
                 <p className="text-xs text-granite/50 uppercase tracking-wider mb-3">

@@ -48,7 +48,7 @@ export default function RegionSection({ section, index, locale }: Props) {
           <h3 className="font-serif text-3xl md:text-4xl text-granite mb-4">
             {section.title[locale]}
             {section.distance?.[locale] && (
-              <span className="text-xs text-granite/50 border border-gray-200 px-2 py-0.5 rounded-full ml-3 align-middle inline-block">
+              <span className="text-xs font-stack text-granite/50 border border-gray-200 px-2 py-0.5 rounded-full ml-3 align-middle inline-block">
                 {section.distance[locale]}
               </span>
             )}

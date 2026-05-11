@@ -10,12 +10,12 @@ export const regiao: RegiaoSection[] = [
       pt: "Montalegre é uma das vilas mais emblemáticas do Alto Tâmega, dominada pela silhueta medieval do seu castelo do século XIV. Construído para proteger a fronteira norte do reino de Portugal, o castelo oferece hoje uma vista esmagadora sobre os vales e serras do Barroso. A vila tem um centro histórico compacto e animado, com uma tradição gastronómica forte — o fumeiro, os enchidos e a carne barrosã são a alma da mesa local.",
       en: "Montalegre is one of the most emblematic towns of the Alto Tâmega, dominated by the medieval silhouette of its 14th-century castle. Built to guard the northern border of the kingdom of Portugal, the castle today offers a breathtaking view over the valleys and mountains of Barroso. The town has a compact and lively historic centre with a strong gastronomic tradition — smoked meats, charcuterie, and Barrosã beef are the heart of the local table.",
     },
-    image: "/images/montalegre-3.jpg",
+    image: "/images/montalegre-4.jpg",
     distance: null,
   },
   {
     title: {
-      pt: "Parque Natural do Gerês",
+      pt: "Parque Nacional de Peneda-Gerês",
       en: "Peneda-Gerês National Park",
     },
     body: {
@@ -28,15 +28,15 @@ export const regiao: RegiaoSection[] = [
   },
   {
     title: {
-      pt: "Barragem do Alto Rabagão",
-      en: "Alto Rabagão Reservoir",
+      pt: "Barragem do Lindoso",
+      en: "Lindoso Reservoir",
     },
     body: {
-      pt: "A Barragem do Alto Rabagão é uma das maiores albufeiras do norte de Portugal e um espelho de água de beleza serena que contrasta com a aspereza da paisagem envolvente. Ideal para passeios à beira-água, pesca desportiva, kayak e caminhadas ao longo das margens. Nos dias mais calmos, o reflexo das serras nas águas escuras é uma das imagens mais memoráveis de toda a região.",
+      pt: "A Barragem do Lindoso é uma das maiores albufeiras do norte de Portugal e um espelho de água de beleza serena que contrasta com a aspereza da paisagem envolvente. Ideal para passeios à beira-água, pesca desportiva, kayak e caminhadas ao longo das margens. Nos dias mais calmos, o reflexo das serras nas águas escuras é uma das imagens mais memoráveis de toda a região.",
 
-      en: "The Alto Rabagão reservoir is one of the largest in northern Portugal — a serene expanse of water that contrasts beautifully with the rugged surrounding landscape. Ideal for waterside walks, sport fishing, kayaking, and hikes along the shore. On calm days, the reflection of the mountain ranges in the dark water is one of the most memorable images in the entire region.",
+      en: "The Lindoso Reservoir is among the largest in northern Portugal — a serene expanse of water that contrasts beautifully with the rugged surrounding landscape. Ideal for waterside walks, sport fishing, kayaking, and hikes along the shore. On calm days, the reflection of the mountain ranges in the dark water is one of the most memorable images in the entire region.",
     },
-    image: "/images/kayak.jpg",
+    image: "/images/canoagem-paddle-barragem-do-lindoso.jpg",
     distance: { pt: "~20 min de Montalegre", en: "~20 min from Montalegre" },
   },
   {
@@ -49,7 +49,10 @@ export const regiao: RegiaoSection[] = [
       en: "The Montalegre area is threaded with a network of marked walking trails, winding through mountain landscapes, riverside paths, and historic villages. Serra do Larouco — the second highest mountain in Portugal west of the Tagus — offers routes for all fitness levels, with sweeping views over the Cávado valley and the surrounding ranges. Other trails follow the Alto Rabagão reservoir shore and connect traditional villages where time seems to stand still. For walkers of all levels, this is one of the most rewarding regions in northern Portugal.",
     },
     image: "/images/montalegre-2.png",
-    distance: { pt: "~10–30 min de Montalegre", en: "~10–30 min from Montalegre" },
+    distance: {
+      pt: "~10–30 min de Montalegre",
+      en: "~10–30 min from Montalegre",
+    },
   },
   {
     title: {

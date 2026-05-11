@@ -68,7 +68,8 @@ Run `npm run build` after all changes to confirm no errors.
 If they don't have one, they need to register at: https://rnt.turismodeportugal.pt
 
 **Prompt:**
-```
+
+```text
 In /home/sang/projects/alojamento-montalegre, add RNET Alojamento Local registration
 number support (legally required in Portugal):
 
