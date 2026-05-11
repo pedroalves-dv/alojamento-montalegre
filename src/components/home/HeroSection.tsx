@@ -38,7 +38,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="hidden md:block font-stack text-white text-4xl md:text-7xl leading-[0.9] mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] tracking-tight"
+          className="hidden md:block font-stack text-white text-4xl md:text-7xl leading-[0.9] mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] tracking-tight"
         >
           {t("heroHeadline2")}
         </motion.h2>
@@ -66,7 +66,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           </Link>
           <Link
             href={`/${locale}/regiao`}
-            className="bg-fog/30 hover:bg-granite/60 border border-fog/60 text-white px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+            className="bg-fog/10 hover:bg-granite/60 border border-fog/60 text-white px-8 py-3.5 rounded-lg font-medium tracking-wide transition-colors duration-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
           >
             {t("ctaConhecerRegiao")}
           </Link>
