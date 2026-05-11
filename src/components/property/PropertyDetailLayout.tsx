@@ -7,6 +7,7 @@ import PropertyHeroSection from "./PropertyHeroSection";
 import PropertyBookingCTA from "./PropertyBookingCTA";
 import PropertyBottomBar from "./PropertyBottomBar";
 import PropertyPolicies from "./PropertyPolicies";
+import PropertyReviews from "./PropertyReviews";
 import RestaurantCallout from "./RestaurantCallout";
 
 type Props = {
@@ -168,24 +169,14 @@ export default async function PropertyDetailLayout({
             languagesLabel={t("languagesLabel")}
           />
 
-          {/* Featured guest review TODO: fetch real reviews (google, trip advisor)*/}
-          {/* {property.featuredReview && (
-            <section className="py-14 border-t border-gray-100">
-              <h2 className="font-serif text-4xl text-granite mb-8">
-                {t("reviewHeading")}
-              </h2>
-              <blockquote className="relative pl-6 border-l-2 border-amber">
-                <p className="text-granite/70 leading-relaxed text-base italic mb-4">
-                  &ldquo;{property.featuredReview.text[l]}&rdquo;
-                </p>
-                <footer className="text-sm text-granite/50">
-                  — {property.featuredReview.author},{" "}
-                  {property.featuredReview.country[l]}
-                  <span className="ml-2 text-granite/30">{t("reviewVia")}</span>
-                </footer>
-              </blockquote>
-            </section>
-          )} */}
+          {property.reviews && property.reviews.items.length > 0 && (
+            <PropertyReviews
+              config={property.reviews}
+              locale={l}
+              heading={t("reviewHeading")}
+              allReviewsLabel={t("allReviewsLabel")}
+            />
+          )}
 
           {/* Nearby distances */}
           <section className="py-14 border-t border-gray-100">

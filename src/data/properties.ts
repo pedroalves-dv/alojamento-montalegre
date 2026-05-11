@@ -81,13 +81,37 @@ export const properties: Property[] = [
       pt: "Festas e eventos não são permitidos nesta propriedade.",
       en: "Parties and events are not permitted on this property.",
     },
-    featuredReview: {
-      author: "Paulo",
-      country: { pt: "Espanha", en: "Spain" },
-      text: {
-        pt: "A localização, a paisagem e a atenção do proprietário.",
-        en: "The location, the landscape and the owner's attentiveness.",
-      },
+    reviews: {
+      allReviewsUrl: "https://www.google.com/maps?cid=13868799469826190841",
+      items: [
+        {
+          author: "Sergio Tavares",
+          text: {
+            pt: "Obrigado pela simpática recepção ao sr. João e sr. Nuno.",
+            en: "Thank you for the warm welcome from Mr. João and Mr. Nuno.",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "Lidia Cardoso",
+          text: {
+            pt: "Local tranquilo para um momento de relax.",
+            en: "A tranquil spot for a moment of relaxation.",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "Manuel Morais",
+          text: {
+            pt: "Espectacular.",
+            en: "Spectacular.",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+      ],
     },
     licenseNumber: "120536/AL",
     languagesSpoken: ["Português", "English", "Español", "Français"],
@@ -225,7 +249,7 @@ export const properties: Property[] = [
     checkinTime: "15:00–22:00",
     checkoutTime: "11:00",
     noPartiesNote: null,
-    featuredReview: null,
+    reviews: null,
     licenseNumber: null,
     languagesSpoken: null,
     nearby: [

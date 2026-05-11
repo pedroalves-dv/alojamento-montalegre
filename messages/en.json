@@ -136,6 +136,7 @@
     "licenseLabel": "License",
     "languagesLabel": "Languages spoken",
     "reviewHeading": "What guests say",
-    "reviewVia": "via Booking.com"
+    "reviewVia": "via Booking.com",
+    "allReviewsLabel": "See all reviews on Google"
   }
 }

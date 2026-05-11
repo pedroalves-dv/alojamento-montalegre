@@ -6,10 +6,19 @@ export interface PropertyBooking {
   reviewCount: number | null;
 }
 
-export interface FeaturedReview {
+export type ReviewPlatform = "Google" | "Booking.com" | "TripAdvisor" | "Airbnb";
+
+export interface PropertyReview {
   author: string;
-  country: LocalizedString;
+  country?: LocalizedString;
   text: LocalizedString;
+  platform: ReviewPlatform;
+  rating: number; // out of 5
+}
+
+export interface PropertyReviewsConfig {
+  items: PropertyReview[];
+  allReviewsUrl: string | null;
 }
 
 export interface Property {
@@ -36,7 +45,7 @@ export interface Property {
   checkinTime: string;
   checkoutTime: string;
   noPartiesNote: LocalizedString | null;
-  featuredReview: FeaturedReview | null;
+  reviews: PropertyReviewsConfig | null;
   licenseNumber: string | null;
   languagesSpoken: string[] | null;
   nearby: { label: { pt: string; en: string }; distance: { pt: string; en: string } }[];
