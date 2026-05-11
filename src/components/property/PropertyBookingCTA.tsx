@@ -33,7 +33,7 @@ export default async function PropertyBookingCTA({ property, locale }: Props) {
             <WhatsAppIcon />
             {t("bookingWhatsapp")}
           </a>
-          {property.booking.url && (
+          {/* {property.booking.url && (
             <a
               href={property.booking.url}
               target="_blank"
@@ -42,7 +42,7 @@ export default async function PropertyBookingCTA({ property, locale }: Props) {
             >
               {t("bookingBookingCom")}
             </a>
-          )}
+          )} */}
         </div>
 
         <p className="mt-8 text-white/40 text-lg">

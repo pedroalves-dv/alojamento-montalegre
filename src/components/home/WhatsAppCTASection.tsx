@@ -19,7 +19,7 @@ export default async function WhatsAppCTASection() {
           href={waHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 bg-white text-forest font-semibold px-8 py-4 rounded-full hover:bg-fog transition-colors duration-200 text-base shadow-sm"
+          className="inline-flex items-center gap-3 bg-white text-forest font-semibold px-8 py-4 rounded-lg hover:bg-fog transition-colors duration-200 text-base shadow-sm"
         >
           {/* WhatsApp icon */}
           <svg
