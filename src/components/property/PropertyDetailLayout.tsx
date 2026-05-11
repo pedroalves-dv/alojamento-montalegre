@@ -120,11 +120,11 @@ export default async function PropertyDetailLayout({
       </div>
 
       {/* Main two-column grid */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-10 max-w-6xl mx-auto px-4 sm:px-6 py-14">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_360px] gap-6 max-w-6xl mx-auto px-4 sm:px-6 py-14">
         {/* LEFT COLUMN — main content */}
         <div>
           {/* Description */}
-          <section className="mb-14">
+          <section className="mb-14 max-w-2xl">
             <h2 className="font-serif text-4xl text-granite mb-6">
               {t("descriptionHeading")}
             </h2>
@@ -132,7 +132,7 @@ export default async function PropertyDetailLayout({
               {description.split("\n\n").map((para, i) => (
                 <p
                   key={i}
-                  className="text-granite/70 leading-relaxed text-base max-w-3xl"
+                  className="text-granite/70 leading-relaxed text-base"
                 >
                   {para}
                 </p>
@@ -245,7 +245,7 @@ export default async function PropertyDetailLayout({
         {/* RIGHT COLUMN — sticky sidebar, desktop only */}
         <div className="hidden md:block">
           <div className="sticky top-[80px] h-fit bg-white border border-gray-200 rounded-xl p-6 flex flex-col gap-4">
-            <p className="text-sm font-medium text-granite/50">{name}</p>
+            <p className="text-xl text-granite">{name}</p>
 
             {(property.booking.score !== null || property.google) && (
               <div className="flex flex-row gap-2">
@@ -268,7 +268,7 @@ export default async function PropertyDetailLayout({
               </div>
             )}
 
-            <p className="text-sm text-granite/70">{seasonal}</p>
+            <p className="text-sm  text-granite/60 ">{seasonal}</p>
 
             <hr className="border-gray-100" />
 
@@ -276,7 +276,7 @@ export default async function PropertyDetailLayout({
               href={waHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 text-white px-4 py-3 rounded-lg font-semibold text-sm transition-opacity hover:opacity-90"
+              className="inline-flex items-center justify-center gap-2.5 text-white px-4 py-3 rounded-lg text-md transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#25D366" }}
             >
               <WhatsAppIcon />
@@ -285,14 +285,14 @@ export default async function PropertyDetailLayout({
 
             <a
               href={`tel:${config.phoneNumber.replace(/\s/g, "")}`}
-              className="text-center text-sm text-granite hover:text-forest transition-colors"
+              className="text-center text-xl text-granite hover:text-forest transition-colors"
             >
               {config.phoneNumber}
             </a>
 
             <hr className="border-gray-100" />
 
-            <p className="text-xs text-granite/50 leading-relaxed">
+            <p className="text-sm text-granite/50 leading-relaxed text-center">
               {t("bookingDirectNote")}
             </p>
           </div>
