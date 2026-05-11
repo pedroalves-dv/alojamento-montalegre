@@ -163,25 +163,6 @@ export default async function ContactoPage({ params }: Props) {
                     </a>
                   )}
                 </div>
-
-                {/* Booking.com — only shown when the property has an external listing */}
-                {p.booking.url && (
-                  <div className="flex flex-col gap-3">
-                    <BookingScoreBadge
-                      score={p.booking.score}
-                      reviewCount={p.booking.reviewCount}
-                      reviewsLabel={tProperty("reviewsLabel")}
-                    />
-                    <a
-                      href={p.booking.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-river text-sm font-medium hover:underline transition-colors w-fit"
-                    >
-                      {t("bookingCta")} →
-                    </a>
-                  </div>
-                )}
               </AnimatedSection>
             );
           })}

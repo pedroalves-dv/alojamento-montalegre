@@ -285,8 +285,9 @@ export default async function PropertyDetailLayout({
 
             <a
               href={`tel:${config.phoneNumber.replace(/\s/g, "")}`}
-              className="text-center text-xl text-granite hover:text-forest transition-colors"
+              className="inline-flex items-center justify-center gap-2 text-xl text-granite hover:text-forest transition-colors"
             >
+              <PhoneIcon />
               {config.phoneNumber}
             </a>
 
@@ -454,6 +455,24 @@ function PriceIcon() {
     >
       <line x1="12" y1="1" x2="12" y2="23" />
       <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.87a16 16 0 0 0 6.22 6.22l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z" />
     </svg>
   );
 }
