@@ -17,10 +17,10 @@ export default function FAQAccordion({ items, locale }: Props) {
   return (
     <section className="py-20 px-4">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-6xl text-granite text-center mb-12">
+        <h2 className="font-serif text-4xl md:text-6xl text-granite text-left md:text-center mb-6 md:mb-12">
           {t("faqHeading")}
         </h2>
-        <div className="divide-y divide-gray-200">
+        <div className="divide-y divide-gray-200 border border-gray-200 rounded-lg py-1">
           {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -28,9 +28,9 @@ export default function FAQAccordion({ items, locale }: Props) {
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between py-5 text-left gap-4 group"
+                  className="w-full flex items-center justify-between py-5 md:py-5 text-left gap-4 group px-5"
                 >
-                  <span className="font-medium text-granite text-base group-hover:text-forest transition-colors">
+                  <span className="font-medium text-granite text-sm md:text-base group-hover:text-forest transition-colors">
                     {item.question[l]}
                   </span>
                   <svg
@@ -53,7 +53,7 @@ export default function FAQAccordion({ items, locale }: Props) {
                     isOpen ? "max-h-96 pb-5" : "max-h-0"
                   }`}
                 >
-                  <p className="text-granite/65 leading-relaxed text-sm">
+                  <p className="text-granite/65 leading-relaxed text-sm px-6">
                     {item.answer[l]}
                   </p>
                 </div>

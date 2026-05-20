@@ -106,14 +106,14 @@ export default async function RegiaoPage({ params }: Props) {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/30 to-transparent" />
-        <div className="relative z-10 pb-14 max-w-6xl mx-auto w-full px-6">
-          <h1 className="font-serif text-6xl md:text-7xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-4">
+        <div className="relative z-10 pb-14 max-w-7xl mx-auto w-full px-6 leading-[0.9]">
+          <h1 className="font-serif text-6xl md:text-8xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)] mb-2 text-balance">
             {t("heroHeadline1")}
           </h1>
-          <h1 className="font-stack text-5xl md:text-7xl text-white mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+          <h1 className="font-stack text-xl md:text-4xl text-white/80 mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {t("heroHeadline2")}
           </h1>
-          <p className="text-white/80 text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
+          <p className="text-white text-lg md:text-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]">
             {t("heroTagline")}
           </p>
         </div>

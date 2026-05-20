@@ -11,7 +11,7 @@ export default async function RegionTeaser({ locale }: { locale: string }) {
     <section className="py-10 md:py-20 px-4 bg-fog">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Text */}
-        <div className="order-2 text-center md:text-left">
+        <div className="order-2 text-left">
           <h2 className="font-serif text-4xl md:text-6xl text-granite mb-5">
             {t("regionHeading")}
           </h2>

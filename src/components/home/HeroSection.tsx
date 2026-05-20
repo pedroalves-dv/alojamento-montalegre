@@ -21,16 +21,16 @@ export default function HeroSection({ locale }: { locale: string }) {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-transparent via-black/60 to-transparent" />
       {/* 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.3)_20%,rgba(0,0,0,0.15)_30%,transparent_50%)]" /> */}
 
-      <div className="relative z-10 text-center text-white max-w-6xl px-4 ">
+      <div className="relative z-10 text-left md:text-center text-white max-w-6xl px-4 ">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="font-serif text-5xl md:text-7xl leading-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] mb-4"
+          className="font-serif text-6xl md:text-8xl leading-[0.9] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mb-2"
         >
           {t("heroHeadline1")}
         </motion.h1>
@@ -38,7 +38,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="hidden md:block font-stack text-white text-4xl md:text-7xl leading-[0.9] mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] tracking-tight"
+          className=" font-stack text-white/80 text-xl md:text-4xl leading-[0.9] mb-12 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
         >
           {t("heroHeadline2")}
         </motion.h2>
@@ -47,7 +47,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, delay: 0.25, ease: "easeOut" }}
-          className="text-lg md:text-xl opacity-85 mb-16 font-light tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+          className="text-lg text-white md:text-xl mb-16 tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
         >
           {t("heroTagline")}
         </motion.p>
@@ -56,7 +56,7 @@ export default function HeroSection({ locale }: { locale: string }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row gap-6 justify-center"
+          className="flex flex-row gap-6 justify-center text-xs md:text-base"
         >
           <Link
             href={`/${locale}#casas`}

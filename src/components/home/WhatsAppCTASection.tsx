@@ -7,7 +7,7 @@ export default async function WhatsAppCTASection() {
 
   return (
     <section className="bg-forest text-white py-20 px-4">
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-2xl mx-auto text-left md:text-center">
         <h2 className="font-serif text-4xl md:text-6xl mb-4">
           {t("whatsappHeading")}
         </h2>

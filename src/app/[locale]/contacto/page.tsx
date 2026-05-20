@@ -86,8 +86,8 @@ export default async function ContactoPage({ params }: Props) {
       />
 
       {/* Header */}
-      <section className="pt-32 px-6 bg-fog border-b border-gray-100">
-        <div className="max-w-3xl mx-auto text-center">
+      <section className="pt-16 md:pt-32 px-6 bg-fog border-b border-gray-100">
+        <div className="max-w-3xl mx-auto text-left md:text-center">
           <h1 className="font-serif text-4xl md:text-6xl text-granite mb-4">
             {t("heading")}
           </h1>
@@ -113,7 +113,7 @@ export default async function ContactoPage({ params }: Props) {
       </section>
 
       {/* Property contact cards */}
-      <section className="py-20 px-6">
+      <section className="py-12 md:py-20 px-6">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {properties.map((p, i) => {
             const waHref = `https://wa.me/${config.whatsappNumber}?text=${encodeURIComponent(p.whatsappMessage[l])}`;
@@ -171,7 +171,7 @@ export default async function ContactoPage({ params }: Props) {
 
       {/* Phone */}
       <section className="py-16 px-6 bg-fog border-y border-gray-100">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-3xl mx-auto text-left md:text-center">
           <h2 className="font-serif text-4xl md:text-6xl text-granite mb-2">
             {t("phoneHeading")}
           </h2>
