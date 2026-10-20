@@ -36,10 +36,19 @@ const practical: { icon: IconName; title: string; body: string }[] = [
   { icon: "hospitality", title: t("practicalLanguageTitle"), body: t("practicalLanguage") },
 ];
 
-const seasons = (["spring", "summer", "autumn", "winter"] as const).map((s) => ({
+const seasonImages = {
+  spring: "/images/estacao-primavera-pitoes.jpg",
+  summer: "/images/estacao-verao-lagoas-marinho-por-do-sol.jpg",
+  autumn: "/images/estacao-outono-carvalhos.jpg",
+  winter: "/images/estacao-inverno-pitoes-neve.jpg",
+} as const;
+const seasonKeys = ["spring", "summer", "autumn", "winter"] as const;
+const seasonPictures = await resolveImages(seasonKeys.map((s) => seasonImages[s]));
+const seasons = seasonKeys.map((s, i) => ({
   label: t(`${s}Label`),
   months: t(`${s}Months`),
   note: t(`${s}Note`),
+  image: seasonPictures[i]!,
 }));
 
 const routes = [
@@ -141,13 +150,23 @@ const h2 = "heading-2 text-granite";
   <section class="border-y border-granite/10 bg-white/50">
     <div class="container-site section-y">
       <h2 class:list={[h2, "mb-12"]}>{t("seasonalHeading")}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-granite/10 rounded-box overflow-hidden border border-granite/10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {
           seasons.map((season) => (
-            <div class="bg-white px-6 py-7">
-              <h3 class="heading-3 text-forest mb-1">{season.label}</h3>
-              <p class="text-xs text-muted uppercase tracking-wider mb-3">{season.months}</p>
-              <p class="text-body text-sm leading-relaxed">{season.note}</p>
+            <div class="bg-white rounded-box border border-granite/15 overflow-hidden">
+              <Picture
+                src={season.image}
+                alt={season.label}
+                formats={imageFormats}
+                widths={[400, 640, 960, 1280]}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                class="w-full aspect-video object-cover"
+              />
+              <div class="px-6 py-7">
+                <h3 class="heading-3 text-forest mb-1">{season.label}</h3>
+                <p class="text-xs text-muted uppercase tracking-wider mb-3">{season.months}</p>
+                <p class="text-body text-sm leading-relaxed">{season.note}</p>
+              </div>
             </div>
           ))
         }
