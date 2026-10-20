@@ -28,7 +28,7 @@ function cardFor(page: string, locale: Locale): Card {
   const pages = {
     home: { data: seo.home, image: "/images/casa-do-moinho/1.jpg" },
     regiao: { data: seo.regiao, image: "/images/montalegre-2.jpg" },
-    contacto: { data: seo.contacto, image: "/images/montalegre-4.jpg" },
+    contacto: { data: seo.contacto, image: "/images/montalegre-castelo.jpg" },
   } as const;
   const { data, image } = pages[page as keyof typeof pages];
   return {

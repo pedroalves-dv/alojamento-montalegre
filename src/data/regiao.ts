@@ -10,7 +10,7 @@ export const regiao: RegiaoSection[] = [
       pt: "Montalegre é a vila do Barroso, perto dos mil metros de altitude e a poucos quilómetros da Galiza. O castelo foi reconstruído no reinado de D. Dinis para guardar esta fronteira, e a torre de menagem, com cerca de 21 metros, foi erguida já no reinado de D. Afonso IV. Hoje é Monumento Nacional e o melhor miradouro da vila: lá de cima vê-se o planalto, a Serra do Larouco e, em dias limpos, a serra do lado galego. À volta do castelo, o centro histórico é pequeno e faz-se a pé, entre casas de granito, a igreja e as tascas.",
       en: "Montalegre is Barroso's town, close to a thousand metres up and a few kilometres from Galicia. Its castle was rebuilt under King Dinis to guard this border, and the keep, some 21 metres tall, went up under his son Afonso IV. Today it's a National Monument and the best viewpoint in town: from the top you can see across the plateau to Serra do Larouco and, on a clear day, the hills on the Galician side. The old town around it is small enough to walk, past granite houses, the church and the tascas.",
     },
-    image: "/images/montalegre-4.jpg",
+    image: "/images/montalegre-castelo.jpg",
     distance: null,
   },
   {
