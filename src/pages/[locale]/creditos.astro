@@ -13,12 +13,16 @@ const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale, "Creditos");
 const thumbs = await resolveImages(credits.map((c) => c.image));
 const link = "underline underline-offset-2 hover:text-forest";
+const licenseText = (c: (typeof credits)[number]) => (typeof c.license === "string" ? c.license : c.license[locale]);
 ---
 
 <BaseLayout locale={locale} title={t("heading")} description={t("intro")} path="/creditos" ogImage="home" noindex>
   <section class="container-site pt-12 md:pt-20 pb-16 md:pb-24 max-w-3xl">
     <h1 class="heading-1 text-granite">{t("heading")}</h1>
     <p class="mt-4 text-body leading-relaxed">{t("intro")}</p>
+    <p class="mt-3 text-body leading-relaxed">
+      {t("removal")} <a href={`/${locale}/contacto`} class={link}>{t("removalLink")}</a>.
+    </p>
 
     <ul class="mt-10 divide-y divide-granite/10 border-y border-granite/10">
       {
@@ -38,7 +42,11 @@ const link = "underline underline-offset-2 hover:text-forest";
                 {t("by")}{" "}
                 <a href={c.sourceUrl} target="_blank" rel="noopener" class={link}>{c.author}</a>
                 {" · "}
-                <a href={c.licenseUrl} target="_blank" rel="noopener" class={link}>{c.license}</a>
+                {c.licenseUrl ? (
+                  <a href={c.licenseUrl} target="_blank" rel="noopener" class={link}>{licenseText(c)}</a>
+                ) : (
+                  licenseText(c)
+                )}
               </p>
               {c.changes && <p class="text-muted">{c.changes[locale]}</p>}
             </div>

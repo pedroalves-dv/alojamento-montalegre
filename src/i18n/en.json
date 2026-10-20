@@ -138,8 +138,10 @@
   },
   "Creditos": {
     "heading": "Image credits",
-    "intro": "Some photos on this site are by other photographers and used under Creative Commons licences. The rest are our own.",
-    "by": "Photo by"
+    "intro": "Some photos on this site are by the photographers and organisations listed below, most of them used under Creative Commons licences. The rest are our own.",
+    "by": "Photo by",
+    "removal": "If you recognise one of your photographs here and would like it removed,",
+    "removalLink": "please get in touch"
   },
   "Map": {
     "load": "Show map",

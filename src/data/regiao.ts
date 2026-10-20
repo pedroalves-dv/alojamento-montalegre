@@ -10,7 +10,7 @@ export const regiao: RegiaoSection[] = [
       pt: "Montalegre é a vila do Barroso, perto dos mil metros de altitude e a poucos quilómetros da Galiza. O castelo foi reconstruído no reinado de D. Dinis para guardar esta fronteira, e a torre de menagem, com cerca de 21 metros, foi erguida já no reinado de D. Afonso IV. Hoje é Monumento Nacional e o melhor miradouro da vila: lá de cima vê-se o planalto, a Serra do Larouco e, em dias limpos, a serra do lado galego. À volta do castelo, o centro histórico é pequeno e faz-se a pé, entre casas de granito, a igreja e as tascas.",
       en: "Montalegre is Barroso's town, close to a thousand metres up and a few kilometres from Galicia. Its castle was rebuilt under King Dinis to guard this border, and the keep, some 21 metres tall, went up under his son Afonso IV. Today it's a National Monument and the best viewpoint in town: from the top you can see across the plateau to Serra do Larouco and, on a clear day, the hills on the Galician side. The old town around it is small enough to walk, past granite houses, the church and the tascas.",
     },
-    image: "/images/montalegre-castelo.jpg",
+    image: "/images/castelo-montalegre-vista.jpg",
     distance: null,
   },
   {
@@ -22,7 +22,7 @@ export const regiao: RegiaoSection[] = [
       pt: "O único parque nacional de Portugal começa dentro do próprio concelho: cerca de um quarto de Montalegre fica dentro dos seus limites. Do lado do Barroso, o parque é planalto alto e aldeias comunitárias como Pitões das Júnias e Tourém. Em Pitões, um trilho de pouco mais de quatro quilómetros passa pelo Mosteiro de Santa Maria das Júnias, do século XII, e termina no miradouro da cascata. Pelo caminho é fácil cruzar-se com garranos e vacas barrosãs; o lobo-ibérico também vive nestas serras, embora raramente se deixe ver.",
       en: "Portugal's only national park begins inside the municipality itself: about a quarter of Montalegre lies within its boundaries. On the Barroso side, the park is high plateau and communal villages such as Pitões das Júnias and Tourém. At Pitões, a trail of just over four kilometres passes the 12th-century Monastery of Santa Maria das Júnias and ends at the waterfall viewpoint. Along the way you'll likely meet garranos, the small native horses, and Barrosã cattle; Iberian wolves live in these hills too, though they rarely let themselves be seen.",
     },
-    image: "/images/park.jpg",
+    image: "/images/pitoes-das-junias-serra.jpg",
     distance: { pt: "~15 min de Montalegre", en: "~15 min from Montalegre" },
   },
   {
@@ -43,10 +43,10 @@ export const regiao: RegiaoSection[] = [
       en: "Walking Trails — Serra do Larouco and Around",
     },
     body: {
-      pt: "O concelho tem vários percursos pedestres sinalizados, que ligam aldeias, castros, moinhos e lameiros. A norte da vila, a Serra do Larouco sobe a mais de 1500 metros e é lá que nasce o rio Cávado; do topo, a vista abre-se sobre todo o Barroso e entra pela Galiza. Mais perto do rio, há trilhos planos entre campos cultivados e aldeias pequenas. Leve água, calçado a sério e um agasalho — mesmo no verão, o vento lá em cima é frio.",
-      en: "The municipality has a number of waymarked walking routes linking villages, Iron Age hillforts, water mills and meadows. North of town, Serra do Larouco rises to over 1,500 metres, and the Cávado river has its source up there; from the top the view takes in all of Barroso and runs on into Galicia. Closer to the river there are easy, level trails between farmed fields and small villages. Bring water, proper shoes and a warm layer — even in summer, the wind up top is cold.",
+      pt: "O concelho tem vários percursos pedestres sinalizados, que ligam aldeias, castros, moinhos e lameiros. Do lado do Gerês, em Cabril, um trilho parte da aldeia de Xertelo e atravessa a serra até às Sete Lagoas, uma sucessão de lagoas e cascatas no granito, boas para um mergulho no verão. A norte da vila, a Serra do Larouco sobe a mais de 1500 metros e é lá que nasce o rio Cávado; do topo, a vista abre-se sobre todo o Barroso e entra pela Galiza. Mais perto do rio, há trilhos planos entre campos cultivados e aldeias pequenas. Leve água, calçado a sério e um agasalho — mesmo no verão, o vento lá em cima é frio.",
+      en: "The municipality has a number of waymarked walking routes linking villages, Iron Age hillforts, water mills and meadows. On the Gerês side, in Cabril, a trail leaves the village of Xertelo and crosses the hills to the Sete Lagoas, a chain of pools and waterfalls in the granite that's good for a swim in summer. North of town, Serra do Larouco rises to over 1,500 metres, and the Cávado river has its source up there; from the top the view takes in all of Barroso and runs on into Galicia. Closer to the river there are easy, level trails between farmed fields and small villages. Bring water, proper shoes and a warm layer — even in summer, the wind up top is cold.",
     },
-    image: "/images/larouco.jpg",
+    image: "/images/trilho-xertelo-sete-lagoas.jpg",
     distance: {
       pt: "~10–30 min de Montalegre",
       en: "~10–30 min from Montalegre",
@@ -61,7 +61,7 @@ export const regiao: RegiaoSection[] = [
       pt: "No Barroso, o fumeiro faz-se no inverno: depois da matança, as carnes curam semanas ao fumo da lareira, nas cozinhas das aldeias. No fim de janeiro, durante quatro dias, os produtores trazem-no à vila para a Feira do Fumeiro. Há alheiras, chouriças, salpicão, sangueiras, presunto e chouriço de abóbora, quase sempre vendidos por quem os fez. É uma das alturas mais cheias do ano em Montalegre — e a melhor para encher a mala do carro.",
       en: "In Barroso, smoked meats are a winter craft: after the pig is killed, the cuts cure for weeks in the smoke of village kitchen fires. At the end of January, for four days, the producers bring it all into town for the Fumeiro Fair. Expect alheiras, chouriças, salpicão, sangueiras, presunto and chouriço de abóbora (pumpkin sausage), usually sold by the people who made them. It's one of the busiest times of year in Montalegre, and the best for filling the boot of your car.",
     },
-    image: "/images/fumeiro.jpg",
+    image: "/images/fumeiro-pitoes-presuntos.jpg",
     distance: null,
   },
   {

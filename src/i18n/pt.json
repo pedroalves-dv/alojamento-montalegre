@@ -138,8 +138,10 @@
   },
   "Creditos": {
     "heading": "Créditos das imagens",
-    "intro": "Algumas fotografias deste site são de outros autores e usadas ao abrigo de licenças Creative Commons. As restantes são nossas.",
-    "by": "Fotografia de"
+    "intro": "Algumas fotografias deste site são dos autores e entidades indicados abaixo, a maioria usadas ao abrigo de licenças Creative Commons. As restantes são nossas.",
+    "by": "Fotografia de",
+    "removal": "Se reconhecer aqui uma fotografia sua e preferir que seja retirada,",
+    "removalLink": "entre em contacto connosco"
   },
   "Map": {
     "load": "Mostrar mapa",
