@@ -6,12 +6,12 @@ export const properties: Property[] = [
     slug: "casa-do-moinho",
     name: { pt: "Casa do Moinho", en: "Casa do Moinho" },
     tagline: {
-      pt: "À beira do rio, longe do mundo",
-      en: "Beside the river, far from the world",
+      pt: "À beira do rio, a cinco minutos da vila",
+      en: "By the river, five minutes from town",
     },
     description: {
-      pt: "A Casa do Moinho fica à margem do rio Cávado, envolta pelo verde intenso da Serra do Larouco. Um antigo moinho restaurado com cuidado, onde a pedra granítica e a madeira envelhecida se misturam com o conforto moderno. Acorde com o som da água e durma com as estrelas a guiar-lhe o sono.\n\nEspaçosa e luminosa, a casa acomoda até 10 pessoas em 5 quartos — ideal para famílias grandes ou grupos de amigos que procuram um retiro verdadeiro. A cozinha totalmente equipada convida a longas refeições à lareira enquanto lá fora o vento dança nos carvalhos.\n\nEsta é a casa certa para quem quer desligar de verdade: sem semáforos, sem pressa, sem barulho — só a natureza, a brasa e o silêncio que só o Barroso sabe dar.",
-      en: "Casa do Moinho sits on the banks of the Cávado river, surrounded by the deep green of Serra do Larouco. A lovingly restored water mill where granite stone and aged wood meet modern comfort. Wake to the sound of the water; sleep under a sky thick with stars.\n\nSpacious and light-filled, the house sleeps up to 10 across 5 bedrooms — ideal for large families or groups of friends seeking a genuine retreat. The fully equipped kitchen invites long evenings by the fireplace while the wind moves through the oaks outside.\n\nThis is the house for those who truly want to disconnect: no traffic lights, no rush, no noise — just nature, embers, and the silence only Barroso can offer.",
+      pt: "A Casa do Moinho é um antigo moinho de granito recuperado, à beira do rio Cávado, em Cambeses do Rio, a cinco minutos de carro do centro de Montalegre. Por fora mantém a pedra e o caminho de terra; por dentro tem o conforto de uma casa de família, com cozinha equipada, lareira e WiFi.\n\nSão 160 m², cinco quartos e cinco casas de banho, para até dez pessoas — o tamanho certo para famílias grandes ou grupos de amigos que querem estar juntos sem estar em cima uns dos outros. Lá fora há jardim, terraço e churrasqueira, com vista para o rio e para a serra.\n\nÉ uma casa para abrandar: o som da água, um céu escuro e cheio de estrelas, a lareira ao fim do dia. Quando apetecer sair, a vila, o castelo e os trilhos do Barroso ficam perto.",
+      en: "Casa do Moinho is an old granite water mill, restored, on the banks of the Cávado river in Cambeses do Rio, five minutes' drive from the centre of Montalegre. Outside, it keeps its stone walls and its dirt track; inside, it has the comforts of a family home, with a fully equipped kitchen, a fireplace and WiFi.\n\nAt 160 m², with five bedrooms and five bathrooms, it sleeps up to ten — the right size for a big family or a group of friends who want to be together without being on top of each other. Outside there's a garden, a terrace and a barbecue, with views of the river and the hills.\n\nIt's a house for slowing down: the sound of the water, a dark sky full of stars, the fire lit at the end of the day. When you feel like going out, the town, the castle and the trails of Barroso are close by.",
     },
     capacity: 10,
     rooms: 5,
@@ -197,13 +197,13 @@ export const properties: Property[] = [
     slug: "casa-do-castelo",
     name: { pt: "Casa do Castelo", en: "Casa do Castelo" },
     tagline: {
-      pt: "Sombra do castelo, alma da aldeia",
-      en: "In the shadow of the castle, heart of the village",
+      pt: "No centro histórico, ao pé do castelo",
+      en: "In the old town, at the foot of the castle",
     },
     description: {
-      pt: "A Casa do Castelo fica mesmo ao lado das muralhas medievais de Montalegre — uma localização única que poucos alojamentos em Portugal podem reivindicar. A casa foi recuperada com materiais locais e respeita o carácter histórico da aldeia: paredes de granito, tectos em madeira escura, janelas que enquadram o castelo como se fosse uma pintura.\n\nCom capacidade para 10 pessoas em 5 quartos confortáveis, é perfeita para famílias que querem explorar a vila a pé. Tome o pequeno-almoço na varanda com vista directa para as torres medievais, usufrua do serviço de quartos ou do bar, e à noite a iluminação histórica transforma a paisagem numa cena de outro tempo.\n\nO centro histórico de Montalegre está a menos de dois minutos a pé: mercado, restaurantes tradicionais, a feira medieval de verão — tudo acessível sem precisar de carro. Os hóspedes que chegam de viatura têm acesso a estacionamento gratuito.",
+      pt: "A Casa do Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, mesmo ao lado do castelo medieval. É uma casa de granito, com varanda e vista para as muralhas.\n\nAcolhe até dez pessoas em cinco quartos, o que a torna boa para famílias e grupos que querem viver a vila a pé. O castelo, a igreja e as tascas ficam a poucos minutos; o carro fica no estacionamento gratuito e só volta a sair para ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a casa certa para a Feira do Fumeiro ou para uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
 
-      en: "Casa do Castelo stands immediately alongside the medieval walls of Montalegre — a location almost no other property in Portugal can claim. Restored using local materials, it honours the village's historic character: granite walls, dark timber ceilings, windows that frame the castle as if it were a painting.\n\nSleeping up to 10 across 5 comfortable bedrooms, it's perfect for families wanting to explore the village on foot. Have breakfast on the balcony with a direct view of the castle towers, make use of the room service or bar, and at night the historic floodlighting transforms the scene into something from another century.\n\nMontalegre's historic centre is less than two minutes on foot: market, traditional restaurants, the summer medieval fair — all accessible without a car. Guests arriving by car have access to free parking.",
+      en: "Casa do Castelo stands on Terreiro do Açougue, in Montalegre's old town, right beside the medieval castle. It's a granite house with a balcony looking onto the castle walls.\n\nIt sleeps up to ten across five bedrooms, which makes it a good base for families and groups who want to explore the town on foot. The castle, the church and the tascas are a few minutes' walk away; the car stays in the free parking and only comes out for trips to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the house to book for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
     },
     capacity: 10,
     rooms: 5,
@@ -257,8 +257,8 @@ export const properties: Property[] = [
       en: "Hello, I'd like to know more about Casa do Castelo",
     },
     seasonal: {
-      pt: "Popular no verão — especialmente durante a Feira Medieval de Montalegre.",
-      en: "Popular in summer — especially during Montalegre's Medieval Fair.",
+      pt: "Na Feira do Fumeiro e nas noites de sexta-feira 13 a vila enche — reserve com antecedência.",
+      en: "The town fills up for the Fumeiro Fair and on Friday the 13th — book early.",
     },
     priceFrom: 80,
     currency: "EUR",
@@ -363,8 +363,8 @@ export const properties: Property[] = [
     restaurantInfo: {
       name: { pt: "Restaurante O Castelo", en: "O Castelo Restaurant" },
       description: {
-        pt: "No rés-do-chão funciona o Restaurante O Castelo, gerido pela mesma família. Cozinha transmontana tradicional, logo na sua casa.",
-        en: "The ground floor is home to O Castelo restaurant, run by the same family. Traditional Transmontana cuisine, right on your doorstep.",
+        pt: "No rés-do-chão funciona o Restaurante O Castelo, gerido pela mesma família. Cozinha transmontana tradicional, a uma escada de distância.",
+        en: "The ground floor is home to O Castelo restaurant, run by the same family. Traditional Trás-os-Montes cooking, one flight of stairs away.",
       },
     },
     images: [

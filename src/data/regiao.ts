@@ -7,34 +7,32 @@ export const regiao: RegiaoSection[] = [
       en: "Montalegre and Its Castle",
     },
     body: {
-      pt: "Montalegre é uma das vilas mais emblemáticas do Alto Tâmega, dominada pela silhueta medieval do seu castelo do século XIV. Construído para proteger a fronteira norte do reino de Portugal, o castelo oferece hoje uma vista esmagadora sobre os vales e serras do Barroso. A vila tem um centro histórico compacto e animado, com uma tradição gastronómica forte — o fumeiro, os enchidos e a carne barrosã são a alma da mesa local.",
-      en: "Montalegre is one of the most emblematic towns of the Alto Tâmega, dominated by the medieval silhouette of its 14th-century castle. Built to guard the northern border of the kingdom of Portugal, the castle today offers a breathtaking view over the valleys and mountains of Barroso. The town has a compact and lively historic centre with a strong gastronomic tradition — smoked meats, charcuterie, and Barrosã beef are the heart of the local table.",
+      pt: "Montalegre é a vila do Barroso, perto dos mil metros de altitude e a poucos quilómetros da Galiza. O castelo foi reconstruído no reinado de D. Dinis para guardar esta fronteira, e a torre de menagem, com cerca de 21 metros, foi erguida já no reinado de D. Afonso IV. Hoje é Monumento Nacional e o melhor miradouro da vila: lá de cima vê-se o planalto, a Serra do Larouco e, em dias limpos, a serra do lado galego. À volta do castelo, o centro histórico é pequeno e faz-se a pé, entre casas de granito, a igreja e as tascas.",
+      en: "Montalegre is Barroso's town, close to a thousand metres up and a few kilometres from Galicia. Its castle was rebuilt under King Dinis to guard this border, and the keep, some 21 metres tall, went up under his son Afonso IV. Today it's a National Monument and the best viewpoint in town: from the top you can see across the plateau to Serra do Larouco and, on a clear day, the hills on the Galician side. The old town around it is small enough to walk, past granite houses, the church and the tascas.",
     },
     image: "/images/montalegre-4.jpg",
     distance: null,
   },
   {
     title: {
-      pt: "Parque Nacional de Peneda-Gerês",
+      pt: "Parque Nacional da Peneda-Gerês",
       en: "Peneda-Gerês National Park",
     },
     body: {
-      pt: "O único parque nacional de Portugal fica a menos de uma hora de Montalegre. O Parque Nacional da Peneda-Gerês é um mundo de cascatas, carvalhos centenários, aldras históricas e trilhos que percorrem paisagens de rara beleza. Avistamentos de lobo ibérico, veado e garrano (o cavalo selvagem do Gerês) são possíveis para quem sabe onde olhar. Um destino obrigatório para caminhantes e amantes da natureza.",
-
-      en: "Portugal's only national park is less than an hour from Montalegre. Peneda-Gerês is a world of waterfalls, century-old oaks, historic villages, and trails through landscapes of rare beauty. Sightings of Iberian wolf, red deer, and the Garrão (the wild horse of Gerês) are possible for those who know where to look. A must for hikers and nature lovers.",
+      pt: "O único parque nacional de Portugal começa dentro do próprio concelho: cerca de um quarto de Montalegre fica dentro dos seus limites. Do lado do Barroso, o parque é planalto alto e aldeias comunitárias como Pitões das Júnias e Tourém. Em Pitões, um trilho de pouco mais de quatro quilómetros passa pelo Mosteiro de Santa Maria das Júnias, do século XII, e termina no miradouro da cascata. Pelo caminho é fácil cruzar-se com garranos e vacas barrosãs; o lobo-ibérico também vive nestas serras, embora raramente se deixe ver.",
+      en: "Portugal's only national park begins inside the municipality itself: about a quarter of Montalegre lies within its boundaries. On the Barroso side, the park is high plateau and communal villages such as Pitões das Júnias and Tourém. At Pitões, a trail of just over four kilometres passes the 12th-century Monastery of Santa Maria das Júnias and ends at the waterfall viewpoint. Along the way you'll likely meet garranos, the small native horses, and Barrosã cattle; Iberian wolves live in these hills too, though they rarely let themselves be seen.",
     },
     image: "/images/park.jpg",
-    distance: { pt: "~45 min de Montalegre", en: "~45 min from Montalegre" },
+    distance: null,
   },
   {
     title: {
       pt: "Barragem do Alto Rabagão",
       en: "Alto Rabagão Reservoir",
     },
-    // DRAFT copy — to be reviewed together with the rest of the region text.
     body: {
-      pt: "Em pleno planalto do Barroso, a albufeira do Alto Rabagão estende-se por quilómetros entre lameiros, aldeias de granito e serras baixas. É o grande espelho de água de Montalegre: bom para caminhar pelas margens, pescar, andar de kayak ou simplesmente ver o pôr do sol sobre a água. A aldeia de Pisões, junto ao paredão, merece uma paragem.",
-      en: "Out on the Barroso plateau, the Alto Rabagão reservoir stretches for kilometres between meadows, granite villages and low hills. It's Montalegre's great sheet of water — good for shoreline walks, fishing, kayaking, or simply watching the sun go down over the water. The village of Pisões, beside the dam wall, is worth a stop.",
+      pt: "Junto à aldeia de Pisões, o paredão do Alto Rabagão, concluído em 1964, segura uma albufeira de cerca de 2200 hectares em pleno planalto. A água entra pelos lameiros e rodeia aldeias de granito e serras baixas. É sítio para caminhar pelas margens, pescar ou ver o fim do dia sobre a água, e atravessar o paredão de carro já vale o desvio.",
+      en: "Beside the village of Pisões, the Alto Rabagão dam wall, completed in 1964, holds back a reservoir of some 2,200 hectares right on the plateau. The water reaches into the meadows and around granite villages and low hills. It's a place for shoreline walks, fishing, or watching the evening settle over the water, and simply driving across the dam wall is worth the detour.",
     },
     // TODO: placeholder photo (it shows Lindoso) — replace with a photo of Alto Rabagão.
     image: "/images/canoagem-paddle-barragem-do-lindoso.jpg",
@@ -43,11 +41,11 @@ export const regiao: RegiaoSection[] = [
   {
     title: {
       pt: "Trilhos Pedestres — Serra do Larouco e Arredores",
-      en: "Walking Trails — Serra do Larouco and Surroundings",
+      en: "Walking Trails — Serra do Larouco and Around",
     },
     body: {
-      pt: "A região de Montalegre está atravessada por uma rede de trilhos pedestres sinalizados, que percorrem paisagens de montanha, margens de rios e aldeias históricas. A Serra do Larouco — a segunda montanha mais alta de Portugal a oeste do Tejo — oferece percursos de diferentes níveis de dificuldade, com vistas sobre o vale do Cávado e as serras da região. Outros trilhos percorrem as margens da barragem do Alto Rabagão e ligam aldeias tradicionais onde o tempo parece parar. Para caminhantes de todos os níveis, esta é uma das regiões mais recompensadoras do norte de Portugal.",
-      en: "The Montalegre area is threaded with a network of marked walking trails, winding through mountain landscapes, riverside paths, and historic villages. Serra do Larouco — the second highest mountain in Portugal west of the Tagus — offers routes for all fitness levels, with sweeping views over the Cávado valley and the surrounding ranges. Other trails follow the Alto Rabagão reservoir shore and connect traditional villages where time seems to stand still. For walkers of all levels, this is one of the most rewarding regions in northern Portugal.",
+      pt: "O concelho tem vários percursos pedestres sinalizados, que ligam aldeias, castros, moinhos e lameiros. A norte da vila, a Serra do Larouco sobe a mais de 1500 metros e é lá que nasce o rio Cávado; do topo, a vista abre-se sobre todo o Barroso e entra pela Galiza. Mais perto do rio, há trilhos planos entre campos cultivados e aldeias pequenas. Leve água, calçado a sério e um agasalho — mesmo no verão, o vento lá em cima é frio.",
+      en: "The municipality has a number of waymarked walking routes linking villages, Iron Age hillforts, water mills and meadows. North of town, Serra do Larouco rises to over 1,500 metres, and the Cávado river has its source up there; from the top the view takes in all of Barroso and runs on into Galicia. Closer to the river there are easy, level trails between farmed fields and small villages. Bring water, proper shoes and a warm layer — even in summer, the wind up top is cold.",
     },
     image: "/images/montalegre-2.jpg",
     distance: {
@@ -61,34 +59,32 @@ export const regiao: RegiaoSection[] = [
       en: "Fumeiro Fair — January",
     },
     body: {
-      pt: "Todos os anos em janeiro, Montalegre transforma-se na capital do fumeiro português. A Feira do Fumeiro reúne produtores de toda a região para mostrar o melhor dos enchidos e fumados do Barroso: chouriça, alheira, farinheira, salpicão e a famosa carne barrosã. O evento atrai visitantes de todo o país e é uma experiência gastronómica e cultural única — ruidosa, cheirosa e genuinamente portuguesa.",
-
-      en: "Every January, Montalegre transforms into the capital of Portuguese smoked meats. The Fumeiro Fair brings together producers from across the region to showcase the finest charcuterie of Barroso: chouriça, alheira, farinheira, salpicão, and the famous Barrosã beef. The event draws visitors from across the country and is a unique gastronomic and cultural experience — loud, fragrant, and genuinely Portuguese.",
+      pt: "No Barroso, o fumeiro faz-se no inverno: depois da matança, as carnes curam semanas ao fumo da lareira, nas cozinhas das aldeias. No fim de janeiro, durante quatro dias, os produtores trazem-no à vila para a Feira do Fumeiro. Há alheiras, chouriças, salpicão, sangueiras, presunto e chouriço de abóbora, quase sempre vendidos por quem os fez. É uma das alturas mais cheias do ano em Montalegre — e a melhor para encher a mala do carro.",
+      en: "In Barroso, smoked meats are a winter craft: after the pig is killed, the cuts cure for weeks in the smoke of village kitchen fires. At the end of January, for four days, the producers bring it all into town for the Fumeiro Fair. Expect alheiras, chouriças, salpicão, sangueiras, presunto and chouriço de abóbora (pumpkin sausage), usually sold by the people who made them. It's one of the busiest times of year in Montalegre, and the best for filling the boot of your car.",
     },
     image: "/images/fumeiro.jpg",
     distance: null,
   },
   {
     title: {
-      pt: "Festival das Bruxas — Sexta-feira 13",
-      en: "Festival of the Witches — Friday the 13th",
+      pt: "Sexta 13 — a Noite das Bruxas",
+      en: "Friday the 13th — the Night of the Witches",
     },
     body: {
-      pt: "Montalegre tem uma relação histórica com o mundo das bruxas e do misticismo, enraizada na tradição popular transmontana. Todos os anos, em cada sexta-feira dia 13, a vila transforma-se no palco do Festival das Bruxas — uma festa única em Portugal, com desfiles noturnos pelas ruas medievais, fogo, música ao vivo, espectáculos de magia e uma atmosfera que mistura o lendário com o festivo. O evento atrai milhares de visitantes de todo o país e é, para muitos, uma razão em si para visitar Montalegre.",
-      en: "Montalegre has a historic relationship with witchcraft and mysticism, rooted deep in Transmontana folk tradition. Every year, on each Friday the 13th, the town becomes the stage for the Festival of the Witches — a unique event in Portugal, with nocturnal processions through the medieval streets, fire, live music, magic shows, and an atmosphere that blends the legendary with the festive. The event draws thousands of visitors from across the country and is, for many, reason enough on its own to visit Montalegre.",
+      pt: "O Barroso sempre teve as suas bruxas, benzedeiras e mezinhas, e Montalegre transformou essa tradição numa festa. Sempre que o calendário traz uma sexta-feira 13 — uma a três vezes por ano —, a vila enche-se à noite com animação de rua, fogo e música entre as ruas do centro histórico. Atrai milhares de visitantes de todo o país. Se a sua visita coincidir, reserve com tempo e conte com uma noite longa.",
+      en: "Barroso has always had its witches, healers and folk remedies, and Montalegre has turned that tradition into a party. Whenever the calendar brings a Friday the 13th — one to three times a year — the town fills at night with street performance, fire and music through the old town. It draws thousands of visitors from across Portugal. If your trip coincides, book early and expect a late night.",
     },
     image: "/images/bruxas.jpg",
     distance: null,
   },
   {
     title: {
-      pt: "Gastronomia Local — Carne Barrosã e Alheira",
-      en: "Local Gastronomy — Barrosã Beef and Alheira",
+      pt: "À Mesa — Carne Barrosã e Fumeiro",
+      en: "At the Table — Barrosã Beef and Fumeiro",
     },
     body: {
-      pt: "A carne barrosã, proveniente da raça bovina autóctone Barrosã, tem DOP (Denominação de Origem Protegida) e é considerada uma das melhores carnes de bovino de Portugal. Os animais crescem em liberdade nos campos de altitude do Barroso, alimentando-se de ervas aromáticas que conferem à carne um sabor inconfundível. A par da carne, a alheira de Montalegre — um enchido fumado de sabor suave e textura única — é das mais apreciadas do país.",
-
-      en: "Barrosã beef, from the native Barrosã cattle breed, holds PDO status (Protected Designation of Origin) and is considered one of the finest beef varieties in Portugal. The animals roam freely across the high-altitude fields of Barroso, grazing on aromatic herbs that give the meat its distinctive flavour. Alongside the beef, the alheira de Montalegre — a smoked sausage of mild flavour and unique texture — is among the most prized in the country.",
+      pt: "A vaca barrosã, de cornos largos em forma de lira, é a raça da terra, criada nos lameiros do planalto entre Montalegre e Boticas. A carne tem Denominação de Origem Protegida, e nos restaurantes da vila pede-se em posta, grelhada na brasa. Ao lado vem a batata da terra, e no inverno o cozido barrosão leva tudo o que o fumeiro dá. Para quem fica na Casa do Castelo, o Restaurante O Castelo é logo no rés-do-chão.",
+      en: "The Barrosã cow, with its wide lyre-shaped horns, is the local breed, raised on the plateau meadows between Montalegre and Boticas. The beef has Protected Designation of Origin status, and in town it's ordered as a posta, a thick steak grilled over embers. It comes with local potatoes, and in winter the cozido barrosão, a slow-cooked stew, takes in everything the smokehouse has to offer. If you're staying at Casa do Castelo, O Castelo restaurant is right downstairs.",
     },
     image: "/images/gastronomy.jpg",
     distance: null,

@@ -18,11 +18,12 @@ const cover = await resolveImage(property.images[0]!);
 ---
 
 <!--
-  Hover: the border firms up and the "Ver casa →" arrow nudges right. No image zoom.
-  The whole card is the link (via the ::after overlay on the title link).
+  Hover: a soft shadow appears with a slight 2px lift (same as the buttons), the border firms up
+  and the "Ver casa →" arrow nudges right. No image zoom. The whole card is the link (via the
+  ::after overlay on the title link).
 -->
 <article
-  class="group relative flex flex-col overflow-hidden rounded-box border border-granite/15 bg-white transition-colors duration-200 hover:border-granite/40 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-forest"
+  class="group relative flex flex-col overflow-hidden rounded-box border border-granite/15 bg-white transition-[border-color,box-shadow,translate] duration-200 ease-[cubic-bezier(0.2,0.8,0.2,1)] motion-safe:hover:-translate-y-0.5 hover:border-granite/30 hover:shadow-[0_14px_36px_-18px_rgba(42,42,40,0.22)] focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-forest"
 >
   <div class="aspect-[3/2] overflow-hidden bg-granite/5">
     <Picture

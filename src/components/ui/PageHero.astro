@@ -40,7 +40,9 @@ const shadow = "[text-shadow:0_1px_12px_rgba(0,0,0,0.45)]";
 
     <div class="w-full max-w-3xl px-6 text-center text-white">
       <h1 class:list={["heading-1", shadow]}>{headline}</h1>
-      <p class:list={["mt-5 text-lg md:text-xl text-white/95 text-balance", shadow]}>{text}</p>
+      <p class:list={["mt-5 text-lg md:text-xl text-white/95 text-balance", shadow]}>
+        {text.split("\n").map((line) => <span class="block">{line}</span>)}
+      </p>
       {
         Astro.slots.has("default") && (
           <div class="mt-9 flex flex-col sm:flex-row gap-3 sm:justify-center [&>*]:w-full sm:[&>*]:w-auto">

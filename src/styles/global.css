@@ -92,15 +92,16 @@
 }
 
 /* ── Buttons (always fully rounded) ───────────────────────── */
+/* Hover: a quick 2px lift; pressing settles it back down. */
 @utility btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium tracking-wide transition-[color,background-color,border-color,translate] duration-150 ease-[cubic-bezier(0.2,0.8,0.2,1)] motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 /* On light backgrounds */
 @utility btn-primary {
   @apply btn bg-forest text-white hover:bg-moss focus-visible:outline-forest;
 }
 @utility btn-secondary {
-  @apply btn border border-forest text-forest hover:bg-forest hover:text-white focus-visible:outline-forest;
+  @apply btn border border-forest text-forest hover:bg-forest/10 focus-visible:outline-forest;
 }
 /* On dark backgrounds or photos */
 @utility btn-light {
