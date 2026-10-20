@@ -65,6 +65,15 @@ export const credits: ImageCredit[] = [
     changes: { pt: "Recortada", en: "Cropped" },
   },
   {
+    image: "/images/parapente-larouco.jpg",
+    subject: { pt: "Parapente na Serra do Larouco", en: "Paragliding on Serra do Larouco" },
+    author: "Turismo En Portugal",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Na_Serra_do_Larouco,_Montalegre_(16992846076).jpg",
+    license: "CC BY 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+    changes: { pt: "Recortada", en: "Cropped" },
+  },
+  {
     image: "/images/fumeiro-pitoes-presuntos.jpg",
     subject: { pt: "Presuntos no fumeiro, Pitões das Júnias", en: "Presuntos in the smokehouse, Pitões das Júnias" },
     author: "Raazevedo",

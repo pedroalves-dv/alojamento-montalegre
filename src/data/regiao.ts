@@ -54,6 +54,18 @@ export const regiao: RegiaoSection[] = [
   },
   {
     title: {
+      pt: "Atividades ao Ar Livre",
+      en: "Outdoor Activities",
+    },
+    body: {
+      pt: "O Larouco é um dos melhores sítios do país para voar de parapente: recebe o Campeonato de Portugal, e há pilotos certificados que fazem voos em tandem para quem nunca voou. No verão, as albufeiras ganham vida — no Alto Rabagão faz-se canoagem e paddle, e as praias fluviais do concelho têm água limpa e fria para nadar. Para quem prefere observar, o planalto entre Pitões das Júnias e Tourém é bom para ver aves de rapina, e garranos e vacas barrosãs andam à solta pela serra. O Ecomuseu do Barroso, junto ao castelo, tem polos espalhados pelas aldeias que ajudam a perceber a vida de quem sempre viveu aqui.",
+      en: "Larouco is one of the best places in Portugal to fly a paraglider: it hosts the Portuguese championship, and certified pilots run tandem flights for first-timers. In summer the reservoirs come alive, with canoeing and paddleboarding on Alto Rabagão and river beaches around the municipality for a swim in clean, cold water. If you'd rather watch, the plateau between Pitões das Júnias and Tourém is good for birds of prey, and garranos and Barrosã cattle roam free on the hills. The Ecomuseu do Barroso, beside the castle, has branches in the villages that help explain how people have always lived up here.",
+    },
+    image: "/images/parapente-larouco.jpg",
+    distance: { pt: "~10–30 min de Montalegre", en: "~10–30 min from Montalegre" },
+  },
+  {
+    title: {
       pt: "Feira do Fumeiro — Janeiro",
       en: "Fumeiro Fair — January",
     },
