@@ -46,8 +46,8 @@ export const seo: {
       en: "Alojamento Montalegre — Rural Holiday Houses",
     },
     description: {
-      pt: "Casa do Moinho, à beira do rio Cávado, e Casa do Castelo, no centro histórico de Montalegre. Duas casas para até 10 pessoas no Barroso, norte de Portugal. Reserve diretamente, sem comissões.",
-      en: "Casa do Moinho by the Cávado river and Casa do Castelo in Montalegre's old town. Two houses for up to 10 guests in Barroso, northern Portugal. Book direct, no fees.",
+      pt: "Casa do Moinho, casa inteira à beira do rio Cávado, e Casa do Castelo, cinco quartos ao pé do castelo de Montalegre. No Barroso, norte de Portugal. Reserve diretamente, sem comissões.",
+      en: "Casa do Moinho, a whole house by the Cávado river, and Casa do Castelo, five rooms at the foot of Montalegre castle. In Barroso, northern Portugal. Book direct, no fees.",
     },
     keywords: {
       pt: [

@@ -10,8 +10,8 @@ export const properties: Property[] = [
       en: "By the river, five minutes from town",
     },
     description: {
-      pt: "A Casa do Moinho é um antigo moinho de granito recuperado, à beira do rio Cávado, em Cambeses do Rio, a cinco minutos de carro do centro de Montalegre. Por fora mantém a pedra e o caminho de terra; por dentro tem o conforto de uma casa de família, com cozinha equipada, lareira e WiFi.\n\nSão 160 m², cinco quartos e cinco casas de banho, para até dez pessoas — o tamanho certo para famílias grandes ou grupos de amigos que querem estar juntos sem estar em cima uns dos outros. Lá fora há jardim, terraço e churrasqueira, com vista para o rio e para a serra.\n\nÉ uma casa para abrandar: o som da água, um céu escuro e cheio de estrelas, a lareira ao fim do dia. Quando apetecer sair, a vila, o castelo e os trilhos do Barroso ficam perto.",
-      en: "Casa do Moinho is an old granite water mill, restored, on the banks of the Cávado river in Cambeses do Rio, five minutes' drive from the centre of Montalegre. Outside, it keeps its stone walls and its dirt track; inside, it has the comforts of a family home, with a fully equipped kitchen, a fireplace and WiFi.\n\nAt 160 m², with five bedrooms and five bathrooms, it sleeps up to ten — the right size for a big family or a group of friends who want to be together without being on top of each other. Outside there's a garden, a terrace and a barbecue, with views of the river and the hills.\n\nIt's a house for slowing down: the sound of the water, a dark sky full of stars, the fire lit at the end of the day. When you feel like going out, the town, the castle and the trails of Barroso are close by.",
+      pt: "A Casa do Moinho fica à beira do rio Cávado, em Cambeses do Rio, a cinco minutos de carro do centro de Montalegre. Nasceu onde em tempos trabalhava um moinho de água: o edifício original já não existe, mas ficaram o nome, o rio e o sossego. Por dentro tem o conforto de uma casa de família, com cozinha equipada, lareira e WiFi.\n\nSão 160 m², cinco quartos e cinco casas de banho, para até dez pessoas — o tamanho certo para famílias grandes ou grupos de amigos que querem estar juntos sem estar em cima uns dos outros. Lá fora há jardim, terraço e churrasqueira, com vista para o rio e para a serra.\n\nÉ uma casa para abrandar: o som da água, um céu escuro e cheio de estrelas, a lareira ao fim do dia. Quando apetecer sair, a vila, o castelo e os trilhos do Barroso ficam perto.",
+      en: "Casa do Moinho sits on the banks of the Cávado river in Cambeses do Rio, five minutes' drive from the centre of Montalegre. It stands where a water mill once worked: the original building is gone, but the name, the river and the quiet remain. Inside, it has the comforts of a family home, with a fully equipped kitchen, a fireplace and WiFi.\n\nAt 160 m², with five bedrooms and five bathrooms, it sleeps up to ten — the right size for a big family or a group of friends who want to be together without being on top of each other. Outside there's a garden, a terrace and a barbecue, with views of the river and the hills.\n\nIt's a house for slowing down: the sound of the water, a dark sky full of stars, the fire lit at the end of the day. When you feel like going out, the town, the castle and the trails of Barroso are close by.",
     },
     capacity: 10,
     rooms: 5,
@@ -57,7 +57,7 @@ export const properties: Property[] = [
       ],
     },
     booking: {
-      url: "https://www.booking.com/hotel/pt/casa-do-moinho-montalegre.html",
+      url: "https://www.booking.com/Share-ppai1Z",
       score: "9.5",
       reviewCount: 4,
     },
@@ -77,15 +77,13 @@ export const properties: Property[] = [
       en: "Popular in summer — book early",
     },
     priceFrom: 300,
+    priceUnit: "house",
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
     checkinTime: "16:00–22:00",
     checkoutTime: "08:00–11:00",
-    noPartiesNote: {
-      pt: "Festas e eventos não são permitidos nesta propriedade.",
-      en: "Parties and events are not permitted on this property.",
-    },
+    noPartiesNote: null,
     reviews: {
       allReviewsUrl: "https://share.google/c6ZNGUsFEODd3yNOd",
       items: [
@@ -96,6 +94,16 @@ export const properties: Property[] = [
             en: "Thank you for the warm welcome from Mr. João and Mr. Nuno.",
           },
           platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "Paulo",
+          country: { pt: "Espanha", en: "Spain" },
+          text: {
+            pt: "A localização, a paisagem e a atenção do proprietário.",
+            en: "The location, the scenery and the owner's attentiveness.",
+          },
+          platform: "Booking.com",
           rating: 5,
         },
         {
@@ -126,7 +134,7 @@ export const properties: Property[] = [
           pt: "Parque Nacional Peneda-Gerês",
           en: "Peneda-Gerês National Park",
         },
-        distance: { pt: "~45 min", en: "~45 min" },
+        distance: { pt: "~15 min", en: "~15 min" },
       },
       {
         label: { pt: "Barragem do Alto Rabagão", en: "Alto Rabagão Dam" },
@@ -146,12 +154,12 @@ export const properties: Property[] = [
       },
     ],
     address: {
-      pt: "Cambezes do Rio, Montalegre, 5470-041",
-      en: "Cambezes do Rio, Montalegre, 5470-041",
+      pt: "Cambeses do Rio, Montalegre, 5470-041",
+      en: "Cambeses do Rio, Montalegre, 5470-041",
     },
     gettingHereNote: {
-      pt: "O GPS leva-o até à estrada principal em Cambezes do Rio. A casa fica no fim do caminho de terra à esquerda.",
-      en: "GPS will take you to the main road in Cambezes do Rio. The house is at the end of the dirt track on the left.",
+      pt: "O GPS leva-o até à estrada principal em Cambeses do Rio. A casa fica no fim do caminho de terra à esquerda.",
+      en: "GPS will take you to the main road in Cambeses do Rio. The house is at the end of the dirt track on the left.",
     },
     keywords: {
       pt: [
@@ -197,13 +205,13 @@ export const properties: Property[] = [
     slug: "casa-do-castelo",
     name: { pt: "Casa do Castelo", en: "Casa do Castelo" },
     tagline: {
-      pt: "No centro histórico, ao pé do castelo",
-      en: "In the old town, at the foot of the castle",
+      pt: "Quartos ao pé do castelo",
+      en: "Rooms at the foot of the castle",
     },
     description: {
-      pt: "A Casa do Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, mesmo ao lado do castelo medieval. É uma casa de granito, com varanda e vista para as muralhas.\n\nAcolhe até dez pessoas em cinco quartos, o que a torna boa para famílias e grupos que querem viver a vila a pé. O castelo, a igreja e as tascas ficam a poucos minutos; o carro fica no estacionamento gratuito e só volta a sair para ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a casa certa para a Feira do Fumeiro ou para uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
+      pt: "A Casa do Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, ao pé do castelo medieval. Não há casa mais perto dele: sai-se à porta e as muralhas estão ali à frente.\n\nTem cinco quartos, para até dez pessoas no total. Reserve um quarto para uma escapadinha a dois, ou vários para a família ou um grupo de amigos. Daqui faz-se a vila a pé: o castelo, a Igreja de Santa Maria do Castelo e as tascas ficam a poucos passos, e o carro fica no estacionamento gratuito até ao dia de ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a escolha certa para a Feira do Fumeiro ou uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
 
-      en: "Casa do Castelo stands on Terreiro do Açougue, in Montalegre's old town, right beside the medieval castle. It's a granite house with a balcony looking onto the castle walls.\n\nIt sleeps up to ten across five bedrooms, which makes it a good base for families and groups who want to explore the town on foot. The castle, the church and the tascas are a few minutes' walk away; the car stays in the free parking and only comes out for trips to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the house to book for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
+      en: "Casa do Castelo stands on Terreiro do Açougue, in Montalegre's old town, at the foot of the medieval castle. No house is closer to it: step out of the door and the walls are right in front of you.\n\nIt has five rooms, sleeping up to ten in total. Book one for a short break for two, or several for a family or a group of friends. From here you can walk the whole town: the castle, the Church of Santa Maria do Castelo and the tascas are a few steps away, and the car stays in the free parking until the day you head out to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the place to stay for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
     },
     capacity: 10,
     rooms: 5,
@@ -218,10 +226,8 @@ export const properties: Property[] = [
       pt: [
         "WiFi gratuito",
         "Estacionamento gratuito",
-        "Cozinha totalmente equipada",
-        "Lareira",
         "Varanda",
-        "Vista para o castelo",
+        "Ao pé do castelo",
         "Bar/lounge",
         "Serviço de quartos",
         "Restaurante no rés-do-chão",
@@ -230,10 +236,8 @@ export const properties: Property[] = [
       en: [
         "Free WiFi",
         "Free parking",
-        "Fully equipped kitchen",
-        "Fireplace",
         "Balcony",
-        "Castle view",
+        "At the foot of the castle",
         "Bar/lounge",
         "Room service",
         "On-site restaurant",
@@ -261,6 +265,7 @@ export const properties: Property[] = [
       en: "The town fills up for the Fumeiro Fair and on Friday the 13th — book early.",
     },
     priceFrom: 80,
+    priceUnit: "room",
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
@@ -280,10 +285,28 @@ export const properties: Property[] = [
           rating: 5,
         },
         {
-          author: "María José S.",
+          author: "Claudia",
           text: {
-            pt: "Um lugar precioso e com encanto. Muito limpo e bem cuidado. Um atendimento de excelência. Voltaremos!",
-            en: "A beautiful, charming place. Very clean and well maintained. Outstanding service. We'll be back!",
+            pt: "Muito acolhedor, e os quartos são mesmo bonitos e quentes, em estilo de montanha. Recomendo pela bela vista sobre a vila e por ficar mesmo encostado ao castelo. Também se pode jantar lá dentro, no pequeno restaurante de pratos típicos.",
+            en: "Very welcoming, and the rooms are really lovely and warm, in a mountain style. Recommended for the beautiful view over the town and for being right up against the castle. You can also have dinner inside, at the little restaurant serving local dishes.",
+          },
+          platform: "TripAdvisor",
+          rating: 4,
+        },
+        {
+          author: "Rui M.",
+          text: {
+            pt: "No restaurante as refeições são maravilhosas, e a Senhora Anabela Dias é uma simpatia.",
+            en: "The meals in the restaurant are wonderful, and Senhora Anabela Dias is a delight.",
+          },
+          platform: "Google",
+          rating: 5,
+        },
+        {
+          author: "António S.",
+          text: {
+            pt: "Achei um lugar muito acolhedor e as pessoas muito simpáticas. A localização é excelente.",
+            en: "A very welcoming place, and the people are really friendly. The location is excellent.",
           },
           platform: "Google",
           rating: 5,
@@ -299,8 +322,8 @@ export const properties: Property[] = [
       },
       {
         label: {
-          pt: "Igreja Santa Maria do Castelo",
-          en: "Igreja Santa Maria do Castelo",
+          pt: "Igreja de Santa Maria do Castelo",
+          en: "Church of Santa Maria do Castelo",
         },
         distance: { pt: "2 min a pé", en: "2 min walk" },
       },
@@ -313,7 +336,7 @@ export const properties: Property[] = [
           pt: "Parque Nacional Peneda-Gerês",
           en: "Peneda-Gerês National Park",
         },
-        distance: { pt: "~45 min", en: "~45 min" },
+        distance: { pt: "~15 min", en: "~15 min" },
       },
       {
         label: { pt: "Barragem do Alto Rabagão", en: "Alto Rabagão Dam" },
@@ -345,7 +368,7 @@ export const properties: Property[] = [
         "turismo rural",
         "trás-os-montes",
         "norte de portugal",
-        "vista para o castelo",
+        "quartos montalegre",
         "perto do castelo",
       ],
       en: [
@@ -356,7 +379,8 @@ export const properties: Property[] = [
         "rural tourism",
         "northern portugal",
         "trás-os-montes",
-        "castle view",
+        "rooms montalegre",
+        "guesthouse montalegre",
         "near the castle",
       ],
     },

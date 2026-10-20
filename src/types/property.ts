@@ -46,6 +46,8 @@ export interface Property {
   whatsappMessage: LocalizedString;
   seasonal: LocalizedString;
   priceFrom: number | null;
+  /** What priceFrom buys: the whole house, or one room (Casa do Castelo rents by the room). */
+  priceUnit: "house" | "room";
   currency: string;
   minStay: number;
   minStayPeakSeason: number | null;

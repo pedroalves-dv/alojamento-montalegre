@@ -23,7 +23,7 @@ export const regiao: RegiaoSection[] = [
       en: "Portugal's only national park begins inside the municipality itself: about a quarter of Montalegre lies within its boundaries. On the Barroso side, the park is high plateau and communal villages such as Pitões das Júnias and Tourém. At Pitões, a trail of just over four kilometres passes the 12th-century Monastery of Santa Maria das Júnias and ends at the waterfall viewpoint. Along the way you'll likely meet garranos, the small native horses, and Barrosã cattle; Iberian wolves live in these hills too, though they rarely let themselves be seen.",
     },
     image: "/images/park.jpg",
-    distance: null,
+    distance: { pt: "~15 min de Montalegre", en: "~15 min from Montalegre" },
   },
   {
     title: {
@@ -34,8 +34,7 @@ export const regiao: RegiaoSection[] = [
       pt: "Junto à aldeia de Pisões, o paredão do Alto Rabagão, concluído em 1964, segura uma albufeira de cerca de 2200 hectares em pleno planalto. A água entra pelos lameiros e rodeia aldeias de granito e serras baixas. É sítio para caminhar pelas margens, pescar ou ver o fim do dia sobre a água, e atravessar o paredão de carro já vale o desvio.",
       en: "Beside the village of Pisões, the Alto Rabagão dam wall, completed in 1964, holds back a reservoir of some 2,200 hectares right on the plateau. The water reaches into the meadows and around granite villages and low hills. It's a place for shoreline walks, fishing, or watching the evening settle over the water, and simply driving across the dam wall is worth the detour.",
     },
-    // TODO: placeholder photo (it shows Lindoso) — replace with a photo of Alto Rabagão.
-    image: "/images/canoagem-paddle-barragem-do-lindoso.jpg",
+    image: "/images/alto-rabagao.jpg",
     distance: { pt: "~20 min de Montalegre", en: "~20 min from Montalegre" },
   },
   {

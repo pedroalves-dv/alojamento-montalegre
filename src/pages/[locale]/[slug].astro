@@ -33,6 +33,7 @@ const t = useTranslations(locale, "PropertyDetail");
 const name = property.name[locale];
 const tagline = property.tagline[locale];
 const seasonal = property.seasonal[locale];
+const fromKey = property.priceUnit === "room" ? "fromLabelRoom" : "fromLabel";
 const waHref = whatsappHref(property.whatsappMessage[locale]);
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${property.coordinates.lat},${property.coordinates.lng}`;
 
@@ -190,7 +191,7 @@ const amenityItem = "flex items-center gap-2.5 text-body";
         {
           property.priceFrom !== null && (
             <p class="text-sm text-muted">
-              {t("fromLabel")}
+              {t(fromKey)}
               <span class="block font-serif text-3xl text-granite">{t("perNight", { price: property.priceFrom })}</span>
             </p>
           )
@@ -232,7 +233,7 @@ const amenityItem = "flex items-center gap-2.5 text-body";
   <PropertyBottomBar
     whatsappHref={waHref}
     priceFrom={property.priceFrom}
-    fromLabel={t("fromLabel")}
+    fromLabel={t(fromKey)}
     perNight={property.priceFrom !== null ? t("perNight", { price: property.priceFrom }) : null}
     ctaLabel={t("requestAvailability")}
   />
