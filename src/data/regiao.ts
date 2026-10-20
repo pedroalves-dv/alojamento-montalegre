@@ -46,7 +46,7 @@ export const regiao: RegiaoSection[] = [
       pt: "O concelho tem vários percursos pedestres sinalizados, que ligam aldeias, castros, moinhos e lameiros. A norte da vila, a Serra do Larouco sobe a mais de 1500 metros e é lá que nasce o rio Cávado; do topo, a vista abre-se sobre todo o Barroso e entra pela Galiza. Mais perto do rio, há trilhos planos entre campos cultivados e aldeias pequenas. Leve água, calçado a sério e um agasalho — mesmo no verão, o vento lá em cima é frio.",
       en: "The municipality has a number of waymarked walking routes linking villages, Iron Age hillforts, water mills and meadows. North of town, Serra do Larouco rises to over 1,500 metres, and the Cávado river has its source up there; from the top the view takes in all of Barroso and runs on into Galicia. Closer to the river there are easy, level trails between farmed fields and small villages. Bring water, proper shoes and a warm layer — even in summer, the wind up top is cold.",
     },
-    image: "/images/montalegre-2.jpg",
+    image: "/images/larouco.jpg",
     distance: {
       pt: "~10–30 min de Montalegre",
       en: "~10–30 min from Montalegre",

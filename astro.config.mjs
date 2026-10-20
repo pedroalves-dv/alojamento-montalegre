@@ -46,8 +46,8 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: { defaultLocale: "pt", locales: { pt: "pt-PT", en: "en" } },
-      // The bare "/" is only a redirect to /pt
-      filter: (page) => page !== "https://alojamentomontalegre.com/",
+      // The bare "/" is only a redirect to /pt; /creditos is noindex, so it stays out of the sitemap too
+      filter: (page) => page !== "https://alojamentomontalegre.com/" && !page.includes("/creditos"),
     }),
   ],
 

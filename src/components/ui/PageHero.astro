@@ -11,9 +11,13 @@ interface Props {
   alt: string;
   headline: string;
   text: string;
+  /** CSS object-position for the photo, to keep the subject in frame on narrow screens. */
+  position?: string;
+  /** Opacity of the dark layer that keeps the white text readable (0–1). */
+  overlay?: number;
 }
 
-const { image, alt, headline, text } = Astro.props;
+const { image, alt, headline, text, position = "center", overlay = 0.6 } = Astro.props;
 const widths = [640, 960, 1280, 1600, 2000].filter((w) => w < image.width).concat(image.width);
 const shadow = "[text-shadow:0_1px_12px_rgba(0,0,0,0.45)]";
 ---
@@ -32,9 +36,11 @@ const shadow = "[text-shadow:0_1px_12px_rgba(0,0,0,0.45)]";
       fetchpriority="high"
       pictureAttributes={{ class: "absolute inset-0 -z-10" }}
       class="size-full object-cover"
+      style={`object-position: ${position}`}
     />
     <div
-      class="absolute inset-0 -z-10 bg-[rgba(20,24,20,0.6)]"
+      class="absolute inset-0 -z-10"
+      style={`background-color: rgba(20, 24, 20, ${overlay})`}
     >
     </div>
 

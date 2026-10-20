@@ -16,7 +16,7 @@ const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale, "Regiao");
 const tNav = useTranslations(locale, "Nav");
 
-const heroImage = await resolveImage("/images/montalegre-2.jpg");
+const heroImage = await resolveImage("/images/garranos-peneda-geres.jpg");
 const sectionImages = await resolveImages(regiao.map((s) => s.image));
 
 const MONTALEGRE = { lat: 41.8235, lng: -7.7916 };
@@ -62,7 +62,7 @@ const h2 = "heading-2 text-granite";
   ogImage="regiao"
   jsonLd={[breadcrumbs(locale, [{ name: tNav("regiao"), path: "/regiao" }])]}
 >
-  <PageHero image={heroImage} alt="Monte do Larouco, Terras de Barroso" headline={t("heroHeadline1")} text={t("heroTagline")} />
+  <PageHero image={heroImage} alt="Garranos no Parque Nacional da Peneda-Gerês" position="78% center" overlay={0.5} headline={t("heroHeadline1")} text={t("heroTagline")} />
 
   <section class="container-site section-y">
     <div class="max-w-3xl">

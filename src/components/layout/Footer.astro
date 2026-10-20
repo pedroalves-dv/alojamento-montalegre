@@ -97,7 +97,10 @@ const licences = properties.filter((p) => p.licenseNumber);
           ))
         }
       </span>
-      <span>{t("cookieNotice")}</span>
+      <span>
+        {t("cookieNotice")}{" "}
+        <a href={`/${locale}/creditos`} class="underline underline-offset-2 hover:text-fog">{t("creditsLink")}</a>
+      </span>
     </div>
   </div>
 </footer>

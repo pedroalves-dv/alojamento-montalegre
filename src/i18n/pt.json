@@ -40,6 +40,7 @@
     "googleLabel": "Google Reviews",
     "copyright": "© {year} Alojamento Montalegre. Todos os direitos reservados.",
     "cookieNotice": "Este site não utiliza cookies. O Google Maps só é carregado se escolher ver um mapa.",
+    "creditsLink": "Créditos das imagens",
     "localeAriaLabel": "Mudar para inglês"
   },
   "Regiao": {
@@ -134,6 +135,11 @@
     "amenitiesShowAll": "Ver todas as comodidades ({count})",
     "callButton": "Ligar",
     "locationNearbyHeading": "Localização e arredores"
+  },
+  "Creditos": {
+    "heading": "Créditos das imagens",
+    "intro": "Algumas fotografias deste site são de outros autores e usadas ao abrigo de licenças Creative Commons. As restantes são nossas.",
+    "by": "Fotografia de"
   },
   "Map": {
     "load": "Mostrar mapa",

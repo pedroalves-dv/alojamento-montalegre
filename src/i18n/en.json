@@ -40,6 +40,7 @@
     "googleLabel": "Google Reviews",
     "copyright": "© {year} Alojamento Montalegre. All rights reserved.",
     "cookieNotice": "This site doesn't use cookies. Google Maps only loads if you choose to view a map.",
+    "creditsLink": "Image credits",
     "localeAriaLabel": "Mudar para português"
   },
   "Regiao": {
@@ -134,6 +135,11 @@
     "amenitiesShowAll": "Show all {count} amenities",
     "callButton": "Call",
     "locationNearbyHeading": "Location & nearby"
+  },
+  "Creditos": {
+    "heading": "Image credits",
+    "intro": "Some photos on this site are by other photographers and used under Creative Commons licences. The rest are our own.",
+    "by": "Photo by"
   },
   "Map": {
     "load": "Show map",
