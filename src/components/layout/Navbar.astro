@@ -124,9 +124,12 @@ const linkClass = (active: boolean) =>
       <div class="flex flex-col pb-3 pl-2 gap-1">
         {
           properties.map((property) => (
-            <a href={`${home}/${property.slug}`} class="flex flex-col py-2.5 border-l-2 border-amber pl-4">
-              <span class="font-medium text-lg">{property.name[locale]}</span>
-              <span class="text-fog/60 text-sm">{property.tagline[locale]}</span>
+            <a href={`${home}/${property.slug}`} class="flex items-center gap-4 py-2.5">
+              <Icon name="home" size={32} strokeWidth={1.25} class="text-amber shrink-0 translate-y-0.5" />
+              <span class="flex flex-col">
+                <span class="font-medium text-lg">{property.name[locale]}</span>
+                <span class="text-fog/60 text-sm">{property.tagline[locale]}</span>
+              </span>
             </a>
           ))
         }

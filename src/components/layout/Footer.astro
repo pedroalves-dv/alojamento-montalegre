@@ -42,7 +42,8 @@ const licences = properties.filter((p) => p.licenseNumber);
       <a href={`${home}#casas`} class={linkClass}>{t("casas")}</a>
       {
         properties.map((p) => (
-          <a href={`${home}/${p.slug}`} class:list={[linkClass, "pl-3 border-l border-white/10"]}>
+          <a href={`${home}/${p.slug}`} class:list={[linkClass, "flex items-center gap-2 pl-3"]}>
+            <Icon name="home" size={14} />
             {p.name[locale]}
           </a>
         ))
