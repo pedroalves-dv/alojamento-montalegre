@@ -48,8 +48,8 @@ export const regiao: RegiaoSection[] = [
     },
     image: "/images/trilho-xertelo-sete-lagoas.jpg",
     distance: {
-      pt: "~10–30 min de Montalegre",
-      en: "~10–30 min from Montalegre",
+      pt: "~10–45 min de Montalegre",
+      en: "~10–45 min from Montalegre",
     },
   },
   {
