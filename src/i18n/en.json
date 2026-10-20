@@ -38,8 +38,9 @@
     "whatsappLabel": "WhatsApp",
     "bookingLabel": "Booking.com",
     "googleLabel": "Google Reviews",
-    "copyright": "© {year} Alojamento Montalegre. All rights reserved.",
+    "copyright": "© {year} Alojamento Montalegre",
     "cookieNotice": "This site doesn't use cookies. Google Maps only loads if you choose to view a map.",
+    "reviewsHeading": "Reviews",
     "creditsLink": "Image credits",
     "localeAriaLabel": "Mudar para português"
   },
