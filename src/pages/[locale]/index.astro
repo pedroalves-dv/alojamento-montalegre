@@ -1,0 +1,52 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/ui/PageHero.astro";
+import PropertyCard from "@/components/home/PropertyCard.astro";
+import RegionTeaser from "@/components/home/RegionTeaser.astro";
+import FAQ from "@/components/home/FAQ.astro";
+import WhatsAppCTA from "@/components/home/WhatsAppCTA.astro";
+import { properties } from "@/data/properties";
+import { faq } from "@/data/faq";
+import { seo } from "@/data/seo";
+import { localeParams, useTranslations, type Locale } from "@/i18n";
+import { resolveImage } from "@/lib/images";
+import { breadcrumbs, faqPage } from "@/lib/schema";
+
+export const getStaticPaths = localeParams;
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale, "Home");
+const heroImage = await resolveImage("/images/casa-do-moinho/1.jpg");
+---
+
+<BaseLayout
+  locale={locale}
+  title={seo.home.title[locale]}
+  absoluteTitle
+  description={seo.home.description[locale]}
+  keywords={seo.home.keywords?.[locale]}
+  path=""
+  ogImage="home"
+  jsonLd={[breadcrumbs(locale), faqPage(faq, locale)]}
+>
+  <PageHero
+    image={heroImage}
+    alt="Casa do Moinho, Terras de Barroso"
+    headline={t("heroHeadline1")}
+    text={t("heroTagline")}
+  >
+    <a href={`/${locale}#casas`} class="btn-light">{t("ctaVerCasas")}</a>
+    <a href={`/${locale}/regiao`} class="btn-outline-light">{t("ctaConhecerRegiao")}</a>
+  </PageHero>
+
+  <section id="casas" class="container-site section-y">
+    <h2 class="heading-2 text-granite mb-8 md:mb-12">{t("propertiesHeading")}</h2>
+    <div class="grid gap-6 md:grid-cols-2 md:gap-8">
+      {properties.map((property) => <PropertyCard property={property} locale={locale} />)}
+    </div>
+  </section>
+
+  <RegionTeaser locale={locale} />
+  <FAQ items={faq} locale={locale} />
+  <WhatsAppCTA locale={locale} />
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+// Compact, text-only review summary: "★ 5.0 Google (4) · 9.5 Booking.com (4)".
+// Ratings link to their source when a URL is available.
+import type { Property } from "@/types/property";
+
+interface Props {
+  property: Property;
+  reviewsLabel: string;
+  /** Render as plain text (e.g. inside a card that is itself a link). */
+  plain?: boolean;
+  class?: string;
+}
+
+const { property, reviewsLabel, plain = false, class: className } = Astro.props;
+
+const ratings = [
+  ...(property.google
+    ? [{ score: `★ ${property.google.score}`, source: "Google", count: property.google.reviewCount, url: property.google.url }]
+    : []),
+  ...(property.booking.score !== null
+    ? [{ score: property.booking.score, source: "Booking.com", count: property.booking.reviewCount, url: property.booking.url }]
+    : []),
+];
+---
+
+{
+  ratings.length > 0 && (
+    <p class:list={["flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted", className]}>
+      {ratings.map((r, i) => {
+        const content = (
+          <>
+            <span class="font-semibold text-granite">{r.score}</span> {r.source}
+            {r.count !== null && <span class="sr-only">— {r.count} {reviewsLabel}</span>}
+            {r.count !== null && <span aria-hidden="true"> ({r.count})</span>}
+          </>
+        );
+        return (
+          <>
+            {i > 0 && <span aria-hidden="true">·</span>}
+            {r.url && !plain ? (
+              <a href={r.url} target="_blank" rel="noopener" class="hover:text-granite underline-offset-4 hover:underline">
+                {content}
+              </a>
+            ) : (
+              <span>{content}</span>
+            )}
+          </>
+        );
+      })}
+    </p>
+  )
+}

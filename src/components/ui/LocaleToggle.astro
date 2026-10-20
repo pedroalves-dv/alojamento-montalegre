@@ -1,0 +1,38 @@
+---
+import { locales, switchLocalePath, type Locale } from "@/i18n";
+
+interface Props {
+  locale: Locale;
+  class?: string;
+}
+
+const { locale, class: className } = Astro.props;
+const labels: Record<Locale, string> = { pt: "Português", en: "English" };
+---
+
+<div class:list={["flex items-center gap-1.5 text-xs font-semibold tracking-widest", className]}>
+  {
+    locales.map((l, i) => (
+      <>
+        {i > 0 && (
+          <span class="opacity-30 select-none" aria-hidden="true">
+            |
+          </span>
+        )}
+        {l === locale ? (
+          <span aria-current="true">{l.toUpperCase()}</span>
+        ) : (
+          <a
+            href={switchLocalePath(Astro.url.pathname, l)}
+            hreflang={l}
+            lang={l}
+            aria-label={`${l.toUpperCase()} — ${labels[l]}`}
+            class="opacity-60 hover:opacity-100 transition-opacity"
+          >
+            {l.toUpperCase()}
+          </a>
+        )}
+      </>
+    ))
+  }
+</div>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  data: Record<string, unknown>[];
+}
+
+const { data } = Astro.props;
+// Escape "<" so content can never close the script tag early
+const serialize = (value: unknown) => JSON.stringify(value).replace(/</g, "\\u003c");
+---
+
+{data.map((item) => <script type="application/ld+json" set:html={serialize(item)} />)}

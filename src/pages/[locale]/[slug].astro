@@ -1,0 +1,239 @@
+---
+import { getImage } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PropertyGallery from "@/components/property/PropertyGallery.astro";
+import PropertyPolicies from "@/components/property/PropertyPolicies.astro";
+import PropertyReviews from "@/components/property/PropertyReviews.astro";
+import PropertyBottomBar from "@/components/property/PropertyBottomBar.astro";
+import RatingLine from "@/components/ui/RatingLine.astro";
+import MapEmbed from "@/components/ui/MapEmbed.astro";
+import Icon, { type IconName } from "@/components/ui/Icon.astro";
+import { config } from "@/config";
+import { properties } from "@/data/properties";
+import { locales, useTranslations, type Locale } from "@/i18n";
+import { resolveImages } from "@/lib/images";
+import { absoluteUrl, telHref, whatsappHref } from "@/lib/links";
+import { breadcrumbs, lodging } from "@/lib/schema";
+import type { Property } from "@/types/property";
+
+export function getStaticPaths() {
+  return locales.flatMap((locale) =>
+    properties.map((property) => ({ params: { locale, slug: property.slug }, props: { property } })),
+  );
+}
+
+interface Props {
+  property: Property;
+}
+
+const { property } = Astro.props;
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale, "PropertyDetail");
+
+const name = property.name[locale];
+const tagline = property.tagline[locale];
+const seasonal = property.seasonal[locale];
+const waHref = whatsappHref(property.whatsappMessage[locale]);
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${property.coordinates.lat},${property.coordinates.lng}`;
+
+const images = await resolveImages(property.images);
+const schemaImages = await Promise.all(
+  images.slice(0, 6).map(async (src) => absoluteUrl((await getImage({ src, width: 1200, format: "jpg" })).src)),
+);
+
+const facts: { icon: IconName; label: string }[] = [
+  { icon: "users", label: t("capacity", { count: property.capacity }) },
+  { icon: "bed", label: t("rooms", { count: property.rooms }) },
+  { icon: "bath", label: t("bathrooms", { count: property.bathrooms }) },
+  ...(property.sqm !== null ? [{ icon: "sqm" as const, label: t("sqm", { count: property.sqm }) }] : []),
+];
+
+const AMENITIES_SHOWN = 8;
+const amenities = property.amenities[locale];
+const sectionClass = "py-12 md:py-14 border-t border-granite/10";
+const amenityItem = "flex items-center gap-2.5 text-body";
+---
+
+<BaseLayout
+  locale={locale}
+  title={name}
+  description={tagline}
+  keywords={property.keywords[locale]}
+  path={`/${property.slug}`}
+  ogImage={property.slug}
+  jsonLd={[lodging(property, locale, schemaImages), breadcrumbs(locale, [{ name, path: `/${property.slug}` }])]}
+>
+  <div class="container-site pt-4 md:pt-8 flex flex-col">
+    <!-- Mobile: photos first, then the title. Desktop: title, then the photo grid. -->
+    <header class="order-2 md:order-1 pt-6 md:pt-0 md:pb-6">
+      <span class="inline-flex rounded-full bg-amber/15 px-3 py-1 text-xs font-medium text-amber-deep" data-print-hidden>
+        {seasonal}
+      </span>
+      <h1 class="heading-1 text-granite mt-3">{name}</h1>
+      <p class="mt-2 text-lg md:text-xl text-muted">{tagline}</p>
+      <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <RatingLine property={property} reviewsLabel={t("reviewsLabel")} />
+        <a href={mapsUrl} target="_blank" rel="noopener" class="flex items-center gap-1.5 text-sm text-muted hover:text-granite underline-offset-4 hover:underline">
+          <Icon name="map-pin" size={14} />
+          {property.address[locale]}
+        </a>
+      </div>
+      <!-- Print only -->
+      <p class="hidden print:block mt-2 text-sm">{property.phone ?? config.phoneNumber}{property.booking.url && ` · ${property.booking.url}`}</p>
+    </header>
+
+    <PropertyGallery images={images} name={name} locale={locale} class="order-1 md:order-2" />
+  </div>
+
+  <div class="container-site grid grid-cols-1 md:grid-cols-[1fr_340px] gap-10 lg:gap-16 pt-10 md:pt-12 pb-16 print:block">
+    <div>
+      <!-- Key facts -->
+      <ul class="grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-4 pb-10 md:pb-12 border-b border-granite/10">
+        {
+          facts.map(({ icon, label }) => (
+            <li class="flex items-center gap-2.5 text-sm text-body">
+              <Icon name={icon} size={18} strokeWidth={1.6} class="text-muted" />
+              {label}
+            </li>
+          ))
+        }
+      </ul>
+
+      <section class="py-10 md:py-12">
+        <h2 class="heading-2 text-granite mb-6">{t("descriptionHeading")}</h2>
+        <div class="space-y-4 max-w-prose">
+          {property.description[locale].split("\n\n").map((para) => <p class="text-body leading-relaxed">{para}</p>)}
+        </div>
+      </section>
+
+      <section class={sectionClass}>
+        <h2 class="heading-2 text-granite mb-8">{t("amenitiesHeading")}</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8">
+          {
+            amenities.slice(0, AMENITIES_SHOWN).map((amenity) => (
+              <li class={amenityItem}>
+                <Icon name="check" strokeWidth={2.2} class="text-forest" />
+                {amenity}
+              </li>
+            ))
+          }
+        </ul>
+        {
+          amenities.length > AMENITIES_SHOWN && (
+            <details class="group">
+              <summary class="list-none [&::-webkit-details-marker]:hidden btn-secondary mt-8 cursor-pointer group-open:hidden">
+                {t("amenitiesShowAll", { count: amenities.length })}
+              </summary>
+              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-8 mt-3">
+                {amenities.slice(AMENITIES_SHOWN).map((amenity) => (
+                  <li class={amenityItem}>
+                    <Icon name="check" strokeWidth={2.2} class="text-forest" />
+                    {amenity}
+                  </li>
+                ))}
+              </ul>
+            </details>
+          )
+        }
+      </section>
+
+      {
+        property.restaurantInfo && (
+          <section class={sectionClass}>
+            <p class="text-xs font-medium uppercase tracking-wider text-amber-deep mb-2">{t("inHouseLabel")}</p>
+            <h2 class="heading-2 text-granite mb-5">{property.restaurantInfo.name[locale]}</h2>
+            <p class="text-body leading-relaxed max-w-prose">{property.restaurantInfo.description[locale]}</p>
+          </section>
+        )
+      }
+
+      <section class={sectionClass}>
+        <h2 class="heading-2 text-granite mb-6">{t("locationNearbyHeading")}</h2>
+        {property.gettingHereNote && <p class="mb-6 text-body leading-relaxed max-w-prose">{property.gettingHereNote[locale]}</p>}
+        <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+          {
+            property.nearby.map((item) => (
+              <li class="flex items-baseline justify-between gap-3 border-b border-dashed border-granite/15 pb-2 text-sm">
+                <span class="text-body">{item.label[locale]}</span>
+                <span class="text-muted whitespace-nowrap tabular-nums">{item.distance[locale]}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <MapEmbed
+          locale={locale}
+          lat={property.coordinates.lat}
+          lng={property.coordinates.lng}
+          title={`${name} — ${t("locationHeading")}`}
+          class="h-[340px]"
+          data-print-hidden
+        />
+      </section>
+
+      <PropertyPolicies property={property} locale={locale} />
+
+      {
+        property.reviews && (
+          <PropertyReviews
+            reviews={property.reviews}
+            locale={locale}
+            heading={t("reviewHeading")}
+            allReviewsLabel={t("allReviewsLabel")}
+          />
+        )
+      }
+    </div>
+
+    <!-- Sticky contact card, desktop only -->
+    <aside class="hidden md:block" data-print-hidden>
+      <div class="sticky top-[calc(var(--navbar-height)+1.5rem)] rounded-box border border-granite/15 bg-white p-6 flex flex-col gap-5">
+        {
+          property.priceFrom !== null && (
+            <p class="text-sm text-muted">
+              {t("fromLabel")}
+              <span class="block font-serif text-3xl text-granite">{t("perNight", { price: property.priceFrom })}</span>
+            </p>
+          )
+        }
+        <RatingLine property={property} reviewsLabel={t("reviewsLabel")} />
+        <div class="flex flex-col gap-3">
+          <a href={waHref} target="_blank" rel="noopener" class="btn-primary w-full">
+            <Icon name="whatsapp" size={18} />
+            {t("requestAvailability")}
+          </a>
+          <a href={telHref()} class="btn-secondary w-full">
+            <Icon name="phone" size={16} strokeWidth={1.8} />
+            {config.phoneNumber}
+          </a>
+        </div>
+        <p class="text-sm text-muted leading-relaxed">{t("bookingDirectNote")}</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Final CTA (centred) -->
+  <section class="bg-forest text-white" data-print-hidden>
+    <div class="container-site section-y max-w-2xl text-center">
+      <h2 class="heading-2 mb-4">{t("bookingHeading")}</h2>
+      <p class="text-white/85 leading-relaxed mb-9 text-balance">{t("bookingDirectNote")}</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center [&>*]:w-full sm:[&>*]:w-auto">
+        <a href={waHref} target="_blank" rel="noopener" class="btn-light">
+          <Icon name="whatsapp" size={18} />
+          {t("requestAvailability")}
+        </a>
+        <a href={telHref()} class="btn-outline-light">
+          <Icon name="phone" size={16} strokeWidth={1.8} />
+          {config.phoneNumber}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <PropertyBottomBar
+    whatsappHref={waHref}
+    priceFrom={property.priceFrom}
+    fromLabel={t("fromLabel")}
+    perNight={property.priceFrom !== null ? t("perNight", { price: property.priceFrom }) : null}
+    ctaLabel={t("requestAvailability")}
+  />
+</BaseLayout>

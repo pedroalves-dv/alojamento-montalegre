@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import logo from "@/assets/logo.png";
+
+interface Props {
+  variant?: "dark" | "light";
+  class?: string;
+  loading?: "eager" | "lazy";
+}
+
+const { variant = "dark", class: className, loading = "eager" } = Astro.props;
+---
+
+<Image
+  src={logo}
+  alt="Alojamento Montalegre"
+  height={36}
+  densities={[1, 2]}
+  format="webp"
+  loading={loading}
+  class:list={["w-auto", className, variant === "light" && "brightness-0 invert"]}
+/>

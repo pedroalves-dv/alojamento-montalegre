@@ -1,0 +1,121 @@
+---
+import { Font } from "astro:assets";
+import "@/styles/global.css";
+import { config } from "@/config";
+import { seo } from "@/data/seo";
+import { properties } from "@/data/properties";
+import { htmlLang, locales, ogLocale, useTranslations, type Locale } from "@/i18n";
+import { absoluteUrl } from "@/lib/links";
+import JsonLd from "@/components/seo/JsonLd.astro";
+import Navbar from "@/components/layout/Navbar.astro";
+import Footer from "@/components/layout/Footer.astro";
+
+interface Props {
+  locale: Locale;
+  /** Page title; the site name is appended unless `absoluteTitle` is set. */
+  title: string;
+  absoluteTitle?: boolean;
+  description: string;
+  keywords?: string[];
+  /** Locale-independent path of this page, e.g. "" or "/regiao". */
+  path: string;
+  /** Key of the generated OG image (see src/pages/og/[locale]/[page].png.ts). */
+  ogImage: string;
+  jsonLd?: Record<string, unknown>[];
+  /** For pages that must stay out of search results (e.g. 404). */
+  noindex?: boolean;
+}
+
+const {
+  locale,
+  title,
+  absoluteTitle = false,
+  description,
+  keywords,
+  path,
+  ogImage,
+  jsonLd = [],
+  noindex = false,
+} = Astro.props;
+
+const t = useTranslations(locale, "Nav");
+const fullTitle = absoluteTitle ? title : seo.site.titleTemplate.replace("%s", title);
+const canonical = absoluteUrl(`/${locale}${path}`);
+const ogImageUrl = absoluteUrl(`/og/${locale}/${ogImage}.png`);
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${config.siteUrl}/#business`,
+  name: "Alojamento Montalegre",
+  description: seo.site.localBusinessDescription[locale],
+  url: config.siteUrl,
+  telephone: config.phoneNumber,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Montalegre",
+    addressRegion: "Trás-os-Montes",
+    addressCountry: "PT",
+  },
+  geo: { "@type": "GeoCoordinates", latitude: 41.8229, longitude: -7.7936 },
+  priceRange: "€€",
+};
+---
+
+<!doctype html>
+<html lang={htmlLang[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords.join(", ")} />}
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <>
+          <link rel="canonical" href={canonical} />
+          {locales.map((l) => <link rel="alternate" hreflang={htmlLang[l]} href={absoluteUrl(`/${l}${path}`)} />)}
+          <link rel="alternate" hreflang="x-default" href={absoluteUrl(`/pt${path}`)} />
+        </>
+      )
+    }
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#f5f2ec" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Alojamento Montalegre" />
+    <meta property="og:locale" content={ogLocale[locale]} />
+    {locales.filter((l) => l !== locale).map((l) => <meta property="og:locale:alternate" content={ogLocale[l]} />)}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <Font cssVariable="--font-instrument-serif" preload />
+    <Font cssVariable="--font-stack-local" preload />
+
+    <JsonLd data={[localBusiness, ...jsonLd]} />
+  </head>
+  <body class="min-h-svh flex flex-col">
+    <a
+      href="#content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-forest focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+    >
+      {t("skipLink")}
+    </a>
+    <Navbar locale={locale} properties={properties} />
+    <main id="content" class="flex-1 pt-[var(--navbar-height)]">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+
+  </body>
+</html>

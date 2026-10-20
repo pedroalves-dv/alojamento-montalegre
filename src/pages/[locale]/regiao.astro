@@ -1,0 +1,179 @@
+---
+import { Picture } from "astro:assets";
+import PageHero from "@/components/ui/PageHero.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import MapEmbed from "@/components/ui/MapEmbed.astro";
+import Icon, { type IconName } from "@/components/ui/Icon.astro";
+import { regiao } from "@/data/regiao";
+import { seo } from "@/data/seo";
+import { localeParams, useTranslations, type Locale } from "@/i18n";
+import { resolveImage, resolveImages, imageFormats } from "@/lib/images";
+import { breadcrumbs } from "@/lib/schema";
+
+export const getStaticPaths = localeParams;
+
+const locale = Astro.params.locale as Locale;
+const t = useTranslations(locale, "Regiao");
+const tNav = useTranslations(locale, "Nav");
+
+const heroImage = await resolveImage("/images/montalegre-2.jpg");
+const sectionImages = await resolveImages(regiao.map((s) => s.image));
+
+const MONTALEGRE = { lat: 41.8235, lng: -7.7916 };
+
+const highlights = [
+  { stat: t("statPark"), label: t("highlightPark") },
+  { stat: t("statUnesco"), label: t("highlightUnesco") },
+  { stat: t("statFair"), label: t("highlightFair") },
+];
+
+const practical: { icon: IconName; title: string; body: string }[] = [
+  { icon: "route", title: t("practicalCarTitle"), body: t("practicalCar") },
+  { icon: "waves", title: t("practicalWaterTitle"), body: t("practicalWater") },
+  { icon: "adventure", title: t("practicalAdventureTitle"), body: t("practicalAdventure") },
+  { icon: "hiking", title: t("practicalHikingTitle"), body: t("practicalHiking") },
+  { icon: "seasons", title: t("practicalWeatherTitle"), body: t("practicalWeather") },
+  { icon: "hospitality", title: t("practicalLanguageTitle"), body: t("practicalLanguage") },
+];
+
+const seasons = (["spring", "summer", "autumn", "winter"] as const).map((s) => ({
+  label: t(`${s}Label`),
+  months: t(`${s}Months`),
+  note: t(`${s}Note`),
+}));
+
+const routes = [
+  { label: t("fromPortoLabel"), detail: t("fromPortoDetail"), from: "Porto,Portugal" },
+  { label: t("fromBragaLabel"), detail: t("fromBragaDetail"), from: "Braga,Portugal" },
+].map((r) => ({
+  ...r,
+  href: `https://www.google.com/maps/dir/${r.from}/${MONTALEGRE.lat},${MONTALEGRE.lng}`,
+}));
+
+const h2 = "heading-2 text-granite";
+---
+
+<BaseLayout
+  locale={locale}
+  title={seo.regiao.title[locale]}
+  description={seo.regiao.description[locale]}
+  keywords={seo.regiao.keywords?.[locale]}
+  path="/regiao"
+  ogImage="regiao"
+  jsonLd={[breadcrumbs(locale, [{ name: tNav("regiao"), path: "/regiao" }])]}
+>
+  <PageHero image={heroImage} alt="Monte do Larouco, Terras de Barroso" headline={t("heroHeadline1")} text={t("heroTagline")} />
+
+  <section class="container-site section-y">
+    <div class="max-w-3xl">
+      <h2 class:list={[h2, "mb-6"]}>{t("introHeading")}</h2>
+      <p class="text-body text-lg leading-relaxed">{t("introBody")}</p>
+    </div>
+  </section>
+
+  <section class="border-y border-granite/10">
+    <dl class="container-site py-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      {
+        highlights.map((h) => (
+          <div class="flex flex-col gap-1">
+            <dt class="font-serif text-4xl md:text-5xl text-forest">{h.stat}</dt>
+            <dd class="text-muted text-sm">{h.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+
+  <div class="container-site py-8 md:py-12 flex flex-col gap-16 md:gap-24">
+    {
+      regiao.map((section, i) => (
+        <section>
+          <div class:list={["flex flex-col md:flex-row gap-8 md:gap-14 items-center", i % 2 === 1 && "md:flex-row-reverse"]}>
+            <div class="w-full md:w-1/2 shrink-0 aspect-[4/3] overflow-hidden rounded-box">
+              <Picture
+                src={sectionImages[i]!}
+                alt={section.title[locale]}
+                formats={imageFormats}
+                widths={[480, 720, 1024]}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                class="size-full object-cover"
+              />
+            </div>
+            <div class="w-full md:w-1/2">
+              <h3 class="heading-3 text-granite mb-4">{section.title[locale]}</h3>
+              {section.distance && (
+                <p class="-mt-1 mb-4">
+                  <span class="inline-flex items-center gap-1.5 text-xs text-muted border border-granite/20 px-2.5 py-1 rounded-full">
+                    <Icon name="clock" size={12} />
+                    {section.distance[locale]}
+                  </span>
+                </p>
+              )}
+              <p class="text-body leading-relaxed max-w-prose">{section.body[locale]}</p>
+            </div>
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <section class="container-site section-y">
+    <div>
+      <h2 class:list={[h2, "mb-12"]}>{t("practicalHeading")}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {
+          practical.map((item) => (
+            <div class="bg-white border border-granite/15 rounded-box px-6 py-5 flex gap-4 items-start">
+              <span class="grid size-11 shrink-0 place-items-center rounded-full bg-forest/8 text-forest">
+                <Icon name={item.icon} size={22} strokeWidth={1.6} />
+              </span>
+              <div>
+                <h3 class="heading-3 text-granite mb-1">{item.title}</h3>
+                <p class="text-body text-sm leading-relaxed">{item.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-granite/10 bg-white/50">
+    <div class="container-site section-y">
+      <h2 class:list={[h2, "mb-12"]}>{t("seasonalHeading")}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-granite/10 rounded-box overflow-hidden border border-granite/10">
+        {
+          seasons.map((season) => (
+            <div class="bg-white px-6 py-7">
+              <h3 class="heading-3 text-forest mb-1">{season.label}</h3>
+              <p class="text-xs text-muted uppercase tracking-wider mb-3">{season.months}</p>
+              <p class="text-body text-sm leading-relaxed">{season.note}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container-site section-y">
+    <div>
+      <h2 class:list={[h2, "mb-10"]}>{t("gettingHereHeading")}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        {
+          routes.map((row) => (
+            <div class="bg-white rounded-box border border-granite/15 p-6 flex flex-col">
+              <Icon name="car" size={22} strokeWidth={1.5} class="text-amber-deep mb-4" />
+              <h3 class="heading-3 text-granite mb-1">{row.label}</h3>
+              <p class="text-muted text-sm leading-relaxed mb-4">{row.detail}</p>
+              <a href={row.href} target="_blank" rel="noopener" class="mt-auto text-sm text-amber-deep font-medium hover:underline">
+                {t("directionsLink")} →
+              </a>
+            </div>
+          ))
+        }
+      </div>
+      <MapEmbed locale={locale} lat={MONTALEGRE.lat} lng={MONTALEGRE.lng} zoom={13} title={t("mapTitle")} class="h-[320px] mb-8" />
+      <p class="text-muted text-sm leading-relaxed">{t("gettingHereNote")}</p>
+    </div>
+  </section>
+</BaseLayout>

@@ -10,7 +10,7 @@ export const properties: Property[] = [
       en: "Beside the river, far from the world",
     },
     description: {
-      pt: "A Casa do Moinho fica à margem do rio Cávado, envolta pelo verde intenso da Serra do Larouco. Um antigo moinho restaurado com cuidado, onde a pedra granítica e a madeira envelhecida se misturam com o conforto moderno. Acorde com o som da água e duerma com as estrelas a guiar-lhe o sono.\n\nEspaçosa e luminosa, a casa acomoda até 10 pessoas em 5 quartos — ideal para famílias grandes ou grupos de amigos que procuram um retiro verdadeiro. A cozinha totalmente equipada convida a longas refeições à lareira enquanto lá fora o vento dança nos carvalhos.\n\nEsta é a casa certa para quem quer desligar de verdade: sem semáforos, sem pressa, sem barulho — só a natureza, a brasa e o silêncio que só o Barroso sabe dar.",
+      pt: "A Casa do Moinho fica à margem do rio Cávado, envolta pelo verde intenso da Serra do Larouco. Um antigo moinho restaurado com cuidado, onde a pedra granítica e a madeira envelhecida se misturam com o conforto moderno. Acorde com o som da água e durma com as estrelas a guiar-lhe o sono.\n\nEspaçosa e luminosa, a casa acomoda até 10 pessoas em 5 quartos — ideal para famílias grandes ou grupos de amigos que procuram um retiro verdadeiro. A cozinha totalmente equipada convida a longas refeições à lareira enquanto lá fora o vento dança nos carvalhos.\n\nEsta é a casa certa para quem quer desligar de verdade: sem semáforos, sem pressa, sem barulho — só a natureza, a brasa e o silêncio que só o Barroso sabe dar.",
       en: "Casa do Moinho sits on the banks of the Cávado river, surrounded by the deep green of Serra do Larouco. A lovingly restored water mill where granite stone and aged wood meet modern comfort. Wake to the sound of the water; sleep under a sky thick with stars.\n\nSpacious and light-filled, the house sleeps up to 10 across 5 bedrooms — ideal for large families or groups of friends seeking a genuine retreat. The fully equipped kitchen invites long evenings by the fireplace while the wind moves through the oaks outside.\n\nThis is the house for those who truly want to disconnect: no traffic lights, no rush, no noise — just nature, embers, and the silence only Barroso can offer.",
     },
     capacity: 10,
@@ -64,7 +64,7 @@ export const properties: Property[] = [
     google: {
       score: "5.0",
       reviewCount: 4,
-      url: "https://www.google.com/maps?cid=13868799469826190841",
+      url: "https://share.google/c6ZNGUsFEODd3yNOd",
     },
     airbnbUrl: null,
     phone: "+351 935 663 060",
@@ -87,10 +87,10 @@ export const properties: Property[] = [
       en: "Parties and events are not permitted on this property.",
     },
     reviews: {
-      allReviewsUrl: "https://www.google.com/maps?cid=13868799469826190841",
+      allReviewsUrl: "https://share.google/c6ZNGUsFEODd3yNOd",
       items: [
         {
-          author: "Sergio Tavares",
+          author: "Sergio T.",
           text: {
             pt: "Obrigado pela simpática recepção ao sr. João e sr. Nuno.",
             en: "Thank you for the warm welcome from Mr. João and Mr. Nuno.",
@@ -99,7 +99,7 @@ export const properties: Property[] = [
           rating: 5,
         },
         {
-          author: "Lidia Cardoso",
+          author: "Lidia C.",
           text: {
             pt: "Local tranquilo para um momento de relax.",
             en: "A tranquil spot for a moment of relaxation.",
@@ -108,7 +108,7 @@ export const properties: Property[] = [
           rating: 5,
         },
         {
-          author: "Manuel Morais",
+          author: "Manuel M.",
           text: {
             pt: "Espectacular.",
             en: "Spectacular.",
@@ -181,13 +181,13 @@ export const properties: Property[] = [
       "/images/casa-do-moinho/1.jpg",
       "/images/casa-do-moinho/2.jpg",
       "/images/casa-do-moinho/3.jpg",
-      "/images/casa-do-moinho/4.jpeg",
+      "/images/casa-do-moinho/4.jpg",
       "/images/casa-do-moinho/5.jpg",
-      "/images/casa-do-moinho/6.png",
-      "/images/casa-do-moinho/7.png",
-      "/images/casa-do-moinho/8.png",
-      "/images/casa-do-moinho/9.png",
-      "/images/casa-do-moinho/10.png",
+      "/images/casa-do-moinho/6.jpg",
+      "/images/casa-do-moinho/7.jpg",
+      "/images/casa-do-moinho/8.jpg",
+      "/images/casa-do-moinho/9.jpg",
+      "/images/casa-do-moinho/10.jpg",
       "/images/casa-do-moinho/11.jpg",
       "/images/casa-do-moinho/12.jpg",
       "/images/casa-do-moinho/13.jpg",
@@ -248,7 +248,7 @@ export const properties: Property[] = [
     google: {
       score: "4.7",
       reviewCount: 23,
-      url: "https://www.google.com/maps/place/Casa+de+Campo+O+Castelo/@41.8261196,-7.7941453,17z/data=!4m11!3m10!1s0xd2532b19c23ee53:0xbf89864b23fad590!5m2!4m1!1i2!8m2!3d41.8261156!4d-7.7915704!9m1!1b1!16s%2Fg%2F1hc1dhhmc",
+      url: "https://share.google/G2otAJCCjsx65SQcV",
     },
     airbnbUrl: null,
     phone: "+351 276 511 237",
@@ -264,15 +264,14 @@ export const properties: Property[] = [
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
-    checkinTime: "15:00–22:00",
+    checkinTime: "16:00–22:00",
     checkoutTime: "11:00",
     noPartiesNote: null,
     reviews: {
-      allReviewsUrl:
-        "https://www.google.com/maps/place/Casa+de+Campo+O+Castelo/@41.8261196,-7.7941453,17z/data=!4m11!3m10!1s0xd2532b19c23ee53:0xbf89864b23fad590!5m2!4m1!1i2!8m2!3d41.8261156!4d-7.7915704!9m1!1b1!16s%2Fg%2F1hc1dhhmc",
+      allReviewsUrl: "https://share.google/G2otAJCCjsx65SQcV",
       items: [
         {
-          author: "Hugo Catarino",
+          author: "Hugo C.",
           text: {
             pt: "Adorei o Castelo — a proprietária muito simpática, quartos muito aconchegantes, vista para a Vila de Montalegre e terraço junto ao castelo. Ficou a promessa de voltar novamente.",
             en: "Loved O Castelo — very friendly owner, wonderfully cosy rooms, views over Montalegre, and a terrace right next to the castle. We promised ourselves we'd be back.",
@@ -281,37 +280,10 @@ export const properties: Property[] = [
           rating: 5,
         },
         {
-          author: "MáriaJose Sanchez Blasco",
+          author: "María José S.",
           text: {
             pt: "Um lugar precioso e com encanto. Muito limpo e bem cuidado. Um atendimento de excelência. Voltaremos!",
             en: "A beautiful, charming place. Very clean and well maintained. Outstanding service. We'll be back!",
-          },
-          platform: "Google",
-          rating: 5,
-        },
-        {
-          author: "pedro S",
-          text: {
-            pt: "Óptimo para passar um fim de semana e desfrutar de uma boa refeição a dois ou em família. Muito boa limpeza e atendimento. Localização excelente mesmo ao lado do Castelo e com vistas deslumbrantes.",
-            en: "Perfect for a weekend getaway — great food for two or with the family, excellent cleanliness and service, outstanding location right next to the Castle with superb views.",
-          },
-          platform: "TripAdvisor",
-          rating: 5,
-        },
-        {
-          author: "Aurora Tomaz",
-          text: {
-            pt: "Excelente experiência de uma refeição saborosa num local de bom gosto. As sugestões da proprietária na escolha do menu permitem conhecer a variedade e riqueza da culinária da região. Recomendo vivamente.",
-            en: "An excellent experience — a delicious meal in a tasteful setting. The owner's menu suggestions let you discover the variety and richness of the region's cuisine. Highly recommended.",
-          },
-          platform: "Google",
-          rating: 5,
-        },
-        {
-          author: "Diogo Martel",
-          text: {
-            pt: "Um espaço de qualidade e bom gosto, que alia o conforto e a estética da sala a uma cozinha de excelência. Tem além do mais uma relação qualidade-preço muito boa. Recomendo vivamente!",
-            en: "A quality space with refined taste — combining comfort and elegant décor with outstanding cuisine. Excellent value for money. Highly recommended!",
           },
           platform: "Google",
           rating: 5,

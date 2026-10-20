@@ -1,0 +1,78 @@
+---
+import { Picture } from "astro:assets";
+import type { Property } from "@/types/property";
+import { useTranslations, type Locale } from "@/i18n";
+import { resolveImage, imageFormats } from "@/lib/images";
+import Icon from "@/components/ui/Icon.astro";
+import RatingLine from "@/components/ui/RatingLine.astro";
+
+interface Props {
+  property: Property;
+  locale: Locale;
+}
+
+const { property, locale } = Astro.props;
+const t = useTranslations(locale, "Home");
+const tProperty = useTranslations(locale, "PropertyDetail");
+const cover = await resolveImage(property.images[0]!);
+---
+
+<!--
+  Hover: the border firms up and the "Ver casa →" arrow nudges right. No image zoom.
+  The whole card is the link (via the ::after overlay on the title link).
+-->
+<article
+  class="group relative flex flex-col overflow-hidden rounded-box border border-granite/15 bg-white transition-colors duration-200 hover:border-granite/40 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-forest"
+>
+  <div class="aspect-[3/2] overflow-hidden bg-granite/5">
+    <Picture
+      src={cover}
+      alt=""
+      formats={imageFormats}
+      widths={[480, 720, 960, 1200]}
+      sizes="(min-width: 1152px) 540px, (min-width: 768px) 50vw, calc(100vw - 2rem)"
+      class="size-full object-cover"
+    />
+  </div>
+
+  <div class="flex flex-1 flex-col gap-4 p-5 md:p-6">
+    <div>
+      <h3 class="heading-3 text-granite">
+        <a href={`/${locale}/${property.slug}`} class="outline-none after:absolute after:inset-0 after:content-['']">
+          {property.name[locale]}
+        </a>
+      </h3>
+      <p class="mt-1 text-muted">{property.tagline[locale]}</p>
+    </div>
+
+    <RatingLine property={property} reviewsLabel={tProperty("reviewsLabel")} plain />
+
+    <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-body">
+      <span class="flex items-center gap-1.5">
+        <Icon name="users" size={15} strokeWidth={1.8} class="text-muted" />
+        {t("propertyPersons", { count: property.capacity })}
+      </span>
+      <span class="flex items-center gap-1.5">
+        <Icon name="bed" size={15} strokeWidth={1.8} class="text-muted" />
+        {t("propertyRooms", { count: property.rooms })}
+      </span>
+    </div>
+
+    <div class="mt-auto flex items-end justify-between gap-4 border-t border-granite/10 pt-4">
+      {
+        property.priceFrom !== null ? (
+          <p class="text-sm text-muted">
+            {tProperty("fromLabel")}
+            <span class="block text-lg font-medium text-granite">{tProperty("perNight", { price: property.priceFrom })}</span>
+          </p>
+        ) : (
+          <span />
+        )
+      }
+      <span class="inline-flex items-center gap-1.5 font-medium text-forest" aria-hidden="true">
+        {t("propertyCardCta")}
+        <Icon name="arrow-right" class="transition-transform duration-200 group-hover:translate-x-1" />
+      </span>
+    </div>
+  </div>
+</article>

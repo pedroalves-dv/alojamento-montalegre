@@ -28,14 +28,15 @@ export const regiao: RegiaoSection[] = [
   },
   {
     title: {
-      pt: "Barragem do Lindoso",
-      en: "Lindoso Reservoir",
+      pt: "Barragem do Alto Rabagão",
+      en: "Alto Rabagão Reservoir",
     },
+    // DRAFT copy — to be reviewed together with the rest of the region text.
     body: {
-      pt: "A Barragem do Lindoso é uma das maiores albufeiras do norte de Portugal e um espelho de água de beleza serena que contrasta com a aspereza da paisagem envolvente. Ideal para passeios à beira-água, pesca desportiva, kayak e caminhadas ao longo das margens. Nos dias mais calmos, o reflexo das serras nas águas escuras é uma das imagens mais memoráveis de toda a região.",
-
-      en: "The Lindoso Reservoir is among the largest in northern Portugal — a serene expanse of water that contrasts beautifully with the rugged surrounding landscape. Ideal for waterside walks, sport fishing, kayaking, and hikes along the shore. On calm days, the reflection of the mountain ranges in the dark water is one of the most memorable images in the entire region.",
+      pt: "Em pleno planalto do Barroso, a albufeira do Alto Rabagão estende-se por quilómetros entre lameiros, aldeias de granito e serras baixas. É o grande espelho de água de Montalegre: bom para caminhar pelas margens, pescar, andar de kayak ou simplesmente ver o pôr do sol sobre a água. A aldeia de Pisões, junto ao paredão, merece uma paragem.",
+      en: "Out on the Barroso plateau, the Alto Rabagão reservoir stretches for kilometres between meadows, granite villages and low hills. It's Montalegre's great sheet of water — good for shoreline walks, fishing, kayaking, or simply watching the sun go down over the water. The village of Pisões, beside the dam wall, is worth a stop.",
     },
+    // TODO: placeholder photo (it shows Lindoso) — replace with a photo of Alto Rabagão.
     image: "/images/canoagem-paddle-barragem-do-lindoso.jpg",
     distance: { pt: "~20 min de Montalegre", en: "~20 min from Montalegre" },
   },
@@ -48,7 +49,7 @@ export const regiao: RegiaoSection[] = [
       pt: "A região de Montalegre está atravessada por uma rede de trilhos pedestres sinalizados, que percorrem paisagens de montanha, margens de rios e aldeias históricas. A Serra do Larouco — a segunda montanha mais alta de Portugal a oeste do Tejo — oferece percursos de diferentes níveis de dificuldade, com vistas sobre o vale do Cávado e as serras da região. Outros trilhos percorrem as margens da barragem do Alto Rabagão e ligam aldeias tradicionais onde o tempo parece parar. Para caminhantes de todos os níveis, esta é uma das regiões mais recompensadoras do norte de Portugal.",
       en: "The Montalegre area is threaded with a network of marked walking trails, winding through mountain landscapes, riverside paths, and historic villages. Serra do Larouco — the second highest mountain in Portugal west of the Tagus — offers routes for all fitness levels, with sweeping views over the Cávado valley and the surrounding ranges. Other trails follow the Alto Rabagão reservoir shore and connect traditional villages where time seems to stand still. For walkers of all levels, this is one of the most rewarding regions in northern Portugal.",
     },
-    image: "/images/montalegre-2.png",
+    image: "/images/montalegre-2.jpg",
     distance: {
       pt: "~10–30 min de Montalegre",
       en: "~10–30 min from Montalegre",

@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  /* Layout */
+  --navbar-height: 4.25rem;
+
+  /* Brand colours */
+  --color-forest: #2d4a2f;
+  --color-moss: #3d5c3a;
+  --color-amber: #e59c2e;
+  --color-amber-deep: #94590f; /* amber for text on light backgrounds (AA contrast) */
+  --color-granite: #2a2a28;
+  --color-fog: #f5f2ec;
+  --color-river: #4a6b7c;
+  --color-whatsapp: #25d366;
+  --color-booking: #003580;
+  --color-google: #1a67d2; /* darker than Google's #4285f4 so white text passes AA */
+
+  /* Two text tones on light backgrounds: body copy and muted/secondary */
+  --color-body: color-mix(in srgb, var(--color-granite) 85%, transparent);
+  --color-muted: color-mix(in srgb, var(--color-granite) 70%, transparent);
+
+  /*
+   * Corners — one rule for the whole site:
+   *   pills & buttons → rounded-full
+   *   everything else (cards, images, panels, inputs) → rounded-box (6px)
+   */
+  --radius-box: 6px;
+
+  /* Typography — the font variables come from Astro's <Font /> component */
+  --font-serif: var(--font-instrument-serif);
+  --font-stack: var(--font-stack-local);
+
+  /* Body letter-spacing — one place to tune for all prose/UI text */
+  --tracking-body: 0.01em;
+}
+
+@layer base {
+  html {
+    @apply font-stack text-granite bg-fog;
+    letter-spacing: var(--tracking-body);
+    scroll-padding-top: calc(var(--navbar-height) + 1rem);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  .font-serif {
+    letter-spacing: var(--tracking-tight);
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  dialog::backdrop {
+    background: transparent;
+  }
+}
+
+/* Native cross-page fade between pages (no JS; browsers without support just navigate) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 180ms;
+  }
+}
+
+/* ── Headings: a 3-step scale ─────────────────────────────── */
+@utility heading-1 {
+  @apply font-serif text-5xl md:text-7xl leading-[0.95] text-balance;
+}
+@utility heading-2 {
+  @apply font-serif text-4xl md:text-5xl leading-[1.05] text-balance;
+}
+@utility heading-3 {
+  @apply font-serif text-2xl md:text-3xl leading-tight;
+}
+
+/* ── Layout ───────────────────────────────────────────────── */
+@utility container-site {
+  @apply max-w-6xl mx-auto px-4 sm:px-6;
+}
+@utility section-y {
+  @apply py-16 md:py-24;
+}
+
+/* ── Buttons (always fully rounded) ───────────────────────── */
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+/* On light backgrounds */
+@utility btn-primary {
+  @apply btn bg-forest text-white hover:bg-moss focus-visible:outline-forest;
+}
+@utility btn-secondary {
+  @apply btn border border-forest text-forest hover:bg-forest hover:text-white focus-visible:outline-forest;
+}
+/* On dark backgrounds or photos */
+@utility btn-light {
+  @apply btn bg-fog text-granite hover:bg-white focus-visible:outline-white;
+}
+@utility btn-outline-light {
+  @apply btn border border-white/80 text-white hover:bg-white/15 focus-visible:outline-white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print — property pages print as a clean single-column info sheet */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+  html {
+    background: white;
+    font-size: 11pt;
+  }
+  [data-print-hidden] {
+    display: none !important;
+  }
+  main {
+    padding-top: 0 !important;
+  }
+  section {
+    break-inside: avoid;
+  }
+}

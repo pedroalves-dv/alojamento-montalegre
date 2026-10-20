@@ -1,0 +1,38 @@
+---
+// Native <details> accordion — no JS. Sharing a `name` makes it exclusive
+// (opening one closes the others) in browsers that support it.
+import type { FAQItem } from "@/types/faq";
+import { useTranslations, type Locale } from "@/i18n";
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  items: FAQItem[];
+  locale: Locale;
+}
+
+const { items, locale } = Astro.props;
+const t = useTranslations(locale, "Home");
+---
+
+<section class="container-site section-y">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="heading-2 text-granite mb-8 md:mb-10">{t("faqHeading")}</h2>
+    <div class="divide-y divide-granite/10 rounded-box border border-granite/15 bg-white">
+      {
+        items.map((item) => (
+          <details name="faq" class="group">
+            <summary class="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between gap-4 px-5 md:px-6 py-5 font-medium text-granite hover:text-forest transition-colors">
+              {item.question[locale]}
+              <Icon
+                name="chevron-down"
+                size={18}
+                class="text-muted transition-transform duration-200 group-open:rotate-180"
+              />
+            </summary>
+            <p class="text-body leading-relaxed px-5 md:px-6 pb-6 pr-12 max-w-prose">{item.answer[locale]}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

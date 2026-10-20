@@ -1,0 +1,58 @@
+---
+// Click-to-load Google Maps. The iframe (and Google's cookies) only load when
+// the visitor asks for the map, which keeps pages light and the cookie notice true.
+import { useTranslations, type Locale } from "@/i18n";
+import Icon from "./Icon.astro";
+
+interface Props extends Record<string, unknown> {
+  locale: Locale;
+  lat: number;
+  lng: number;
+  zoom?: number;
+  title: string;
+  class?: string;
+}
+
+const { locale, lat, lng, zoom = 14, title, class: className, ...rest } = Astro.props;
+const t = useTranslations(locale, "Map");
+const embedUrl = `https://maps.google.com/maps?q=${lat},${lng}&z=${zoom}&hl=${locale}&output=embed`;
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+---
+
+<map-embed
+  class:list={["relative block rounded-box overflow-hidden border border-granite/15 bg-[#e8e4da]", className]}
+  data-src={embedUrl}
+  data-title={title}
+  {...rest}
+>
+  <div
+    class="absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center bg-[radial-gradient(circle_at_center,#f5f2ec_0%,#e8e4da_70%)]"
+  >
+    <Icon name="map-pin" size={32} class="text-forest" />
+    <button
+      type="button"
+      class="btn-primary"
+      data-load
+    >
+      {t("load")}
+    </button>
+    <p class="text-xs text-muted max-w-xs">{t("notice")}</p>
+    <a href={mapsUrl} target="_blank" rel="noopener" class="text-xs text-river underline">{t("openInMaps")}</a>
+  </div>
+</map-embed>
+
+<script>
+  class MapEmbed extends HTMLElement {
+    connectedCallback() {
+      this.querySelector("[data-load]")?.addEventListener("click", () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = this.dataset.src!;
+        iframe.title = this.dataset.title!;
+        iframe.className = "absolute inset-0 size-full border-0";
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
+        this.replaceChildren(iframe);
+      });
+    }
+  }
+  customElements.define("map-embed", MapEmbed);
+</script>

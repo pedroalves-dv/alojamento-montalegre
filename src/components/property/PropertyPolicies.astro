@@ -1,0 +1,41 @@
+---
+import type { Property } from "@/types/property";
+import { useTranslations, type Locale } from "@/i18n";
+
+interface Props {
+  property: Property;
+  locale: Locale;
+}
+
+const { property, locale } = Astro.props;
+const t = useTranslations(locale, "PropertyDetail");
+
+const rows = [
+  { label: t("checkinLabel"), value: property.checkinTime },
+  { label: t("checkoutLabel"), value: property.checkoutTime },
+  {
+    label: t("minStayHeading"),
+    value:
+      property.minStayPeakSeason !== null
+        ? `${t("nights", { count: property.minStay })} · ${t("minStayPeak", { count: property.minStayPeakSeason })}`
+        : t("nights", { count: property.minStay }),
+  },
+  ...(property.noPartiesNote ? [{ label: t("noPartiesLabel"), value: t("notPermitted") }] : []),
+  ...(property.languagesSpoken ? [{ label: t("languagesLabel"), value: property.languagesSpoken.join(", ") }] : []),
+  ...(property.licenseNumber ? [{ label: t("licenseLabel"), value: property.licenseNumber }] : []),
+];
+---
+
+<section class="py-12 md:py-14 border-t border-granite/10">
+  <h2 class="heading-2 text-granite mb-8">{t("policiesHeading")}</h2>
+  <dl class="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 max-w-xl text-sm">
+    {
+      rows.map(({ label, value }) => (
+        <>
+          <dt class="text-muted whitespace-nowrap">{label}</dt>
+          <dd class="text-body">{value}</dd>
+        </>
+      ))
+    }
+  </dl>
+</section>

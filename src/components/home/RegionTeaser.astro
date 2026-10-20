@@ -1,0 +1,37 @@
+---
+import { Picture } from "astro:assets";
+import { useTranslations, type Locale } from "@/i18n";
+import { resolveImage, imageFormats } from "@/lib/images";
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale, "Home");
+const image = await resolveImage("/images/montalegre-4.jpg");
+---
+
+<section class="border-y border-granite/10 bg-white/50">
+  <div class="container-site section-y grid items-center gap-8 md:grid-cols-2 md:gap-14">
+    <div class="aspect-[4/3] overflow-hidden rounded-box">
+      <Picture
+        src={image}
+        alt="Montalegre, Terras de Barroso"
+        formats={imageFormats}
+        widths={[480, 720, 1024]}
+        sizes="(min-width: 768px) 50vw, calc(100vw - 2rem)"
+        class="size-full object-cover"
+      />
+    </div>
+    <div>
+      <h2 class="heading-2 text-granite mb-5">{t("regionHeading")}</h2>
+      <p class="text-body leading-relaxed mb-8 max-w-prose">{t("regionBody")}</p>
+      <a href={`/${locale}/regiao`} class="btn-secondary group">
+        {t("regionCta")}
+        <Icon name="arrow-right" class="transition-transform group-hover:translate-x-0.5" />
+      </a>
+    </div>
+  </div>
+</section>

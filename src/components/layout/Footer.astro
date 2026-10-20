@@ -1,0 +1,103 @@
+---
+import { config } from "@/config";
+import { properties } from "@/data/properties";
+import { useTranslations, type Locale } from "@/i18n";
+import { telHref, whatsappHref } from "@/lib/links";
+import Logo from "@/components/ui/Logo.astro";
+import LocaleToggle from "@/components/ui/LocaleToggle.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale, "Footer");
+const tProperty = useTranslations(locale, "PropertyDetail");
+const home = `/${locale}`;
+const year = new Date().getFullYear();
+
+const linkClass = "text-sm text-fog/75 hover:text-fog transition-colors";
+const headingClass = "text-xs font-semibold tracking-widest uppercase text-fog/70 mb-1";
+
+const reviewLinks = properties.flatMap((p) => [
+  ...(p.booking.url ? [{ href: p.booking.url, label: `${p.name[locale]} — ${t("bookingLabel")}`, brand: "booking" as const }] : []),
+  ...(p.google?.url ? [{ href: p.google.url, label: `${p.name[locale]} — ${t("googleLabel")}`, brand: "google" as const }] : []),
+]);
+const licences = properties.filter((p) => p.licenseNumber);
+---
+
+<footer id="site-footer" class="bg-granite text-fog" data-print-hidden>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div class="flex flex-col gap-4">
+      <a href={home} aria-label={t("inicio")}>
+        <Logo variant="light" class="h-9" loading="lazy" />
+      </a>
+      <p class="text-fog/75 text-sm leading-relaxed max-w-xs mb-4">{t("tagline")}</p>
+      <LocaleToggle locale={locale} class="text-fog my-2" />
+    </div>
+
+    <nav class="flex flex-col gap-3" aria-labelledby="footer-nav-heading">
+      <p id="footer-nav-heading" class={headingClass}>{t("navHeading")}</p>
+      <a href={home} class={linkClass}>{t("inicio")}</a>
+      <a href={`${home}#casas`} class={linkClass}>{t("casas")}</a>
+      {
+        properties.map((p) => (
+          <a href={`${home}/${p.slug}`} class:list={[linkClass, "pl-3 border-l border-white/10"]}>
+            {p.name[locale]}
+          </a>
+        ))
+      }
+      <a href={`${home}/regiao`} class={linkClass}>{t("regiao")}</a>
+      <a href={`${home}/contacto`} class={linkClass}>{t("contacto")}</a>
+    </nav>
+
+    <div class="flex flex-col gap-3">
+      <p class={headingClass}>{t("contactHeading")}</p>
+      <a href={telHref()} class:list={[linkClass, "flex items-center gap-2"]}>
+        <Icon name="phone" size={14} />
+        {config.phoneNumber}
+      </a>
+      <a href={whatsappHref()} target="_blank" rel="noopener" class:list={[linkClass, "flex items-center gap-2"]}>
+        <Icon name="whatsapp" size={14} />
+        {t("whatsappLabel")}
+      </a>
+      <div class="mt-2 flex flex-col gap-2">
+        {
+          reviewLinks.map(({ href, label, brand }) => (
+            <a href={href} target="_blank" rel="noopener" class:list={[linkClass, "flex items-center gap-2"]}>
+              <span
+                class:list={[
+                  "inline-flex size-3.5 items-center justify-center rounded-[3px] text-[8px] font-bold text-white",
+                  brand === "booking" ? "bg-booking" : "bg-google",
+                ]}
+                aria-hidden="true"
+              >
+                {brand === "booking" ? "b." : "G"}
+              </span>
+              {label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs text-fog/70"
+    >
+      <span>
+        {t("copyright", { year })}
+        {
+          licences.map((p) => (
+            <span class="block sm:inline sm:before:content-['·'] sm:before:mx-2">
+              {p.name[locale]} — {tProperty("licenseLabel")} {p.licenseNumber}
+            </span>
+          ))
+        }
+      </span>
+      <span>{t("cookieNotice")}</span>
+    </div>
+  </div>
+</footer>

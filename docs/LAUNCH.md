@@ -15,45 +15,16 @@ Production launch plan. Work through phases in order. Each phase has a prompt yo
 - All written content complete (PT + EN): descriptions, FAQ, region guide, amenities
 - OG image generators working (dynamic, per page and locale)
 - FAQ structured data (FAQPage JSON-LD) added
-- Robots.ts blocks crawlers until `ALLOW_INDEXING=true` env var is set
+- `src/pages/robots.txt.ts` blocks crawlers until the `ALLOW_INDEXING=true` env var is set at build time
 - Favicon SVG with dark-mode switching + ICO fallback
 
 ---
 
-## Phase 1 — Code polish (no client info needed)
+## Phase 1 — Code polish ✅ (done in the Astro port, 2026-10-20)
 
-**What:** Fix 2 hardcoded i18n strings, remove unused config from next.config.ts, image optimization.
-
-**Prompt:**
-```
-In /home/sang/projects/alojamento-montalegre, fix the following:
-
-1. BookingScoreBadge (src/components/ui/BookingScoreBadge.tsx) — the word "avaliações"
-   is hardcoded in Portuguese. Add a "reviewsLabel" key to messages/pt.json ("avaliações")
-   and messages/en.json ("reviews"), then update the component to use getTranslations or
-   pass a translated label via props — check how other components in the project handle
-   translation (most use getTranslations from next-intl/server).
-
-2. RestaurantCallout (src/components/property/RestaurantCallout.tsx) — "No edifício · In-house"
-   is hardcoded. Add a "restaurantLocation" key to both messages files
-   (pt: "No edifício", en: "In-house"). Update the component to use it.
-
-3. next.config.ts — remove the Unsplash hostname from images.remotePatterns. All images
-   are local; this pattern is unused and shouldn't be in production config.
-
-4. Image sizes in next/image — audit all uses of next/image across components and ensure:
-   - The first/hero image on each page has the `priority` prop
-   - Gallery and card images have appropriate `sizes` prop (not just default)
-   - Largest images (casa-do-moinho originals are 2–4 MB) — check if Next.js image
-     optimization is handling them correctly. If originals are > 1 MB, compress them
-     with sharp (already installed as a Next.js dep): write a small script
-     at scripts/compress-images.ts to batch-compress public/images/**/*.jpg to max 85
-     quality and max 2400px wide, then run it.
-
-Run `npm run build` after all changes to confirm no errors.
-```
-
-**Files touched:** `BookingScoreBadge.tsx`, `RestaurantCallout.tsx`, `messages/pt.json`, `messages/en.json`, `next.config.ts`, possibly `PropertyGallery.tsx`, `PropertyHero.tsx`, `HeroSection.tsx`, image files.
+The site was ported from Next.js to Astro (static output). Along the way: hardcoded strings
+moved to messages, unused config removed, photos normalised (`npm run images`) and
+optimised at build time (AVIF/WebP), and the review's bug list fixed.
 
 ---
 
@@ -79,19 +50,14 @@ number support (legally required in Portugal):
    - Casa do Moinho: rnetNumber: "[MOINHO_RNET_NUMBER]"
    - Casa do Castelo: rnetNumber: "[CASTELO_RNET_NUMBER]"
 
-3. Show the number in the site footer bottom bar (src/components/layout/Footer.tsx),
-   alongside the existing copyright text. Each property's number on its own line or
-   separated by " · ". Style: text-xs text-fog/30. Only render numbers that are non-null.
-   Example output: "AL/XXXX/XXXXX · AL/XXXX/XXXXX"
-
-4. Also show it on each property detail page (src/components/property/PropertyDetailLayout.tsx
-   or PropertyHero.tsx), in very small text near the location or at the bottom of the
-   booking CTA section. Style: text-xs text-white/30.
+   (The field already exists as `licenseNumber`, and is already shown in the footer and
+   in each property's "Check-in & Informações" section whenever it is non-null — only the
+   Casa do Castelo value is still missing.)
 
 Run `npm run build` after to confirm no TypeScript errors.
 ```
 
-**Files touched:** `src/types/property.ts`, `src/data/properties.ts`, `src/components/layout/Footer.tsx`, one property component.
+**Files touched:** `src/data/properties.ts`.
 
 ---
 
@@ -168,20 +134,20 @@ In /home/sang/projects/alojamento-montalegre, run a pre-launch domain audit:
 2. Audit every generateMetadata call across all page files — confirm all canonical,
    openGraph.url, and alternates.languages URLs use config.siteUrl as the base
 
-3. Check sitemap.ts — all URLs should start with config.siteUrl
+3. Check the generated dist/sitemap-0.xml — all URLs should start with the site URL
 
-4. Check robots.ts — confirm ALLOW_INDEXING check is in place and the sitemap URL
+4. Check src/pages/robots.txt.ts — confirm ALLOW_INDEXING check is in place and the sitemap URL
    is correct
 
 5. Run `npm run build` and check for any warnings in the output related to metadata
    or missing image files
 
 6. If everything is clean, update the LocalBusiness JSON-LD in
-   src/app/[locale]/layout.tsx to include the real telephone number and a
+   src/layouts/BaseLayout.astro to include the real telephone number and a
    streetAddress if you have one (currently only addressLocality/addressRegion/Country)
 ```
 
-**Files potentially touched:** `src/config.ts`, `src/app/[locale]/layout.tsx`.
+**Files potentially touched:** `src/config.ts`, `astro.config.mjs` (`site`), `src/layouts/BaseLayout.astro`.
 
 ---
 
@@ -193,30 +159,12 @@ In /home/sang/projects/alojamento-montalegre, run a pre-launch domain audit:
 1. Go to https://search.google.com/search-console
 2. Add property → URL prefix → `https://alojamentomontalegre.com`
 3. Verify via DNS TXT record (easiest since you control the registrar already)
-4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.com/sitemap.xml`
+4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.com/sitemap-index.xml`
 
-**Prompt:**
-```
-In /home/sang/projects/alojamento-montalegre, audit and improve the structured data:
-
-1. Review the LodgingBusiness JSON-LD in src/app/[locale]/[slug]/page.tsx:
-   - Confirm aggregateRating only renders when score AND reviewCount are both non-null
-   - Add `numberOfRooms` field (use property.rooms)
-   - Add `amenityFeature` array from property.amenities (use LocationFeatureSpecification type)
-   - Add `checkinTime` and `checkoutTime` matching the FAQ answers ("15:00", "11:00")
-
-2. Review the LocalBusiness JSON-LD in src/app/[locale]/layout.tsx:
-   - Add `priceRange: "€€"` (mid-range rural accommodation signal)
-   - Add `image` array with the first image of each property
-
-3. Verify FAQPage schema in src/app/[locale]/page.tsx renders correctly:
-   - All 6 questions and answers should appear in the JSON-LD output
-   - Test at https://search.google.com/test/rich-results with the live URL
-
-4. Run `npm run build` to confirm no errors.
-```
-
-**Files touched:** `src/app/[locale]/[slug]/page.tsx`, `src/app/[locale]/layout.tsx`, `src/app/[locale]/page.tsx`.
+Already done in the Astro port: `numberOfRooms`, `amenityFeature`, `occupancy`, per-property
+`checkinTime`/`checkoutTime` (from properties.ts), `priceRange`, and `aggregateRating` only when
+both score and review count exist (`src/lib/schema.ts`). What's left is validating the live
+URLs at https://search.google.com/test/rich-results once the domain is connected.
 
 ---
 
@@ -291,7 +239,7 @@ Run through this before announcing the live domain publicly:
 - [ ] Site loads in under 3s on mobile — test at https://pagespeed.web.dev
 
 ### SEO
-- [ ] `alojamentomontalegre.com/sitemap.xml` lists all pages correctly
+- [ ] `alojamentomontalegre.com/sitemap-index.xml` lists all pages correctly
 - [ ] `alojamentomontalegre.com/robots.txt` allows crawling
 - [ ] Sitemap submitted to Google Search Console
 - [ ] Google Business Profile created for both properties
@@ -314,14 +262,16 @@ Run through this before announcing the live domain publicly:
 | Property data | `src/data/properties.ts` |
 | FAQ content | `src/data/faq.ts` |
 | Region content | `src/data/regiao.ts` |
-| All PT strings | `messages/pt.json` |
-| All EN strings | `messages/en.json` |
-| Sitemap | `src/app/sitemap.ts` |
-| Robots | `src/app/robots.ts` |
-| LocalBusiness schema | `src/app/[locale]/layout.tsx` |
-| Property schema | `src/app/[locale]/[slug]/page.tsx` |
-| FAQ schema | `src/app/[locale]/page.tsx` |
+| Page titles / descriptions / OG text | `src/data/seo.ts` |
+| All PT / EN UI strings | `src/i18n/pt.json`, `src/i18n/en.json` |
+| Photos (masters) | `src/assets/images/` — add new ones with `npm run images -- <folder>` |
+| Sitemap | `@astrojs/sitemap` in `astro.config.mjs` (generates `sitemap-index.xml`) |
+| Robots | `src/pages/robots.txt.ts` |
+| OG images | `src/pages/og/[locale]/[page].png.ts` |
+| LocalBusiness schema | `src/layouts/BaseLayout.astro` |
+| Property / FAQ / breadcrumb schema | `src/lib/schema.ts` |
+| Redirect `/` → `/pt`, cache headers | `vercel.json` |
 
 ---
 
-*Last updated: 2026-05-07*
+*Last updated: 2026-10-20*

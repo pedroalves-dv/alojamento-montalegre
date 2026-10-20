@@ -31,8 +31,8 @@ export const seo: {
     },
     titleTemplate: "%s | Alojamento Montalegre",
     description: {
-      pt: "Duas casas de turismo rural em Montalegre, norte de Portugal. Junto ao castelo medieval e à beira do rio Cávado, a 40 min do Parque Nacional da Peneda-Gerês. Reserva direta.",
-      en: "Two rural holiday houses in Montalegre, northern Portugal. By the medieval castle and the Cávado river, 40 min from Peneda-Gerês National Park. Book direct, no fees.",
+      pt: "Duas casas de turismo rural em Montalegre, norte de Portugal. Junto ao castelo medieval e à beira do rio Cávado, a 45 min do Parque Nacional da Peneda-Gerês. Reserva direta.",
+      en: "Two rural holiday houses in Montalegre, northern Portugal. By the medieval castle and the Cávado river, 45 min from Peneda-Gerês National Park. Book direct, no fees.",
     },
     localBusinessDescription: {
       pt: "Duas casas de turismo rural em Montalegre, norte de Portugal — Casa do Moinho à beira do rio e Casa do Castelo junto ao castelo medieval. Reserva direta disponível.",
@@ -145,8 +145,8 @@ export const seo: {
       en: "Contact — Direct Booking",
     },
     description: {
-      pt: "Reserve diretamente via WhatsApp, telefone ou Booking.com. Respondemos em menos de 24 horas.",
-      en: "Book directly via WhatsApp, phone or Booking.com. We respond within 24 hours.",
+      pt: "Reserve diretamente por WhatsApp ou telefone. Respondemos em menos de 24 horas.",
+      en: "Book directly by WhatsApp or phone. We respond within 24 hours.",
     },
     og: {
       eyebrow: {

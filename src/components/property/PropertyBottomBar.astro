@@ -1,0 +1,48 @@
+---
+// Mobile-only sticky booking bar: price on the left, WhatsApp request on the
+// right (the Airbnb/Booking pattern). Slides away while the footer is visible.
+import { config } from "@/config";
+import { telHref } from "@/lib/links";
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  whatsappHref: string;
+  priceFrom: number | null;
+  fromLabel: string;
+  perNight: string | null;
+  ctaLabel: string;
+}
+
+const { whatsappHref, fromLabel, perNight, ctaLabel } = Astro.props;
+---
+
+<div
+  id="property-bottom-bar"
+  class="md:hidden fixed bottom-0 inset-x-0 z-30 border-t border-granite/15 bg-white/95 backdrop-blur-sm px-4 pt-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] flex items-center justify-between gap-4 transition-transform duration-300 data-[hidden]:translate-y-full"
+  data-print-hidden
+>
+  {
+    perNight ? (
+      <p class="text-xs text-muted leading-tight">
+        {fromLabel}
+        <span class="block text-base font-semibold text-granite">{perNight}</span>
+      </p>
+    ) : (
+      <a href={telHref()} class="text-sm font-medium text-granite">
+        {config.phoneNumber}
+      </a>
+    )
+  }
+  <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 text-sm">
+    <Icon name="whatsapp" size={16} />
+    {ctaLabel}
+  </a>
+</div>
+
+<script>
+  const bar = document.getElementById("property-bottom-bar")!;
+  const footer = document.getElementById("site-footer");
+  if (footer) {
+    new IntersectionObserver(([entry]) => bar.toggleAttribute("data-hidden", entry!.isIntersecting)).observe(footer);
+  }
+</script>

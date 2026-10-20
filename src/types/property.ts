@@ -9,6 +9,7 @@ export interface PropertyBooking {
 export type ReviewPlatform = "Google" | "Booking.com" | "TripAdvisor" | "Airbnb";
 
 export interface PropertyReview {
+  /** Store as "First L." — the full surname is never shown (enforced at render time too). */
   author: string;
   country?: LocalizedString;
   text: LocalizedString;

@@ -1,0 +1,165 @@
+---
+import { Image } from "astro:assets";
+import type { Property } from "@/types/property";
+import { cleanPath, useTranslations, type Locale } from "@/i18n";
+import houseIcon from "@/assets/house.png";
+import Logo from "@/components/ui/Logo.astro";
+import LocaleToggle from "@/components/ui/LocaleToggle.astro";
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  locale: Locale;
+  properties: Property[];
+}
+
+const { locale, properties } = Astro.props;
+const t = useTranslations(locale, "Nav");
+const pathname = cleanPath(Astro.url.pathname);
+
+const home = `/${locale}`;
+const isHome = pathname === home;
+const isCasasActive = isHome || properties.some((p) => pathname === `${home}/${p.slug}`);
+const otherLinks = [
+  { key: "regiao", href: `${home}/regiao` },
+  { key: "contacto", href: `${home}/contacto` },
+] as const;
+
+const linkClass = (active: boolean) =>
+  `font-medium tracking-wide text-granite transition-opacity ${active ? "opacity-100" : "opacity-70 hover:opacity-100"}`;
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 inset-x-0 z-40 bg-fog/95 backdrop-blur-sm border-b border-transparent transition-colors duration-200 data-[scrolled]:border-granite/10"
+  data-print-hidden
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-[var(--navbar-height)] flex items-center justify-between">
+    <a href={home} aria-label={t("homeAriaLabel")}>
+      <Logo class="h-8" />
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-10" aria-label="Principal">
+      <a href={home} class={linkClass(isHome)} aria-current={isHome ? "page" : undefined}>
+        {t("inicio")}
+      </a>
+
+      <!-- Casas: opens on hover and on keyboard focus -->
+      <div class="relative group">
+        <a href={`${home}#casas`} class:list={["flex items-center gap-1", linkClass(isCasasActive)]}>
+          {t("casas")}
+          <Icon
+            name="chevron-down"
+            size={12}
+            class="transition-transform duration-200 group-hover:rotate-180 group-focus-within:rotate-180"
+          />
+        </a>
+        <div
+          class="absolute top-full left-1/2 -translate-x-1/2 pt-6 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 transition-opacity"
+        >
+          <div class="bg-fog border border-granite/15 shadow-lg rounded-box overflow-hidden w-max min-w-[220px]">
+            {
+              properties.map((property) => (
+                <a
+                  href={`${home}/${property.slug}`}
+                  class="flex items-center gap-3 px-5 py-3.5 hover:bg-granite/5 focus-visible:bg-granite/5 transition-colors border-b border-granite/10 last:border-0"
+                >
+                  <Image src={houseIcon} alt="" width={26} height={26} class="shrink-0" />
+                  <span class="flex flex-col">
+                    <span class="font-medium text-granite text-sm">{property.name[locale]}</span>
+                    <span class="text-muted text-xs mt-0.5">{property.tagline[locale]}</span>
+                  </span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      {
+        otherLinks.map(({ key, href }) => {
+          const active = pathname.startsWith(href);
+          return (
+            <a href={href} class={linkClass(active)} aria-current={active ? "page" : undefined}>
+              {t(key)}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <LocaleToggle locale={locale} class="hidden md:flex text-granite" />
+      <button type="button" class="md:hidden p-2 -mr-2 text-granite" aria-label={t("menu")} data-menu-open>
+        <Icon name="menu" size={22} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer: a modal <dialog> gives focus trapping, Esc and inert background for free -->
+<dialog
+  id="mobile-menu"
+  class="md:hidden m-0 p-0 w-full max-w-none h-dvh max-h-none bg-granite text-fog open:flex flex-col"
+  aria-label={t("menu")}
+>
+  <div class="flex items-center justify-between px-4 h-[var(--navbar-height)] shrink-0">
+    <Logo variant="light" class="h-8" loading="lazy" />
+    <button type="button" class="p-2 -mr-2" aria-label={t("close")} data-menu-close>
+      <Icon name="close" size={22} />
+    </button>
+  </div>
+
+  <nav class="flex flex-col gap-1 px-6 pt-8 flex-1 overflow-y-auto">
+    <a href={home} class="font-serif text-4xl py-3 border-b border-white/10 hover:text-amber transition-colors">
+      {t("inicio")}
+    </a>
+    <details class="group border-b border-white/10">
+      <summary
+        class="list-none [&::-webkit-details-marker]:hidden cursor-pointer flex items-center justify-between font-serif text-4xl py-3 hover:text-amber transition-colors"
+      >
+        {t("casas")}
+        <Icon name="chevron-down" size={20} class="transition-transform duration-200 group-open:rotate-180" />
+      </summary>
+      <div class="flex flex-col pb-3 pl-2 gap-1">
+        {
+          properties.map((property) => (
+            <a href={`${home}/${property.slug}`} class="flex flex-col py-2.5 border-l-2 border-amber pl-4">
+              <span class="font-medium text-lg">{property.name[locale]}</span>
+              <span class="text-fog/60 text-sm">{property.tagline[locale]}</span>
+            </a>
+          ))
+        }
+      </div>
+    </details>
+    {
+      otherLinks.map(({ key, href }) => (
+        <a href={href} class="font-serif text-4xl py-3 border-b border-white/10 hover:text-amber transition-colors">
+          {t(key)}
+        </a>
+      ))
+    }
+  </nav>
+
+  <div class="px-6 pb-10 pt-6">
+    <LocaleToggle locale={locale} class="text-base" />
+  </div>
+</dialog>
+
+<script>
+  // The header only shows its bottom border once the page has scrolled
+  const header = document.getElementById("site-header")!;
+  const updateHeader = () => header.toggleAttribute("data-scrolled", window.scrollY > 4);
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+
+  const menu = document.getElementById("mobile-menu") as HTMLDialogElement;
+  document.querySelector("[data-menu-open]")?.addEventListener("click", () => menu.showModal());
+  document.querySelector("[data-menu-close]")?.addEventListener("click", () => menu.close());
+  // Close after following an in-page link (e.g. /pt#casas while on /pt)
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => menu.close()));
+  // Lock page scroll while open
+  new MutationObserver(() => {
+    document.documentElement.style.overflow = menu.open ? "hidden" : "";
+  }).observe(menu, { attributes: true, attributeFilter: ["open"] });
+</script>

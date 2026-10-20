@@ -7,8 +7,8 @@ export const faq: FAQItem[] = [
       en: "What are the check-in and check-out times?",
     },
     answer: {
-      pt: "O check-in é a partir das 15h00 e o check-out até às 11h00. Para chegadas fora deste horário, entre em contacto connosco — tentamos sempre ser flexíveis.",
-      en: "Check-in is from 3:00 PM and check-out by 11:00 AM. For arrivals outside these times, get in touch — we always try to be flexible.",
+      pt: "O check-in é das 16h00 às 22h00 e o check-out até às 11h00. Para chegadas fora deste horário, entre em contacto connosco — tentamos sempre ser flexíveis.",
+      en: "Check-in is between 4:00 PM and 10:00 PM, and check-out is by 11:00 AM. For arrivals outside these times, get in touch — we always try to be flexible.",
     },
   },
   {
