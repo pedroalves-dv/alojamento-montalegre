@@ -48,6 +48,7 @@ const seasons = seasonKeys.map((s, i) => ({
   label: t(`${s}Label`),
   months: t(`${s}Months`),
   note: t(`${s}Note`),
+  place: t(`${s}Place`),
   image: seasonPictures[i]!,
 }));
 
@@ -154,14 +155,20 @@ const h2 = "heading-2 text-granite";
         {
           seasons.map((season) => (
             <div class="bg-white rounded-box border border-granite/15 overflow-hidden">
-              <Picture
-                src={season.image}
-                alt={season.label}
-                formats={imageFormats}
-                widths={[400, 640, 960, 1280]}
-                sizes="(min-width: 768px) 50vw, 100vw"
-                class="w-full aspect-video object-cover"
-              />
+              <div class="relative">
+                <Picture
+                  src={season.image}
+                  alt={`${season.label} — ${season.place}`}
+                  formats={imageFormats}
+                  widths={[400, 640, 960, 1280]}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  class="w-full aspect-video object-cover"
+                />
+                <span class="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-granite/70 backdrop-blur-sm px-2.5 py-1 text-xs text-white">
+                  <Icon name="map-pin" size={12} />
+                  {season.place}
+                </span>
+              </div>
               <div class="px-6 py-7">
                 <h3 class="heading-3 text-forest mb-1">{season.label}</h3>
                 <p class="text-xs text-muted uppercase tracking-wider mb-3">{season.months}</p>
