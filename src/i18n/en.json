@@ -136,6 +136,7 @@
     "fromLabelRoom": "Rooms from",
     "perNight": "€{price} / night",
     "requestAvailability": "Check availability",
+    "contactButton": "Get in touch",
     "amenitiesShowAll": "Show all {count} amenities",
     "locationNearbyHeading": "Location & nearby"
   },

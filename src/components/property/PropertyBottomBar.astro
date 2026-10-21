@@ -25,7 +25,7 @@ const { whatsappHref, fromLabel, perNight, ctaLabel } = Astro.props;
     perNight ? (
       <p class="text-xs text-muted leading-tight">
         {fromLabel}
-        <span class="block text-base font-semibold text-granite">{perNight}</span>
+        <span class="block whitespace-nowrap text-base font-semibold text-granite">{perNight}</span>
       </p>
     ) : (
       <a href={telHref()} class="text-sm font-medium text-granite">
@@ -33,7 +33,7 @@ const { whatsappHref, fromLabel, perNight, ctaLabel } = Astro.props;
       </a>
     )
   }
-  <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary px-5 py-2.5 text-sm">
+  <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
     <Icon name="whatsapp" size={16} />
     {ctaLabel}
   </a>
