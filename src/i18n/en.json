@@ -100,7 +100,6 @@
     "responseNote": "We respond within 24 hours.",
     "whatsappButton": "WhatsApp",
     "phoneNote": "Click to call directly.",
-    "callButton": "Call",
     "googleProfile": "View on Google"
   },
   "PropertyDetail": {
@@ -138,7 +137,6 @@
     "perNight": "€{price} / night",
     "requestAvailability": "Check availability",
     "amenitiesShowAll": "Show all {count} amenities",
-    "callButton": "Call",
     "locationNearbyHeading": "Location & nearby"
   },
   "Creditos": {
