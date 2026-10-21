@@ -23,7 +23,7 @@
     "contacto": "Contacto",
     "menu": "Menu",
     "close": "Fechar",
-    "localeAriaLabel": "Mudar idioma para inglês",
+    "navLabel": "Principal",
     "skipLink": "Saltar para o conteúdo",
     "homeAriaLabel": "Alojamento Montalegre — início"
   },
@@ -41,8 +41,7 @@
     "copyright": "© {year} Alojamento Montalegre",
     "cookieNotice": "Este site não utiliza cookies. O Google Maps só é carregado se escolher ver um mapa.",
     "reviewsHeading": "Avaliações",
-    "creditsLink": "Créditos das imagens",
-    "localeAriaLabel": "Mudar para inglês"
+    "creditsLink": "Créditos das imagens"
   },
   "Regiao": {
     "heroHeadline1": "Terras de Barroso",
@@ -116,7 +115,6 @@
     "bookingDirectNote": "Contacte-nos pelo WhatsApp ou telefone. Respondemos em menos de 24 horas.",
     "reviewsLabel": "avaliações",
     "inHouseLabel": "No edifício",
-    "minStayLabel": "Estadia mínima: {count} noites",
     "minStayPeak": "Época alta (jul–ago): {count} noites",
     "phoneLabel": "Telefone",
     "bathrooms": "{count} casas de banho",

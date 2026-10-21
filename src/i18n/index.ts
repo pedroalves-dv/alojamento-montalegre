@@ -43,8 +43,11 @@ export function cleanPath(pathname: string) {
   return pathname.replace(/\.html$/, "").replace(/\/$/, "") || "/";
 }
 
-/** Path for the same page in another locale, e.g. /pt/regiao → /en/regiao. */
+/**
+ * Path for the same page in another locale, e.g. /pt/regiao → /en/regiao.
+ * Pages outside the locale tree (e.g. /404) have no counterpart, so they get its home.
+ */
 export function switchLocalePath(pathname: string, target: Locale) {
-  const rest = cleanPath(pathname).replace(/^\/(pt|en)(?=\/|$)/, "");
-  return `/${target}${rest}`;
+  const rest = cleanPath(pathname).match(/^\/(?:pt|en)(\/.*)?$/);
+  return `/${target}${rest?.[1] ?? ""}`;
 }

@@ -23,7 +23,7 @@
     "contacto": "Contact",
     "menu": "Menu",
     "close": "Close",
-    "localeAriaLabel": "Mudar para português",
+    "navLabel": "Main",
     "skipLink": "Skip to content",
     "homeAriaLabel": "Alojamento Montalegre — home"
   },
@@ -41,8 +41,7 @@
     "copyright": "© {year} Alojamento Montalegre",
     "cookieNotice": "This site doesn't use cookies. Google Maps only loads if you choose to view a map.",
     "reviewsHeading": "Reviews",
-    "creditsLink": "Image credits",
-    "localeAriaLabel": "Mudar para português"
+    "creditsLink": "Image credits"
   },
   "Regiao": {
     "heroHeadline1": "The Land of Barroso",
@@ -116,7 +115,6 @@
     "bookingDirectNote": "Contact us via WhatsApp or phone. We'll respond within 24 hours.",
     "reviewsLabel": "reviews",
     "inHouseLabel": "In-house",
-    "minStayLabel": "Minimum stay: {count} nights",
     "minStayPeak": "Peak season (Jul–Aug): {count} nights",
     "phoneLabel": "Phone",
     "bathrooms": "{count} bathrooms",

@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
 import type { Property } from "@/types/property";
 import { cleanPath, useTranslations, type Locale } from "@/i18n";
-import houseIcon from "@/assets/house.png";
 import Logo from "@/components/ui/Logo.astro";
 import LocaleToggle from "@/components/ui/LocaleToggle.astro";
 import Icon from "@/components/ui/Icon.astro";
@@ -39,7 +37,7 @@ const linkClass = (active: boolean) =>
     </a>
 
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center gap-10" aria-label="Principal">
+    <nav class="hidden md:flex items-center gap-10" aria-label={t("navLabel")}>
       <a href={home} class={linkClass(isHome)} aria-current={isHome ? "page" : undefined}>
         {t("inicio")}
       </a>
@@ -64,7 +62,7 @@ const linkClass = (active: boolean) =>
                   href={`${home}/${property.slug}`}
                   class="flex items-center gap-3 px-5 py-3.5 hover:bg-granite/5 focus-visible:bg-granite/5 transition-colors border-b border-granite/10 last:border-0"
                 >
-                  <Image src={houseIcon} alt="" width={26} height={26} class="shrink-0" />
+                  <Icon name="home" size={26} strokeWidth={1.5} class="shrink-0 text-granite" />
                   <span class="flex flex-col">
                     <span class="font-medium text-granite text-sm">{property.name[locale]}</span>
                     <span class="text-muted text-xs mt-0.5">{property.tagline[locale]}</span>

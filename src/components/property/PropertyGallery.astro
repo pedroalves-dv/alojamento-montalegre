@@ -116,6 +116,7 @@ const widthsFor = (src: ImageMetadata) => [480, 720, 960, 1280, 1600].filter((w)
       const show = (n: number) => {
         this.#index = wrap(n);
         img.src = sources[this.#index]!;
+        img.alt = `${dialog.getAttribute("aria-label")} — ${this.#index + 1} / ${total}`;
         lbCounter.textContent = `${this.#index + 1} / ${total}`;
         new Image().src = sources[wrap(this.#index + 1)]!; // warm the next one
       };

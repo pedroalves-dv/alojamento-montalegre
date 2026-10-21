@@ -69,14 +69,5 @@ export function lodging(property: Property, locale: Locale, imageUrls: string[])
       name,
       value: true,
     })),
-    ...(property.booking.score !== null &&
-      property.booking.reviewCount !== null && {
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: property.booking.score,
-          reviewCount: property.booking.reviewCount,
-          bestRating: "10",
-        },
-      }),
   };
 }
