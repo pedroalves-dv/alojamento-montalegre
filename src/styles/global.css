@@ -33,6 +33,8 @@
 
   /* Body letter-spacing — one place to tune for all prose/UI text */
   --tracking-body: 0.01em;
+  /* Large serif headings (heading-1, heading-2) — a touch tighter than body */
+  --tracking-heading: -0.01em;
 }
 
 @layer base {
@@ -75,9 +77,11 @@
 /* ── Headings: a 3-step scale ─────────────────────────────── */
 @utility heading-1 {
   @apply font-serif text-5xl md:text-7xl leading-[0.95] text-balance;
+  letter-spacing: var(--tracking-heading);
 }
 @utility heading-2 {
   @apply font-serif text-4xl md:text-5xl leading-[1.05] text-balance;
+  letter-spacing: var(--tracking-heading);
 }
 @utility heading-3 {
   @apply font-serif text-2xl md:text-3xl leading-tight;
