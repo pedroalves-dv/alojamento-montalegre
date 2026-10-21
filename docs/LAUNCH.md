@@ -162,6 +162,29 @@ URLs at https://search.google.com/test/rich-results once the domain is connected
 
 ---
 
+## Email
+
+The site shows no email address on purpose: bookings go by phone / WhatsApp.
+
+**Current setup (Cloudflare → Email Routing):**
+- `info@alojamentomontalegre.com` → forwarded to `alojamentomontalegre@gmail.com` (created for the
+  business, not in use yet). Catch-all is off: mail to any other address is dropped.
+- Nothing sends mail *from* the domain.
+- ✅ DMARC `p=reject` (2026-10-21): `_dmarc` TXT `v=DMARC1; p=reject;`. Mail claiming to be from
+  @alojamentomontalegre.com is rejected, which blocks fake "confirm your booking" emails.
+  Forwarding *to* Gmail is not affected.
+
+**When the family wants a professional address** (e.g. `reservas@`), the free route is:
+1. Email Routing rule `reservas@` → the Gmail they actually read (uncle: the Casa do Moinho Gmail).
+2. In that Gmail: Settings → Accounts → "Send mail as" `reservas@alojamentomontalegre.com`.
+3. **Before sending from it**, update DNS or Gmail's mail will be rejected by our own DMARC:
+   - SPF: `v=spf1 include:_spf.mx.cloudflare.net include:_spf.google.com ~all`
+   - Optionally relax DMARC to `p=none` for a few weeks, check nothing legitimate fails, then back to `p=reject`.
+
+Google Workspace (~€7/user/month) only if they want a separate inbox.
+
+---
+
 ## Final launch checklist
 
 Run through this before announcing the live domain publicly:
