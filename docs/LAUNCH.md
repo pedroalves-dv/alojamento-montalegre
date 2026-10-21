@@ -3,7 +3,7 @@
 Production launch plan. Work through phases in order. Each phase has a prompt you can paste directly into Claude Code.
 
 **Hosting:** Cloudflare Workers, static assets (free plan; Vercel's free plan doesn't allow commercial sites)  
-**Live preview:** https://alojamento-montalegre.<account-subdomain>.workers.dev (until the domain is connected)  
+**Live:** https://alojamentomontalegre.com (indexing blocked until launch)  
 **Target domain:** https://alojamentomontalegre.com  
 **Repo:** https://github.com/pedroalves-dv/alojamento-montalegre
 
@@ -113,17 +113,18 @@ After updating:
 
 Order matters for SEO: domain first, then a single address, then indexing — once, at launch.
 
-**Manual steps in the Cloudflare dashboard (not Claude Code):**
-1. Workers & Pages → `alojamento-montalegre` → Settings → Domains & Routes → Add → Custom domain →
-   `alojamentomontalegre.com`. The domain is registered with Cloudflare, so the DNS record and
-   SSL certificate are created automatically.
-2. `www`: Rules → Redirect Rules → template "Redirect from WWW to root" (301), so
-   `www.alojamentomontalegre.com` never serves a second copy of the site.
-3. In `wrangler.jsonc` set `"workers_dev": false` and push: the temporary workers.dev address
-   stops serving, leaving the real domain as the only one.
-4. When the site is final (new photos in): Settings → Build → Variables and secrets →
-   Add `ALLOW_INDEXING` = `true`. It is a **build** variable — robots.txt is generated at build time.
-5. Redeploy: Deployments → latest → Retry build, or
+**Done (2026-10-21):**
+- ✅ Custom domain `alojamentomontalegre.com` on the Worker (Worker → Domains). DNS record and
+  certificate were created automatically.
+- ✅ `www`: Redirect Rule `http*://www.alojamentomontalegre.com/*` → `https://alojamentomontalegre.com/${2}`
+  (301, query string preserved), plus a proxied `AAAA www 100::` record so the rule receives the traffic.
+- ✅ `"workers_dev": false` in `wrangler.jsonc`: the workers.dev address no longer serves the site.
+- Always Use HTTPS (SSL/TLS → Edge Certificates) so `http://` redirects to `https://`.
+
+**At launch (when the site is final, new photos in):**
+1. Worker → Settings → Build → Variables and secrets → Add `ALLOW_INDEXING` = `true`.
+   It is a **build** variable — robots.txt is generated at build time.
+2. Redeploy: Deployments → latest → Retry build, or
    `git commit --allow-empty -m "trigger redeploy" && git push`. Check that
    `alojamentomontalegre.com/robots.txt` now says `Allow: /` and links the sitemap, then do Phase 5.
 

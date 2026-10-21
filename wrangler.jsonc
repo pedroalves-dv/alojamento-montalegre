@@ -12,7 +12,10 @@
   },
   // No per-version preview addresses: they would be extra crawlable copies of the site
   "preview_urls": false,
-  // The *.workers.dev address is for checking deploys before the domain is live.
-  // Set to false once alojamentomontalegre.com is connected (see docs/LAUNCH.md).
-  "workers_dev": true
+  // The real domain (DNS record and certificate are managed by Cloudflare). www is not listed:
+  // a Redirect Rule on the zone sends it here with a 301.
+  "routes": [{ "pattern": "alojamentomontalegre.com", "custom_domain": true }],
+  // Off: the custom domain is the only address, so search engines never see
+  // a second copy of the site on *.workers.dev
+  "workers_dev": false
 }
