@@ -16,7 +16,7 @@ const t = useTranslations(locale, "Footer");
 const home = `/${locale}`;
 const year = new Date().getFullYear();
 
-const linkClass = "text-sm text-fog/75 hover:text-fog transition-colors";
+const linkClass = "self-start text-sm text-fog/75 hover:text-fog transition-colors";
 const headingClass = "text-xs font-semibold tracking-widest uppercase text-fog/45 mb-1";
 
 const reviewLinks = properties.flatMap((p) => [
@@ -29,7 +29,7 @@ const licences = properties.filter((p) => p.licenseNumber);
 <footer id="site-footer" class="bg-granite text-fog" data-print-hidden>
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
     <div class="flex flex-col gap-4">
-      <a href={home} aria-label={t("inicio")}>
+      <a href={home} aria-label={t("inicio")} class="self-start">
         <Logo variant="light" class="h-9" loading="lazy" />
       </a>
       <p class="text-fog/75 text-sm leading-relaxed max-w-xs">{t("tagline")}</p>
@@ -42,7 +42,7 @@ const licences = properties.filter((p) => p.licenseNumber);
       <a href={`${home}#casas`} class={linkClass}>{t("casas")}</a>
       {
         properties.map((p) => (
-          <a href={`${home}/${p.slug}`} class:list={[linkClass, "flex items-center gap-2 pl-3"]}>
+          <a href={`${home}/${p.slug}`} class:list={[linkClass, "flex items-center gap-2"]}>
             <Icon name="home" size={14} />
             {p.name[locale]}
           </a>
@@ -94,18 +94,18 @@ const licences = properties.filter((p) => p.licenseNumber);
             <ul class="flex flex-col sm:flex-row gap-x-6 gap-y-1">
               {licences.map((p) => (
                 <li class="whitespace-nowrap">
-                  {p.name[locale]} <span class="ml-1 tabular-nums text-fog/90">{p.licenseNumber}</span>
+                  {p.name[locale]} <span class="ml-1 tabular-nums">{p.licenseNumber}</span>
                 </li>
               ))}
             </ul>
           )
         }
       </div>
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-x-8 gap-y-3 text-fog/60">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-x-8 gap-y-3">
         <p class="max-w-prose">{t("cookieNotice")}</p>
         <a
           href={`/${locale}/creditos`}
-          class="inline-flex items-center gap-1.5 whitespace-nowrap text-fog/75 hover:text-fog transition-colors"
+          class="self-start sm:self-auto inline-flex items-center gap-1.5 whitespace-nowrap hover:text-fog transition-colors"
         >
           {t("creditsLink")}
           <Icon name="arrow-right" size={12} />
