@@ -132,7 +132,7 @@
     "nights": "{count} noites",
     "fromLabel": "A partir de",
     "fromLabelRoom": "Quarto a partir de",
-    "perNight": "€{price} / noite",
+    "perNight": "{price} € / noite",
     "requestAvailability": "Pedir disponibilidade",
     "contactButton": "Fale connosco",
     "amenitiesShowAll": "Ver todas as comodidades ({count})",
