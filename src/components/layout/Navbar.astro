@@ -90,7 +90,7 @@ const linkClass = (active: boolean) =>
 
     <div class="flex items-center gap-3">
       <LocaleToggle locale={locale} class="hidden md:flex text-granite" />
-      <button type="button" class="md:hidden p-2 -mr-2 text-granite" aria-label={t("menu")} data-menu-open>
+      <button type="button" class="md:hidden p-[11px] -mr-[11px] text-granite" aria-label={t("menu")} data-menu-open>
         <Icon name="menu" size={22} />
       </button>
     </div>
@@ -105,7 +105,7 @@ const linkClass = (active: boolean) =>
 >
   <div class="flex items-center justify-between px-4 h-[var(--navbar-height)] shrink-0">
     <Logo variant="light" class="h-8" loading="lazy" />
-    <button type="button" class="p-2 -mr-2" aria-label={t("close")} data-menu-close>
+    <button type="button" class="p-[11px] -mr-[11px]" aria-label={t("close")} data-menu-close>
       <Icon name="close" size={22} />
     </button>
   </div>
@@ -145,7 +145,7 @@ const linkClass = (active: boolean) =>
   </nav>
 
   <div class="px-6 pb-10 pt-6">
-    <LocaleToggle locale={locale} class="text-base" />
+    <LocaleToggle locale={locale} size="lg" />
   </div>
 </dialog>
 

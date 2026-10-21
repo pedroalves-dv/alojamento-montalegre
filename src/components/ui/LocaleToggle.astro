@@ -4,13 +4,21 @@ import { locales, switchLocalePath, type Locale } from "@/i18n";
 interface Props {
   locale: Locale;
   class?: string;
+  /** "lg" for the mobile menu; the default suits the navbar and footer. */
+  size?: "sm" | "lg";
 }
 
-const { locale, class: className } = Astro.props;
+const { locale, class: className, size = "sm" } = Astro.props;
 const labels: Record<Locale, string> = { pt: "Português", en: "English" };
 ---
 
-<div class:list={["flex items-center gap-1.5 text-xs font-semibold tracking-widest", className]}>
+<div
+  class:list={[
+    "flex items-center font-semibold tracking-widest",
+    size === "lg" ? "gap-2.5 text-base" : "gap-1.5 text-xs",
+    className,
+  ]}
+>
   {
     locales.map((l, i) => (
       <>
@@ -27,7 +35,7 @@ const labels: Record<Locale, string> = { pt: "Português", en: "English" };
             hreflang={l}
             lang={l}
             aria-label={`${l.toUpperCase()} — ${labels[l]}`}
-            class="opacity-60 hover:opacity-100 transition-opacity"
+            class="relative opacity-60 hover:opacity-100 transition-opacity after:absolute after:-inset-3.5 after:content-['']"
           >
             {l.toUpperCase()}
           </a>
