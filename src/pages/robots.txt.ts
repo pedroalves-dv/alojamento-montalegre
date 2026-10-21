@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 
 // Crawling stays blocked until ALLOW_INDEXING=true is set for the production
-// build (Vercel → Settings → Environment Variables, Production only).
+// build (Worker → Settings → Build → Variables and secrets).
 const isLive = process.env.ALLOW_INDEXING === "true";
 
 export const GET: APIRoute = ({ site }) => {

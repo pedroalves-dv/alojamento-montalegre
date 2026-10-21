@@ -31,79 +31,28 @@ optimised at build time (AVIF/WebP), and the review's bug list fixed.
 
 ## Phase 2 — RNET registration numbers
 
-**What:** Portuguese law (Decreto-Lei n.º 128/2014) requires the Alojamento Local registration number to appear on the website. Format: `AL/XXXX/XXXXX`. Ask your uncle/aunt for the registration numbers — they should have received them when registering with the Câmara Municipal.
+**What:** Portuguese law (Decreto-Lei n.º 128/2014) requires the Alojamento Local registration number to appear on the website. Ask your uncle/aunt — they received it when registering with the Câmara Municipal. Not registered yet? https://rnt.turismodeportugal.pt
 
-**You need first:**
-- [ ] RNET number for Casa do Moinho (format: `AL/XXXX/XXXXX`)
-- [ ] RNET number for Casa do Castelo (format: `AL/XXXX/XXXXX`)
+- ✅ Casa do Moinho: `120536/AL`
+- [ ] Casa do Castelo: **still missing** (format like `120536/AL`)
 
-If they don't have one, they need to register at: https://rnt.turismodeportugal.pt
-
-**Prompt:**
-
-```text
-In /home/sang/projects/alojamento-montalegre, add RNET Alojamento Local registration
-number support (legally required in Portugal):
-
-1. Add `rnetNumber: string | null` to the Property type in src/types/property.ts
-
-2. Add the values in src/data/properties.ts:
-   - Casa do Moinho: rnetNumber: "[MOINHO_RNET_NUMBER]"
-   - Casa do Castelo: rnetNumber: "[CASTELO_RNET_NUMBER]"
-
-   (The field already exists as `licenseNumber`, and is already shown in the footer and
-   in each property's "Check-in & Informações" section whenever it is non-null — only the
-   Casa do Castelo value is still missing.)
-
-Run `npm run build` after to confirm no TypeScript errors.
-```
-
-**Files touched:** `src/data/properties.ts`.
+**To add it:** set `licenseNumber: "<number>"` on Casa do Castelo in `src/data/properties.ts` and run
+`npm run build`. It then shows up in the footer and in the house's "Check-in & Informações"
+section automatically.
 
 ---
 
 ## Phase 3 — Real contact info + booking URLs
 
-**What:** Replace all placeholder contact data with real values.
+- ✅ Site phone / WhatsApp: `+351 935 663 060` (`src/config.ts`)
+- ✅ Casa do Moinho: Booking.com link + score, Google reviews link
+- ✅ Casa do Castelo: Google reviews link
+- [ ] Casa do Castelo phone: which number its page shows (now `+351 276 511 237`, also in its schema)
+- [ ] Casa do Castelo Booking.com URL / score / review count, if listed (now `null`: button hidden)
+- [ ] Airbnb URLs for either house, if listed (now `null`)
 
-**You need first:**
-- [ ] Real phone number (format: `+351 XXX XXX XXX`)
-- [ ] WhatsApp number (digits only, e.g. `351912345678`) — usually same as phone
-- [ ] Casa do Moinho Booking.com listing URL (or confirm `null` if not yet listed)
-- [ ] Casa do Moinho Airbnb listing URL (or `null`)
-- [ ] Casa do Castelo Booking.com listing URL (or `null`)
-- [ ] Casa do Castelo Booking.com score + review count (or `null`)
-- [ ] Casa do Castelo Airbnb listing URL (or `null`)
-
-**Prompt:**
-```
-In /home/sang/projects/alojamento-montalegre, update contact info and booking URLs
-with real values:
-
-src/config.ts:
-- whatsappNumber: "[DIGITS_ONLY]"  (e.g. 351912345678)
-- phoneNumber: "[FORMATTED]"  (e.g. +351 912 345 678)
-
-src/data/properties.ts — Casa do Moinho:
-- booking.url: "[URL]" or null
-- airbnbUrl: "[URL]" or null
-
-src/data/properties.ts — Casa do Castelo:
-- booking.url: "[URL]" or null
-- booking.score: "[SCORE]" or null  (e.g. "9.2")
-- booking.reviewCount: [COUNT] or null
-- airbnbUrl: "[URL]" or null
-
-After updating:
-1. Verify all WhatsApp hrefs are correctly formed: `https://wa.me/[whatsappNumber]`
-   (no +, no spaces, no dashes)
-2. Verify the phone tel: link strips spaces correctly
-3. Run `npm run build`
-4. Test the floating WhatsApp button, the footer phone link, and the property
-   booking CTA — confirm they all use the real number
-```
-
-**Files touched:** `src/config.ts`, `src/data/properties.ts`.
+All in `src/data/properties.ts`. After changing a number, run `npm run build` and test the
+WhatsApp button, the phone link and the booking button on a phone.
 
 ---
 
@@ -119,7 +68,7 @@ Order matters for SEO: domain first, then a single address, then indexing — on
 - ✅ `www`: Redirect Rule `http*://www.alojamentomontalegre.com/*` → `https://alojamentomontalegre.com/${2}`
   (301, query string preserved), plus a proxied `AAAA www 100::` record so the rule receives the traffic.
 - ✅ `"workers_dev": false` in `wrangler.jsonc`: the workers.dev address no longer serves the site.
-- Always Use HTTPS (SSL/TLS → Edge Certificates) so `http://` redirects to `https://`.
+- ✅ Always Use HTTPS (SSL/TLS → Edge Certificates): `http://` 301s to `https://`.
 
 **At launch (when the site is final, new photos in):**
 1. Worker → Settings → Build → Variables and secrets → Add `ALLOW_INDEXING` = `true`.
@@ -132,30 +81,17 @@ Order matters for SEO: domain first, then a single address, then indexing — on
 - At your `.pt` registrar, set up URL forwarding (301) from `alojamentodomoinho.pt` → `https://alojamentomontalegre.com`
 - This recaptures any remaining bookmarks or old backlinks
 
-**Prompt (after domain is live):**
-```
-In /home/sang/projects/alojamento-montalegre, run a pre-launch domain audit:
+**Pre-launch audit ✅ (2026-10-21, read-only; indexing still blocked):**
+- `npm run build`: 0 errors, 0 warnings.
+- Every indexable page has a canonical, `pt-PT` / `en` / `x-default` hreflang and `og:url` on
+  `https://alojamentomontalegre.com`; `/creditos`, the 404 page and `/` are `noindex`.
+- Sitemap: 10 URLs (5 pages × 2 locales), all on the domain, with hreflang pairs.
+- Live: `http://` and `www` → 301 to the apex (query kept); `/` → 302 to `/pt`;
+  `/pt/regiao/` → 307 to `/pt/regiao`; unknown URL → 404; OG images 200.
+- `robots.txt` serves `Disallow: /`.
+- JSON-LD: LocalBusiness telephone set; each house has its street address and phone.
 
-1. Confirm src/config.ts siteUrl is exactly "https://alojamentomontalegre.com"
-   (no trailing slash, correct protocol)
-
-2. Audit every generateMetadata call across all page files — confirm all canonical,
-   openGraph.url, and alternates.languages URLs use config.siteUrl as the base
-
-3. Check the generated dist/sitemap-0.xml — all URLs should start with the site URL
-
-4. Check src/pages/robots.txt.ts — confirm ALLOW_INDEXING check is in place and the sitemap URL
-   is correct
-
-5. Run `npm run build` and check for any warnings in the output related to metadata
-   or missing image files
-
-6. If everything is clean, update the LocalBusiness JSON-LD in
-   src/layouts/BaseLayout.astro to include the real telephone number and a
-   streetAddress if you have one (currently only addressLocality/addressRegion/Country)
-```
-
-**Files potentially touched:** `src/config.ts`, `astro.config.mjs` (`site`), `src/layouts/BaseLayout.astro`.
+Re-run before launch day only if the code changes a lot in the meantime.
 
 ---
 
@@ -192,12 +128,12 @@ URLs at https://search.google.com/test/rich-results once the domain is connected
 - Phone: real phone number
 - Website: `https://alojamentomontalegre.com/pt/casa-do-moinho`
 - Description: copy the Portuguese tagline + first sentence of description from properties.ts
-- Photos: upload all 6 property photos from public/images/casa-do-moinho/
+- Photos: upload the photos from src/assets/images/casa-do-moinho/
 
 **Casa do Castelo:**
 - Same process with Casa do Castelo data
 - Website: `https://alojamentomontalegre.com/pt/casa-do-castelo`
-- Photos: all 8 images from public/images/casa-do-castelo/
+- Photos: the photos from src/assets/images/casa-do-castelo/
 
 **After verification (usually 1-2 weeks by postcard or video call):**
 - Ask first guests to leave a Google review — link them directly to the GBP "Write a review" URL
@@ -283,4 +219,4 @@ Run through this before announcing the live domain publicly:
 
 ---
 
-*Last updated: 2026-10-20*
+*Last updated: 2026-10-21*
