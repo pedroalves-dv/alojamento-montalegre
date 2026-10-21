@@ -26,9 +26,10 @@ Requires Node 22.12+.
 
 ## Deploying
 
-Hosted on Cloudflare Pages (free plan, commercial use allowed), built from GitHub on every push to `main`:
-build command `npm run build`, output `dist`, Node from `.node-version`.
-`public/_redirects` adds the `/` → `/pt` redirect and `public/_headers` long-lived caching for hashed assets;
-Pages serves clean URLs (`/pt/regiao` from `regiao.html`) by itself.
-Search engines are blocked until `ALLOW_INDEXING=true` is set for the **production** build.
-`npx wrangler pages dev dist` serves the build with the same routing as production. See `docs/LAUNCH.md` for the full launch checklist.
+Hosted on Cloudflare Workers as static assets (free plan, commercial use allowed), built from GitHub on every push to `main`
+(Workers Builds: build command `npm run build`, deploy command `npx wrangler deploy`; Node from `.node-version`).
+`wrangler.jsonc` serves `dist/` with no Worker code and no Astro adapter — keep it, or `wrangler deploy` auto-configures one.
+`public/_redirects` adds the `/` → `/pt` redirect and `public/_headers` long-lived caching for hashed assets plus `noindex`
+on the workers.dev address; clean URLs (`/pt/regiao` from `regiao.html`) are the Workers default.
+Search engines are blocked until the `ALLOW_INDEXING=true` **build** variable is set (Worker → Settings → Build).
+`npm run build && npx wrangler dev` serves the build with the same routing as production. See `docs/LAUNCH.md` for the full launch checklist.

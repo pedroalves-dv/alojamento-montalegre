@@ -1,0 +1,18 @@
+// Cloudflare Workers, static assets only: no Worker code, no Astro adapter.
+// Having this file also stops `wrangler deploy` from auto-configuring the
+// project (which would add @astrojs/cloudflare and switch to on-demand rendering).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "alojamento-montalegre",
+  "compatibility_date": "2026-10-21",
+  "assets": {
+    "directory": "./dist",
+    // Unknown paths get dist/404.html with a 404 status
+    "not_found_handling": "404-page"
+  },
+  // No per-version preview addresses: they would be extra crawlable copies of the site
+  "preview_urls": false,
+  // The *.workers.dev address is for checking deploys before the domain is live.
+  // Set to false once alojamentomontalegre.com is connected (see docs/LAUNCH.md).
+  "workers_dev": true
+}

@@ -2,8 +2,8 @@
 
 Production launch plan. Work through phases in order. Each phase has a prompt you can paste directly into Claude Code.
 
-**Hosting:** Cloudflare Pages (free plan; Vercel's free plan doesn't allow commercial sites)  
-**Live preview:** https://alojamento-montalegre.pages.dev  
+**Hosting:** Cloudflare Workers, static assets (free plan; Vercel's free plan doesn't allow commercial sites)  
+**Live preview:** https://alojamento-montalegre.<account-subdomain>.workers.dev (until the domain is connected)  
 **Target domain:** https://alojamentomontalegre.com  
 **Repo:** https://github.com/pedroalves-dv/alojamento-montalegre
 
@@ -111,14 +111,21 @@ After updating:
 
 **What:** Connect the real domain and flip the indexing switch.
 
+Order matters for SEO: domain first, then a single address, then indexing — once, at launch.
+
 **Manual steps in the Cloudflare dashboard (not Claude Code):**
-1. Workers & Pages → `alojamento-montalegre` → Custom domains → Set up a custom domain →
-   `alojamentomontalegre.com` (and again for `www.alojamentomontalegre.com`). The domain is
-   registered with Cloudflare, so the DNS records and SSL certificate are created automatically.
-2. Settings → Variables and Secrets → **Production** → Add `ALLOW_INDEXING` = `true`
-   (Production only — preview deployments must stay blocked)
-3. Redeploy: Deployments → latest production deployment → Retry deployment, or
-   `git commit --allow-empty -m "trigger redeploy" && git push`
+1. Workers & Pages → `alojamento-montalegre` → Settings → Domains & Routes → Add → Custom domain →
+   `alojamentomontalegre.com`. The domain is registered with Cloudflare, so the DNS record and
+   SSL certificate are created automatically.
+2. `www`: Rules → Redirect Rules → template "Redirect from WWW to root" (301), so
+   `www.alojamentomontalegre.com` never serves a second copy of the site.
+3. In `wrangler.jsonc` set `"workers_dev": false` and push: the temporary workers.dev address
+   stops serving, leaving the real domain as the only one.
+4. When the site is final (new photos in): Settings → Build → Variables and secrets →
+   Add `ALLOW_INDEXING` = `true`. It is a **build** variable — robots.txt is generated at build time.
+5. Redeploy: Deployments → latest → Retry build, or
+   `git commit --allow-empty -m "trigger redeploy" && git push`. Check that
+   `alojamentomontalegre.com/robots.txt` now says `Allow: /` and links the sitemap, then do Phase 5.
 
 **If you still own `alojamentodomoinho.pt`:**
 - At your `.pt` registrar, set up URL forwarding (301) from `alojamentodomoinho.pt` → `https://alojamentomontalegre.com`
@@ -234,7 +241,7 @@ Run through this before announcing the live domain publicly:
 
 ### Technical
 - [ ] Domain connected, SSL green (`https://`)
-- [ ] `ALLOW_INDEXING=true` set in Cloudflare Pages (production only)
+- [ ] `ALLOW_INDEXING=true` set as a Worker build variable, after the domain is live
 - [ ] `npm run build` passes with no errors
 - [ ] No console errors on any page (open DevTools in Chrome)
 - [ ] Site loads in under 3s on mobile — test at https://pagespeed.web.dev
