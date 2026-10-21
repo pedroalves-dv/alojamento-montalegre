@@ -2,7 +2,8 @@
 
 Production launch plan. Work through phases in order. Each phase has a prompt you can paste directly into Claude Code.
 
-**Live preview:** https://alojamento-montalegre.vercel.app  
+**Hosting:** Cloudflare Pages (free plan; Vercel's free plan doesn't allow commercial sites)  
+**Live preview:** https://alojamento-montalegre.pages.dev  
 **Target domain:** https://alojamentomontalegre.com  
 **Repo:** https://github.com/pedroalves-dv/alojamento-montalegre
 
@@ -110,15 +111,14 @@ After updating:
 
 **What:** Connect the real domain and flip the indexing switch.
 
-**Manual steps in Vercel dashboard (not Claude Code):**
-1. Project → Settings → Domains → Add `alojamentomontalegre.com`
-2. Set DNS: Vercel will give you either A records or nameservers to set at your domain registrar
-3. Wait for SSL certificate (usually under 5 minutes once DNS propagates)
-4. Settings → Environment Variables → Add:
-   - Name: `ALLOW_INDEXING`
-   - Value: `true`
-   - Environment: **Production only** (not Preview, not Development)
-5. Redeploy: Deployments → click the latest → Redeploy, or `git commit --allow-empty -m "trigger redeploy" && git push`
+**Manual steps in the Cloudflare dashboard (not Claude Code):**
+1. Workers & Pages → `alojamento-montalegre` → Custom domains → Set up a custom domain →
+   `alojamentomontalegre.com` (and again for `www.alojamentomontalegre.com`). The domain is
+   registered with Cloudflare, so the DNS records and SSL certificate are created automatically.
+2. Settings → Variables and Secrets → **Production** → Add `ALLOW_INDEXING` = `true`
+   (Production only — preview deployments must stay blocked)
+3. Redeploy: Deployments → latest production deployment → Retry deployment, or
+   `git commit --allow-empty -m "trigger redeploy" && git push`
 
 **If you still own `alojamentodomoinho.pt`:**
 - At your `.pt` registrar, set up URL forwarding (301) from `alojamentodomoinho.pt` → `https://alojamentomontalegre.com`
@@ -162,8 +162,9 @@ In /home/sang/projects/alojamento-montalegre, run a pre-launch domain audit:
 4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.com/sitemap-index.xml`
 
 Already done in the Astro port: `numberOfRooms`, `amenityFeature`, `occupancy`, per-property
-`checkinTime`/`checkoutTime` (from properties.ts), `priceRange`, and `aggregateRating` only when
-both score and review count exist (`src/lib/schema.ts`). What's left is validating the live
+`checkinTime`/`checkoutTime` (from properties.ts) and `priceRange` (`src/lib/schema.ts`).
+No `aggregateRating`: the scores come from Booking.com, and Google doesn't allow ratings
+sourced from other sites. What's left is validating the live
 URLs at https://search.google.com/test/rich-results once the domain is connected.
 
 ---
@@ -233,7 +234,7 @@ Run through this before announcing the live domain publicly:
 
 ### Technical
 - [ ] Domain connected, SSL green (`https://`)
-- [ ] `ALLOW_INDEXING=true` set in Vercel (production only)
+- [ ] `ALLOW_INDEXING=true` set in Cloudflare Pages (production only)
 - [ ] `npm run build` passes with no errors
 - [ ] No console errors on any page (open DevTools in Chrome)
 - [ ] Site loads in under 3s on mobile — test at https://pagespeed.web.dev
@@ -270,7 +271,7 @@ Run through this before announcing the live domain publicly:
 | OG images | `src/pages/og/[locale]/[page].png.ts` |
 | LocalBusiness schema | `src/layouts/BaseLayout.astro` |
 | Property / FAQ / breadcrumb schema | `src/lib/schema.ts` |
-| Redirect `/` → `/pt`, cache headers | `vercel.json` |
+| Redirect `/` → `/pt`, cache headers | `public/_redirects`, `public/_headers` |
 
 ---
 

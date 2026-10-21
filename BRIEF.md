@@ -1,3 +1,5 @@
+> **Historical:** the original brief from the Next.js/Vercel version. The site is now Astro on Cloudflare Pages — see README.md.
+
 Alojamento Montalegre — Claude Code Brief
 1. Project Overview
 Alojamento Montalegre is a two-property rural tourism rental site in Montalegre, Terras de Barroso, northern Portugal. The goal is a clean, beautiful, conversion-focused brochure site. Visitors should find the houses, trust the quality, and contact the owner via WhatsApp, phone, or Booking.com.
