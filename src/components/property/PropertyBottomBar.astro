@@ -1,21 +1,21 @@
 ---
-// Mobile-only sticky booking bar: price on the left, WhatsApp request on the
-// right (the Airbnb/Booking pattern), or a call button for phone-only houses.
-// Slides away while the footer is visible.
+// Mobile-only sticky booking bar: price on the left and, on the right, a jump
+// to the availability form (the Airbnb/Booking pattern) or a call button for
+// phone-only houses. Slides away while the booking section or footer is visible.
 import { telHref } from "@/lib/links";
 import Icon from "@/components/ui/Icon.astro";
 
 interface Props {
-  whatsappHref: string | null;
+  /** In-page link to the availability form; null for phone-only houses. */
+  requestHref: string | null;
   phone: string;
   callLabel: string;
-  priceFrom: number | null;
   fromLabel: string;
   perNight: string | null;
   ctaLabel: string;
 }
 
-const { whatsappHref, phone, callLabel, fromLabel, perNight, ctaLabel } = Astro.props;
+const { requestHref, phone, callLabel, fromLabel, perNight, ctaLabel } = Astro.props;
 ---
 
 <div
@@ -36,8 +36,8 @@ const { whatsappHref, phone, callLabel, fromLabel, perNight, ctaLabel } = Astro.
     )
   }
   {
-    whatsappHref ? (
-      <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
+    requestHref ? (
+      <a href={requestHref} class="btn-primary shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
         <Icon name="whatsapp" size={16} />
         {ctaLabel}
       </a>
@@ -52,8 +52,11 @@ const { whatsappHref, phone, callLabel, fromLabel, perNight, ctaLabel } = Astro.
 
 <script>
   const bar = document.getElementById("property-bottom-bar")!;
-  const footer = document.getElementById("site-footer");
-  if (footer) {
-    new IntersectionObserver(([entry]) => bar.toggleAttribute("data-hidden", entry!.isIntersecting)).observe(footer);
-  }
+  const targets = ["reservar", "site-footer"].flatMap((id) => document.getElementById(id) ?? []);
+  const visible = new Set<Element>();
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) entry.isIntersecting ? visible.add(entry.target) : visible.delete(entry.target);
+    bar.toggleAttribute("data-hidden", visible.size > 0);
+  });
+  targets.forEach((el) => observer.observe(el));
 </script>

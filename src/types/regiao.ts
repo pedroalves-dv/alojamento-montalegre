@@ -4,5 +4,5 @@ export interface RegiaoSection {
   title: LocalizedString;
   body: LocalizedString;
   image: string;
-  distance: { pt: string; en: string } | null;
+  distance: LocalizedString | null;
 }

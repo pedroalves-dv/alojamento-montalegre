@@ -6,6 +6,7 @@ import { seo } from "@/data/seo";
 import { properties } from "@/data/properties";
 import { htmlLang, locales, ogLocale, useTranslations, type Locale } from "@/i18n";
 import { absoluteUrl } from "@/lib/links";
+import { businessId } from "@/lib/schema";
 import JsonLd from "@/components/seo/JsonLd.astro";
 import Navbar from "@/components/layout/Navbar.astro";
 import Footer from "@/components/layout/Footer.astro";
@@ -16,10 +17,9 @@ interface Props {
   title: string;
   absoluteTitle?: boolean;
   description: string;
-  keywords?: string[];
   /** Locale-independent path of this page, e.g. "" or "/regiao". */
   path: string;
-  /** Key of the generated OG image (see src/pages/og/[locale]/[page].png.ts). */
+  /** Key of the generated OG image (see src/pages/og/[locale]/[page].jpg.ts). */
   ogImage: string;
   jsonLd?: Record<string, unknown>[];
   /** For pages that must stay out of search results (e.g. 404). */
@@ -31,7 +31,6 @@ const {
   title,
   absoluteTitle = false,
   description,
-  keywords,
   path,
   ogImage,
   jsonLd = [],
@@ -41,15 +40,16 @@ const {
 const t = useTranslations(locale, "Nav");
 const fullTitle = absoluteTitle ? title : seo.site.titleTemplate.replace("%s", title);
 const canonical = absoluteUrl(`/${locale}${path}`);
-const ogImageUrl = absoluteUrl(`/og/${locale}/${ogImage}.png`);
+const ogImageUrl = absoluteUrl(`/og/${locale}/${ogImage}.jpg`);
 
 const localBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": `${config.siteUrl}/#business`,
+  "@id": businessId,
   name: "Alojamento Montalegre",
   description: seo.site.localBusinessDescription[locale],
   url: config.siteUrl,
+  image: absoluteUrl(`/og/${locale}/home.jpg`),
   telephone: config.phoneNumber,
   address: {
     "@type": "PostalAddress",
@@ -69,7 +69,6 @@ const localBusiness = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    {keywords && <meta name="keywords" content={keywords.join(", ")} />}
     {
       noindex ? (
         <meta name="robots" content="noindex" />

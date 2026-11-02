@@ -21,6 +21,9 @@ const rows = [
         : t("nights", { count: property.minStay }),
   },
   ...(property.noPartiesNote ? [{ label: t("noPartiesLabel"), value: t("notPermitted") }] : []),
+  ...(property.petsAllowed !== null
+    ? [{ label: t("petsLabel"), value: t(property.petsAllowed ? "petsAllowed" : "petsNotAllowed") }]
+    : []),
   ...(property.languagesSpoken ? [{ label: t("languagesLabel"), value: property.languagesSpoken.join(", ") }] : []),
   ...(property.licenseNumber ? [{ label: t("licenseLabel"), value: property.licenseNumber }] : []),
 ];

@@ -1,7 +1,7 @@
 {
   "Home": {
-    "heroHeadline1": "Entre o rio e o castelo.",
-    "heroTagline": "Duas casas em Montalegre, no Barroso.\nUma à beira do rio, outra no centro histórico.",
+    "heroHeadline1": "Montalegre, entre o rio e o castelo.",
+    "heroTagline": "Duas casas no Barroso, norte de Portugal.\nUma à beira do rio, outra no centro histórico.",
     "ctaVerCasas": "Ver Casas",
     "ctaConhecerRegiao": "Descobrir a Região",
     "propertiesHeading": "As nossas casas",
@@ -14,7 +14,9 @@
     "faqHeading": "Perguntas frequentes",
     "whatsappHeading": "Fale connosco",
     "whatsappBody": "Ligue-nos ou envie uma mensagem pelo WhatsApp com as datas e o número de pessoas. Respondemos em menos de 24 horas.",
-    "whatsappButton": "WhatsApp"
+    "whatsappButton": "WhatsApp",
+    "propertyCardCtaRooms": "Ver quartos",
+    "propertyGuestRooms": "{count} quartos"
   },
   "Nav": {
     "inicio": "Início",
@@ -49,7 +51,7 @@
     "introHeading": "Uma região fora do tempo",
     "introBody": "Montalegre fica no alto de Trás-os-Montes, perto dos mil metros de altitude e encostada à Galiza. À volta da vila estende-se o Barroso: um planalto de granito, lameiros e carvalhais, onde o gado barrosão pasta ao ar livre e as aldeias guardam o forno do povo, o moinho e a memória da vezeira. Em 2018, a FAO reconheceu este modo de vida como Património Agrícola Mundial — o primeiro em Portugal. Cerca de um quarto do concelho está dentro do Parque Nacional da Peneda-Gerês. Os invernos são frios e às vezes neva; o verão traz dias quentes e noites frescas. E há dois momentos em que a vila enche: a Feira do Fumeiro, em janeiro, e cada sexta-feira 13.",
     "highlightPark": "do concelho de Montalegre fica dentro do Parque Nacional da Peneda-Gerês",
-    "highlightUnesco": "Barroso reconhecido pela FAO como Património Agrícola Mundial — o primeiro em Portugal",
+    "highlightHeritage": "Barroso reconhecido pela FAO como Património Agrícola Mundial — o primeiro em Portugal",
     "highlightFair": "Feira do Fumeiro: quatro dias de fumeiro caseiro dos produtores do Barroso",
     "seasonalHeading": "Quando Visitar",
     "springLabel": "Primavera",
@@ -91,15 +93,16 @@
     "practicalLanguageTitle": "Terra comunitária",
     "practicalLanguage": "No Barroso, muito ainda se faz em comum: o forno do povo, o boi do povo, a vezeira que levava o gado de todos à serra. O Ecomuseu de Barroso conta essa história, na vila e nas aldeias.",
     "statPark": "26%",
-    "statUnesco": "2018",
-    "statFair": "Jan"
+    "statHeritage": "2018",
+    "statFair": "Jan",
+    "heroAlt": "Garranos no Parque Nacional da Peneda-Gerês",
+    "nextFriday13": "Próxima sexta-feira 13: {date}"
   },
   "Contacto": {
     "heading": "Fale Connosco",
     "subheading": "Reserve diretamente, sem comissões.",
     "responseNote": "Respondemos em menos de 24 horas.",
     "whatsappButton": "WhatsApp",
-    "phoneNote": "Clique para ligar diretamente.",
     "googleProfile": "Ver no Google"
   },
   "PropertyDetail": {
@@ -118,7 +121,6 @@
     "reviewsLabel": "avaliações",
     "inHouseLabel": "No edifício",
     "minStayPeak": "Época alta (jul–ago): {count} noites",
-    "phoneLabel": "Telefone",
     "bathrooms": "{count} casas de banho",
     "sqm": "{count} m²",
     "policiesHeading": "Check-in & Informações",
@@ -136,10 +138,22 @@
     "fromLabelRoom": "Quarto a partir de",
     "perNight": "{price} € / noite",
     "requestAvailability": "Pedir disponibilidade",
-    "contactButton": "Fale connosco",
     "callButton": "Ligar",
     "amenitiesShowAll": "Ver todas as comodidades ({count})",
-    "locationNearbyHeading": "Localização e arredores"
+    "locationNearbyHeading": "Localização e arredores",
+    "descriptionHeadingRooms": "Sobre os quartos",
+    "bookingHeadingRooms": "Reservar um quarto",
+    "guestRooms": "{count} quartos",
+    "formCheckin": "Chegada",
+    "formCheckout": "Partida",
+    "formGuests": "Pessoas",
+    "formHint": "Abre o WhatsApp com a mensagem pronta a enviar.",
+    "availabilityDates": "Olá! Gostaria de saber se a {name} está disponível de {checkin} a {checkout} ({nights} noites)",
+    "availabilityGuests": ", para {guests} pessoas",
+    "nextFriday13": "Próxima sexta-feira 13: {date}",
+    "petsLabel": "Animais de estimação",
+    "petsAllowed": "Bem-vindos",
+    "petsNotAllowed": "Não permitidos"
   },
   "Creditos": {
     "heading": "Créditos das imagens",

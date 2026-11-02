@@ -1,0 +1,106 @@
+---
+// Dates + guests → WhatsApp with the request already written ("is it free from
+// … to … for 6 guests?"), so the first reply can be an answer, not a question.
+// Without JS the form still opens WhatsApp, with the house's default message.
+import { config } from "@/config";
+import { htmlLang, useTranslations, type Locale } from "@/i18n";
+import Icon from "@/components/ui/Icon.astro";
+
+interface Props {
+  locale: Locale;
+  name: string;
+  /** The house's default WhatsApp message, sent when no dates are given. */
+  message: string;
+  capacity: number;
+  /** Prefix for the field ids, so the form can appear twice on a page. */
+  id: string;
+  /** "dark" for the forest-green booking section. */
+  variant?: "light" | "dark";
+}
+
+const { locale, name, message, capacity, id, variant = "light" } = Astro.props;
+const t = useTranslations(locale, "PropertyDetail");
+const dark = variant === "dark";
+
+const label = dark ? "text-white/85" : "text-muted";
+// The light form lives in the narrow desktop sidebar; the dark one is the mobile form too,
+// where text must stay at 16px or iOS zooms in on focus
+const field = [
+  "mt-1 w-full rounded-box border py-2.5",
+  dark ? "px-3 text-base border-white/35 bg-white/10 text-white [color-scheme:dark]" : "px-2 text-sm border-granite/25 bg-white text-granite",
+];
+---
+
+<availability-request
+  data-lang={htmlLang[locale]}
+  data-name={name}
+  data-dates={t("availabilityDates")}
+  data-guests={t("availabilityGuests")}
+>
+  <form action={`https://wa.me/${config.whatsappNumber}`} method="get" target="_blank" class="grid grid-cols-2 gap-3 text-left">
+    <input type="hidden" name="text" value={message} />
+    <label class:list={["text-sm", label]}>
+      {t("formCheckin")}
+      <input type="date" id={`${id}-checkin`} data-checkin class:list={field} />
+    </label>
+    <label class:list={["text-sm", label]}>
+      {t("formCheckout")}
+      <input type="date" id={`${id}-checkout`} data-checkout class:list={field} />
+    </label>
+    <label class:list={["col-span-2 text-sm", label]}>
+      {t("formGuests")}
+      <input type="number" id={`${id}-guests`} min="1" max={capacity} inputmode="numeric" data-guests class:list={field} />
+    </label>
+    <button type="submit" class:list={["col-span-2 mt-1 w-full", dark ? "btn-light" : "btn-primary"]}>
+      <Icon name="whatsapp" size={18} />
+      {t("requestAvailability")}
+    </button>
+    <p class:list={["col-span-2 text-xs", dark ? "text-white/70 text-center" : "text-muted"]}>{t("formHint")}</p>
+  </form>
+</availability-request>
+
+<script>
+  import { isoDate } from "@/lib/dates";
+
+  class AvailabilityRequest extends HTMLElement {
+    connectedCallback() {
+      const form = this.querySelector("form")!;
+      const defaultMessage = form.querySelector<HTMLInputElement>("[name=text]")!.value;
+      const checkin = form.querySelector<HTMLInputElement>("[data-checkin]")!;
+      const checkout = form.querySelector<HTMLInputElement>("[data-checkout]")!;
+      const guests = form.querySelector<HTMLInputElement>("[data-guests]")!;
+      const { lang, name, dates, guests: guestsTemplate } = this.dataset as { lang: string; name: string; dates: string; guests: string };
+
+      const day = (value: string) => new Date(`${value}T12:00`);
+      const format = (value: string) => day(value).toLocaleDateString(lang, { day: "numeric", month: "numeric", year: "numeric" });
+      const fill = (template: string, values: Record<string, string | number>) =>
+        template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key]));
+
+      checkin.min = isoDate(new Date());
+      checkin.addEventListener("change", () => {
+        if (!checkin.value) return;
+        const next = day(checkin.value);
+        next.setDate(next.getDate() + 1);
+        checkout.min = isoDate(next);
+        if (checkout.value && checkout.value < checkout.min) checkout.value = "";
+      });
+
+      // Build the wa.me link ourselves: a form GET would encode spaces as "+"
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const nights = checkin.value && checkout.value ? Math.round((+day(checkout.value) - +day(checkin.value)) / 864e5) : 0;
+        let message =
+          nights > 0
+            ? fill(dates, { name, checkin: format(checkin.value), checkout: format(checkout.value), nights })
+            : defaultMessage;
+        if (guests.value) message += fill(guestsTemplate, { guests: guests.value });
+        if (nights > 0 || guests.value) message += ".";
+        const url = `${form.action}?text=${encodeURIComponent(message)}`;
+        const tab = window.open(url, "_blank");
+        if (tab) tab.opener = null;
+        else location.href = url;
+      });
+    }
+  }
+  customElements.define("availability-request", AvailabilityRequest);
+</script>

@@ -1,0 +1,38 @@
+---
+// "Next Friday the 13th: 13 November 2026". Worked out at build time and
+// re-checked in the browser, so the date stays right between deploys.
+import { htmlLang, type Locale } from "@/i18n";
+import { isoDate, nextFriday13 } from "@/lib/dates";
+
+interface Props {
+  locale: Locale;
+  /** Label with a {date} placeholder. */
+  label: string;
+  class?: string;
+}
+
+const { locale, label, class: className } = Astro.props;
+const lang = htmlLang[locale];
+const date = nextFriday13();
+const format = (d: Date) => d.toLocaleDateString(lang, { day: "numeric", month: "long", year: "numeric" });
+const [before, after] = label.split("{date}");
+---
+
+<next-friday-13 data-lang={lang} class:list={["block", className]}>
+  {before}<time datetime={isoDate(date)}>{format(date)}</time>{after}
+</next-friday-13>
+
+<script>
+  import { isoDate, nextFriday13 } from "@/lib/dates";
+
+  class NextFriday13 extends HTMLElement {
+    connectedCallback() {
+      const time = this.querySelector("time")!;
+      const date = nextFriday13();
+      if (time.dateTime === isoDate(date)) return;
+      time.dateTime = isoDate(date);
+      time.textContent = date.toLocaleDateString(this.dataset.lang, { day: "numeric", month: "long", year: "numeric" });
+    }
+  }
+  customElements.define("next-friday-13", NextFriday13);
+</script>

@@ -1,4 +1,4 @@
-> **Historical:** the original brief from the Next.js/Vercel version. The site is now Astro on Cloudflare Pages — see README.md.
+> **Historical:** the original brief from the Next.js/Vercel version. The site is now Astro on Cloudflare Workers — see README.md.
 
 Alojamento Montalegre — Claude Code Brief
 1. Project Overview

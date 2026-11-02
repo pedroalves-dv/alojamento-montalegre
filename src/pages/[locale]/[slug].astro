@@ -5,6 +5,8 @@ import PropertyGallery from "@/components/property/PropertyGallery.astro";
 import PropertyPolicies from "@/components/property/PropertyPolicies.astro";
 import PropertyReviews from "@/components/property/PropertyReviews.astro";
 import PropertyBottomBar from "@/components/property/PropertyBottomBar.astro";
+import AvailabilityRequest from "@/components/property/AvailabilityRequest.astro";
+import NextFriday13 from "@/components/ui/NextFriday13.astro";
 import RatingLine from "@/components/ui/RatingLine.astro";
 import MapEmbed from "@/components/ui/MapEmbed.astro";
 import Icon, { type IconName } from "@/components/ui/Icon.astro";
@@ -12,7 +14,7 @@ import { config } from "@/config";
 import { properties } from "@/data/properties";
 import { locales, useTranslations, type Locale } from "@/i18n";
 import { resolveImages } from "@/lib/images";
-import { absoluteUrl, telHref, whatsappHref } from "@/lib/links";
+import { absoluteUrl, telHref } from "@/lib/links";
 import { breadcrumbs, lodging } from "@/lib/schema";
 import type { Property } from "@/types/property";
 
@@ -33,11 +35,12 @@ const t = useTranslations(locale, "PropertyDetail");
 const name = property.name[locale];
 const tagline = property.tagline[locale];
 const seasonal = property.seasonal[locale];
-const fromKey = property.priceUnit === "room" ? "fromLabelRoom" : "fromLabel";
+const byRoom = property.rentedBy === "room";
+const fromKey = byRoom ? "fromLabelRoom" : "fromLabel";
 // Houses without a WhatsApp message take bookings by phone only: the phone button leads instead
-const waHref = property.whatsappMessage && whatsappHref(property.whatsappMessage[locale]);
+const waMessage = property.whatsappMessage?.[locale] ?? null;
 const phone = property.phone ?? config.phoneNumber;
-const bookingNote = t(waHref ? "bookingDirectNote" : "bookingPhoneNote");
+const bookingNote = t(waMessage ? "bookingDirectNote" : "bookingPhoneNote");
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${property.coordinates.lat},${property.coordinates.lng}`;
 
 const images = await resolveImages(property.images);
@@ -47,7 +50,7 @@ const schemaImages = await Promise.all(
 
 const facts: { icon: IconName; label: string }[] = [
   { icon: "users", label: t("capacity", { count: property.capacity }) },
-  { icon: "bed", label: t("rooms", { count: property.rooms }) },
+  { icon: "bed", label: t(byRoom ? "guestRooms" : "rooms", { count: property.rooms }) },
   { icon: "bath", label: t("bathrooms", { count: property.bathrooms }) },
   ...(property.sqm !== null ? [{ icon: "sqm" as const, label: t("sqm", { count: property.sqm }) }] : []),
 ];
@@ -60,9 +63,9 @@ const amenityItem = "flex items-center gap-2.5 text-body";
 
 <BaseLayout
   locale={locale}
-  title={name}
-  description={tagline}
-  keywords={property.keywords[locale]}
+  title={property.seo.title[locale]}
+  absoluteTitle
+  description={property.seo.description[locale]}
   path={`/${property.slug}`}
   ogImage={property.slug}
   jsonLd={[lodging(property, locale, schemaImages), breadcrumbs(locale, [{ name, path: `/${property.slug}` }])]}
@@ -73,6 +76,11 @@ const amenityItem = "flex items-center gap-2.5 text-body";
       <span class="inline-flex rounded-full bg-amber/15 px-3 py-1 text-xs font-medium text-amber-deep" data-print-hidden>
         {seasonal}
       </span>
+      {
+        property.showNextFriday13 && (
+          <NextFriday13 locale={locale} label={t("nextFriday13")} class="mt-2 text-sm text-amber-deep" />
+        )
+      }
       <h1 class="heading-1 text-granite mt-3">{name}</h1>
       <p class="mt-2 text-lg md:text-xl text-muted">{tagline}</p>
       <div class="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -104,7 +112,7 @@ const amenityItem = "flex items-center gap-2.5 text-body";
       </ul>
 
       <section class="py-10 md:py-12">
-        <h2 class="heading-2 text-granite mb-6">{t("descriptionHeading")}</h2>
+        <h2 class="heading-2 text-granite mb-6">{t(byRoom ? "descriptionHeadingRooms" : "descriptionHeading")}</h2>
         <div class="space-y-4 max-w-prose">
           {property.description[locale].split("\n\n").map((para) => <p class="text-body leading-relaxed">{para}</p>)}
         </div>
@@ -202,14 +210,11 @@ const amenityItem = "flex items-center gap-2.5 text-body";
         <RatingLine property={property} reviewsLabel={t("reviewsLabel")} />
         <div class="flex flex-col gap-3">
           {
-            waHref && (
-              <a href={waHref} target="_blank" rel="noopener" class="btn-primary w-full">
-                <Icon name="whatsapp" size={18} />
-                {t("requestAvailability")}
-              </a>
+            waMessage && (
+              <AvailabilityRequest locale={locale} name={name} message={waMessage} capacity={property.capacity} id="aside" />
             )
           }
-          <a href={telHref(phone)} class:list={[waHref ? "btn-secondary" : "btn-primary", "w-full"]}>
+          <a href={telHref(phone)} class:list={[waMessage ? "btn-secondary" : "btn-primary", "w-full"]}>
             <Icon name="phone" size={16} strokeWidth={1.8} />
             {phone}
           </a>
@@ -220,20 +225,19 @@ const amenityItem = "flex items-center gap-2.5 text-body";
   </div>
 
   <!-- Final CTA (centred) -->
-  <section class="bg-forest text-white" data-print-hidden>
+  <section id="reservar" class="bg-forest text-white" data-print-hidden>
     <div class="container-site section-y max-w-2xl text-center">
-      <h2 class="heading-2 mb-4">{t("bookingHeading")}</h2>
+      <h2 class="heading-2 mb-4">{t(byRoom ? "bookingHeadingRooms" : "bookingHeading")}</h2>
       <p class="text-white/85 leading-relaxed mb-9 text-balance">{bookingNote}</p>
+      {
+        waMessage && (
+          <div class="max-w-md mx-auto mb-6">
+            <AvailabilityRequest locale={locale} name={name} message={waMessage} capacity={property.capacity} id="booking" variant="dark" />
+          </div>
+        )
+      }
       <div class="flex flex-col sm:flex-row gap-3 justify-center [&>*]:w-full sm:[&>*]:w-auto">
-        {
-          waHref && (
-            <a href={waHref} target="_blank" rel="noopener" class="btn-light">
-              <Icon name="whatsapp" size={18} />
-              {t("requestAvailability")}
-            </a>
-          )
-        }
-        <a href={telHref(phone)} class={waHref ? "btn-outline-light" : "btn-light"}>
+        <a href={telHref(phone)} class={waMessage ? "btn-outline-light" : "btn-light"}>
           <Icon name="phone" size={16} strokeWidth={1.8} />
           {phone}
         </a>
@@ -242,12 +246,11 @@ const amenityItem = "flex items-center gap-2.5 text-body";
   </section>
 
   <PropertyBottomBar
-    whatsappHref={waHref}
+    requestHref={waMessage ? "#reservar" : null}
     phone={phone}
     callLabel={t("callButton")}
-    priceFrom={property.priceFrom}
     fromLabel={t(fromKey)}
     perNight={property.priceFrom !== null ? t("perNight", { price: property.priceFrom }) : null}
-    ctaLabel={t("contactButton")}
+    ctaLabel={t("requestAvailability")}
   />
 </BaseLayout>

@@ -3,7 +3,6 @@ import en from "./en.json";
 
 export const locales = ["pt", "en"] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "pt";
 
 export const htmlLang: Record<Locale, string> = { pt: "pt-PT", en: "en" };
 export const ogLocale: Record<Locale, string> = { pt: "pt_PT", en: "en_GB" };
@@ -16,10 +15,6 @@ export type Namespace = keyof Messages;
 /** `getStaticPaths` helper for every `[locale]` route. */
 export function localeParams() {
   return locales.map((locale) => ({ params: { locale } }));
-}
-
-export function isLocale(value: string | undefined): value is Locale {
-  return locales.includes(value as Locale);
 }
 
 /**

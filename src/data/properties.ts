@@ -1,4 +1,3 @@
-// src/data/properties.ts
 import type { Property } from "@/types/property";
 
 export const properties: Property[] = [
@@ -77,13 +76,14 @@ export const properties: Property[] = [
       en: "Popular in summer — book early",
     },
     priceFrom: 300,
-    priceUnit: "house",
+    rentedBy: "house",
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
     checkinTime: "16:00–22:00",
     checkoutTime: "08:00–11:00",
     noPartiesNote: null,
+    petsAllowed: true,
     reviews: {
       allReviewsUrl: "https://share.google/c6ZNGUsFEODd3yNOd",
       items: [
@@ -161,29 +161,15 @@ export const properties: Property[] = [
       pt: "O GPS leva-o até à estrada principal em Cambeses do Rio. A casa fica no fim do caminho de terra à esquerda.",
       en: "GPS will take you to the main road in Cambeses do Rio. The house is at the end of the dirt track on the left.",
     },
-    keywords: {
-      pt: [
-        "Casa do Moinho",
-        "montalegre",
-        "alojamento montalegre",
-        "casa de férias montalegre",
-        "turismo rural",
-        "trás-os-montes",
-        "norte de portugal",
-        "casa junto ao rio",
-        "casa de campo",
-      ],
-      en: [
-        "Casa do Moinho",
-        "montalegre",
-        "accommodation montalegre",
-        "holiday house montalegre",
-        "rural tourism",
-        "northern portugal",
-        "trás-os-montes",
-        "riverside house",
-        "country house",
-      ],
+    seo: {
+      title: {
+        pt: "Casa do Moinho · Casa de Férias à Beira-Rio em Montalegre",
+        en: "Casa do Moinho · Riverside Holiday House in Montalegre",
+      },
+      description: {
+        pt: "Casa inteira para até 10 pessoas à beira do rio Cávado, a 5 minutos de Montalegre: 5 quartos, lareira, jardim e churrasqueira. Reserve diretamente.",
+        en: "A whole house for up to 10 on the Cávado river, five minutes from Montalegre: 5 bedrooms, fireplace, garden and barbecue. Book direct, no fees.",
+      },
     },
     images: [
       "/images/casa-do-moinho/1.jpg",
@@ -262,14 +248,16 @@ export const properties: Property[] = [
       pt: "Na Feira do Fumeiro e nas noites de sexta-feira 13 a vila enche — reserve com antecedência.",
       en: "The town fills up for the Fumeiro Fair and on Friday the 13th — book early.",
     },
-    priceFrom: 80,
-    priceUnit: "room",
+    showNextFriday13: true,
+    priceFrom: 70,
+    rentedBy: "room",
     currency: "EUR",
     minStay: 2,
     minStayPeakSeason: 3,
     checkinTime: "16:00–22:00",
     checkoutTime: "11:00",
     noPartiesNote: null,
+    petsAllowed: false,
     reviews: {
       allReviewsUrl: "https://share.google/G2otAJCCjsx65SQcV",
       items: [
@@ -357,30 +345,15 @@ export const properties: Property[] = [
       pt: "A casa fica no coração histórico de Montalegre, mesmo ao lado do Castelo. O GPS funciona bem até à propriedade. Estacionamento gratuito disponível no local.",
       en: "The house is in Montalegre's historic centre, right next to the Castle. GPS works well to the property. Free parking available on site.",
     },
-    keywords: {
-      pt: [
-        "Casa do Castelo",
-        "montalegre",
-        "alojamento montalegre",
-        "casa de férias montalegre",
-        "turismo rural",
-        "trás-os-montes",
-        "norte de portugal",
-        "quartos montalegre",
-        "perto do castelo",
-      ],
-      en: [
-        "Casa do Castelo",
-        "montalegre",
-        "accommodation montalegre",
-        "holiday house montalegre",
-        "rural tourism",
-        "northern portugal",
-        "trás-os-montes",
-        "rooms montalegre",
-        "guesthouse montalegre",
-        "near the castle",
-      ],
+    seo: {
+      title: {
+        pt: "Casa do Castelo · Quartos junto ao Castelo de Montalegre",
+        en: "Casa do Castelo · Rooms by Montalegre Castle",
+      },
+      description: {
+        pt: "Quatro quartos no centro histórico de Montalegre, ao pé do castelo, com o Restaurante O Castelo no rés-do-chão. Estacionamento gratuito. Reserve por telefone.",
+        en: "Four guest rooms in Montalegre's old town, at the foot of the castle, with O Castelo restaurant downstairs. Free parking. Book direct by phone.",
+      },
     },
     restaurantInfo: {
       name: { pt: "Restaurante O Castelo", en: "O Castelo Restaurant" },

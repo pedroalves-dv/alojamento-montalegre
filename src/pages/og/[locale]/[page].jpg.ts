@@ -1,5 +1,6 @@
 // Open Graph images, rendered once at build time: Satori lays out the card
-// (with the real brand serif) and sharp rasterises it to PNG.
+// (with the real brand serif) and sharp rasterises it to JPEG. Kept small:
+// WhatsApp drops link previews when the image is too heavy.
 import type { APIRoute, GetStaticPaths } from "astro";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -27,7 +28,7 @@ function cardFor(page: string, locale: Locale): Card {
   }
   const pages = {
     home: { data: seo.home, image: "/images/casa-do-moinho/1.jpg" },
-    regiao: { data: seo.regiao, image: "/images/montalegre-2.jpg" },
+    regiao: { data: seo.regiao, image: "/images/garranos-peneda-geres.jpg" },
     contacto: { data: seo.contacto, image: "/images/montalegre-castelo.jpg" },
   } as const;
   const { data, image } = pages[page as keyof typeof pages];
@@ -87,6 +88,6 @@ export const GET: APIRoute = async ({ params }) => {
     { width: WIDTH, height: HEIGHT, fonts: [{ name: "Instrument Serif", data: font, weight: 400, style: "normal" }] },
   );
 
-  const png = await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).toBuffer();
-  return new Response(new Uint8Array(png), { headers: { "Content-Type": "image/png" } });
+  const jpg = await sharp(Buffer.from(svg)).jpeg({ quality: 82, mozjpeg: true }).toBuffer();
+  return new Response(new Uint8Array(jpg), { headers: { "Content-Type": "image/jpeg" } });
 };

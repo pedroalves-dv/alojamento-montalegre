@@ -8,7 +8,7 @@ import { faq } from "@/data/faq";
 import { seo } from "@/data/seo";
 import { localeParams, useTranslations, type Locale } from "@/i18n";
 import { telHref, whatsappHref } from "@/lib/links";
-import { breadcrumbs, faqPage } from "@/lib/schema";
+import { breadcrumbs } from "@/lib/schema";
 
 export const getStaticPaths = localeParams;
 
@@ -23,7 +23,7 @@ const tNav = useTranslations(locale, "Nav");
   description={seo.contacto.description[locale]}
   path="/contacto"
   ogImage="contacto"
-  jsonLd={[breadcrumbs(locale, [{ name: tNav("contacto"), path: "/contacto" }]), faqPage(faq, locale)]}
+  jsonLd={[breadcrumbs(locale, [{ name: tNav("contacto"), path: "/contacto" }])]}
 >
   <section class="container-site pt-12 md:pt-20">
     <h1 class="heading-1 text-granite">{t("heading")}</h1>

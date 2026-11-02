@@ -47,8 +47,8 @@ export const faq: FAQItem[] = [
       en: "Are pets allowed?",
     },
     answer: {
-      pt: "Na Casa do Moinho, os animais de estimação são bem-vindos — há espaço exterior de sobra. Na Casa do Castelo, fale connosco antes de reservar.",
-      en: "Pets are welcome at Casa do Moinho, where there's plenty of outdoor space. For Casa do Castelo, please talk to us before booking.",
+      pt: "Na Casa do Moinho, os animais de estimação são bem-vindos — há espaço exterior de sobra. Na Casa do Castelo não são permitidos animais.",
+      en: "Pets are welcome at Casa do Moinho, where there's plenty of outdoor space. Pets are not allowed at Casa do Castelo.",
     },
   },
   {
@@ -77,8 +77,8 @@ export const faq: FAQItem[] = [
       en: "What is the cancellation policy?",
     },
     answer: {
-      pt: "O cancelamento é gratuito até 14 dias antes da chegada. Com menos de 14 dias, é cobrada a primeira noite. Nas reservas diretas (WhatsApp ou telefone), fale connosco: muitas vezes conseguimos ser mais flexíveis.",
-      en: "Cancellation is free up to 14 days before arrival. Within 14 days, the first night is charged. For direct bookings (WhatsApp or phone), talk to us: we can often be more flexible.",
+      pt: "Nas reservas diretas (WhatsApp ou telefone), o cancelamento é gratuito até 14 dias antes da chegada; com menos de 14 dias, é cobrada a primeira noite. Se precisar de mudar as datas, fale connosco: muitas vezes conseguimos ser flexíveis. As reservas feitas no Booking.com seguem as condições indicadas na reserva.",
+      en: "For direct bookings (WhatsApp or phone), cancellation is free up to 14 days before arrival; within 14 days, the first night is charged. If you need to change your dates, talk to us: we can often be flexible. Bookings made on Booking.com follow the conditions shown on your booking.",
     },
   },
   {

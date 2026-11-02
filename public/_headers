@@ -1,7 +1,12 @@
-# Cloudflare Workers static assets. Hashed build assets never change, so they can be cached forever.
+# Cloudflare Workers static assets.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Content-Security-Policy: frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000
+
+# Hashed build assets never change, so they can be cached forever.
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
-
-# Keep the workers.dev address out of search results; the real domain is the canonical one.
-https://alojamento-montalegre.:subdomain.workers.dev/*
-  X-Robots-Tag: noindex

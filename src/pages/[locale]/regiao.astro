@@ -4,6 +4,7 @@ import PageHero from "@/components/ui/PageHero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MapEmbed from "@/components/ui/MapEmbed.astro";
 import Icon, { type IconName } from "@/components/ui/Icon.astro";
+import NextFriday13 from "@/components/ui/NextFriday13.astro";
 import { regiao } from "@/data/regiao";
 import { seo } from "@/data/seo";
 import { localeParams, useTranslations, type Locale } from "@/i18n";
@@ -23,14 +24,14 @@ const MONTALEGRE = { lat: 41.8235, lng: -7.7916 };
 
 const highlights = [
   { stat: t("statPark"), label: t("highlightPark") },
-  { stat: t("statUnesco"), label: t("highlightUnesco") },
+  { stat: t("statHeritage"), label: t("highlightHeritage") },
   { stat: t("statFair"), label: t("highlightFair") },
 ];
 
-const practical: { icon: IconName; title: string; body: string }[] = [
+const practical: { icon: IconName; title: string; body: string; friday13?: boolean }[] = [
   { icon: "route", title: t("practicalCarTitle"), body: t("practicalCar") },
   { icon: "waves", title: t("practicalWaterTitle"), body: t("practicalWater") },
-  { icon: "calendar", title: t("practicalDatesTitle"), body: t("practicalDates") },
+  { icon: "calendar", title: t("practicalDatesTitle"), body: t("practicalDates"), friday13: true },
   { icon: "hiking", title: t("practicalHikingTitle"), body: t("practicalHiking") },
   { icon: "seasons", title: t("practicalWeatherTitle"), body: t("practicalWeather") },
   { icon: "hospitality", title: t("practicalLanguageTitle"), body: t("practicalLanguage") },
@@ -68,12 +69,11 @@ const h2 = "heading-2 text-granite";
   locale={locale}
   title={seo.regiao.title[locale]}
   description={seo.regiao.description[locale]}
-  keywords={seo.regiao.keywords?.[locale]}
   path="/regiao"
   ogImage="regiao"
   jsonLd={[breadcrumbs(locale, [{ name: tNav("regiao"), path: "/regiao" }])]}
 >
-  <PageHero image={heroImage} alt="Garranos no Parque Nacional da Peneda-Gerês" position="78% center" overlay={0.5} headline={t("heroHeadline1")} text={t("heroTagline")} />
+  <PageHero image={heroImage} alt={t("heroAlt")} position="78% center" overlay={0.5} headline={t("heroHeadline1")} text={t("heroTagline")} />
 
   <section class="container-site section-y">
     <div class="max-w-3xl">
@@ -86,9 +86,9 @@ const h2 = "heading-2 text-granite";
     <dl class="container-site py-10 grid grid-cols-1 sm:grid-cols-3 gap-8">
       {
         highlights.map((h) => (
-          <div class="flex flex-col gap-1">
-            <dt class="font-serif text-4xl md:text-5xl text-forest">{h.stat}</dt>
-            <dd class="text-muted text-sm">{h.label}</dd>
+          <div class="flex flex-col-reverse gap-1">
+            <dt class="text-muted text-sm">{h.label}</dt>
+            <dd class="font-serif text-4xl md:text-5xl text-forest">{h.stat}</dd>
           </div>
         ))
       }
@@ -141,6 +141,7 @@ const h2 = "heading-2 text-granite";
               <div>
                 <h3 class="heading-3 text-granite mb-1">{item.title}</h3>
                 <p class="text-body text-sm leading-relaxed">{item.body}</p>
+                {item.friday13 && <NextFriday13 locale={locale} label={t("nextFriday13")} class="mt-2 text-sm font-medium text-amber-deep" />}
               </div>
             </div>
           ))

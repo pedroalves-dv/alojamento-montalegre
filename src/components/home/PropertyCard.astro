@@ -15,6 +15,7 @@ const { property, locale } = Astro.props;
 const t = useTranslations(locale, "Home");
 const tProperty = useTranslations(locale, "PropertyDetail");
 const cover = await resolveImage(property.images[0]!);
+const byRoom = property.rentedBy === "room";
 ---
 
 <!--
@@ -55,7 +56,7 @@ const cover = await resolveImage(property.images[0]!);
       </span>
       <span class="flex items-center gap-1.5">
         <Icon name="bed" size={15} strokeWidth={1.8} class="text-muted" />
-        {t("propertyRooms", { count: property.rooms })}
+        {t(byRoom ? "propertyGuestRooms" : "propertyRooms", { count: property.rooms })}
       </span>
     </div>
 
@@ -63,7 +64,7 @@ const cover = await resolveImage(property.images[0]!);
       {
         property.priceFrom !== null ? (
           <p class="text-sm text-muted">
-            {tProperty(property.priceUnit === "room" ? "fromLabelRoom" : "fromLabel")}
+            {tProperty(byRoom ? "fromLabelRoom" : "fromLabel")}
             <span class="block text-lg font-medium text-granite">{tProperty("perNight", { price: property.priceFrom })}</span>
           </p>
         ) : (
@@ -71,7 +72,7 @@ const cover = await resolveImage(property.images[0]!);
         )
       }
       <span class="inline-flex items-center gap-1.5 font-medium text-forest" aria-hidden="true">
-        {t("propertyCardCta")}
+        {t(byRoom ? "propertyCardCtaRooms" : "propertyCardCta")}
         <Icon name="arrow-right" class="transition-transform duration-200 group-hover:translate-x-1" />
       </span>
     </div>

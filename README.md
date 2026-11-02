@@ -22,7 +22,7 @@ Requires Node 22.12+.
 - **UI strings** — `src/i18n/pt.json`, `src/i18n/en.json` (keep the keys identical)
 - **Pages** — `src/pages/[locale]/` (home, `[slug]` for each house, `regiao`, `contacto`)
 - **Photos** — `src/assets/images/`, referenced from the data files as `/images/...`; Astro generates AVIF/WebP at build time
-- **OG images** — generated at build time by `src/pages/og/[locale]/[page].png.ts`
+- **OG images** — generated at build time by `src/pages/og/[locale]/[page].jpg.ts`
 
 ## Deploying
 

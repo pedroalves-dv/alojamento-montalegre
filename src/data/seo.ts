@@ -9,7 +9,6 @@ interface OgTexts {
 interface PageSeo {
   title: Lang;
   description: Lang;
-  keywords?: { pt: string[]; en: string[] };
   og: OgTexts;
 }
 
@@ -22,7 +21,7 @@ export const seo: {
   };
   home: PageSeo;
   regiao: PageSeo;
-  contacto: Omit<PageSeo, "keywords">;
+  contacto: PageSeo;
 } = {
   site: {
     titleDefault: {
@@ -49,35 +48,6 @@ export const seo: {
       pt: "Casa do Moinho, casa inteira à beira do rio Cávado, e Casa do Castelo, quatro quartos ao pé do castelo de Montalegre. No Barroso, norte de Portugal. Reserve diretamente, sem comissões.",
       en: "Casa do Moinho, a whole house by the Cávado river, and Casa do Castelo, four rooms at the foot of Montalegre castle. In Barroso, northern Portugal. Book direct, no fees.",
     },
-    keywords: {
-      pt: [
-        "alojamento montalegre",
-        "alojamento norte portugal",
-        "alojamento rural montalegre",
-        "casa de férias montalegre",
-        "turismo rural montalegre",
-        "turismo rural norte portugal",
-        "alojamento geres",
-        "casa de férias norte portugal",
-        "casa rural montalegre",
-        "alojamento rio cavado",
-      ],
-      en: [
-        "accommodation montalegre",
-        "guesthouse montalegre",
-        "guesthouse northern portugal",
-        "accommodation northern portugal",
-        "rural accommodation montalegre",
-        "holiday house montalegre",
-        "holiday house montalegre portugal",
-        "rural tourism montalegre",
-        "rural tourism gerês",
-        "holiday house near gerês",
-        "accommodation near peneda geres",
-        "montalegre holiday rental",
-        "cávado river accommodation",
-      ],
-    },
     og: {
       headline: {
         pt: "Casas de Turismo Rural\nem Montalegre",
@@ -98,36 +68,6 @@ export const seo: {
     description: {
       pt: "O que ver e fazer em Montalegre e no Barroso, em Trás-os-Montes: castelo medieval, Parque Nacional da Peneda-Gerês, Alto Rabagão, Feira do Fumeiro, Sexta 13 e carne barrosã.",
       en: "What to see and do in Montalegre and Barroso, northern Portugal: medieval castle, Peneda-Gerês National Park, Alto Rabagão, the Fumeiro Fair, Friday the 13th and Barrosã beef.",
-    },
-    keywords: {
-      pt: [
-        "montalegre turismo",
-        "trás-os-montes",
-        "parque nacional gerês",
-        "serra do larouco",
-        "festival das bruxas montalegre",
-        "dia das bruxas montalegre",
-        "trilhos pedestres montalegre",
-        "o que fazer montalegre",
-        "barroso",
-        "alto rabagão",
-        "pitões das júnias",
-        "castelo de montalegre",
-      ],
-      en: [
-        "montalegre tourism",
-        "trás-os-montes",
-        "peneda gerês national park",
-        "serra do larouco",
-        "witches festival montalegre",
-        "friday 13th montalegre",
-        "hiking montalegre",
-        "walking trails montalegre",
-        "what to do montalegre",
-        "barroso portugal",
-        "alto rabagão",
-        "pitões das júnias",
-      ],
     },
     og: {
       eyebrow: {

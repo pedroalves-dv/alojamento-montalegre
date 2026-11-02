@@ -1,6 +1,6 @@
 ---
-// "/" → "/pt". Vercel answers this with an HTTP redirect (vercel.json); this
-// page is the static fallback for any other host.
+// "/" → "/pt". Cloudflare answers this with an HTTP redirect (public/_redirects);
+// this page is only the fallback for other hosts (e.g. `astro preview`).
 ---
 
 <!doctype html>

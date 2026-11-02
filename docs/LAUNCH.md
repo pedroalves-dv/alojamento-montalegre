@@ -130,8 +130,11 @@ Re-run before launch day only if the code changes a lot in the meantime.
 3. Verify via DNS TXT record (easiest since you control the registrar already)
 4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.pt/sitemap-index.xml`
 
-Already done in the Astro port: `numberOfRooms`, `amenityFeature`, `occupancy`, per-property
-`checkinTime`/`checkoutTime` (from properties.ts) and `priceRange` (`src/lib/schema.ts`).
+Done (`src/lib/schema.ts`): each house is a `LodgingBusiness` with `numberOfRooms`,
+`amenityFeature`, `checkinTime`/`checkoutTime` and `priceRange` (from properties.ts), linked by
+`@id` to the site-wide `LocalBusiness`. Not `VacationRental`: Google only uses it for its
+partner programme, and it needs listing ids we don't have. Each house's search title and
+description are `seo` in properties.ts. FAQPage markup is on the home page only.
 No `aggregateRating`: the scores come from Booking.com, and Google doesn't allow ratings
 sourced from other sites. What's left is validating the live
 URLs at https://search.google.com/test/rich-results once the domain is connected.
@@ -210,6 +213,27 @@ Google Workspace (~€7/user/month) only if they want a separate inbox.
 
 ---
 
+## Before launch — on-site visit
+
+To check in person, then add to `src/data/properties.ts` (and the photos with `npm run images`).
+Indexing stays off until all of this is done.
+
+**Casa do Castelo** (4 rooms, 70 €/room/night, no pets: already on the site)
+- [ ] Each room: beds (2 singles, or a double?), view, anything special. Then add a room list to the page.
+- [ ] Photos of each room, the bathrooms, the terrace and the restaurant.
+- [ ] Find the source of `casa-do-castelo/0.jpg` (castle photo, no EXIF): credit it or replace it.
+
+**Casa do Moinho** (5 rooms, 10 guests)
+- [ ] Bed layout per room (believed to be a double in each). Then add a "where you sleep" list.
+- [ ] New photos (exterior, every bedroom, bathrooms, kitchen, living room with the fireplace).
+
+**Policies**
+- [ ] Booking.com: check the Casa do Moinho listing's cancellation policy. The site's FAQ gives the
+  direct-booking policy (free up to 14 days, then the first night) and says Booking.com bookings
+  follow the conditions on the booking. Ideally make both the same.
+
+---
+
 ## Final launch checklist
 
 Run through this before announcing the live domain publicly:
@@ -218,7 +242,7 @@ Run through this before announcing the live domain publicly:
 - [ ] Phone number is real and click-to-call works on mobile
 - [ ] WhatsApp button opens chat to real number (test on phone)
 - [ ] Booking.com links open real listings (or buttons hidden if null)
-- [ ] Floating WhatsApp button works
+- [ ] Availability form on Casa do Moinho opens WhatsApp with dates and guests filled in (test on phone)
 
 ### Legal
 - [ ] RNET number(s) visible in footer
@@ -255,16 +279,16 @@ Run through this before announcing the live domain publicly:
 | Property data | `src/data/properties.ts` |
 | FAQ content | `src/data/faq.ts` |
 | Region content | `src/data/regiao.ts` |
-| Page titles / descriptions / OG text | `src/data/seo.ts` |
+| Page titles / descriptions / OG text | `src/data/seo.ts` (house pages: `seo` in `src/data/properties.ts`) |
 | All PT / EN UI strings | `src/i18n/pt.json`, `src/i18n/en.json` |
 | Photos (masters) | `src/assets/images/` — add new ones with `npm run images -- <folder>` |
 | Sitemap | `@astrojs/sitemap` in `astro.config.mjs` (generates `sitemap-index.xml`) |
 | Robots | `src/pages/robots.txt.ts` |
-| OG images | `src/pages/og/[locale]/[page].png.ts` |
+| OG images | `src/pages/og/[locale]/[page].jpg.ts` |
 | LocalBusiness schema | `src/layouts/BaseLayout.astro` |
 | Property / FAQ / breadcrumb schema | `src/lib/schema.ts` |
 | Redirect `/` → `/pt`, cache headers | `public/_redirects`, `public/_headers` |
 
 ---
 
-*Last updated: 2026-10-21*
+*Last updated: 2026-11-02*

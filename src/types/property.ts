@@ -46,26 +46,31 @@ export interface Property {
   /** null: bookings by phone only (no WhatsApp buttons on this house). */
   whatsappMessage: LocalizedString | null;
   seasonal: LocalizedString;
+  /** Show the date of the next Friday the 13th under the seasonal note (the town's busiest night). */
+  showNextFriday13?: boolean;
   priceFrom: number | null;
-  /** What priceFrom buys: the whole house, or one room (Casa do Castelo rents by the room). */
-  priceUnit: "house" | "room";
+  /** Whole house, or room by room (Casa do Castelo): sets the page's wording and what priceFrom buys. */
+  rentedBy: "house" | "room";
   currency: string;
   minStay: number;
   minStayPeakSeason: number | null;
   checkinTime: string;
   checkoutTime: string;
   noPartiesNote: LocalizedString | null;
+  /** null: not stated on the site. */
+  petsAllowed: boolean | null;
   reviews: PropertyReviewsConfig | null;
   licenseNumber: string | null;
   languagesSpoken: string[] | null;
-  nearby: { label: { pt: string; en: string }; distance: { pt: string; en: string } }[];
-  address: { pt: string; en: string };
-  keywords: { pt: string[]; en: string[] };
+  nearby: { label: LocalizedString; distance: LocalizedString }[];
+  address: LocalizedString;
+  /** Search result title (used as-is, no site name appended) and meta description, ~150 characters. */
+  seo: { title: LocalizedString; description: LocalizedString };
   google?: PropertyGoogleScore;
   restaurantInfo?: {
-    name: { pt: string; en: string };
-    description: { pt: string; en: string };
+    name: LocalizedString;
+    description: LocalizedString;
   };
-  gettingHereNote: { pt: string; en: string } | null;
+  gettingHereNote: LocalizedString | null;
   images: string[];
 }
