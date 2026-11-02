@@ -12,6 +12,13 @@ export const regiao: RegiaoSection[] = [
     },
     image: "/images/castelo-montalegre-vista.jpg",
     distance: null,
+    stay: {
+      slug: "casa-de-campo-o-castelo",
+      text: {
+        pt: "Dormir ao pé das muralhas: Casa de Campo O Castelo",
+        en: "Stay at the foot of the walls: Casa de Campo O Castelo",
+      },
+    },
   },
   {
     title: {
@@ -63,6 +70,13 @@ export const regiao: RegiaoSection[] = [
     },
     image: "/images/parapente-larouco.jpg",
     distance: { pt: "~10–30 min de Montalegre", en: "~10–30 min from Montalegre" },
+    stay: {
+      slug: "casa-do-moinho",
+      text: {
+        pt: "Ficar à beira do rio, com espaço para o grupo todo: Casa do Moinho",
+        en: "Stay by the river, with room for the whole group: Casa do Moinho",
+      },
+    },
   },
   {
     title: {
@@ -87,6 +101,13 @@ export const regiao: RegiaoSection[] = [
     },
     image: "/images/bruxas.jpg",
     distance: null,
+    stay: {
+      slug: "casa-de-campo-o-castelo",
+      text: {
+        pt: "Ficar no meio da festa: Casa de Campo O Castelo",
+        en: "Stay in the middle of it all: Casa de Campo O Castelo",
+      },
+    },
   },
   {
     title: {
@@ -94,8 +115,8 @@ export const regiao: RegiaoSection[] = [
       en: "At the Table — Barrosã Beef and Fumeiro",
     },
     body: {
-      pt: "A vaca barrosã, de cornos largos em forma de lira, é a raça da terra, criada nos lameiros do planalto entre Montalegre e Boticas. A carne tem Denominação de Origem Protegida, e nos restaurantes da vila pede-se em posta, grelhada na brasa. Ao lado vem a batata da terra, e no inverno o cozido barrosão leva tudo o que o fumeiro dá. Para quem fica na Casa do Castelo, o Restaurante O Castelo é logo no rés-do-chão.",
-      en: "The Barrosã cow, with its wide lyre-shaped horns, is the local breed, raised on the plateau meadows between Montalegre and Boticas. The beef has Protected Designation of Origin status, and in town it's ordered as a posta, a thick steak grilled over embers. It comes with local potatoes, and in winter the cozido barrosão, a slow-cooked stew, takes in everything the smokehouse has to offer. If you're staying at Casa do Castelo, O Castelo restaurant is right downstairs.",
+      pt: "A vaca barrosã, de cornos largos em forma de lira, é a raça da terra, criada nos lameiros do planalto entre Montalegre e Boticas. A carne tem Denominação de Origem Protegida, e nos restaurantes da vila pede-se em posta, grelhada na brasa. Ao lado vem a batata da terra, e no inverno o cozido barrosão leva tudo o que o fumeiro dá. Quem fica na Casa de Campo O Castelo tem o restaurante da família logo no rés-do-chão.",
+      en: "The Barrosã cow, with its wide lyre-shaped horns, is the local breed, raised on the plateau meadows between Montalegre and Boticas. The beef has Protected Designation of Origin status, and in town it's ordered as a posta, a thick steak grilled over embers. It comes with local potatoes, and in winter the cozido barrosão, a slow-cooked stew, takes in everything the smokehouse has to offer. If you're staying at Casa de Campo O Castelo, the family's restaurant is right downstairs.",
     },
     image: "/images/gastronomy.jpg",
     distance: null,

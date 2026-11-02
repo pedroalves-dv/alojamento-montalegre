@@ -1,7 +1,7 @@
 {
   "Home": {
     "heroHeadline1": "Montalegre, entre o rio e o castelo.",
-    "heroTagline": "Duas casas no Barroso, norte de Portugal.\nUma à beira do rio, outra no centro histórico.",
+    "heroTagline": "Uma casa de férias e uma casa de campo em Montalegre, perto do Gerês.\nUma à beira do rio, outra no centro histórico.",
     "ctaVerCasas": "Ver Casas",
     "ctaConhecerRegiao": "Descobrir a Região",
     "propertiesHeading": "As nossas casas",
@@ -10,7 +10,7 @@
     "propertyRooms": "{count} quartos",
     "regionHeading": "Montalegre e o Barroso",
     "regionBody": "Planalto de granito, lameiros, aldeias com forno do povo e moinhos de água. Montalegre é a vila do Barroso, no norte de Trás-os-Montes, e cerca de um quarto do concelho fica dentro do Parque Nacional da Peneda-Gerês.",
-    "regionCta": "Descobrir a região",
+    "regionCta": "O que fazer em Montalegre",
     "faqHeading": "Perguntas frequentes",
     "whatsappHeading": "Fale connosco",
     "whatsappBody": "Ligue-nos ou envie uma mensagem pelo WhatsApp com as datas e o número de pessoas. Respondemos em menos de 24 horas.",
@@ -46,7 +46,7 @@
     "creditsLink": "Créditos das imagens"
   },
   "Regiao": {
-    "heroHeadline1": "Terras de Barroso",
+    "heroHeadline1": "Montalegre e as Terras de Barroso",
     "heroTagline": "Planalto, serra e rio no norte de Portugal, à volta de Montalegre.",
     "introHeading": "Uma região fora do tempo",
     "introBody": "Montalegre fica no alto de Trás-os-Montes, perto dos mil metros de altitude e encostada à Galiza. À volta da vila estende-se o Barroso: um planalto de granito, lameiros e carvalhais, onde o gado barrosão pasta ao ar livre e as aldeias guardam o forno do povo, o moinho e a memória da vezeira. Em 2018, a FAO reconheceu este modo de vida como Património Agrícola Mundial — o primeiro em Portugal. Cerca de um quarto do concelho está dentro do Parque Nacional da Peneda-Gerês. Os invernos são frios e às vezes neva; o verão traz dias quentes e noites frescas. E há dois momentos em que a vila enche: a Feira do Fumeiro, em janeiro, e cada sexta-feira 13.",
@@ -71,6 +71,7 @@
     "winterNote": "Frio a sério e neve possível. É o tempo da matança e do fumeiro, com a Feira em janeiro. Lareira sempre acesa.",
     "winterPlace": "Pitões das Júnias",
     "gettingHereHeading": "Como Chegar",
+    "whereToStayHeading": "Onde Ficar em Montalegre",
     "fromPortoLabel": "Porto",
     "fromPortoDetail": "~2h de carro pela A3 / N103",
     "fromBragaLabel": "Braga",
@@ -141,6 +142,8 @@
     "callButton": "Ligar",
     "amenitiesShowAll": "Ver todas as comodidades ({count})",
     "locationNearbyHeading": "Localização e arredores",
+    "regionLink": "O que fazer em Montalegre",
+    "otherHouseLink": "A nossa outra casa: {name}",
     "descriptionHeadingRooms": "Sobre os quartos",
     "bookingHeadingRooms": "Reservar um quarto",
     "guestRooms": "{count} quartos",

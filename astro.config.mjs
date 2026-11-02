@@ -45,9 +45,10 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      i18n: { defaultLocale: "pt", locales: { pt: "pt-PT", en: "en" } },
-      // The bare "/" is only a redirect to /pt; /creditos is noindex, so it stays out of the sitemap too
-      filter: (page) => page !== "https://alojamentomontalegre.pt/" && !page.includes("/creditos"),
+      // No hreflang here: each page's <head> carries the full set (with x-default), and the
+      // plugin can only pair pages with the same path, which /pt/regiao and /en/region aren't.
+      // The bare "/" is only a redirect to /pt; the credits page is noindex, so it stays out of the sitemap too
+      filter: (page) => page !== "https://alojamentomontalegre.pt/" && !/\/(creditos|credits)$/.test(page),
     }),
   ],
 

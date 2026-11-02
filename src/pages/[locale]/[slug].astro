@@ -12,7 +12,7 @@ import MapEmbed from "@/components/ui/MapEmbed.astro";
 import Icon, { type IconName } from "@/components/ui/Icon.astro";
 import { config } from "@/config";
 import { properties } from "@/data/properties";
-import { locales, useTranslations, type Locale } from "@/i18n";
+import { locales, pageHref, useTranslations, type Locale } from "@/i18n";
 import { resolveImages } from "@/lib/images";
 import { absoluteUrl, telHref } from "@/lib/links";
 import { breadcrumbs, lodging } from "@/lib/schema";
@@ -42,6 +42,7 @@ const waMessage = property.whatsappMessage?.[locale] ?? null;
 const phone = property.phone ?? config.phoneNumber;
 const bookingNote = t(waMessage ? "bookingDirectNote" : "bookingPhoneNote");
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${property.coordinates.lat},${property.coordinates.lng}`;
+const otherHouse = properties.find((p) => p.slug !== property.slug);
 
 const images = await resolveImages(property.images);
 const schemaImages = await Promise.all(
@@ -59,6 +60,7 @@ const AMENITIES_SHOWN = 8;
 const amenities = property.amenities[locale];
 const sectionClass = "py-12 md:py-14 border-t border-granite/10";
 const amenityItem = "flex items-center gap-2.5 text-body";
+const moreLink = "group inline-flex items-center gap-1.5 self-start text-sm text-amber-deep font-medium hover:underline";
 ---
 
 <BaseLayout
@@ -193,6 +195,21 @@ const amenityItem = "flex items-center gap-2.5 text-body";
           class="h-[340px]"
           data-print-hidden
         />
+        <!-- Links on to the region guide and the other house -->
+        <div class="mt-6 flex flex-col sm:flex-row gap-x-8 gap-y-3" data-print-hidden>
+          <a href={pageHref(locale, "regiao")} class={moreLink}>
+            {t("regionLink")}
+            <Icon name="arrow-right" size={14} class="transition-transform group-hover:translate-x-0.5" />
+          </a>
+          {
+            otherHouse && (
+              <a href={`/${locale}/${otherHouse.slug}`} class={moreLink}>
+                {t("otherHouseLink", { name: otherHouse.name[locale] })}
+                <Icon name="arrow-right" size={14} class="transition-transform group-hover:translate-x-0.5" />
+              </a>
+            )
+          }
+        </div>
       </section>
 
       <PropertyPolicies property={property} locale={locale} />

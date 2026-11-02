@@ -1,6 +1,6 @@
 import type { FAQItem } from "@/types/faq";
 import type { Property } from "@/types/property";
-import type { Locale } from "@/i18n";
+import { htmlLang, type Locale } from "@/i18n";
 import { absoluteUrl } from "./links";
 
 type Crumb = { name: string; path: string };
@@ -37,24 +37,35 @@ const firstTime = (range: string) => range.split(/[–-]/)[0]!.trim();
 /** For check-out, the last time in a range is the deadline; "08:00–11:00" → "11:00". */
 const lastTime = (range: string) => range.split(/[–-]/).at(-1)!.trim();
 
-/** `@id` of the site-wide LocalBusiness (BaseLayout), which each house belongs to. */
-export const businessId = absoluteUrl("/#business");
+/** WebSite markup for the home pages: tells Google the site's name for its results. */
+export function website(locale: Locale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Alojamento Montalegre",
+    url: absoluteUrl("/"),
+    inLanguage: htmlLang[locale],
+  };
+}
 
 // Plain LodgingBusiness: Google's VacationRental type needs fields we don't have (listing ids,
 // per-unit occupancy) and only produces rich results for its partner programme.
 export function lodging(property: Property, locale: Locale, imageUrls: string[]) {
   const [street, , postalCode] = property.address.pt.split(",").map((s) => s.trim());
   const url = absoluteUrl(`/${locale}/${property.slug}`);
+  // The house's Google profile and listings, so Google ties this page to the same place
+  const sameAs = [property.google?.url, property.booking.url, property.airbnbUrl].filter(Boolean);
   return {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
-    "@id": `${url}#lodging`,
+    // One id per house, the same in both languages: it's one place
+    "@id": absoluteUrl(`/#${property.slug}`),
     name: property.name[locale],
     description: property.description[locale].split("\n\n")[0],
     url,
     image: imageUrls,
     telephone: property.phone,
-    parentOrganization: { "@id": businessId },
+    ...(sameAs.length > 0 && { sameAs }),
     ...(property.priceFrom !== null && { priceRange: `€${property.priceFrom}+` }),
     geo: {
       "@type": "GeoCoordinates",

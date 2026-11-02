@@ -7,8 +7,8 @@ export const faq: FAQItem[] = [
       en: "Which of the two houses should I choose?",
     },
     answer: {
-      pt: "Depende do que procura. A Casa do Moinho aluga-se inteira, para até 10 pessoas: fica à beira do rio, a cinco minutos de carro da vila, com jardim e churrasqueira, e é para quem quer sossego e natureza. A Casa do Castelo tem quatro quartos que se reservam à unidade, no centro histórico, ao pé do castelo e com o Restaurante O Castelo no rés-do-chão: é para quem quer fazer tudo a pé. Se tiver dúvidas, pergunte-nos.",
-      en: "It depends on what you're after. Casa do Moinho is rented as a whole house for up to 10: it's by the river, five minutes' drive from town, with a garden and barbecue, and it's for peace, quiet and nature. Casa do Castelo has four rooms, booked individually, in the old town at the foot of the castle, with O Castelo restaurant downstairs: it's for doing everything on foot. If you're unsure, just ask us.",
+      pt: "Depende do que procura. A Casa do Moinho aluga-se inteira, para até 10 pessoas: fica à beira do rio, a cinco minutos de carro da vila, com jardim e churrasqueira, e é para quem quer sossego e natureza. A Casa de Campo O Castelo tem quatro quartos que se reservam à unidade, no centro histórico, ao pé do castelo e com o Restaurante O Castelo no rés-do-chão: é para quem quer fazer tudo a pé. Se tiver dúvidas, pergunte-nos.",
+      en: "It depends on what you're after. Casa do Moinho is rented as a whole house for up to 10: it's by the river, five minutes' drive from town, with a garden and barbecue, and it's for peace, quiet and nature. Casa de Campo O Castelo has four rooms, booked individually, in the old town at the foot of the castle, with O Castelo restaurant downstairs: it's for doing everything on foot. If you're unsure, just ask us.",
     },
   },
   {
@@ -37,8 +37,8 @@ export const faq: FAQItem[] = [
       en: "Do I need a car?",
     },
     answer: {
-      pt: "Recomendamos. Na Casa do Castelo faz a vila toda a pé, mas para chegar a Montalegre e conhecer o Barroso — aldeias, trilhos, cascatas, barragens — o carro é quase indispensável. Os transportes públicos na região são poucos.",
-      en: "We'd recommend one. From Casa do Castelo you can walk everywhere in town, but to get to Montalegre and see Barroso — villages, trails, waterfalls, reservoirs — a car is close to essential. Public transport in the region is scarce.",
+      pt: "Recomendamos. Na Casa de Campo O Castelo faz a vila toda a pé, mas para chegar a Montalegre e conhecer o Barroso — aldeias, trilhos, cascatas, barragens — o carro é quase indispensável. Os transportes públicos na região são poucos.",
+      en: "We'd recommend one. From Casa de Campo O Castelo you can walk everywhere in town, but to get to Montalegre and see Barroso — villages, trails, waterfalls, reservoirs — a car is close to essential. Public transport in the region is scarce.",
     },
   },
   {
@@ -47,8 +47,8 @@ export const faq: FAQItem[] = [
       en: "Are pets allowed?",
     },
     answer: {
-      pt: "Na Casa do Moinho, os animais de estimação são bem-vindos — há espaço exterior de sobra. Na Casa do Castelo não são permitidos animais.",
-      en: "Pets are welcome at Casa do Moinho, where there's plenty of outdoor space. Pets are not allowed at Casa do Castelo.",
+      pt: "Na Casa do Moinho, os animais de estimação são bem-vindos — há espaço exterior de sobra. Na Casa de Campo O Castelo não são permitidos animais.",
+      en: "Pets are welcome at Casa do Moinho, where there's plenty of outdoor space. Pets are not allowed at Casa de Campo O Castelo.",
     },
   },
   {
@@ -87,8 +87,8 @@ export const faq: FAQItem[] = [
       en: "How do I book direct?",
     },
     answer: {
-      pt: "Para a Casa do Moinho, envie-nos uma mensagem pelo WhatsApp ou ligue-nos; para a Casa do Castelo, ligue para o 276 511 237. Diga-nos as datas, o número de pessoas e, na Casa do Castelo, quantos quartos. Sem plataformas pelo meio não há comissões, o que às vezes nos permite fazer um preço melhor ou ser mais flexíveis nas datas.",
-      en: "For Casa do Moinho, send us a WhatsApp message or give us a call; for Casa do Castelo, call +351 276 511 237. Tell us your dates, the number of guests and, for Casa do Castelo, how many rooms. With no platform in the middle there are no fees, which sometimes lets us offer a better price or more flexible dates.",
+      pt: "Para a Casa do Moinho, envie-nos uma mensagem pelo WhatsApp ou ligue-nos; para a Casa de Campo O Castelo, ligue para o 276 511 237. Diga-nos as datas, o número de pessoas e, na Casa de Campo O Castelo, quantos quartos. Sem plataformas pelo meio não há comissões, o que às vezes nos permite fazer um preço melhor ou ser mais flexíveis nas datas.",
+      en: "For Casa do Moinho, send us a WhatsApp message or give us a call; for Casa de Campo O Castelo, call +351 276 511 237. Tell us your dates, the number of guests and, for Casa de Campo O Castelo, how many rooms. With no platform in the middle there are no fees, which sometimes lets us offer a better price or more flexible dates.",
     },
   },
 ];

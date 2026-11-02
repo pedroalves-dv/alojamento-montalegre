@@ -1,6 +1,6 @@
 ---
 import { Picture } from "astro:assets";
-import { useTranslations, type Locale } from "@/i18n";
+import { pageHref, useTranslations, type Locale } from "@/i18n";
 import { resolveImage, imageFormats } from "@/lib/images";
 import Icon from "@/components/ui/Icon.astro";
 
@@ -28,7 +28,7 @@ const image = await resolveImage("/images/montalegre-castelo.jpg");
     <div>
       <h2 class="heading-2 text-granite mb-5">{t("regionHeading")}</h2>
       <p class="text-body leading-relaxed mb-8 max-w-prose">{t("regionBody")}</p>
-      <a href={`/${locale}/regiao`} class="btn-secondary group">
+      <a href={pageHref(locale, "regiao")} class="btn-secondary group">
         {t("regionCta")}
         <Icon name="arrow-right" class="transition-transform group-hover:translate-x-0.5" />
       </a>

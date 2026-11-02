@@ -5,8 +5,8 @@ export const properties: Property[] = [
     slug: "casa-do-moinho",
     name: { pt: "Casa do Moinho", en: "Casa do Moinho" },
     tagline: {
-      pt: "À beira do rio, a cinco minutos da vila",
-      en: "By the river, five minutes from town",
+      pt: "Casa de férias à beira do rio Cávado",
+      en: "Holiday house on the Cávado river",
     },
     description: {
       pt: "A Casa do Moinho fica à beira do rio Cávado, em Cambeses do Rio, a cinco minutos de carro do centro de Montalegre. Nasceu onde em tempos trabalhava um moinho de água: o edifício original já não existe, mas ficaram o nome, o rio e o sossego. Por dentro tem o conforto de uma casa de família, com cozinha equipada, lareira e WiFi.\n\nSão 160 m², cinco quartos e cinco casas de banho, para até dez pessoas — o tamanho certo para famílias grandes ou grupos de amigos que querem estar juntos sem estar em cima uns dos outros. Lá fora há jardim, terraço e churrasqueira, com vista para o rio e para a serra.\n\nÉ uma casa para abrandar: o som da água, um céu escuro e cheio de estrelas, a lareira ao fim do dia. Quando apetecer sair, a vila, o castelo e os trilhos do Barroso ficam perto.",
@@ -56,7 +56,7 @@ export const properties: Property[] = [
       ],
     },
     booking: {
-      url: "https://www.booking.com/Share-ppai1Z",
+      url: "https://www.booking.com/hotel/pt/casa-do-moinho-montalegre.html",
       score: "9.5",
       reviewCount: 4,
     },
@@ -188,16 +188,17 @@ export const properties: Property[] = [
     ],
   },
   {
-    slug: "casa-do-castelo",
-    name: { pt: "Casa do Castelo", en: "Casa do Castelo" },
+    slug: "casa-de-campo-o-castelo",
+    // The registered name (RNET), also used on its Google profile
+    name: { pt: "Casa de Campo O Castelo", en: "Casa de Campo O Castelo" },
     tagline: {
-      pt: "Quartos ao pé do castelo",
-      en: "Rooms at the foot of the castle",
+      pt: "Quartos ao pé do castelo de Montalegre",
+      en: "Rooms at the foot of Montalegre castle",
     },
     description: {
-      pt: "A Casa do Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, ao pé do castelo medieval. Não há casa mais perto dele: sai-se à porta e as muralhas estão ali à frente.\n\nTem quatro quartos, para até oito pessoas no total. Reserve um quarto para uma escapadinha a dois, ou vários para a família ou um grupo de amigos. Daqui faz-se a vila a pé: o castelo, a Igreja de Santa Maria do Castelo e as tascas ficam a poucos passos, e o carro fica no estacionamento gratuito até ao dia de ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a escolha certa para a Feira do Fumeiro ou uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
+      pt: "A Casa de Campo O Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, ao pé do castelo medieval. Não há casa mais perto dele: sai-se à porta e as muralhas estão ali à frente.\n\nTem quatro quartos, para até oito pessoas no total. Reserve um quarto para uma escapadinha a dois, ou vários para a família ou um grupo de amigos. Daqui faz-se a vila a pé: o castelo, a Igreja de Santa Maria do Castelo e as tascas ficam a poucos passos, e o carro fica no estacionamento gratuito até ao dia de ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a escolha certa para a Feira do Fumeiro ou uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
 
-      en: "Casa do Castelo stands on Terreiro do Açougue, in Montalegre's old town, at the foot of the medieval castle. No house is closer to it: step out of the door and the walls are right in front of you.\n\nIt has four rooms, sleeping up to eight in total. Book one for a short break for two, or several for a family or a group of friends. From here you can walk the whole town: the castle, the Church of Santa Maria do Castelo and the tascas are a few steps away, and the car stays in the free parking until the day you head out to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the place to stay for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
+      en: "Casa de Campo O Castelo stands on Terreiro do Açougue, in Montalegre's old town, at the foot of the medieval castle. No house is closer to it: step out of the door and the walls are right in front of you.\n\nIt has four rooms, sleeping up to eight in total. Book one for a short break for two, or several for a family or a group of friends. From here you can walk the whole town: the castle, the Church of Santa Maria do Castelo and the tascas are a few steps away, and the car stays in the free parking until the day you head out to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the place to stay for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
     },
     capacity: 8,
     rooms: 4,
@@ -242,7 +243,7 @@ export const properties: Property[] = [
     },
     airbnbUrl: null,
     phone: "+351 276 511 237",
-    // The owner takes Casa do Castelo bookings on the landline only
+    // The owner takes Casa de Campo O Castelo bookings on the landline only
     whatsappMessage: null,
     seasonal: {
       pt: "Na Feira do Fumeiro e nas noites de sexta-feira 13 a vila enche — reserve com antecedência.",
@@ -338,8 +339,8 @@ export const properties: Property[] = [
       },
     ],
     address: {
-      pt: "Terreiro Açougue nº1, Montalegre, 5470-250",
-      en: "Terreiro Açougue nº1, Montalegre, 5470-250",
+      pt: "Terreiro do Açougue n.º 1, Montalegre, 5470-250",
+      en: "Terreiro do Açougue n.º 1, Montalegre, 5470-250",
     },
     gettingHereNote: {
       pt: "A casa fica no coração histórico de Montalegre, mesmo ao lado do Castelo. O GPS funciona bem até à propriedade. Estacionamento gratuito disponível no local.",
@@ -347,8 +348,8 @@ export const properties: Property[] = [
     },
     seo: {
       title: {
-        pt: "Casa do Castelo · Quartos junto ao Castelo de Montalegre",
-        en: "Casa do Castelo · Rooms by Montalegre Castle",
+        pt: "Casa de Campo O Castelo · Quartos junto ao Castelo, Montalegre",
+        en: "Casa de Campo O Castelo · Guest Rooms by Montalegre Castle",
       },
       description: {
         pt: "Quatro quartos no centro histórico de Montalegre, ao pé do castelo, com o Restaurante O Castelo no rés-do-chão. Estacionamento gratuito. Reserve por telefone.",

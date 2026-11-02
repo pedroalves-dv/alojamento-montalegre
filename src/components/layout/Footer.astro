@@ -1,7 +1,7 @@
 ---
 import { config } from "@/config";
 import { properties } from "@/data/properties";
-import { useTranslations, type Locale } from "@/i18n";
+import { pageHref, useTranslations, type Locale } from "@/i18n";
 import { telHref, whatsappHref } from "@/lib/links";
 import Logo from "@/components/ui/Logo.astro";
 import LocaleToggle from "@/components/ui/LocaleToggle.astro";
@@ -48,8 +48,8 @@ const licences = properties.filter((p) => p.licenseNumber);
           </a>
         ))
       }
-      <a href={`${home}/regiao`} class={linkClass}>{t("regiao")}</a>
-      <a href={`${home}/contacto`} class={linkClass}>{t("contacto")}</a>
+      <a href={pageHref(locale, "regiao")} class={linkClass}>{t("regiao")}</a>
+      <a href={pageHref(locale, "contacto")} class={linkClass}>{t("contacto")}</a>
     </nav>
 
     <div class="flex flex-col gap-3">
@@ -104,7 +104,7 @@ const licences = properties.filter((p) => p.licenseNumber);
       <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-x-8 gap-y-3">
         <p class="max-w-prose">{t("cookieNotice")}</p>
         <a
-          href={`/${locale}/creditos`}
+          href={pageHref(locale, "creditos")}
           class="self-start sm:self-auto inline-flex items-center gap-1.5 whitespace-nowrap hover:text-fog transition-colors"
         >
           {t("creditsLink")}

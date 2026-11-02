@@ -5,13 +5,15 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import MapEmbed from "@/components/ui/MapEmbed.astro";
 import Icon, { type IconName } from "@/components/ui/Icon.astro";
 import NextFriday13 from "@/components/ui/NextFriday13.astro";
+import PropertyCard from "@/components/home/PropertyCard.astro";
+import { properties } from "@/data/properties";
 import { regiao } from "@/data/regiao";
 import { seo } from "@/data/seo";
-import { localeParams, useTranslations, type Locale } from "@/i18n";
+import { pageParams, pagePaths, useTranslations, type Locale } from "@/i18n";
 import { resolveImage, resolveImages, imageFormats } from "@/lib/images";
 import { breadcrumbs } from "@/lib/schema";
 
-export const getStaticPaths = localeParams;
+export const getStaticPaths = () => pageParams("regiao");
 
 const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale, "Regiao");
@@ -69,9 +71,9 @@ const h2 = "heading-2 text-granite";
   locale={locale}
   title={seo.regiao.title[locale]}
   description={seo.regiao.description[locale]}
-  path="/regiao"
+  path={pagePaths.regiao}
   ogImage="regiao"
-  jsonLd={[breadcrumbs(locale, [{ name: tNav("regiao"), path: "/regiao" }])]}
+  jsonLd={[breadcrumbs(locale, [{ name: tNav("regiao"), path: pagePaths.regiao[locale] }])]}
 >
   <PageHero image={heroImage} alt={t("heroAlt")} position="78% center" overlay={0.5} headline={t("heroHeadline1")} text={t("heroTagline")} />
 
@@ -121,6 +123,12 @@ const h2 = "heading-2 text-granite";
                 </p>
               )}
               <p class="text-body leading-relaxed max-w-prose">{section.body[locale]}</p>
+              {section.stay && (
+                <a href={`/${locale}/${section.stay.slug}`} class="group mt-5 inline-flex items-center gap-1.5 text-sm text-amber-deep font-medium hover:underline">
+                  {section.stay.text[locale]}
+                  <Icon name="arrow-right" size={14} class="transition-transform group-hover:translate-x-0.5" />
+                </a>
+              )}
             </div>
           </div>
         </section>
@@ -204,6 +212,15 @@ const h2 = "heading-2 text-granite";
         }
       </div>
       <MapEmbed locale={locale} lat={MONTALEGRE.lat} lng={MONTALEGRE.lng} zoom={13} title={t("mapTitle")} class="h-[320px]" />
+    </div>
+  </section>
+
+  <section class="border-t border-granite/10 bg-white/50">
+    <div class="container-site section-y">
+      <h2 class:list={[h2, "mb-8 md:mb-12"]}>{t("whereToStayHeading")}</h2>
+      <div class="grid gap-6 md:grid-cols-2 md:gap-8">
+        {properties.map((property) => <PropertyCard property={property} locale={locale} />)}
+      </div>
     </div>
   </section>
 </BaseLayout>

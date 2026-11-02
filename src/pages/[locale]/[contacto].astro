@@ -6,11 +6,11 @@ import { config } from "@/config";
 import { properties } from "@/data/properties";
 import { faq } from "@/data/faq";
 import { seo } from "@/data/seo";
-import { localeParams, useTranslations, type Locale } from "@/i18n";
+import { pageParams, pagePaths, useTranslations, type Locale } from "@/i18n";
 import { telHref, whatsappHref } from "@/lib/links";
 import { breadcrumbs } from "@/lib/schema";
 
-export const getStaticPaths = localeParams;
+export const getStaticPaths = () => pageParams("contacto");
 
 const locale = Astro.params.locale as Locale;
 const t = useTranslations(locale, "Contacto");
@@ -21,9 +21,9 @@ const tNav = useTranslations(locale, "Nav");
   locale={locale}
   title={seo.contacto.title[locale]}
   description={seo.contacto.description[locale]}
-  path="/contacto"
+  path={pagePaths.contacto}
   ogImage="contacto"
-  jsonLd={[breadcrumbs(locale, [{ name: tNav("contacto"), path: "/contacto" }])]}
+  jsonLd={[breadcrumbs(locale, [{ name: tNav("contacto"), path: pagePaths.contacto[locale] }])]}
 >
   <section class="container-site pt-12 md:pt-20">
     <h1 class="heading-1 text-granite">{t("heading")}</h1>

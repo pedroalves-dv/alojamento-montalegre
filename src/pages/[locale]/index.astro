@@ -8,9 +8,9 @@ import WhatsAppCTA from "@/components/home/WhatsAppCTA.astro";
 import { properties } from "@/data/properties";
 import { faq } from "@/data/faq";
 import { seo } from "@/data/seo";
-import { localeParams, useTranslations, type Locale } from "@/i18n";
+import { localeParams, pageHref, useTranslations, type Locale } from "@/i18n";
 import { resolveImage } from "@/lib/images";
-import { breadcrumbs, faqPage } from "@/lib/schema";
+import { faqPage, website } from "@/lib/schema";
 
 export const getStaticPaths = localeParams;
 
@@ -26,7 +26,7 @@ const heroImage = await resolveImage("/images/casa-do-moinho/1.jpg");
   description={seo.home.description[locale]}
   path=""
   ogImage="home"
-  jsonLd={[breadcrumbs(locale), faqPage(faq, locale)]}
+  jsonLd={[website(locale), faqPage(faq, locale)]}
 >
   <PageHero
     image={heroImage}
@@ -35,7 +35,7 @@ const heroImage = await resolveImage("/images/casa-do-moinho/1.jpg");
     text={t("heroTagline")}
   >
     <a href={`/${locale}#casas`} class="btn-light">{t("ctaVerCasas")}</a>
-    <a href={`/${locale}/regiao`} class="btn-outline-light">{t("ctaConhecerRegiao")}</a>
+    <a href={pageHref(locale, "regiao")} class="btn-outline-light">{t("ctaConhecerRegiao")}</a>
   </PageHero>
 
   <section id="casas" class="container-site section-y">

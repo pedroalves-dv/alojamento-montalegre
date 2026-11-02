@@ -1,6 +1,6 @@
 ---
 import type { Property } from "@/types/property";
-import { cleanPath, useTranslations, type Locale } from "@/i18n";
+import { cleanPath, pageHref, useTranslations, type Locale } from "@/i18n";
 import Logo from "@/components/ui/Logo.astro";
 import LocaleToggle from "@/components/ui/LocaleToggle.astro";
 import Icon from "@/components/ui/Icon.astro";
@@ -18,8 +18,8 @@ const home = `/${locale}`;
 const isHome = pathname === home;
 const isCasasActive = isHome || properties.some((p) => pathname === `${home}/${p.slug}`);
 const otherLinks = [
-  { key: "regiao", href: `${home}/regiao` },
-  { key: "contacto", href: `${home}/contacto` },
+  { key: "regiao", href: pageHref(locale, "regiao") },
+  { key: "contacto", href: pageHref(locale, "contacto") },
 ] as const;
 
 const linkClass = (active: boolean) =>

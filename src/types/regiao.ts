@@ -5,4 +5,6 @@ export interface RegiaoSection {
   body: LocalizedString;
   image: string;
   distance: LocalizedString | null;
+  /** Link to the house that suits this part of the region best. */
+  stay?: { slug: string; text: LocalizedString };
 }

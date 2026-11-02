@@ -1,2 +1,9 @@
 # Cloudflare Workers static assets. "/" has no page of its own (Portuguese is the default locale).
-/ /pt 302
+/ /pt 301
+
+# Old addresses from before launch (2026-11-02), in case a link to them was already shared
+/en/regiao /en/region 301
+/en/contacto /en/contact 301
+/en/creditos /en/credits 301
+/pt/casa-do-castelo /pt/casa-de-campo-o-castelo 301
+/en/casa-do-castelo /en/casa-de-campo-o-castelo 301

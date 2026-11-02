@@ -14,60 +14,45 @@ interface PageSeo {
 
 export const seo: {
   site: {
-    titleDefault: Lang;
     titleTemplate: string;
-    description: Lang;
-    localBusinessDescription: Lang;
   };
   home: PageSeo;
   regiao: PageSeo;
   contacto: PageSeo;
 } = {
   site: {
-    titleDefault: {
-      pt: "Alojamento Montalegre — Casas de Turismo Rural",
-      en: "Alojamento Montalegre — Rural Holiday Houses",
-    },
     titleTemplate: "%s | Alojamento Montalegre",
-    description: {
-      pt: "Duas casas de turismo rural em Montalegre, no Barroso: uma à beira do rio Cávado, outra junto ao castelo medieval. Às portas do Parque Nacional da Peneda-Gerês. Reserva direta.",
-      en: "Two rural holiday houses in Montalegre, northern Portugal: one by the Cávado river, one beside the medieval castle. On the edge of Peneda-Gerês National Park. Book direct, no fees.",
-    },
-    localBusinessDescription: {
-      pt: "Duas casas de turismo rural em Montalegre, norte de Portugal — Casa do Moinho à beira do rio e Casa do Castelo junto ao castelo medieval. Reserva direta disponível.",
-      en: "Two rural holiday houses in Montalegre, northern Portugal — Casa do Moinho by the river and Casa do Castelo next to the medieval castle. Direct booking available.",
-    },
   },
 
   home: {
     title: {
-      pt: "Alojamento Montalegre — Casas de Turismo Rural",
-      en: "Alojamento Montalegre — Rural Holiday Houses",
+      pt: "Alojamento Montalegre — Casa de Férias e Quartos perto do Gerês",
+      en: "Holiday Accommodation in Montalegre | Alojamento Montalegre",
     },
     description: {
-      pt: "Casa do Moinho, casa inteira à beira do rio Cávado, e Casa do Castelo, quatro quartos ao pé do castelo de Montalegre. No Barroso, norte de Portugal. Reserve diretamente, sem comissões.",
-      en: "Casa do Moinho, a whole house by the Cávado river, and Casa do Castelo, four rooms at the foot of Montalegre castle. In Barroso, northern Portugal. Book direct, no fees.",
+      pt: "Casa do Moinho, casa inteira para 10 à beira do rio Cávado, e Casa de Campo O Castelo, quartos junto ao castelo. Montalegre, perto do Gerês. Reserva direta.",
+      en: "Casa do Moinho, a whole house for 10 on the Cávado river, and Casa de Campo O Castelo, rooms by the castle. Montalegre, near Gerês. Book direct, no fees.",
     },
     og: {
       headline: {
-        pt: "Casas de Turismo Rural\nem Montalegre",
-        en: "Rural Holiday Houses\nin Montalegre",
+        pt: "Alojamento\nem Montalegre",
+        en: "Holiday Accommodation\nin Montalegre",
       },
       subline: {
-        pt: "Montalegre · Barroso · Portugal",
-        en: "Montalegre · Barroso · Portugal",
+        pt: "Montalegre · Gerês · Portugal",
+        en: "Montalegre · Gerês · Portugal",
       },
     },
   },
 
   regiao: {
     title: {
-      pt: "Montalegre, Trás-os-Montes — O Que Ver e Fazer",
-      en: "Montalegre, Northern Portugal — What to See and Do",
+      pt: "O Que Fazer em Montalegre e no Gerês",
+      en: "Things to Do in Montalegre and Gerês",
     },
     description: {
-      pt: "O que ver e fazer em Montalegre e no Barroso, em Trás-os-Montes: castelo medieval, Parque Nacional da Peneda-Gerês, Alto Rabagão, Feira do Fumeiro, Sexta 13 e carne barrosã.",
-      en: "What to see and do in Montalegre and Barroso, northern Portugal: medieval castle, Peneda-Gerês National Park, Alto Rabagão, the Fumeiro Fair, Friday the 13th and Barrosã beef.",
+      pt: "O que ver e fazer em Montalegre: o castelo, o Parque Nacional da Peneda-Gerês, o Alto Rabagão, a Feira do Fumeiro, a Sexta 13 e a carne barrosã. Guia local.",
+      en: "What to see and do in Montalegre: the castle, Peneda-Gerês National Park, Alto Rabagão, the Fumeiro Fair, Friday the 13th and Barrosã beef. A local guide.",
     },
     og: {
       eyebrow: {
@@ -87,12 +72,12 @@ export const seo: {
 
   contacto: {
     title: {
-      pt: "Contacto — Reserva Direta",
-      en: "Contact — Direct Booking",
+      pt: "Contacto e Reservas",
+      en: "Contact and Bookings",
     },
     description: {
-      pt: "Reserve diretamente por WhatsApp ou telefone. Respondemos em menos de 24 horas.",
-      en: "Book directly by WhatsApp or phone. We respond within 24 hours.",
+      pt: "Reserve as nossas casas em Montalegre diretamente, sem comissões: Casa do Moinho por WhatsApp ou telefone, Casa de Campo O Castelo por telefone.",
+      en: "Book our houses in Montalegre direct, with no fees: Casa do Moinho by WhatsApp or phone, Casa de Campo O Castelo by phone. We reply within 24 hours.",
     },
     og: {
       eyebrow: {

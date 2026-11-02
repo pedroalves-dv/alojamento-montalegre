@@ -17,6 +17,28 @@ export function localeParams() {
   return locales.map((locale) => ({ params: { locale } }));
 }
 
+/** Path of each fixed page in each locale. House pages use their slug in both. */
+export const pagePaths = {
+  regiao: { pt: "/regiao", en: "/region" },
+  contacto: { pt: "/contacto", en: "/contact" },
+  creditos: { pt: "/creditos", en: "/credits" },
+} as const satisfies Record<string, Record<Locale, string>>;
+
+export type Page = keyof typeof pagePaths;
+
+/** Link to a fixed page, e.g. pageHref("en", "regiao") → "/en/region". */
+export function pageHref(locale: Locale, page: Page) {
+  return `/${locale}${pagePaths[page][locale]}`;
+}
+
+/**
+ * `getStaticPaths` helper for a fixed page. Its file is named after the page key, e.g.
+ * `[locale]/[regiao].astro`, so the same file builds /pt/regiao and /en/region.
+ */
+export function pageParams(page: Page) {
+  return locales.map((locale) => ({ params: { locale, [page]: pagePaths[page][locale].slice(1) } }));
+}
+
 /**
  * Returns a translator bound to one namespace of the message files.
  * Placeholders use `{name}` syntax: t("propertyPersons", { count: 10 }).
@@ -39,10 +61,13 @@ export function cleanPath(pathname: string) {
 }
 
 /**
- * Path for the same page in another locale, e.g. /pt/regiao → /en/regiao.
+ * Path for the same page in another locale, e.g. /pt/regiao → /en/region.
  * Pages outside the locale tree (e.g. /404) have no counterpart, so they get its home.
  */
 export function switchLocalePath(pathname: string, target: Locale) {
-  const rest = cleanPath(pathname).match(/^\/(?:pt|en)(\/.*)?$/);
-  return `/${target}${rest?.[1] ?? ""}`;
+  const match = cleanPath(pathname).match(/^\/(pt|en)(\/.*)?$/);
+  if (!match) return `/${target}`;
+  const [, from, rest = ""] = match as [string, Locale, string?];
+  const page = Object.values(pagePaths).find((paths) => paths[from] === rest);
+  return `/${target}${page ? page[target] : rest}`;
 }

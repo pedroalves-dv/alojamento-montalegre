@@ -49,7 +49,7 @@ export interface Property {
   /** Show the date of the next Friday the 13th under the seasonal note (the town's busiest night). */
   showNextFriday13?: boolean;
   priceFrom: number | null;
-  /** Whole house, or room by room (Casa do Castelo): sets the page's wording and what priceFrom buys. */
+  /** Whole house, or room by room (Casa de Campo O Castelo): sets the page's wording and what priceFrom buys. */
   rentedBy: "house" | "room";
   currency: string;
   minStay: number;

@@ -5,7 +5,7 @@ in `docs/legal/private/`, which is git-ignored: they carry personal data (taxpay
 email addresses) and this repository is public. Keep a second copy outside this computer
 (e.g. Google Drive).
 
-## Casa do Castelo
+## Casa de Campo O Castelo
 
 **RNET n.º 5723** — shown on the site (`licenseNumber` in `src/data/properties.ts`).
 

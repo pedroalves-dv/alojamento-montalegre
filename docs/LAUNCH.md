@@ -11,7 +11,7 @@ Production launch plan. Work through phases in order. Each phase has a prompt yo
 
 ## What's already done
 
-- All 5 pages built and rendering (Home, Casa do Moinho, Casa do Castelo, Região, Contacto)
+- All 5 pages built and rendering (Home, Casa do Moinho, Casa de Campo O Castelo, Região, Contacto)
 - Real property photos in place — no Unsplash placeholders
 - All written content complete (PT + EN): descriptions, FAQ, region guide, amenities
 - OG images generated per page and locale, as ~100 KB JPEGs (small enough for WhatsApp previews)
@@ -25,6 +25,24 @@ mobile 100 in accessibility, best practices and SEO (SEO checked with indexing o
 and external links working; keyboard navigation checked; a house page prints on 2 pages with
 all amenities, address and phone. Mobile LCP ~2.9 s on Lighthouse-style slow 4G at 3× DPR,
 CLS 0. Re-run Lighthouse and the validator after the new photos go in.
+
+**SEO pass ✅ (2026-11-02):**
+- Casa de Campo O Castelo now uses its registered name (RNET, Google profile) everywhere,
+  at `/pt/casa-de-campo-o-castelo`, with the register's address spelling.
+- English pages have English addresses: `/en/region`, `/en/contact`, `/en/credits`
+  (`pagePaths` in `src/i18n/index.ts`). Old addresses 301 in `public/_redirects`.
+- Titles and descriptions within Google's display limits; "Gerês" in place of "Barroso";
+  plain words ("casa de férias", "holiday accommodation") in the hero, taglines and headings.
+- No "turismo rural" for the site as a whole: Casa do Moinho is Alojamento Local, and AL
+  can't present itself as a tourism-enterprise type (TER). **Ask the accountant** before
+  using the term; Casa de Campo O Castelo (TER) may.
+- Structured data: the site-wide `LocalBusiness` (a third "place" with a made-up pin) is gone.
+  Home pages carry `WebSite` (site name in results); each house is one `LodgingBusiness` with
+  the same `@id` in both languages and `sameAs` to its Google profile / Booking.com listing.
+- Internal links: região → the houses (per section + "Onde Ficar em Montalegre"), house →
+  região and the other house.
+- `/` → `/pt` is now a 301. Hreflang lives in each page's `<head>` only, not the sitemap.
+- Still to do with the new photos: alt text and descriptive file names for every photo.
 
 ---
 
@@ -42,7 +60,7 @@ optimised at build time (AVIF/WebP), and the review's bug list fixed.
 houses are registered differently:
 
 - **Casa do Moinho** is *Alojamento Local* (DL 128/2014): number ends in `/AL`.
-- **Casa do Castelo** is an *Empreendimento Turístico* — Turismo no Espaço Rural, "Casa de Campo"
+- **Casa de Campo O Castelo** is an *Empreendimento Turístico* — Turismo no Espaço Rural, "Casa de Campo"
   (DL 39/2008), per its Alvará de Autorização de Utilização n.º 15/10 (Câmara de Montalegre,
   2010). Its number is an **RNET** number from Turismo de Portugal, not the alvará number and not
   an `/AL` number. Look it up on the public register https://rnt.turismodeportugal.pt (RNET →
@@ -50,9 +68,9 @@ houses are registered differently:
   `RNET n.º <number>`.
 
 - ✅ Casa do Moinho: `120536/AL`
-- ✅ Casa do Castelo: `RNET n.º 5723` (see [legal/README.md](legal/README.md))
+- ✅ Casa de Campo O Castelo: `RNET n.º 5723` (see [legal/README.md](legal/README.md))
 
-**To add it:** set `licenseNumber: "<number>"` on Casa do Castelo in `src/data/properties.ts` and run
+**To add it:** set `licenseNumber: "<number>"` on Casa de Campo O Castelo in `src/data/properties.ts` and run
 `npm run build`. It then shows up in the footer and in the house's "Check-in & Informações"
 section automatically.
 
@@ -62,11 +80,11 @@ section automatically.
 
 - ✅ Site phone / WhatsApp: `+351 935 663 060` (`src/config.ts`)
 - ✅ Casa do Moinho: Booking.com link + score, Google reviews link
-- ✅ Casa do Castelo: Google reviews link
-- ✅ Casa do Castelo: bookings on the landline `+351 276 511 237` only, no WhatsApp (owner's
+- ✅ Casa de Campo O Castelo: Google reviews link
+- ✅ Casa de Campo O Castelo: bookings on the landline `+351 276 511 237` only, no WhatsApp (owner's
   choice: `whatsappMessage: null`). Its page, its contact card and its schema use the landline;
   the site-wide footer keeps the main mobile / WhatsApp.
-- [ ] Casa do Castelo Booking.com URL / score / review count, if listed (now `null`: button hidden)
+- [ ] Casa de Campo O Castelo Booking.com URL / score / review count, if listed (now `null`: button hidden)
 - [ ] Airbnb URLs for either house, if listed (now `null`)
 
 All in `src/data/properties.ts`. After changing a number, run `npm run build` and test the
@@ -138,10 +156,13 @@ Re-run before launch day only if the code changes a lot in the meantime.
 4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.pt/sitemap-index.xml`
 
 Done (`src/lib/schema.ts`): each house is a `LodgingBusiness` with `numberOfRooms`,
-`amenityFeature`, `checkinTime`/`checkoutTime` and `priceRange` (from properties.ts), linked by
-`@id` to the site-wide `LocalBusiness`. Not `VacationRental`: Google only uses it for its
+`amenityFeature`, `checkinTime`/`checkoutTime` and `priceRange` (from properties.ts), and
+`sameAs` links to its Google profile and Booking.com listing. There is no site-wide
+`LocalBusiness`: Alojamento Montalegre is a shared website, not a place; the home pages carry
+`WebSite` markup instead. Not `VacationRental`: Google only uses it for its
 partner programme, and it needs listing ids we don't have. Each house's search title and
-description are `seo` in properties.ts. FAQPage markup is on the home page only.
+description are `seo` in properties.ts. FAQPage markup is on the home page only; since 2023
+Google shows FAQ rich results only for government and health sites, so expect no visible effect.
 No `aggregateRating`: the scores come from Booking.com, and Google doesn't allow ratings
 sourced from other sites. What's left is validating the live
 URLs at https://search.google.com/test/rich-results once the domain is connected.
@@ -150,29 +171,26 @@ URLs at https://search.google.com/test/rich-results once the domain is connected
 
 ## Phase 6 — Google Business Profile (manual, no Claude Code)
 
-**What:** The single highest-impact SEO action. Creates the listing that shows in Google Maps and the local knowledge panel.
+**What:** The profiles that show in Google Maps and the local panel. **Both already exist and are
+owned by the family** — Casa do Moinho (uncle) and Casa de Campo O Castelo (aunt). Don't create
+new ones: a duplicate splits the reviews and can get both suspended.
 
-**Steps:**
-1. Go to https://business.google.com → Add Business
-2. Create **two separate listings** (one per property):
+**Check each profile (about 15 minutes each):**
+- **Name** exactly the real name: `Casa do Moinho`, `Casa de Campo O Castelo`. Nothing added
+  (no "— Alojamento Montalegre"): Google suspends profiles with extra words in the name.
+- **Website**, at launch: the house's own page,
+  `https://alojamentomontalegre.pt/pt/casa-do-moinho` / `…/pt/casa-de-campo-o-castelo`.
+- **Address and phone** the same as on the site. O Castelo: Terreiro do Açougue n.º 1,
+  5470-250 Montalegre, `276 511 237`. Moinho: Cambeses do Rio, 5470-041, `935 663 060`.
+- **Category:** e.g. *Holiday home* (Moinho), *Country house* or *Guest house* (O Castelo).
+- **Description:** can say "perto do Gerês"; for the Moinho, avoid "turismo rural" (see the
+  SEO pass note above).
+- **Photos:** add the new ones once taken.
+- If Restaurante O Castelo has its own profile, that's fine: the rooms and the restaurant are
+  separate businesses in the same building.
 
-**Casa do Moinho:**
-- Business name: `Casa do Moinho — Alojamento Montalegre`
-- Category: Holiday Home (primary), Vacation Rental
-- Address: exact address of the property
-- Phone: real phone number
-- Website: `https://alojamentomontalegre.pt/pt/casa-do-moinho`
-- Description: copy the Portuguese tagline + first sentence of description from properties.ts
-- Photos: upload the photos from src/assets/images/casa-do-moinho/
-
-**Casa do Castelo:**
-- Same process with Casa do Castelo data
-- Website: `https://alojamentomontalegre.pt/pt/casa-do-castelo`
-- Photos: the photos from src/assets/images/casa-do-castelo/
-
-**After verification (usually 1-2 weeks by postcard or video call):**
-- Ask first guests to leave a Google review — link them directly to the GBP "Write a review" URL
-- Respond to every review (Google rewards engagement)
+**Ongoing:** ask guests for a Google review (the Moinho has only 4; review count matters most
+in Maps) and answer every review.
 
 ---
 
@@ -225,7 +243,7 @@ Google Workspace (~€7/user/month) only if they want a separate inbox.
 To check in person, then add to `src/data/properties.ts` (and the photos with `npm run images`).
 Indexing stays off until all of this is done.
 
-**Casa do Castelo** (4 rooms, 70 €/room/night, no pets: already on the site)
+**Casa de Campo O Castelo** (4 rooms, 70 €/room/night, no pets: already on the site)
 - [ ] Each room: beds (2 singles, or a double?), view, anything special. Then add a room list to the page.
 - [ ] Photos of each room, the bathrooms, the terrace and the restaurant.
 - [ ] Find the source of `casa-do-castelo/0.jpg` (castle photo, no EXIF): credit it or replace it.
@@ -292,9 +310,9 @@ Run through this before announcing the live domain publicly:
 | Sitemap | `@astrojs/sitemap` in `astro.config.mjs` (generates `sitemap-index.xml`) |
 | Robots | `src/pages/robots.txt.ts` |
 | OG images | `src/pages/og/[locale]/[page].jpg.ts` |
-| LocalBusiness schema | `src/layouts/BaseLayout.astro` |
-| Property / FAQ / breadcrumb schema | `src/lib/schema.ts` |
-| Redirect `/` → `/pt`, cache headers | `public/_redirects`, `public/_headers` |
+| Structured data (WebSite, houses, FAQ, breadcrumbs) | `src/lib/schema.ts` |
+| Page paths per language (`/pt/regiao` ↔ `/en/region`) | `src/i18n/index.ts` (`pagePaths`) |
+| Redirects (`/` → `/pt`, old addresses), cache headers | `public/_redirects`, `public/_headers` |
 
 ---
 
