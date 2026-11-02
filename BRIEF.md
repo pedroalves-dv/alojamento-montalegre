@@ -3,7 +3,7 @@
 Alojamento Montalegre — Claude Code Brief
 1. Project Overview
 Alojamento Montalegre is a two-property rural tourism rental site in Montalegre, Terras de Barroso, northern Portugal. The goal is a clean, beautiful, conversion-focused brochure site. Visitors should find the houses, trust the quality, and contact the owner via WhatsApp, phone, or Booking.com.
-Domain: alojamentomontalegre.com
+Domain: alojamentomontalegre.pt (alojamentomontalegre.com redirects to it)
 Keep it simple: No CMS, no database, no custom booking engine. All content lives in static TypeScript data files. Deployed to Vercel.
 
 2. Tech Stack

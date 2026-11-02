@@ -12,9 +12,9 @@
   },
   // No per-version preview addresses: they would be extra crawlable copies of the site
   "preview_urls": false,
-  // The real domain (DNS record and certificate are managed by Cloudflare). www is not listed:
-  // a Redirect Rule on the zone sends it here with a 301.
-  "routes": [{ "pattern": "alojamentomontalegre.com", "custom_domain": true }],
+  // The real domain (DNS record and certificate are managed by Cloudflare). www and the whole
+  // alojamentomontalegre.com are not listed: Redirect Rules on their zones send them here with a 301.
+  "routes": [{ "pattern": "alojamentomontalegre.pt", "custom_domain": true }],
   // Off: the custom domain is the only address, so search engines never see
   // a second copy of the site on *.workers.dev
   "workers_dev": false

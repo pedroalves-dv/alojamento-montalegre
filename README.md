@@ -1,6 +1,6 @@
 # Alojamento Montalegre
 
-Brochure site for two rural holiday houses in Montalegre, Portugal — <https://alojamentomontalegre.com>.
+Brochure site for two rural holiday houses in Montalegre, Portugal — <https://alojamentomontalegre.pt>.
 
 Static site built with [Astro](https://astro.build) + Tailwind CSS 4, in Portuguese (`/pt`, default) and English (`/en`).
 No CMS, no database, no client framework: content lives in typed data files and the output is plain HTML.

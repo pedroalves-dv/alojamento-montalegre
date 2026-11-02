@@ -4,7 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://alojamentomontalegre.com",
+  site: "https://alojamentomontalegre.pt",
   trailingSlash: "never",
   build: { format: "file" },
   // Fetch pages when a link is hovered or tapped, so navigation feels instant
@@ -47,7 +47,7 @@ export default defineConfig({
     sitemap({
       i18n: { defaultLocale: "pt", locales: { pt: "pt-PT", en: "en" } },
       // The bare "/" is only a redirect to /pt; /creditos is noindex, so it stays out of the sitemap too
-      filter: (page) => page !== "https://alojamentomontalegre.com/" && !page.includes("/creditos"),
+      filter: (page) => page !== "https://alojamentomontalegre.pt/" && !page.includes("/creditos"),
     }),
   ],
 
