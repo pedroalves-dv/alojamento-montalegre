@@ -3,8 +3,8 @@
 Production launch plan. Work through phases in order. Each phase has a prompt you can paste directly into Claude Code.
 
 **Hosting:** Cloudflare Workers, static assets (free plan; Vercel's free plan doesn't allow commercial sites)  
-**Live:** https://alojamentomontalegre.com (indexing blocked until launch)  
-**Target domain:** https://alojamentomontalegre.com  
+**Live:** https://alojamentomontalegre.pt (indexing blocked until launch)  
+**Main domain:** https://alojamentomontalegre.pt — `alojamentomontalegre.com` 301s to it  
 **Repo:** https://github.com/pedroalves-dv/alojamento-montalegre
 
 ---
@@ -73,34 +73,35 @@ WhatsApp button, the phone link and the booking button on a phone.
 
 Order matters for SEO: domain first, then a single address, then indexing — once, at launch.
 
-**Done (2026-10-21):**
-- ✅ Custom domain `alojamentomontalegre.com` on the Worker (Worker → Domains). DNS record and
-  certificate were created automatically.
-- ✅ `www`: Redirect Rule `http*://www.alojamentomontalegre.com/*` → `https://alojamentomontalegre.com/${2}`
-  (301, query string preserved), plus a proxied `AAAA www 100::` record so the rule receives the traffic.
-- ✅ `"workers_dev": false` in `wrangler.jsonc`: the workers.dev address no longer serves the site.
-- ✅ Always Use HTTPS (SSL/TLS → Edge Certificates): `http://` 301s to `https://`.
+**Done (2026-11-02): `alojamentomontalegre.pt` is the main address.** Registered at OVH,
+nameservers on Cloudflare (`elaine` / `jim`), DNSSEC off.
+- ✅ Custom domain `alojamentomontalegre.pt` on the Worker (`routes` in `wrangler.jsonc`). DNS
+  record and certificate were created automatically.
+- ✅ `www.alojamentomontalegre.pt`: proxied `AAAA www 100::` + Redirect Rule → apex (301, path and
+  query kept).
+- ✅ `.pt` mail: null MX, `v=spf1 -all`, `_dmarc` `p=reject` (the .pt sends and receives no mail).
+- ✅ `alojamentomontalegre.com` (apex + `www`): proxied `AAAA 100::` records + Redirect Rule →
+  `https://alojamentomontalegre.pt${path}` (301, query kept). Its email routing is unchanged.
+- ✅ `"workers_dev": false`; Always Use HTTPS on both zones.
+- [ ] At OVH, optional: cancel the MX Plan / Zimbra and the OVH DNS zone on the `.pt` (unused now),
+  and turn on Data protection (hides the holder's details in WHOIS).
+
+**Careful:** a deploy detaches every custom domain that is not in `wrangler.jsonc` `routes`, and
+deletes its DNS record. That briefly took `.com` offline during the switch (2026-11-02, ~5 min).
+Never add the `.com` back to `routes`: it only needs its `AAAA 100::` record for the redirect.
 
 **At launch (when the site is final, new photos in):**
 1. Worker → Settings → Build → Variables and secrets → Add `ALLOW_INDEXING` = `true`.
    It is a **build** variable — robots.txt is generated at build time.
 2. Redeploy: Deployments → latest → Retry build, or
    `git commit --allow-empty -m "trigger redeploy" && git push`. Check that
-   `alojamentomontalegre.com/robots.txt` now says `Allow: /` and links the sitemap, then do Phase 5.
-
-**`alojamentomontalegre.pt` (2026-11-02):** registered at OVH, zone added to Cloudflare (pending).
-- Records: proxied `AAAA @ 100::` and `AAAA www 100::`; null MX, `v=spf1 -all`,
-  `_dmarc` `p=reject` (the domain sends and receives no mail).
-- Redirect Rule: apex + `www` → `https://alojamentomontalegre.com${path}` (301, query kept);
-  Always Use HTTPS on.
-- [ ] At OVH: switch nameservers to `elaine.ns.cloudflare.com` / `jim.ns.cloudflare.com`,
-  then cancel the OVH email/Zimbra and hosting options on the `.pt`.
+   `alojamentomontalegre.pt/robots.txt` now says `Allow: /` and links the sitemap, then do Phase 5.
 
 **If you still own `alojamentodomoinho.pt`:**
-- At your `.pt` registrar, set up URL forwarding (301) from `alojamentodomoinho.pt` → `https://alojamentomontalegre.com`
+- At your `.pt` registrar, set up URL forwarding (301) from `alojamentodomoinho.pt` → `https://alojamentomontalegre.pt`
 - This recaptures any remaining bookmarks or old backlinks
 
-**Pre-launch audit ✅ (2026-10-21, read-only; indexing still blocked):**
+**Pre-launch audit ✅ (2026-10-21, on the .com before the .pt switch — re-run on the .pt before launch):**
 - `npm run build`: 0 errors, 0 warnings.
 - Every indexable page has a canonical, `pt-PT` / `en` / `x-default` hreflang and `og:url` on
   `https://alojamentomontalegre.com`; `/creditos`, the 404 page and `/` are `noindex`.
@@ -120,9 +121,9 @@ Re-run before launch day only if the code changes a lot in the meantime.
 
 **Manual steps:**
 1. Go to https://search.google.com/search-console
-2. Add property → URL prefix → `https://alojamentomontalegre.com`
+2. Add property → URL prefix → `https://alojamentomontalegre.pt`
 3. Verify via DNS TXT record (easiest since you control the registrar already)
-4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.com/sitemap-index.xml`
+4. Submit sitemap: Sitemaps → Add → `https://alojamentomontalegre.pt/sitemap-index.xml`
 
 Already done in the Astro port: `numberOfRooms`, `amenityFeature`, `occupancy`, per-property
 `checkinTime`/`checkoutTime` (from properties.ts) and `priceRange` (`src/lib/schema.ts`).
@@ -145,13 +146,13 @@ URLs at https://search.google.com/test/rich-results once the domain is connected
 - Category: Holiday Home (primary), Vacation Rental
 - Address: exact address of the property
 - Phone: real phone number
-- Website: `https://alojamentomontalegre.com/pt/casa-do-moinho`
+- Website: `https://alojamentomontalegre.pt/pt/casa-do-moinho`
 - Description: copy the Portuguese tagline + first sentence of description from properties.ts
 - Photos: upload the photos from src/assets/images/casa-do-moinho/
 
 **Casa do Castelo:**
 - Same process with Casa do Castelo data
-- Website: `https://alojamentomontalegre.com/pt/casa-do-castelo`
+- Website: `https://alojamentomontalegre.pt/pt/casa-do-castelo`
 - Photos: the photos from src/assets/images/casa-do-castelo/
 
 **After verification (usually 1-2 weeks by postcard or video call):**
@@ -226,8 +227,8 @@ Run through this before announcing the live domain publicly:
 - [ ] Site loads in under 3s on mobile — test at https://pagespeed.web.dev
 
 ### SEO
-- [ ] `alojamentomontalegre.com/sitemap-index.xml` lists all pages correctly
-- [ ] `alojamentomontalegre.com/robots.txt` allows crawling
+- [ ] `alojamentomontalegre.pt/sitemap-index.xml` lists all pages correctly
+- [ ] `alojamentomontalegre.pt/robots.txt` allows crawling
 - [ ] Sitemap submitted to Google Search Console
 - [ ] Google Business Profile created for both properties
 
