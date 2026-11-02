@@ -83,8 +83,13 @@ nameservers on Cloudflare (`elaine` / `jim`), DNSSEC off.
 - ✅ `alojamentomontalegre.com` (apex + `www`): proxied `AAAA 100::` records + Redirect Rule →
   `https://alojamentomontalegre.pt${path}` (301, query kept). Its email routing is unchanged.
 - ✅ `"workers_dev": false`; Always Use HTTPS on both zones.
-- [ ] At OVH, optional: cancel the MX Plan / Zimbra and the OVH DNS zone on the `.pt` (unused now),
-  and turn on Data protection (hides the holder's details in WHOIS).
+- ✅ Min TLS 1.2 on both zones.
+- ✅ DNSSEC on the `.pt`: signed by Cloudflare, DS record at OVH (DS records tab: key tag 2371,
+  flag 257, algorithm 13). **If the `.pt` ever leaves Cloudflare, delete that DS record at OVH
+  first**, or the domain stops resolving.
+- ✅ WHOIS: the .pt registry already hides a private holder's details (owner fields are blank),
+  so OVH's "Data protection" panel is empty for `.pt` — nothing to do.
+- [ ] At OVH, optional: cancel the MX Plan / Zimbra and the OVH DNS zone on the `.pt` (unused now).
 
 **Careful:** a deploy detaches every custom domain that is not in `wrangler.jsonc` `routes`, and
 deletes its DNS record. That briefly took `.com` offline during the switch (2026-11-02, ~5 min).
