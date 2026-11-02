@@ -34,7 +34,10 @@ const name = property.name[locale];
 const tagline = property.tagline[locale];
 const seasonal = property.seasonal[locale];
 const fromKey = property.priceUnit === "room" ? "fromLabelRoom" : "fromLabel";
-const waHref = whatsappHref(property.whatsappMessage[locale]);
+// Houses without a WhatsApp message take bookings by phone only: the phone button leads instead
+const waHref = property.whatsappMessage && whatsappHref(property.whatsappMessage[locale]);
+const phone = property.phone ?? config.phoneNumber;
+const bookingNote = t(waHref ? "bookingDirectNote" : "bookingPhoneNote");
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${property.coordinates.lat},${property.coordinates.lng}`;
 
 const images = await resolveImages(property.images);
@@ -80,7 +83,7 @@ const amenityItem = "flex items-center gap-2.5 text-body";
         </a>
       </div>
       <!-- Print only -->
-      <p class="hidden print:block mt-2 text-sm">{property.phone ?? config.phoneNumber}{property.booking.url && ` · ${property.booking.url}`}</p>
+      <p class="hidden print:block mt-2 text-sm">{phone}{property.booking.url && ` · ${property.booking.url}`}</p>
     </header>
 
     <PropertyGallery images={images} name={name} locale={locale} class="order-1 md:order-2" />
@@ -198,16 +201,20 @@ const amenityItem = "flex items-center gap-2.5 text-body";
         }
         <RatingLine property={property} reviewsLabel={t("reviewsLabel")} />
         <div class="flex flex-col gap-3">
-          <a href={waHref} target="_blank" rel="noopener" class="btn-primary w-full">
-            <Icon name="whatsapp" size={18} />
-            {t("requestAvailability")}
-          </a>
-          <a href={telHref()} class="btn-secondary w-full">
+          {
+            waHref && (
+              <a href={waHref} target="_blank" rel="noopener" class="btn-primary w-full">
+                <Icon name="whatsapp" size={18} />
+                {t("requestAvailability")}
+              </a>
+            )
+          }
+          <a href={telHref(phone)} class:list={[waHref ? "btn-secondary" : "btn-primary", "w-full"]}>
             <Icon name="phone" size={16} strokeWidth={1.8} />
-            {config.phoneNumber}
+            {phone}
           </a>
         </div>
-        <p class="text-sm text-muted leading-relaxed">{t("bookingDirectNote")}</p>
+        <p class="text-sm text-muted leading-relaxed">{bookingNote}</p>
       </div>
     </aside>
   </div>
@@ -216,15 +223,19 @@ const amenityItem = "flex items-center gap-2.5 text-body";
   <section class="bg-forest text-white" data-print-hidden>
     <div class="container-site section-y max-w-2xl text-center">
       <h2 class="heading-2 mb-4">{t("bookingHeading")}</h2>
-      <p class="text-white/85 leading-relaxed mb-9 text-balance">{t("bookingDirectNote")}</p>
+      <p class="text-white/85 leading-relaxed mb-9 text-balance">{bookingNote}</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center [&>*]:w-full sm:[&>*]:w-auto">
-        <a href={waHref} target="_blank" rel="noopener" class="btn-light">
-          <Icon name="whatsapp" size={18} />
-          {t("requestAvailability")}
-        </a>
-        <a href={telHref()} class="btn-outline-light">
+        {
+          waHref && (
+            <a href={waHref} target="_blank" rel="noopener" class="btn-light">
+              <Icon name="whatsapp" size={18} />
+              {t("requestAvailability")}
+            </a>
+          )
+        }
+        <a href={telHref(phone)} class={waHref ? "btn-outline-light" : "btn-light"}>
           <Icon name="phone" size={16} strokeWidth={1.8} />
-          {config.phoneNumber}
+          {phone}
         </a>
       </div>
     </div>
@@ -232,6 +243,8 @@ const amenityItem = "flex items-center gap-2.5 text-body";
 
   <PropertyBottomBar
     whatsappHref={waHref}
+    phone={phone}
+    callLabel={t("callButton")}
     priceFrom={property.priceFrom}
     fromLabel={t(fromKey)}
     perNight={property.priceFrom !== null ? t("perNight", { price: property.priceFrom }) : null}

@@ -209,13 +209,13 @@ export const properties: Property[] = [
       en: "Rooms at the foot of the castle",
     },
     description: {
-      pt: "A Casa do Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, ao pé do castelo medieval. Não há casa mais perto dele: sai-se à porta e as muralhas estão ali à frente.\n\nTem cinco quartos, para até dez pessoas no total. Reserve um quarto para uma escapadinha a dois, ou vários para a família ou um grupo de amigos. Daqui faz-se a vila a pé: o castelo, a Igreja de Santa Maria do Castelo e as tascas ficam a poucos passos, e o carro fica no estacionamento gratuito até ao dia de ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a escolha certa para a Feira do Fumeiro ou uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
+      pt: "A Casa do Castelo fica no Terreiro do Açougue, no centro histórico de Montalegre, ao pé do castelo medieval. Não há casa mais perto dele: sai-se à porta e as muralhas estão ali à frente.\n\nTem quatro quartos, para até oito pessoas no total. Reserve um quarto para uma escapadinha a dois, ou vários para a família ou um grupo de amigos. Daqui faz-se a vila a pé: o castelo, a Igreja de Santa Maria do Castelo e as tascas ficam a poucos passos, e o carro fica no estacionamento gratuito até ao dia de ir ao Parque Nacional, à Serra do Larouco ou ao Alto Rabagão.\n\nÉ também a escolha certa para a Feira do Fumeiro ou uma sexta-feira 13: está no meio da festa e, quando a noite acabar, a cama fica a dois passos.",
 
-      en: "Casa do Castelo stands on Terreiro do Açougue, in Montalegre's old town, at the foot of the medieval castle. No house is closer to it: step out of the door and the walls are right in front of you.\n\nIt has five rooms, sleeping up to ten in total. Book one for a short break for two, or several for a family or a group of friends. From here you can walk the whole town: the castle, the Church of Santa Maria do Castelo and the tascas are a few steps away, and the car stays in the free parking until the day you head out to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the place to stay for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
+      en: "Casa do Castelo stands on Terreiro do Açougue, in Montalegre's old town, at the foot of the medieval castle. No house is closer to it: step out of the door and the walls are right in front of you.\n\nIt has four rooms, sleeping up to eight in total. Book one for a short break for two, or several for a family or a group of friends. From here you can walk the whole town: the castle, the Church of Santa Maria do Castelo and the tascas are a few steps away, and the car stays in the free parking until the day you head out to the National Park, Serra do Larouco or Alto Rabagão.\n\nIt's also the place to stay for the Fumeiro Fair or a Friday the 13th: you're in the middle of it all, and when the night is over, bed is a few steps away.",
     },
-    capacity: 10,
-    rooms: 5,
-    bathrooms: 5,
+    capacity: 8,
+    rooms: 4,
+    bathrooms: 4,
     sqm: null,
     location: {
       pt: "Montalegre, junto ao Castelo",
@@ -256,10 +256,8 @@ export const properties: Property[] = [
     },
     airbnbUrl: null,
     phone: "+351 276 511 237",
-    whatsappMessage: {
-      pt: "Olá, gostaria de saber mais sobre a Casa do Castelo",
-      en: "Hello, I'd like to know more about Casa do Castelo",
-    },
+    // The owner takes Casa do Castelo bookings on the landline only
+    whatsappMessage: null,
     seasonal: {
       pt: "Na Feira do Fumeiro e nas noites de sexta-feira 13 a vila enche — reserve com antecedência.",
       en: "The town fills up for the Fumeiro Fair and on Friday the 13th — book early.",
@@ -313,7 +311,7 @@ export const properties: Property[] = [
         },
       ],
     },
-    licenseNumber: null,
+    licenseNumber: "RNET n.º 5723",
     languagesSpoken: ["Português", "English", "Español", "Français"],
     nearby: [
       {

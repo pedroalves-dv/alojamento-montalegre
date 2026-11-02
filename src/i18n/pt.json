@@ -114,6 +114,7 @@
     "locationHeading": "Localização",
     "bookingHeading": "Reservar esta casa",
     "bookingDirectNote": "Contacte-nos pelo WhatsApp ou telefone. Respondemos em menos de 24 horas.",
+    "bookingPhoneNote": "Reservas por telefone, diretamente com a casa.",
     "reviewsLabel": "avaliações",
     "inHouseLabel": "No edifício",
     "minStayPeak": "Época alta (jul–ago): {count} noites",
@@ -136,6 +137,7 @@
     "perNight": "{price} € / noite",
     "requestAvailability": "Pedir disponibilidade",
     "contactButton": "Fale connosco",
+    "callButton": "Ligar",
     "amenitiesShowAll": "Ver todas as comodidades ({count})",
     "locationNearbyHeading": "Localização e arredores"
   },

@@ -31,10 +31,19 @@ optimised at build time (AVIF/WebP), and the review's bug list fixed.
 
 ## Phase 2 — RNET registration numbers
 
-**What:** Portuguese law (Decreto-Lei n.º 128/2014) requires the Alojamento Local registration number to appear on the website. Ask your uncle/aunt — they received it when registering with the Câmara Municipal. Not registered yet? https://rnt.turismodeportugal.pt
+**What:** Portuguese law requires each house's registration number on the website. The two
+houses are registered differently:
+
+- **Casa do Moinho** is *Alojamento Local* (DL 128/2014): number ends in `/AL`.
+- **Casa do Castelo** is an *Empreendimento Turístico* — Turismo no Espaço Rural, "Casa de Campo"
+  (DL 39/2008), per its Alvará de Autorização de Utilização n.º 15/10 (Câmara de Montalegre,
+  2010). Its number is an **RNET** number from Turismo de Portugal, not the alvará number and not
+  an `/AL` number. Look it up on the public register https://rnt.turismodeportugal.pt (RNET →
+  search concelho Montalegre), or ask the operating company's accountant. Shown on the site as
+  `RNET n.º <number>`.
 
 - ✅ Casa do Moinho: `120536/AL`
-- [ ] Casa do Castelo: **still missing** (format like `120536/AL`)
+- ✅ Casa do Castelo: `RNET n.º 5723` (see [legal/README.md](legal/README.md))
 
 **To add it:** set `licenseNumber: "<number>"` on Casa do Castelo in `src/data/properties.ts` and run
 `npm run build`. It then shows up in the footer and in the house's "Check-in & Informações"
@@ -47,7 +56,9 @@ section automatically.
 - ✅ Site phone / WhatsApp: `+351 935 663 060` (`src/config.ts`)
 - ✅ Casa do Moinho: Booking.com link + score, Google reviews link
 - ✅ Casa do Castelo: Google reviews link
-- [ ] Casa do Castelo phone: which number its page shows (now `+351 276 511 237`, also in its schema)
+- ✅ Casa do Castelo: bookings on the landline `+351 276 511 237` only, no WhatsApp (owner's
+  choice: `whatsappMessage: null`). Its page, its contact card and its schema use the landline;
+  the site-wide footer keeps the main mobile / WhatsApp.
 - [ ] Casa do Castelo Booking.com URL / score / review count, if listed (now `null`: button hidden)
 - [ ] Airbnb URLs for either house, if listed (now `null`)
 
@@ -76,6 +87,14 @@ Order matters for SEO: domain first, then a single address, then indexing — on
 2. Redeploy: Deployments → latest → Retry build, or
    `git commit --allow-empty -m "trigger redeploy" && git push`. Check that
    `alojamentomontalegre.com/robots.txt` now says `Allow: /` and links the sitemap, then do Phase 5.
+
+**`alojamentomontalegre.pt` (2026-11-02):** registered at OVH, zone added to Cloudflare (pending).
+- Records: proxied `AAAA @ 100::` and `AAAA www 100::`; null MX, `v=spf1 -all`,
+  `_dmarc` `p=reject` (the domain sends and receives no mail).
+- Redirect Rule: apex + `www` → `https://alojamentomontalegre.com${path}` (301, query kept);
+  Always Use HTTPS on.
+- [ ] At OVH: switch nameservers to `elaine.ns.cloudflare.com` / `jim.ns.cloudflare.com`,
+  then cancel the OVH email/Zimbra and hosting options on the `.pt`.
 
 **If you still own `alojamentodomoinho.pt`:**
 - At your `.pt` registrar, set up URL forwarding (301) from `alojamentodomoinho.pt` → `https://alojamentomontalegre.com`

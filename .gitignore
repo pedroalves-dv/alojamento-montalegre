@@ -38,3 +38,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# legal scans: personal data (taxpayer numbers, emails), never commit — the repo is public
+/docs/legal/private/

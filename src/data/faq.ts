@@ -7,8 +7,8 @@ export const faq: FAQItem[] = [
       en: "Which of the two houses should I choose?",
     },
     answer: {
-      pt: "Depende do que procura. A Casa do Moinho aluga-se inteira, para até 10 pessoas: fica à beira do rio, a cinco minutos de carro da vila, com jardim e churrasqueira, e é para quem quer sossego e natureza. A Casa do Castelo tem cinco quartos que se reservam à unidade, no centro histórico, ao pé do castelo e com o Restaurante O Castelo no rés-do-chão: é para quem quer fazer tudo a pé. Se tiver dúvidas, pergunte-nos.",
-      en: "It depends on what you're after. Casa do Moinho is rented as a whole house for up to 10: it's by the river, five minutes' drive from town, with a garden and barbecue, and it's for peace, quiet and nature. Casa do Castelo has five rooms, booked individually, in the old town at the foot of the castle, with O Castelo restaurant downstairs: it's for doing everything on foot. If you're unsure, just ask us.",
+      pt: "Depende do que procura. A Casa do Moinho aluga-se inteira, para até 10 pessoas: fica à beira do rio, a cinco minutos de carro da vila, com jardim e churrasqueira, e é para quem quer sossego e natureza. A Casa do Castelo tem quatro quartos que se reservam à unidade, no centro histórico, ao pé do castelo e com o Restaurante O Castelo no rés-do-chão: é para quem quer fazer tudo a pé. Se tiver dúvidas, pergunte-nos.",
+      en: "It depends on what you're after. Casa do Moinho is rented as a whole house for up to 10: it's by the river, five minutes' drive from town, with a garden and barbecue, and it's for peace, quiet and nature. Casa do Castelo has four rooms, booked individually, in the old town at the foot of the castle, with O Castelo restaurant downstairs: it's for doing everything on foot. If you're unsure, just ask us.",
     },
   },
   {
@@ -87,8 +87,8 @@ export const faq: FAQItem[] = [
       en: "How do I book direct?",
     },
     answer: {
-      pt: "Envie-nos uma mensagem pelo WhatsApp ou ligue-nos, com as datas, o número de pessoas e a casa que lhe interessa (na Casa do Castelo, quantos quartos). Sem plataformas pelo meio não há comissões, o que às vezes nos permite fazer um preço melhor ou ser mais flexíveis nas datas.",
-      en: "Send us a WhatsApp message or give us a call with your dates, the number of guests and the house you're interested in (for Casa do Castelo, how many rooms). With no platform in the middle there are no fees, which sometimes lets us offer a better price or more flexible dates.",
+      pt: "Para a Casa do Moinho, envie-nos uma mensagem pelo WhatsApp ou ligue-nos; para a Casa do Castelo, ligue para o 276 511 237. Diga-nos as datas, o número de pessoas e, na Casa do Castelo, quantos quartos. Sem plataformas pelo meio não há comissões, o que às vezes nos permite fazer um preço melhor ou ser mais flexíveis nas datas.",
+      en: "For Casa do Moinho, send us a WhatsApp message or give us a call; for Casa do Castelo, call +351 276 511 237. Tell us your dates, the number of guests and, for Casa do Castelo, how many rooms. With no platform in the middle there are no fees, which sometimes lets us offer a better price or more flexible dates.",
     },
   },
 ];

@@ -43,7 +43,8 @@ export interface Property {
   booking: PropertyBooking;
   airbnbUrl: string | null;
   phone?: string;
-  whatsappMessage: LocalizedString;
+  /** null: bookings by phone only (no WhatsApp buttons on this house). */
+  whatsappMessage: LocalizedString | null;
   seasonal: LocalizedString;
   priceFrom: number | null;
   /** What priceFrom buys: the whole house, or one room (Casa do Castelo rents by the room). */

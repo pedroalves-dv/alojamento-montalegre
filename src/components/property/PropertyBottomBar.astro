@@ -1,19 +1,21 @@
 ---
 // Mobile-only sticky booking bar: price on the left, WhatsApp request on the
-// right (the Airbnb/Booking pattern). Slides away while the footer is visible.
-import { config } from "@/config";
+// right (the Airbnb/Booking pattern), or a call button for phone-only houses.
+// Slides away while the footer is visible.
 import { telHref } from "@/lib/links";
 import Icon from "@/components/ui/Icon.astro";
 
 interface Props {
-  whatsappHref: string;
+  whatsappHref: string | null;
+  phone: string;
+  callLabel: string;
   priceFrom: number | null;
   fromLabel: string;
   perNight: string | null;
   ctaLabel: string;
 }
 
-const { whatsappHref, fromLabel, perNight, ctaLabel } = Astro.props;
+const { whatsappHref, phone, callLabel, fromLabel, perNight, ctaLabel } = Astro.props;
 ---
 
 <div
@@ -28,15 +30,24 @@ const { whatsappHref, fromLabel, perNight, ctaLabel } = Astro.props;
         <span class="block whitespace-nowrap text-base font-semibold text-granite">{perNight}</span>
       </p>
     ) : (
-      <a href={telHref()} class="text-sm font-medium text-granite">
-        {config.phoneNumber}
+      <a href={telHref(phone)} class="text-sm font-medium text-granite">
+        {phone}
       </a>
     )
   }
-  <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
-    <Icon name="whatsapp" size={16} />
-    {ctaLabel}
-  </a>
+  {
+    whatsappHref ? (
+      <a href={whatsappHref} target="_blank" rel="noopener" class="btn-primary shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
+        <Icon name="whatsapp" size={16} />
+        {ctaLabel}
+      </a>
+    ) : (
+      <a href={telHref(phone)} class="btn-primary shrink-0 whitespace-nowrap px-5 py-2.5 text-sm">
+        <Icon name="phone" size={16} strokeWidth={1.8} />
+        {callLabel}
+      </a>
+    )
+  }
 </div>
 
 <script>
