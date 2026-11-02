@@ -60,7 +60,7 @@ const linkClass = (active: boolean) =>
               properties.map((property) => (
                 <a
                   href={`${home}/${property.slug}`}
-                  class="flex items-center gap-3 px-5 py-3.5 hover:bg-granite/5 focus-visible:bg-granite/5 transition-colors border-b border-granite/10 last:border-0"
+                  class="flex items-center gap-3 px-5 py-3.5 hover:bg-granite/5 focus-visible:bg-granite/5 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-forest transition-colors border-b border-granite/10 last:border-0"
                 >
                   <Icon name="home" size={26} strokeWidth={1.5} class="shrink-0 text-granite" />
                   <span class="flex flex-col">

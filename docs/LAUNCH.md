@@ -14,10 +14,17 @@ Production launch plan. Work through phases in order. Each phase has a prompt yo
 - All 5 pages built and rendering (Home, Casa do Moinho, Casa do Castelo, Região, Contacto)
 - Real property photos in place — no Unsplash placeholders
 - All written content complete (PT + EN): descriptions, FAQ, region guide, amenities
-- OG image generators working (dynamic, per page and locale)
+- OG images generated per page and locale, as ~100 KB JPEGs (small enough for WhatsApp previews)
 - FAQ structured data (FAQPage JSON-LD) added
 - `src/pages/robots.txt.ts` blocks crawlers until the `ALLOW_INDEXING=true` env var is set at build time
-- Favicon SVG with dark-mode switching + ICO fallback
+- Favicon SVG with dark-mode switching + ICO fallback, and `apple-touch-icon.png` (180 px) for iPhones
+- Security headers in `public/_headers` (nosniff, referrer policy, no framing, HSTS for one year)
+
+**Pre-launch review ✅ (2026-11-02):** W3C validator 0 errors on every page type; Lighthouse
+mobile 100 in accessibility, best practices and SEO (SEO checked with indexing on); all internal
+and external links working; keyboard navigation checked; a house page prints on 2 pages with
+all amenities, address and phone. Mobile LCP ~2.9 s on Lighthouse-style slow 4G at 3× DPR,
+CLS 0. Re-run Lighthouse and the validator after the new photos go in.
 
 ---
 

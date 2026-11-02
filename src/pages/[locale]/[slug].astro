@@ -132,7 +132,7 @@ const amenityItem = "flex items-center gap-2.5 text-body";
         </ul>
         {
           amenities.length > AMENITIES_SHOWN && (
-            <details class="group">
+            <details class="group" data-print-hidden>
               <summary class="list-none [&::-webkit-details-marker]:hidden btn-secondary mt-8 cursor-pointer group-open:hidden">
                 {t("amenitiesShowAll", { count: amenities.length })}
               </summary>
@@ -145,6 +145,19 @@ const amenityItem = "flex items-center gap-2.5 text-body";
                 ))}
               </ul>
             </details>
+          )
+        }
+        {
+          // Closed <details> don't print everywhere, so the rest of the list has a print-only copy
+          amenities.length > AMENITIES_SHOWN && (
+            <ul class="hidden print:grid grid-cols-2 gap-y-3 gap-x-8 mt-3">
+              {amenities.slice(AMENITIES_SHOWN).map((amenity) => (
+                <li class={amenityItem}>
+                  <Icon name="check" strokeWidth={2.2} class="text-forest" />
+                  {amenity}
+                </li>
+              ))}
+            </ul>
           )
         }
       </section>

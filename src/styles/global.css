@@ -140,7 +140,13 @@
   main {
     padding-top: 0 !important;
   }
-  section {
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  li,
+  dd {
     break-inside: avoid;
   }
 }
